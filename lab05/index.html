@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторна №5. Рекурсивні функції</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-lab="5">
+<a class="skip" href="#content">Перейти до вмісту</a>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Основи<br>програмування<small>Шимко Матвій • ІПЗ-11(3)</small></div><nav aria-label="Лабораторні роботи"><a href="../index.html">Головна сторінка</a><div class="side-label">ЛАБОРАТОРНІ РОБОТИ</div><a href="../lab01/index.html">Лабораторна робота №1</a><a href="../lab02/index.html">Лабораторна робота №2</a><a href="../lab03/index.html">Лабораторна робота №3</a><a href="../lab04/index.html">Лабораторна робота №4</a><a href="../lab05/index.html#top" data-nav="top">Лабораторна робота №5</a><nav class="subnav" aria-label="Розділи звіту"><a href="#goal" data-nav="goal">Мета</a><a href="#task" data-nav="task">Умови задач</a><a href="#analysis" data-nav="analysis">Аналіз задач</a><a href="#scheme" data-nav="scheme">Блок-схеми</a><a href="#code" data-nav="code">Тексти програм</a><a href="#results" data-nav="results">Результати</a><a href="#check" data-nav="check">Перевірка</a><a href="#conclusion" data-nav="conclusion">Висновки</a></nav><a href="../lab06/index.html">Лабораторна робота №6</a><a href="../lab07/index.html">Лабораторна робота №7</a><a href="../lab08/index.html">Лабораторна робота №8</a><a href="../lab09/index.html">Лабораторна робота №9</a><a href="../lab10/index.html">Лабораторна робота №10</a><a href="../lab11/index.html">Лабораторна робота №11</a></nav></aside>
+<main id="content" class="main">
+<p id="crumb" class="crumb"></p>
+<section class="page" id="top" tabindex="-1"><header class="hero"><p class="eyebrow">Основи програмування</p><h1>Звіт до лабораторної роботи №5</h1><p>Рекурсивні функції • Варіант 10</p></header><div class="meta"><p><b>Студент:</b> Шимко Матвій Анатолійович</p>
+<p><b>Група:</b> ІПЗ-11(3), 1 курс, 2026 рік</p>
+<p><b>Дисципліна:</b> Основи програмування</p>
+<p><b>Викладач:</b> Ковалюк Тетяна Володимирівна</p></div><h2>Оберіть розділ звіту</h2><div class="menu-grid"><a class="menu-card" href="#goal"><span class="num">01</span><b>Мета</b></a><a class="menu-card" href="#task"><span class="num">02</span><b>Умови задач</b></a><a class="menu-card" href="#analysis"><span class="num">03</span><b>Аналіз задач</b></a><a class="menu-card" href="#scheme"><span class="num">04</span><b>Блок-схеми</b></a><a class="menu-card" href="#code"><span class="num">05</span><b>Тексти програм</b></a><a class="menu-card" href="#results"><span class="num">06</span><b>Результати</b></a><a class="menu-card" href="#check"><span class="num">07</span><b>Перевірка</b></a><a class="menu-card" href="#conclusion"><span class="num">08</span><b>Висновки</b></a></div></section>
+<section class="page" id="goal" tabindex="-1"><p class="eyebrow">Лабораторна робота №5 / 01 з 08</p><h2>1. Мета роботи</h2>
+<div class="card"><ul>
+<li>Вивчити особливості рекурсивних процесів.</li>
+<li>Опанувати технологію рекурсивних обчислень.</li>
+<li>Навчитися розробляти алгоритми та програми із застосуванням рекурсивних функцій.</li>
+</ul></div>
+<div class="page-footer"><a href="#top">← До розділів</a><a href="#top">Усі розділи</a><a href="#task">Умови задач →</a></div></section>
+<section class="page" id="task" tabindex="-1"><p class="eyebrow">Лабораторна робота №5 / 02 з 08</p><h2>2. Умови задач</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 10</h3>
+<p>Варіант 10 (у таблиці 20 варіантів, 30 - 20 = 10).</p>
+<p>Біноміальні коефіцієнти розкладання бінома (a + b)<sup>i</sup> утворюють i-й рядок трикутника
+Паскаля. Кожне число в трикутнику, крім перших трьох, є сумою чисел, розташованих над ним у попередньому
+рядку. Число в i-му рядку (i = 0, 1, 2, ...) на j-му місці (j = 0, 1, ..., i) задається формулою:</p>
+<div class="formula">C<sub>i</sub><sup>j</sup> = i! / (j! · (i - j)!)</div>
+<p>Сам трикутник Паскаля задається рекурентним співвідношенням:</p>
+<div class="formula">f(i, j) = 1 при (i = 0, j = 0), (i = 1, j = 0), (i = 1, j = 1);
+&nbsp; інакше f(i, j - 1) + f(i - 1, j)</div>
+<p>Надрукувати перші n рядків
+трикутника Паскаля, використавши рекурсивне визначення його елементів. Кількість рядків вводиться
+з клавіатури.</p>
+<p>Реалізувати рекурсивний та ітеративний варіанти розв'язку задачі, використовуючи рекурсію та
+оператор циклу. Порівняти ефективність рекурсивної та ітеративної реалізацій, визначивши глибину
+рекурсії та кількість ітерацій циклу.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 10</h3>
+<p>Варіант 10 (у таблиці 20 варіантів, 30 - 20 = 10).</p>
+<p>Увести з клавіатури два натуральних a і b. Визначити кількість послідовностей з a нулів і b
+одиниць, в яких ніякі два нулі не стоять поруч. Вивести знайдені послідовності з нулів та одиниць.
+Контрольний тест: введені числа 2 2, отриманий результат: 3 0101 1010 0110.</p>
+<p>Загальні вимоги до завдання: забороняється використовувати масиви і рядки, використання рекурсії
+обов'язкове.</p>
+</div>
+<div class="page-footer"><a href="#goal">← Мета</a><a href="#top">Усі розділи</a><a href="#analysis">Аналіз задач →</a></div></section>
+<section class="page" id="analysis" tabindex="-1"><p class="eyebrow">Лабораторна робота №5 / 03 з 08</p><h2>3. Аналіз задач</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 10</h3>
+<p>Співвідношення з умови f(i, j) = f(i, j - 1) + f(i - 1, j) трикутника Паскаля не дає: уже для
+i = 2, j = 0 другий індекс стає від'ємним, і рекурсія ніколи не доходить до базового випадку. Тому
+взято співвідношення, за яким число дорівнює сумі двох чисел над ним, як і сказано в умові:</p>
+<div class="formula">f(i, 0) = f(i, i) = 1, &nbsp;&nbsp;
+f(i, j) = f(i - 1, j - 1) + f(i - 1, j)</div>
+<p>Умова закінчення рекурсії: елемент стоїть на краю трикутника (j = 0 або j = i), тоді функція
+повертає 1. Для інших елементів вона викликає себе двічі для рядка i - 1.</p>
+<p>У циклі масив не потрібен, кожен елемент рядка рахується через попередній:</p>
+<div class="formula">C<sub>i</sub><sup>0</sup> = 1, &nbsp;&nbsp;
+C<sub>i</sub><sup>j</sup> = C<sub>i</sub><sup>j-1</sup> · (i - j + 1) / j</div>
+<p>Спочатку виконується множення, потім ділення. Якби ділити першим, ціле ділення відкинуло б
+дробову частину.</p>
+<p>У рекурсивному варіанті програма рахує всі виклики функції <code>calculateElement</code>. Кожен
+виклик отримує свою глибину параметром, а найбільша глибина запам'ятовується. У циклі рахуються
+проходи внутрішнього циклу, тобто обчислені елементи без першої одиниці рядка.</p>
+<p>Кількість рядків вводиться від 1 до 15: при n = 15 трикутник має ширину 75 символів і ще
+вміщується у вікно консолі. Якщо введено не число або число поза межами, введення повторюється.</p>
+<p class="tcap">Таблиця 1 - Функції програми завдання 1</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputRowCount</code></td><td>введення кількості рядків з перевіркою</td></tr>
+<tr><td><code>calculateElement</code></td><td>рекурсивне обчислення елемента, підрахунок викликів і глибини</td></tr>
+<tr><td><code>printRecursive</code></td><td>друк трикутника через рекурсивну функцію</td></tr>
+<tr><td><code>printIterative</code></td><td>друк трикутника в циклі, підрахунок ітерацій</td></tr>
+<tr><td><code>printEfficiency</code></td><td>виведення показників ефективності</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 10</h3>
+<p>Масиви й рядки заборонені, тому послідовність зберігається цифрами цілого числа: дописати цифру d
+означає обчислити s · 10 + d. Є одна проблема: число не може починатися з нулів, і 0101 перетворилось
+би на 101. Щоб нулі не губились, на початку числа стоїть одиниця-маркер, тобто 0101 зберігається як
+10101.</p>
+<p>Друк теж рекурсивний. Функція <code>printSequence</code> спочатку друкує число без останньої цифри
+(s / 10), потім саму останню цифру (остача від ділення на 10). На маркері рекурсія зупиняється, тому
+він не виводиться.</p>
+<p>Число має вміститися в <code>int</code>, тому a + b не більше 9. Під час введення a береться від 1
+до 8, b від 1 до 9 - a. Якщо введено не число або число поза межами, введення повторюється.</p>
+<p>Функція <code>buildSequences</code> дописує по одній цифрі. Вона знає, скільки нулів і одиниць
+лишилось, яка цифра попередня і яка частина вже побудована:</p>
+<ul>
+<li>умова закінчення рекурсії: нулів і одиниць не лишилось, послідовність друкується і рахується;</li>
+<li>нуль дописується, якщо нулі лишились і попередня цифра не нуль;</li>
+<li>одиниця дописується, якщо одиниці лишились.</li>
+</ul>
+<p>Обидві гілки виконуються по черзі, тому перебираються всі можливі варіанти. На першому кроці
+попередньою цифрою передається 1, щоб на початку можна було поставити нуль. Нуль пробується першим,
+тому порядок послідовностей інший, ніж у контрольному тесті.</p>
+<p>Кількість стає відома лише після перебору, тому спочатку виводяться послідовності, а потім кількість.
+Якщо нулів забагато (a > b + 1), послідовностей немає: програма повідомляє про це і виводить кількість 0.
+В одному рядку виводиться по 6 послідовностей.</p>
+<p class="tcap">Таблиця 2 - Функції програми завдання 2</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputNumber</code></td><td>введення цілого числа з перевіркою меж</td></tr>
+<tr><td><code>inputData</code></td><td>введення a і b</td></tr>
+<tr><td><code>printSequence</code></td><td>рекурсивний друк цифр без маркера</td></tr>
+<tr><td><code>buildSequences</code></td><td>рекурсивна побудова послідовностей</td></tr>
+<tr><td><code>printResult</code></td><td>запуск пошуку і виведення кількості</td></tr>
+</table></div>
+<p>Джерела: Ковалюк Т.В. Алгоритмізація та програмування, 2024; Ковалюк Т.В.,
+Петрівський В.Я. Гарний стиль програмування мовами C, C++, C#, 2025.</p>
+</div>
+<div class="page-footer"><a href="#task">← Умови задач</a><a href="#top">Усі розділи</a><a href="#scheme">Блок-схеми →</a></div></section>
+<section class="page" id="scheme" tabindex="-1"><p class="eyebrow">Лабораторна робота №5 / 04 з 08</p><h2>4. Блок-схеми алгоритмів</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 10</h3>
+<figure class="fc"><a href="img/task1-fc-welcome.svg"><img src="img/task1-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 1 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputRowCount.svg"><img src="img/task1-fc-inputRowCount.svg" alt="" loading="lazy"></a><figcaption>Рисунок 2 - Блок-схема функції <code>inputRowCount</code> (введення кількості рядків з перевіркою)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-calculateElement.svg"><img src="img/task1-fc-calculateElement.svg" alt="" loading="lazy"></a><figcaption>Рисунок 3 - Блок-схема функції <code>calculateElement</code> (рекурсивне обчислення елемента трикутника)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printRecursive.svg"><img src="img/task1-fc-printRecursive.svg" alt="" loading="lazy"></a><figcaption>Рисунок 4 - Блок-схема функції <code>printRecursive</code> (друк трикутника через рекурсію)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printIterative.svg"><img src="img/task1-fc-printIterative.svg" alt="" loading="lazy"></a><figcaption>Рисунок 5 - Блок-схема функції <code>printIterative</code> (друк трикутника в циклі)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printEfficiency.svg"><img src="img/task1-fc-printEfficiency.svg" alt="" loading="lazy"></a><figcaption>Рисунок 6 - Блок-схема функції <code>printEfficiency</code> (виведення показників ефективності)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-main.svg"><img src="img/task1-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 7 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="task">
+<h3>Завдання 2 - варіант 10</h3>
+<figure class="fc"><a href="img/task2-fc-welcome.svg"><img src="img/task2-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 8 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputNumber.svg"><img src="img/task2-fc-inputNumber.svg" alt="" loading="lazy"></a><figcaption>Рисунок 9 - Блок-схема функції <code>inputNumber</code> (введення цілого числа з перевіркою меж)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputData.svg"><img src="img/task2-fc-inputData.svg" alt="" loading="lazy"></a><figcaption>Рисунок 10 - Блок-схема функції <code>inputData</code> (введення кількості нулів і одиниць)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-printSequence.svg"><img src="img/task2-fc-printSequence.svg" alt="" loading="lazy"></a><figcaption>Рисунок 11 - Блок-схема функції <code>printSequence</code> (рекурсивний друк цифр послідовності без маркера)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-buildSequences.svg"><img src="img/task2-fc-buildSequences.svg" alt="" loading="lazy"></a><figcaption>Рисунок 12 - Блок-схема функції <code>buildSequences</code> (рекурсивна побудова послідовностей)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-printResult.svg"><img src="img/task2-fc-printResult.svg" alt="" loading="lazy"></a><figcaption>Рисунок 13 - Блок-схема функції <code>printResult</code> (запуск пошуку і виведення кількості)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-main.svg"><img src="img/task2-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 14 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="page-footer"><a href="#analysis">← Аналіз задач</a><a href="#top">Усі розділи</a><a href="#code">Тексти програм →</a></div></section>
+<section class="page" id="code" tabindex="-1"><p class="eyebrow">Лабораторна робота №5 / 05 з 08</p><h2>5. Тексти програм</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 10</h3>
+<p class="file">Файл <a href="task1.cpp" download>task1.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task1.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №5, завдання 1, варіант 10.</span>
+<span class="cm">//                   Надрукувати трикутник Паскаля рекурсивно й</span>
+<span class="cm">//                   ітераційно, порівняти ефективність.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;iomanip&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MIN_ROWS = <span class="nm">1</span>;      <span class="cm">// найменша кількість рядків</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_ROWS = <span class="nm">15</span>;     <span class="cm">// найбільша кількість рядків</span>
+<span class="kw">const</span> <span class="kw">int</span> ELEMENT_WIDTH = <span class="nm">5</span>; <span class="cm">// ширина одного числа в трикутнику</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">int</span> rowCount = <span class="nm">0</span>;       <span class="cm">// кількість рядків трикутника</span>
+<span class="kw">int</span> callCount = <span class="nm">0</span>;      <span class="cm">// кількість рекурсивних викликів</span>
+<span class="kw">int</span> recursionDepth = <span class="nm">0</span>; <span class="cm">// найбільша глибина рекурсії</span>
+<span class="kw">int</span> iterationCount = <span class="nm">0</span>; <span class="cm">// кількість ітерацій циклу</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 5. Task 1. Variant 10.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Print the first n rows of Pascal&#x27;s triangle in two ways:&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;with recursion and with a loop. Compare the efficiency.&quot;</span> &lt;&lt; endl
+         &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить кількість рядків. Якщо введено не число або число
+ * поза межами, введення повторюється
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputRowCount()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter n (from 1 to 15): &quot;</span>;
+    cin &gt;&gt; rowCount;
+    <span class="kw">while</span> (cin.fail() || rowCount &lt; MIN_ROWS || rowCount &gt; MAX_ROWS)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter n from 1 to 15: &quot;</span>;
+        cin &gt;&gt; rowCount;
+    }
+}
+
+<span class="cm">/*
+ * Функція рекурсивно рахує елемент трикутника:
+ * f(row, 0) = f(row, row) = 1,
+ * f(row, column) = f(row - 1, column - 1) + f(row - 1, column).
+ * Рахує виклики й запам&#x27;ятовує найбільшу глибину
+ * Параметри: row - номер рядка, column - номер місця в рядку,
+ *            depth - глибина поточного виклику
+ * Значення, що повертаються: значення елемента
+ */</span>
+<span class="kw">int</span> calculateElement(<span class="kw">int</span> row, <span class="kw">int</span> column, <span class="kw">int</span> depth)
+{
+    <span class="kw">int</span> element = <span class="nm">1</span>; <span class="cm">// на краях трикутника стоять одиниці</span>
+
+    callCount++;
+    <span class="kw">if</span> (depth &gt; recursionDepth)
+    {
+        recursionDepth = depth;
+    }
+
+    <span class="kw">if</span> (column != <span class="nm">0</span> &amp;&amp; column != row)
+    {
+        element = calculateElement(row - <span class="nm">1</span>, column - <span class="nm">1</span>, depth + <span class="nm">1</span>)
+                  + calculateElement(row - <span class="nm">1</span>, column, depth + <span class="nm">1</span>);
+    }
+
+    <span class="kw">return</span> element;
+}
+
+<span class="cm">/*
+ * Функція друкує трикутник, викликаючи рекурсію для кожного елемента
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printRecursive()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Recursive variant:&quot;</span> &lt;&lt; endl;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowCount; i++)
+    {
+        cout &lt;&lt; setw((rowCount - i - <span class="nm">1</span>) * ELEMENT_WIDTH / <span class="nm">2</span>) &lt;&lt; <span class="st">&quot;&quot;</span>;
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt;= i; j++)
+        {
+            cout &lt;&lt; setw(ELEMENT_WIDTH) &lt;&lt; calculateElement(i, j, <span class="nm">1</span>);
+        }
+        cout &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція друкує трикутник у циклі. Кожен наступний елемент рядка
+ * рахується через попередній: C(i, j) = C(i, j - 1) * (i - j + 1) / j
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printIterative()
+{
+    <span class="kw">int</span> element = <span class="nm">1</span>; <span class="cm">// поточний елемент рядка</span>
+
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Iterative variant:&quot;</span> &lt;&lt; endl;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowCount; i++)
+    {
+        cout &lt;&lt; setw((rowCount - i - <span class="nm">1</span>) * ELEMENT_WIDTH / <span class="nm">2</span>) &lt;&lt; <span class="st">&quot;&quot;</span>;
+
+        element = <span class="nm">1</span>;
+        cout &lt;&lt; setw(ELEMENT_WIDTH) &lt;&lt; element;
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">1</span>; j &lt;= i; j++)
+        {
+            element = element * (i - j + <span class="nm">1</span>) / j;
+            iterationCount++;
+            cout &lt;&lt; setw(ELEMENT_WIDTH) &lt;&lt; element;
+        }
+        cout &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить показники ефективності обох варіантів
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printEfficiency()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Efficiency for n = &quot;</span> &lt;&lt; rowCount &lt;&lt; <span class="st">&quot;:&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Recursive calls: &quot;</span> &lt;&lt; callCount &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Recursion depth: &quot;</span> &lt;&lt; recursionDepth &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Loop iterations: &quot;</span> &lt;&lt; iterationCount &lt;&lt; endl;
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputRowCount();
+    printRecursive();
+    printIterative();
+    printEfficiency();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="task">
+<h3>Завдання 2 - варіант 10</h3>
+<p class="file">Файл <a href="task2.cpp" download>task2.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task2.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №5, завдання 2, варіант 10.</span>
+<span class="cm">//                   Знайти послідовності з a нулів і b одиниць, де</span>
+<span class="cm">//                   два нулі не стоять поруч. Без масивів і рядків.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_LENGTH = <span class="nm">9</span>;     <span class="cm">// більша довжина не вміститься в int</span>
+<span class="kw">const</span> <span class="kw">int</span> ROW_SIZE = <span class="nm">6</span>;       <span class="cm">// кількість послідовностей у рядку</span>
+<span class="kw">const</span> <span class="kw">int</span> START_SEQUENCE = <span class="nm">1</span>; <span class="cm">// одиниця-маркер на початку числа</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">int</span> zeroCount = <span class="nm">0</span>;     <span class="cm">// кількість нулів a</span>
+<span class="kw">int</span> oneCount = <span class="nm">0</span>;      <span class="cm">// кількість одиниць b</span>
+<span class="kw">int</span> sequenceCount = <span class="nm">0</span>; <span class="cm">// кількість знайдених послідовностей</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 5. Task 2. Variant 10.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Find all sequences of a zeros and b ones&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;where no two zeros stand next to each other.&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить ціле число. Якщо введено не число або число
+ * поза межами, введення повторюється
+ * Параметри: minValue - найменше допустиме значення,
+ *            maxValue - найбільше допустиме значення
+ * Значення, що повертаються: введене число
+ */</span>
+<span class="kw">int</span> inputNumber(<span class="kw">int</span> minValue, <span class="kw">int</span> maxValue)
+{
+    <span class="kw">int</span> number = <span class="nm">0</span>;
+
+    cin &gt;&gt; number;
+    <span class="kw">while</span> (cin.fail() || number &lt; minValue || number &gt; maxValue)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter a number from &quot;</span> &lt;&lt; minValue &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; maxValue
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin &gt;&gt; number;
+    }
+
+    <span class="kw">return</span> number;
+}
+
+<span class="cm">/*
+ * Функція вводить a і b, сума яких не більша за 9
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputData()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter a (from 1 to 8): &quot;</span>;
+    zeroCount = inputNumber(<span class="nm">1</span>, MAX_LENGTH - <span class="nm">1</span>);
+
+    cout &lt;&lt; <span class="st">&quot;Enter b (from 1 to &quot;</span> &lt;&lt; MAX_LENGTH - zeroCount &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    oneCount = inputNumber(<span class="nm">1</span>, MAX_LENGTH - zeroCount);
+}
+
+<span class="cm">/*
+ * Функція рекурсивно друкує цифри послідовності без маркера:
+ * спочатку всі цифри, крім останньої, потім останню
+ * Параметри: sequence - послідовність, записана цифрами числа
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printSequence(<span class="kw">int</span> sequence)
+{
+    <span class="kw">if</span> (sequence != START_SEQUENCE)
+    {
+        printSequence(sequence / <span class="nm">10</span>);
+        cout &lt;&lt; sequence % <span class="nm">10</span>;
+    }
+}
+
+<span class="cm">/*
+ * Функція рекурсивно будує послідовності, дописуючи по одній цифрі.
+ * Нуль можна дописати, лише якщо попередня цифра не нуль
+ * Параметри: zerosLeft, onesLeft - скільки цифр ще треба дописати,
+ *            lastDigit - попередня цифра,
+ *            sequence - вже побудована частина числом з маркером
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> buildSequences(<span class="kw">int</span> zerosLeft, <span class="kw">int</span> onesLeft, <span class="kw">int</span> lastDigit, <span class="kw">int</span> sequence)
+{
+    <span class="kw">if</span> (zerosLeft == <span class="nm">0</span> &amp;&amp; onesLeft == <span class="nm">0</span>)
+    {
+        printSequence(sequence);
+        cout &lt;&lt; <span class="st">&quot; &quot;</span>;
+
+        sequenceCount++;
+        <span class="kw">if</span> (sequenceCount % ROW_SIZE == <span class="nm">0</span>)
+        {
+            cout &lt;&lt; endl;
+        }
+    }
+    <span class="kw">else</span>
+    {
+        <span class="kw">if</span> (zerosLeft &gt; <span class="nm">0</span> &amp;&amp; lastDigit != <span class="nm">0</span>)
+        {
+            buildSequences(zerosLeft - <span class="nm">1</span>, onesLeft, <span class="nm">0</span>, sequence * <span class="nm">10</span>);
+        }
+        <span class="kw">if</span> (onesLeft &gt; <span class="nm">0</span>)
+        {
+            buildSequences(zerosLeft, onesLeft - <span class="nm">1</span>, <span class="nm">1</span>, sequence * <span class="nm">10</span> + <span class="nm">1</span>);
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція запускає пошук і виводить кількість послідовностей
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printResult()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Sequences:&quot;</span> &lt;&lt; endl;
+    buildSequences(zeroCount, oneCount, <span class="nm">1</span>, START_SEQUENCE);
+
+    <span class="kw">if</span> (sequenceCount == <span class="nm">0</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;no such sequences&quot;</span>;
+    }
+    cout &lt;&lt; endl &lt;&lt; endl &lt;&lt; <span class="st">&quot;Number of sequences: &quot;</span> &lt;&lt; sequenceCount &lt;&lt; endl;
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputData();
+    printResult();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="page-footer"><a href="#scheme">← Блок-схеми</a><a href="#top">Усі розділи</a><a href="#results">Результати →</a></div></section>
+<section class="page" id="results" tabindex="-1"><p class="eyebrow">Лабораторна робота №5 / 06 з 08</p><h2>6. Результати виконання роботи</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 10</h3>
+<div class="result">
+<figure class="shot"><a href="img/task1-run-1.png"><img src="img/task1-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 15 - Трикутник із 5 рядків</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-2.png"><img src="img/task1-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 16 - Некоректне введення, потім трикутник з 10 рядків</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-3.png"><img src="img/task1-run-3.png" alt="" width="707" loading="lazy"></a><figcaption>Рисунок 17 - Найбільша кількість рядків n = 15</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-4.png"><img src="img/task1-run-4.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 18 - Крайній випадок n = 1</figcaption></figure>
+</div>
+</div>
+<div class="task">
+<h3>Завдання 2 - варіант 10</h3>
+<div class="result">
+<figure class="shot"><a href="img/task2-run-1.png"><img src="img/task2-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 19 - Контрольний тест із методички: a = 2, b = 2</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-2.png"><img src="img/task2-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 20 - Послідовностей немає: a = 3, b = 1 (перед цим введено некоректні значення)</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-3.png"><img src="img/task2-run-3.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 21 - Найдовші послідовності: a = 3, b = 6</figcaption></figure>
+</div>
+</div>
+<div class="page-footer"><a href="#code">← Тексти програм</a><a href="#top">Усі розділи</a><a href="#check">Перевірка →</a></div></section>
+<section class="page" id="check" tabindex="-1"><p class="eyebrow">Лабораторна робота №5 / 07 з 08</p><h2>7. Аналіз достовірності результатів</h2>
+<div class="task">
+<h3>Завдання 1 - трикутник</h3>
+<p>Обидва варіанти надрукували однакові трикутники. Окремі елементи і суми рядків перевірено вручну за
+формулою C<sub>i</sub><sup>j</sup> = i! / (j! · (i - j)!):</p>
+<p class="tcap">Таблиця 3 - Контрольні елементи трикутника</p>
+<div class="table-scroll"><table>
+<tr><th>Елемент</th><th>За формулою</th><th>Очікується</th><th>Програма</th></tr>
+<tr><td>i = 4, j = 2</td><td>4! / (2! · 2!) = 24 / 4</td><td>6</td><td>6</td></tr>
+<tr><td>i = 9, j = 4</td><td>9! / (4! · 5!) = 362880 / 2880</td><td>126</td><td>126</td></tr>
+<tr><td>i = 14, j = 7</td><td>14! / (7! · 7!) = 87178291200 / 25401600</td><td>3432</td><td>3432</td></tr>
+<tr><td>сума рядка i = 4</td><td>1 + 4 + 6 + 4 + 1 = 2<sup>4</sup></td><td>16</td><td>16</td></tr>
+<tr><td>сума рядка i = 9</td><td>1 + 9 + 36 + 84 + 126 + 126 + 84 + 36 + 9 + 1 = 2<sup>9</sup></td><td>512</td><td>512</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 1 - порівняння ефективності</h3>
+<p>Показники програми порівняно з ручним підрахунком. Один елемент C рахується за 2C - 1 викликів,
+тому всього викликів 2 · (сума всіх чисел трикутника) - (кількість чисел). Наприклад, при n = 5 сума
+чисел 31, а самих чисел 15. Глибина дорівнює n - 1, лише при n = 1 вона дорівнює 1. Ітерацій
+1 + 2 + ... + (n - 1).</p>
+<p class="tcap">Таблиця 4 - Рекурсивний та ітераційний варіанти</p>
+<div class="table-scroll"><table>
+<tr><th>n</th><th>Викликів вручну</th><th>Викликів у програмі</th><th>Глибина, вручну / програма</th>
+<th>Ітерацій, вручну / програма</th></tr>
+<tr><td>1</td><td>2 · 1 - 1 = 1</td><td>1</td><td>1 / 1</td><td>0 / 0</td></tr>
+<tr><td>5</td><td>2 · 31 - 15 = 47</td><td>47</td><td>4 / 4</td><td>10 / 10</td></tr>
+<tr><td>10</td><td>2 · 1023 - 55 = 1991</td><td>1991</td><td>9 / 9</td><td>45 / 45</td></tr>
+<tr><td>15</td><td>2 · 32767 - 120 = 65414</td><td>65414</td><td>14 / 14</td><td>105 / 105</td></tr>
+</table></div>
+<p>Для n = 15 рекурсія зробила 65414 викликів, а цикл 105 ітерацій, це приблизно в 623 рази більше.
+Глибина при цьому лише 14. Викликів так багато, бо одні й ті самі елементи рахуються знову і знову.
+Для цієї задачі кращий ітераційний варіант.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - контрольний тест</h3>
+<p>Для a = 2, b = 2 методичка дає результат 3: 0101 1010 0110. Програма вивела 0101 0110 1010 і
+кількість 3. Послідовності ті самі, відрізняються лише порядок і місце кількості. Порядку умова не
+задає.</p>
+<p>Кількість перевірено формулою. Між одиницями і на краях є b + 1 місць, у кожне можна поставити не
+більше одного нуля, тому послідовностей C<sub>b+1</sub><sup>a</sup>:</p>
+<p class="tcap">Таблиця 5 - Кількість послідовностей</p>
+<div class="table-scroll"><table>
+<tr><th>a</th><th>b</th><th>Формула</th><th>Очікується</th><th>Програма</th></tr>
+<tr><td>1</td><td>1</td><td>C<sub>2</sub><sup>1</sup></td><td>2 (01, 10)</td><td>2: 01 10</td></tr>
+<tr><td>2</td><td>2</td><td>C<sub>3</sub><sup>2</sup></td><td>3</td><td>3</td></tr>
+<tr><td>3</td><td>1</td><td>a > b + 1</td><td>0</td><td>0, "no such sequences"</td></tr>
+<tr><td>3</td><td>2</td><td>C<sub>3</sub><sup>3</sup></td><td>1 (01010)</td><td>1: 01010</td></tr>
+<tr><td>4</td><td>4</td><td>C<sub>5</sub><sup>4</sup></td><td>5</td><td>5</td></tr>
+<tr><td>4</td><td>5</td><td>C<sub>6</sub><sup>4</sup></td><td>15</td><td>15</td></tr>
+<tr><td>3</td><td>6</td><td>C<sub>7</sub><sup>3</sup></td><td>35</td><td>35</td></tr>
+<tr><td>2</td><td>7</td><td>C<sub>8</sub><sup>2</sup></td><td>28</td><td>28</td></tr>
+<tr><td>1</td><td>8</td><td>C<sub>9</sub><sup>1</sup></td><td>9</td><td>9</td></tr>
+</table></div>
+<p>У сценарії з некоректними даними програма відхилила abc, 9 і 7 і попросила ввести значення ще раз.
+У виведених послідовностях кількість нулів і одиниць правильна, два нулі поруч не стоять.</p>
+</div>
+<div class="page-footer"><a href="#results">← Результати</a><a href="#top">Усі розділи</a><a href="#conclusion">Висновки →</a></div></section>
+<section class="page" id="conclusion" tabindex="-1"><p class="eyebrow">Лабораторна робота №5 / 08 з 08</p><h2>8. Висновки</h2>
+<div class="card">
+<p>Написано дві програми з рекурсивними функціями. Перша друкує трикутник Паскаля рекурсивно і в циклі
+та рахує виклики, глибину рекурсії й ітерації. Формула з умови трикутника не дає, тому взято
+f(i, j) = f(i - 1, j - 1) + f(i - 1, j). При n = 15 рекурсія зробила 65414 викликів проти 105 ітерацій
+циклу. У другій програмі масиви й рядки заборонені, тому послідовність зберігається цифрами числа з маркером, через це a + b не більше 9.</p>
+</div>
+<div class="page-footer"><a href="#check">← Перевірка</a><a href="#top">Усі розділи</a><a href="#top">До розділів →</a></div></section>
+<p class="footer">Основи програмування • 2026</p>
+</main>
+</div>
+<script src="../site.js"></script>
+</body>
+</html>

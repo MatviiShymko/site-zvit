@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторна №3. Циклічні обчислювальні процеси</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-lab="3">
+<a class="skip" href="#content">Перейти до вмісту</a>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Основи<br>програмування<small>Шимко Матвій • ІПЗ-11(3)</small></div><nav aria-label="Лабораторні роботи"><a href="../index.html">Головна сторінка</a><div class="side-label">ЛАБОРАТОРНІ РОБОТИ</div><a href="../lab01/index.html">Лабораторна робота №1</a><a href="../lab02/index.html">Лабораторна робота №2</a><a href="../lab03/index.html#top" data-nav="top">Лабораторна робота №3</a><nav class="subnav" aria-label="Розділи звіту"><a href="#goal" data-nav="goal">Мета</a><a href="#task" data-nav="task">Умова задачі</a><a href="#analysis" data-nav="analysis">Аналіз задачі</a><a href="#scheme" data-nav="scheme">Блок-схеми</a><a href="#code" data-nav="code">Текст програми</a><a href="#results" data-nav="results">Результати</a><a href="#check" data-nav="check">Перевірка</a><a href="#conclusion" data-nav="conclusion">Висновки</a></nav><a href="../lab04/index.html">Лабораторна робота №4</a><a href="../lab05/index.html">Лабораторна робота №5</a><a href="../lab06/index.html">Лабораторна робота №6</a><a href="../lab07/index.html">Лабораторна робота №7</a><a href="../lab08/index.html">Лабораторна робота №8</a><a href="../lab09/index.html">Лабораторна робота №9</a><a href="../lab10/index.html">Лабораторна робота №10</a><a href="../lab11/index.html">Лабораторна робота №11</a></nav></aside>
+<main id="content" class="main">
+<p id="crumb" class="crumb"></p>
+<section class="page" id="top" tabindex="-1"><header class="hero"><p class="eyebrow">Основи програмування</p><h1>Звіт до лабораторної роботи №3</h1><p>Циклічні обчислювальні процеси • Варіант 8</p></header><div class="meta"><p><b>Студент:</b> Шимко Матвій Анатолійович</p>
+<p><b>Група:</b> ІПЗ-11(3), 1 курс, 2026 рік</p>
+<p><b>Дисципліна:</b> Основи програмування</p>
+<p><b>Викладач:</b> Ковалюк Тетяна Володимирівна</p></div><h2>Оберіть розділ звіту</h2><div class="menu-grid"><a class="menu-card" href="#goal"><span class="num">01</span><b>Мета</b></a><a class="menu-card" href="#task"><span class="num">02</span><b>Умова задачі</b></a><a class="menu-card" href="#analysis"><span class="num">03</span><b>Аналіз задачі</b></a><a class="menu-card" href="#scheme"><span class="num">04</span><b>Блок-схеми</b></a><a class="menu-card" href="#code"><span class="num">05</span><b>Текст програми</b></a><a class="menu-card" href="#results"><span class="num">06</span><b>Результати</b></a><a class="menu-card" href="#check"><span class="num">07</span><b>Перевірка</b></a><a class="menu-card" href="#conclusion"><span class="num">08</span><b>Висновки</b></a></div></section>
+<section class="page" id="goal" tabindex="-1"><p class="eyebrow">Лабораторна робота №3 / 01 з 08</p><h2>1. Мета роботи</h2>
+<div class="card"><ul>
+<li>Вивчити особливості циклічних обчислювальних процесів.</li>
+<li>Опанувати технологію використання операторів циклів.</li>
+<li>Навчитися розробляти алгоритми та програми циклічних процесів.</li>
+</ul></div>
+<div class="page-footer"><a href="#top">← До розділів</a><a href="#top">Усі розділи</a><a href="#task">Умова задачі →</a></div></section>
+<section class="page" id="task" tabindex="-1"><p class="eyebrow">Лабораторна робота №3 / 02 з 08</p><h2>2. Умова задачі</h2>
+<div class="task">
+<h3>Варіант 8</h3>
+<p>Варіант 8 (у таблиці 22 варіанти, 30 - 22 = 8).</p>
+<p>Обчислити суму ряду:</p>
+<div class="formula">S = ∑<sub>x=1</sub><sup>5</sup> ∑<sub>k=0</sub><sup>∞</sup>
+(-1)<sup>k</sup>(x + 1)<sup>k-1</sup> / [(k + 1)(k + 2)...(k + x)]</div>
+<p>Вимоги до програми:</p>
+<ul>
+<li>для зовнішньої суми з параметром від 1 до 5 використати цикл <code>for</code>;</li>
+<li>для внутрішньої суми з параметром від 0 до нескінченності використати цикл
+<code>while</code> або <code>do ... while</code>;</li>
+<li>для визначення нескінченності задати точність розрахунку поточного елемента ряду;</li>
+<li>підсумовування припиняється, якщо досягнута задана користувачем точність;</li>
+<li>кількість доданків внутрішньої суми для кожного параметра зовнішньої суми має бути різною;</li>
+<li>факторіал і степінь числа обчислювати за рекурентними співвідношеннями;</li>
+<li>для запобігання переповненню вийти з внутрішнього циклу, коли поточний елемент
+ряду досягне 10<sup>-38</sup> або 10<sup>+38</sup>;</li>
+<li>результат подати таблицею з чотирма колонками: параметри зовнішньої та внутрішньої
+сум, значення члена ряду і накопичувана сума.</li>
+</ul>
+</div>
+<div class="page-footer"><a href="#goal">← Мета</a><a href="#top">Усі розділи</a><a href="#analysis">Аналіз задачі →</a></div></section>
+<section class="page" id="analysis" tabindex="-1"><p class="eyebrow">Лабораторна робота №3 / 03 з 08</p><h2>3. Аналіз задачі</h2>
+<div class="task">
+<h3>Рекурентне обчислення членів ряду</h3>
+<p>Позначимо член ряду a<sub>x,k</sub>. Щоб не рахувати щоразу степінь і добуток із x множників,
+поділимо наступний член на поточний. Більшість множників скорочується, лишається:</p>
+<div class="formula">a<sub>x,k+1</sub> / a<sub>x,k</sub> = -(x + 1)(k + 1) / (k + x + 1)</div>
+<p>При k = 0 степінь (x + 1)<sup>-1</sup> дорівнює 1 / (x + 1), а добуток у знаменнику
+дорівнює 1 · 2 · ... · x = x!. Отже:</p>
+<div class="formula">a<sub>x,0</sub> = 1 / [(x + 1) · x!], &nbsp;&nbsp;
+a<sub>x,k</sub> = -a<sub>x,k-1</sub> · (x + 1) · k / (k + x)</div>
+<p>Мінус у формулі сам змінює знак. Факторіал рахується у циклі <code>for</code>:
+x! = (x - 1)! · x. </p>
+</div>
+
+<div class="task">
+<h3>Умова зупинки</h3>
+<p>Для заданої формули ряд розбіжний: модуль відношення сусідніх членів прямує до x + 1, а це більше
+за 1. Тому отримана сума є лише частковою, і програма повідомляє про це наприкінці.</p>
+<p>Цикл <code>do ... while</code> завжди додає перший член і продовжує, поки модуль нового члена
+більший за точність ε та лежить між 10<sup>-38</sup> і 10<sup>38</sup>. Якщо перший член уже не
+більший за ε, додається тільки він. Інакше цикл зупиняється на межі 10<sup>38</sup>, а член, що
+вийшов за межу, не додається. Члени ростуть тим швидше, чим більше x, тому кількість доданків різна:
+при ε = 0.001 їх 135 для x = 1 і 62 для x = 5.</p>
+</div>
+
+<div class="task">
+<h3>Дані та перевірка введення</h3>
+<p>Дійсні величини мають тип <code>float</code>, а параметри x, k і кількість доданків цілі
+(<code>int</code>).</p>
+<p>Точність вводиться від 10<sup>-6</sup> до 1. Якщо введено не число або число поза межами, програма
+виводить повідомлення і просить увести точність ще раз. </p>
+</div>
+
+<div class="task">
+<h3>Структура програми</h3>
+<p class="tcap">Таблиця 1 - Функції програми</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputAccuracy</code></td><td>введення точності з перевіркою</td></tr>
+<tr><td><code>calculateSum</code></td><td>цикли по x і k, таблиця обчислень, сума S</td></tr>
+</table></div>
+<p>Джерела: Ковалюк Т.В. Алгоритмізація та програмування, 2024; Ковалюк Т.В.,
+Петрівський В.Я. Гарний стиль програмування мовами C, C++, C#, 2025.</p>
+</div>
+<div class="page-footer"><a href="#task">← Умова задачі</a><a href="#top">Усі розділи</a><a href="#scheme">Блок-схеми →</a></div></section>
+<section class="page" id="scheme" tabindex="-1"><p class="eyebrow">Лабораторна робота №3 / 04 з 08</p><h2>4. Блок-схеми алгоритмів</h2>
+<div class="task">
+<h3>Варіант 8</h3>
+<figure class="fc"><a href="img/task1-fc-welcome.svg"><img src="img/task1-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 1 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputAccuracy.svg"><img src="img/task1-fc-inputAccuracy.svg" alt="" loading="lazy"></a><figcaption>Рисунок 2 - Блок-схема функції <code>inputAccuracy</code> (введення точності з перевіркою)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-calculateSum.svg"><img src="img/task1-fc-calculateSum.svg" alt="" loading="lazy"></a><figcaption>Рисунок 3 - Блок-схема функції <code>calculateSum</code> (обчислення суми ряду і виведення таблиці)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-main.svg"><img src="img/task1-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 4 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="page-footer"><a href="#analysis">← Аналіз задачі</a><a href="#top">Усі розділи</a><a href="#code">Текст програми →</a></div></section>
+<section class="page" id="code" tabindex="-1"><p class="eyebrow">Лабораторна робота №3 / 05 з 08</p><h2>5. Текст програми</h2>
+<div class="task">
+<h3>Варіант 8</h3>
+<p class="file">Файл <a href="task1.cpp" download>task1.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task1.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 2</span>
+<span class="cm">// Запланована ціль: лабораторна робота №3, варіант 8.</span>
+<span class="cm">//                   Обчислити суму ряду із заданою точністю</span>
+<span class="cm">//                   і вивести таблицю обчислень.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cmath&gt;</span>
+<span class="pp">#include &lt;iomanip&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">float</span> MIN_ACCURACY = <span class="nm">0</span>.000001f; <span class="cm">// найменша допустима точність</span>
+<span class="kw">const</span> <span class="kw">float</span> MAX_ACCURACY = <span class="nm">1</span>;         <span class="cm">// найбільша допустима точність</span>
+<span class="kw">const</span> <span class="kw">float</span> LOWER_LIMIT = 1e-38f;     <span class="cm">// межі модуля члена ряду з умови</span>
+<span class="kw">const</span> <span class="kw">float</span> UPPER_LIMIT = 1e38f;
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">float</span> accuracy = <span class="nm">0</span>;  <span class="cm">// точність</span>
+<span class="kw">float</span> sum = <span class="nm">0</span>;       <span class="cm">// накопичена сума</span>
+<span class="kw">float</span> factorial = <span class="nm">1</span>; <span class="cm">// значення x!</span>
+<span class="kw">float</span> member = <span class="nm">0</span>;    <span class="cm">// поточний член ряду</span>
+<span class="kw">int</span> x = <span class="nm">0</span>;           <span class="cm">// параметр зовнішньої суми</span>
+<span class="kw">int</span> k = <span class="nm">0</span>;           <span class="cm">// параметр внутрішньої суми</span>
+<span class="kw">int</span> termCount = <span class="nm">0</span>;   <span class="cm">// кількість доданків для поточного x</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 3. Variant 8.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Calculate the sum of the series&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;      5    inf     (-1)^k * (x+1)^(k-1)&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;S =  sum   sum   --------------------------&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;     x=1   k=0   (k+1) * (k+2) * ... * (k+x)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить точність. Якщо введено не число або число
+ * поза межами, введення повторюється
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputAccuracy()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter accuracy (from 0.000001 to 1): &quot;</span>;
+    cin &gt;&gt; accuracy;
+    <span class="kw">while</span> (cin.fail() || accuracy &lt; MIN_ACCURACY || accuracy &gt; MAX_ACCURACY)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter accuracy from 0.000001 to 1: &quot;</span>;
+        cin &gt;&gt; accuracy;
+    }
+}
+
+<span class="cm">/*
+ * Функція рахує суму ряду і виводить таблицю. Для кожного x від 1 до 5
+ * внутрішня сума йде, поки член ряду більший за точність і не вийшов
+ * за межі 10^-38 та 10^38. Кожен член рахується через попередній
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> calculateSum()
+{
+    cout &lt;&lt; endl &lt;&lt; scientific &lt;&lt; setprecision(<span class="nm">6</span>);
+    cout &lt;&lt; setw(<span class="nm">3</span>) &lt;&lt; <span class="st">&quot;x&quot;</span> &lt;&lt; setw(<span class="nm">6</span>) &lt;&lt; <span class="st">&quot;k&quot;</span> &lt;&lt; setw(<span class="nm">16</span>) &lt;&lt; <span class="st">&quot;member&quot;</span> &lt;&lt; setw(<span class="nm">16</span>)
+         &lt;&lt; <span class="st">&quot;sum&quot;</span> &lt;&lt; endl;
+
+    sum = <span class="nm">0</span>;
+    factorial = <span class="nm">1</span>;
+    <span class="kw">for</span> (x = <span class="nm">1</span>; x &lt;= <span class="nm">5</span>; x++)
+    {
+        factorial = factorial * x; <span class="cm">// x! = (x-1)! * x</span>
+        k = <span class="nm">0</span>;
+        termCount = <span class="nm">0</span>;
+        member = <span class="nm">1</span> / ((x + <span class="nm">1</span>) * factorial); <span class="cm">// перший член, коли k = 0</span>
+
+        <span class="kw">do</span>
+        {
+            sum = sum + member;
+            termCount++;
+            cout &lt;&lt; setw(<span class="nm">3</span>) &lt;&lt; x &lt;&lt; setw(<span class="nm">6</span>) &lt;&lt; k &lt;&lt; setw(<span class="nm">16</span>) &lt;&lt; member
+                 &lt;&lt; setw(<span class="nm">16</span>) &lt;&lt; sum &lt;&lt; endl;
+
+            k++;
+            <span class="cm">// спочатку ділення, щоб проміжне значення не вийшло за межі float</span>
+            member = -member * (x + <span class="nm">1</span>) / (k + x) * k;
+        } <span class="kw">while</span> (fabs(member) &gt; accuracy &amp;&amp; fabs(member) &gt; LOWER_LIMIT
+                 &amp;&amp; fabs(member) &lt; UPPER_LIMIT);
+
+        cout &lt;&lt; <span class="st">&quot;number of terms for x = &quot;</span> &lt;&lt; x &lt;&lt; <span class="st">&quot;: &quot;</span> &lt;&lt; termCount &lt;&lt; endl;
+    }
+
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;S = &quot;</span> &lt;&lt; sum &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;The series diverges, so S is a partial sum.&quot;</span> &lt;&lt; endl;
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputAccuracy();
+    calculateSum();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="page-footer"><a href="#scheme">← Блок-схеми</a><a href="#top">Усі розділи</a><a href="#results">Результати →</a></div></section>
+<section class="page" id="results" tabindex="-1"><p class="eyebrow">Лабораторна робота №3 / 06 з 08</p><h2>6. Результати виконання роботи</h2>
+<div class="task">
+<h3>Варіант 8</h3>
+<div class="result">
+<p>Таблиця довга, бо для малих x ряд доходить до межі 10<sup>38</sup> за десятки кроків.
+Рисунок можна прогорнути або відкрити окремо.</p>
+<figure class="shot"><a href="img/task1-run-1.png"><img src="img/task1-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 5 - Обчислення з точністю ε = 0.001 (перед цим введено некоректні значення abc і 0)</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-2.png"><img src="img/task1-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 6 - Обчислення з точністю ε = 0.01: для x = 4 і x = 5 досягнуто точності вже на першому члені</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-3.png"><img src="img/task1-run-3.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 7 - Обчислення з точністю ε = 1: для кожного x додається один член</figcaption></figure>
+</div>
+</div>
+<div class="page-footer"><a href="#code">← Текст програми</a><a href="#top">Усі розділи</a><a href="#check">Перевірка →</a></div></section>
+<section class="page" id="check" tabindex="-1"><p class="eyebrow">Лабораторна робота №3 / 07 з 08</p><h2>7. Аналіз достовірності результатів</h2>
+<div class="task">
+<h3>Перевірка в Excel</h3>
+<p>Результати перевірено в Excel (файл <a href="check.xlsx" download>check.xlsx</a>). Там члени ряду
+обчислено без рекурентної формули, напряму за формулою з умови через функції <code>POWER</code> і
+<code>FACT</code>. Добуток (k + 1)...(k + x) дорівнює (k + x)! / k!. Поруч наведено значення, які
+вивела програма при ε = 0.001.</p>
+<p>Значення доходять до 10<sup>37</sup>, тому порівнюється відносна різниця
+|Excel - програма| / |Excel|.</p>
+<figure class="shot"><a href="img/excel-check.png"><img src="img/excel-check.png" alt="" width="581" loading="lazy"></a><figcaption>Рисунок 8 - Перевірка результатів в Excel (початок аркуша)</figcaption></figure>
+<ul>
+<li>найбільша відносна різниця членів ряду 9.3 · 10<sup>-7</sup>, а накопиченої суми
+1.8 · 10<sup>-6</sup>. Таку різницю дають похибка типу <code>float</code> (близько 7 значущих цифр)
+та округлення під час виведення;</li>
+<li>рекурентна формула дає ті самі значення, що й пряма формула умови;</li>
+<li>кількість доданків у Excel збігається з виведеною програмою: 135, 89, 74, 66 і 62 для x від 1
+до 5.</li>
+</ul>
+</div>
+
+<div class="task">
+<h3>Ручна перевірка</h3>
+<p>Перші члени при x = 1, коли a<sub>1,k</sub> = (-1)<sup>k</sup> · 2<sup>k-1</sup> / (k + 1):</p>
+<p class="tcap">Таблиця 2 - Члени ряду при x = 1</p>
+<div class="table-scroll"><table>
+<tr><th>k</th><th>За формулою умови</th><th>За рекурентною формулою</th><th>Програма</th></tr>
+<tr><td>0</td><td>1/2 = 0.5</td><td>1 / (2 · 1!) = 0.5</td><td>5.000000e-01</td></tr>
+<tr><td>1</td><td>-1/2 = -0.5</td><td>-0.5 · 2 · 1 / 2 = -0.5</td><td>-5.000000e-01</td></tr>
+<tr><td>2</td><td>2/3 = 0.666667</td><td>0.5 · 2 · 2 / 3 = 0.666667</td><td>6.666667e-01</td></tr>
+<tr><td>3</td><td>-4/4 = -1</td><td>-0.666667 · 2 · 3 / 4 = -1</td><td>-1.000000e+00</td></tr>
+</table></div>
+<p>При ε = 1 для кожного x додається тільки перший член, тому
+S = 1/2 + 1/6 + 1/24 + 1/120 + 1/720 = 517/720 ≈ 0.718056. Програма вивела
+S = 7.180556e-01, значення збігаються.</p>
+</div>
+<div class="page-footer"><a href="#results">← Результати</a><a href="#top">Усі розділи</a><a href="#conclusion">Висновки →</a></div></section>
+<section class="page" id="conclusion" tabindex="-1"><p class="eyebrow">Лабораторна робота №3 / 08 з 08</p><h2>8. Висновки</h2>
+<div class="card">
+<p>Програма рахує суму ряду у вкладених циклах: <code>for</code> по x і <code>do ... while</code> по
+k. Член ряду і факторіал обчислюються рекурентно, а результат виводиться таблицею з чотирма
+колонками. Заданий ряд розбіжний, тому в результаті виходить лише часткова сума, і внутрішній цикл
+здебільшого зупиняється на межі 10<sup>38</sup>. Обчислення за прямою формулою в Excel при
+ε = 0.001 дали ті самі значення і ту саму кількість доданків для кожного x.</p>
+</div>
+<div class="page-footer"><a href="#check">← Перевірка</a><a href="#top">Усі розділи</a><a href="#top">До розділів →</a></div></section>
+<p class="footer">Основи програмування • 2026</p>
+</main>
+</div>
+<script src="../site.js"></script>
+</body>
+</html>

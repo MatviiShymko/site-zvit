@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторна №1. Арифметичні вирази та розв&#x27;язання математичних задач мовою C++</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-lab="1">
+<a class="skip" href="#content">Перейти до вмісту</a>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Основи<br>програмування<small>Шимко Матвій • ІПЗ-11(3)</small></div><nav aria-label="Лабораторні роботи"><a href="../index.html">Головна сторінка</a><div class="side-label">ЛАБОРАТОРНІ РОБОТИ</div><a href="../lab01/index.html#top" data-nav="top">Лабораторна робота №1</a><nav class="subnav" aria-label="Розділи звіту"><a href="#goal" data-nav="goal">Мета</a><a href="#task" data-nav="task">Умови задач</a><a href="#analysis" data-nav="analysis">Аналіз задач</a><a href="#scheme" data-nav="scheme">Блок-схеми</a><a href="#code" data-nav="code">Тексти програм</a><a href="#results" data-nav="results">Результати</a><a href="#check" data-nav="check">Перевірка</a><a href="#conclusion" data-nav="conclusion">Висновки</a></nav><a href="../lab02/index.html">Лабораторна робота №2</a><a href="../lab03/index.html">Лабораторна робота №3</a><a href="../lab04/index.html">Лабораторна робота №4</a><a href="../lab05/index.html">Лабораторна робота №5</a><a href="../lab06/index.html">Лабораторна робота №6</a><a href="../lab07/index.html">Лабораторна робота №7</a><a href="../lab08/index.html">Лабораторна робота №8</a><a href="../lab09/index.html">Лабораторна робота №9</a><a href="../lab10/index.html">Лабораторна робота №10</a><a href="../lab11/index.html">Лабораторна робота №11</a></nav></aside>
+<main id="content" class="main">
+<p id="crumb" class="crumb"></p>
+<section class="page" id="top" tabindex="-1"><header class="hero"><p class="eyebrow">Основи програмування</p><h1>Звіт до лабораторної роботи №1</h1><p>Арифметичні вирази та розв'язання математичних задач мовою C++ • Варіанти 2 і 5</p></header><div class="meta"><p><b>Студент:</b> Шимко Матвій Анатолійович</p>
+<p><b>Група:</b> ІПЗ-11(3), 1 курс, 2026 рік</p>
+<p><b>Дисципліна:</b> Основи програмування</p>
+<p><b>Викладач:</b> Ковалюк Тетяна Володимирівна</p></div><h2>Оберіть розділ звіту</h2><div class="menu-grid"><a class="menu-card" href="#goal"><span class="num">01</span><b>Мета</b></a><a class="menu-card" href="#task"><span class="num">02</span><b>Умови задач</b></a><a class="menu-card" href="#analysis"><span class="num">03</span><b>Аналіз задач</b></a><a class="menu-card" href="#scheme"><span class="num">04</span><b>Блок-схеми</b></a><a class="menu-card" href="#code"><span class="num">05</span><b>Тексти програм</b></a><a class="menu-card" href="#results"><span class="num">06</span><b>Результати</b></a><a class="menu-card" href="#check"><span class="num">07</span><b>Перевірка</b></a><a class="menu-card" href="#conclusion"><span class="num">08</span><b>Висновки</b></a></div></section>
+<section class="page" id="goal" tabindex="-1"><p class="eyebrow">Лабораторна робота №1 / 01 з 08</p><h2>1. Мета роботи</h2>
+<div class="card"><ul>
+<li>Вивчити особливості використання вбудованих типів даних: char, int, long, short, float,
+double, unsigned char, unsigned int, unsigned long.</li>
+<li>Вивчити особливості використання функцій введення - виведення.</li>
+<li>Навчитися застосовувати стандартні математичні функції.</li>
+</ul></div>
+<div class="page-footer"><a href="#top">← До розділів</a><a href="#top">Усі розділи</a><a href="#task">Умови задач →</a></div></section>
+<section class="page" id="task" tabindex="-1"><p class="eyebrow">Лабораторна робота №1 / 02 з 08</p><h2>2. Умови задач</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 2</h3>
+<p>Варіант 2 (у таблиці 28 варіантів, 30 - 28 = 2).</p>
+<p>За даними, що введені з клавіатури в оперативну пам'ять, визначити значення виразу,
+використовуючи математичні функції, і вивести результат на екран. Довільні значення
+змінних A, B, C, D ввести з клавіатури.</p>
+<div class="formula">X = (2.3 + AB<sup>2</sup>) / (0.4 + Ce<sup>D</sup>)</div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 5</h3>
+<p>Варіант 5 (у таблиці 25 варіантів, 30 - 25 = 5).</p>
+<p>Написати програму, що розв'язує задачу з математики шкільного курсу: обчислити відстань
+від точки (x<sub>0</sub>, y<sub>0</sub>) до точки (x<sub>1</sub>, y<sub>1</sub>), значення
+координат яких введені з клавіатури.</p>
+</div>
+<div class="page-footer"><a href="#goal">← Мета</a><a href="#top">Усі розділи</a><a href="#analysis">Аналіз задач →</a></div></section>
+<section class="page" id="analysis" tabindex="-1"><p class="eyebrow">Лабораторна робота №1 / 03 з 08</p><h2>3. Аналіз задач</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 2</h3>
+<p>Для розв'язання задачі потрібно ввести чотири дійсні числа A, B, C, D (тип
+<code>float</code>). Вони вводяться одним рядком. Вираз рахується частинами: спочатку чисельник
+2.3 + AB<sup>2</sup>, потім знаменник 0.4 + Ce<sup>D</sup>, а тоді їх частка. Квадрат B рахується
+множенням, а експонента функцією <code>exp</code> з бібліотеки <code>cmath</code>. </p>
+<p>Якщо введено не число, <code>cin.fail()</code> показує помилку, <code>cin.clear()</code> її
+скидає, а <code>cin.ignore()</code> пропускає неправильний рядок. Після цього чотири значення
+вводяться знову.</p>
+<p>Перед діленням необхідно переконатися, що знаменник не дорівнює нулю. Дробові числа зберігаються наближено, тому знаменник вважається нулем, якщо
+його модуль менший за 10<sup>-6</sup>. Тоді виводиться повідомлення, а X не рахується. Окреме
+повідомлення виводиться, якщо значення X не вміщується у <code>float</code>.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 5</h3>
+<p>Різниці координат по осях Ox і Oy є катетами прямокутного трикутника, а відстань між точками є
+його гіпотенузою. За теоремою Піфагора отримуємо формулу:</p>
+<div class="formula">d = √((x<sub>1</sub> - x<sub>0</sub>)<sup>2</sup> +
+(y<sub>1</sub> - y<sub>0</sub>)<sup>2</sup>)</div>
+<p>Програма рахує різниці координат. Для квадрата використовую множення, а для кореня
+функцію <code>sqrt</code>. Координати дійсні (<code>float</code>), кожна пара вводиться окремо, а
+неправильне введення обробляється так само, як у завданні 1.</p>
+</div>
+
+<div class="task">
+<h3>Структура програм</h3>
+<p>Функції в цій роботі ще не вивчалися, тому кожна програма складається лише з функції
+<code>main</code>.</p>
+<p class="tcap">Таблиця 1 - Функції програм</p>
+<div class="table-scroll"><table>
+<tr><th>Файл</th><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>task1.cpp</code></td><td><code>main</code></td><td>введення A, B, C, D з
+перевіркою, обчислення і виведення X</td></tr>
+<tr><td><code>task2.cpp</code></td><td><code>main</code></td><td>введення координат двох
+точок з перевіркою, обчислення і виведення відстані</td></tr>
+</table></div>
+<p>Джерела: Ковалюк Т.В. Алгоритмізація та програмування, 2024; Ковалюк Т.В.,
+Петрівський В.Я. Гарний стиль програмування мовами C, C++, C#, 2025.</p>
+</div>
+<div class="page-footer"><a href="#task">← Умови задач</a><a href="#top">Усі розділи</a><a href="#scheme">Блок-схеми →</a></div></section>
+<section class="page" id="scheme" tabindex="-1"><p class="eyebrow">Лабораторна робота №1 / 04 з 08</p><h2>4. Блок-схеми алгоритмів</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 2</h3>
+<figure class="fc"><a href="img/task1-fc-main.svg"><img src="img/task1-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 1 - Блок-схема функції <code>main</code> (головна функція: обчислення виразу X)</figcaption></figure>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 5</h3>
+<figure class="fc"><a href="img/task2-fc-main.svg"><img src="img/task2-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 2 - Блок-схема функції <code>main</code> (головна функція: обчислення відстані між точками)</figcaption></figure>
+</div>
+<div class="page-footer"><a href="#analysis">← Аналіз задач</a><a href="#top">Усі розділи</a><a href="#code">Тексти програм →</a></div></section>
+<section class="page" id="code" tabindex="-1"><p class="eyebrow">Лабораторна робота №1 / 05 з 08</p><h2>5. Тексти програм</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 2</h3>
+<p class="file">Файл <a href="task1.cpp" download>task1.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task1.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 2</span>
+<span class="cm">// Запланована ціль: лабораторна робота №1, завдання 1, варіант 2.</span>
+<span class="cm">//                   Обчислити значення виразу</span>
+<span class="cm">//                   X = (2.3 + AB^2) / (0.4 + Ce^D).</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cmath&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">float</span> NUMERATOR_TERM = <span class="nm">2</span>.3f;   <span class="cm">// доданок у чисельнику</span>
+<span class="kw">const</span> <span class="kw">float</span> DENOMINATOR_TERM = <span class="nm">0</span>.4f; <span class="cm">// доданок у знаменнику</span>
+<span class="kw">const</span> <span class="kw">float</span> ZERO_LIMIT = <span class="nm">0</span>.000001f;  <span class="cm">// менший за це модуль вважається нулем</span>
+<span class="kw">const</span> <span class="kw">float</span> MAX_VALUE = 1e38f;       <span class="cm">// межа значень типу float</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">float</span> a = <span class="nm">0</span>;           <span class="cm">// значення A</span>
+<span class="kw">float</span> b = <span class="nm">0</span>;           <span class="cm">// значення B</span>
+<span class="kw">float</span> c = <span class="nm">0</span>;           <span class="cm">// значення C</span>
+<span class="kw">float</span> d = <span class="nm">0</span>;           <span class="cm">// значення D</span>
+<span class="kw">float</span> numerator = <span class="nm">0</span>;   <span class="cm">// чисельник виразу</span>
+<span class="kw">float</span> denominator = <span class="nm">0</span>; <span class="cm">// знаменник виразу</span>
+<span class="kw">float</span> result = <span class="nm">0</span>;      <span class="cm">// значення X</span>
+
+<span class="cm">/*
+ * Функція вводить A, B, C, D, перевіряє знаменник на нуль
+ * і виводить значення виразу X
+ * Параметри: немає
+ * Значення, що повертаються: 0
+ */</span>
+<span class="kw">int</span> main()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 1. Task 1. Variant 2.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Calculate X = (2.3 + A * B^2) / (0.4 + C * e^D)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Enter A, B, C, D: &quot;</span>;
+    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;
+    <span class="kw">while</span> (cin.fail())
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter four numbers: &quot;</span>;
+        cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;
+    }
+
+    numerator = NUMERATOR_TERM + a * b * b;
+    denominator = DENOMINATOR_TERM + c * exp(d);
+
+    <span class="kw">if</span> (fabs(denominator) &lt; ZERO_LIMIT)
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! The denominator is 0, X is not defined.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        result = numerator / denominator;
+
+        <span class="cm">// якщо значення не вмістилось у float, ця умова хибна</span>
+        <span class="kw">if</span> (fabs(result) &lt; MAX_VALUE)
+        {
+            cout &lt;&lt; <span class="st">&quot;X = &quot;</span> &lt;&lt; result &lt;&lt; endl;
+        }
+        <span class="kw">else</span>
+        {
+            cout &lt;&lt; <span class="st">&quot;Error! The numbers are too large for float.&quot;</span> &lt;&lt; endl;
+        }
+    }
+
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 5</h3>
+<p class="file">Файл <a href="task2.cpp" download>task2.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task2.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 2</span>
+<span class="cm">// Запланована ціль: лабораторна робота №1, завдання 2, варіант 5.</span>
+<span class="cm">//                   Обчислити відстань між двома точками площини.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cmath&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">float</span> firstX = <span class="nm">0</span>;      <span class="cm">// координата x0 першої точки</span>
+<span class="kw">float</span> firstY = <span class="nm">0</span>;      <span class="cm">// координата y0 першої точки</span>
+<span class="kw">float</span> secondX = <span class="nm">0</span>;     <span class="cm">// координата x1 другої точки</span>
+<span class="kw">float</span> secondY = <span class="nm">0</span>;     <span class="cm">// координата y1 другої точки</span>
+<span class="kw">float</span> differenceX = <span class="nm">0</span>; <span class="cm">// різниця координат по осі Ox</span>
+<span class="kw">float</span> differenceY = <span class="nm">0</span>; <span class="cm">// різниця координат по осі Oy</span>
+<span class="kw">float</span> length = <span class="nm">0</span>;      <span class="cm">// відстань між точками</span>
+
+<span class="cm">/*
+ * Функція вводить координати двох точок і виводить відстань між ними
+ * Параметри: немає
+ * Значення, що повертаються: 0
+ */</span>
+<span class="kw">int</span> main()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 1. Task 2. Variant 5.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Calculate the distance between points (x0, y0) and (x1, y1)&quot;</span>
+         &lt;&lt; endl
+         &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Enter x0 and y0: &quot;</span>;
+    cin &gt;&gt; firstX &gt;&gt; firstY;
+    <span class="kw">while</span> (cin.fail())
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter two numbers: &quot;</span>;
+        cin &gt;&gt; firstX &gt;&gt; firstY;
+    }
+
+    cout &lt;&lt; <span class="st">&quot;Enter x1 and y1: &quot;</span>;
+    cin &gt;&gt; secondX &gt;&gt; secondY;
+    <span class="kw">while</span> (cin.fail())
+    {
+        cin.clear();
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>);
+        cout &lt;&lt; <span class="st">&quot;Error! Enter two numbers: &quot;</span>;
+        cin &gt;&gt; secondX &gt;&gt; secondY;
+    }
+
+    differenceX = secondX - firstX;
+    differenceY = secondY - firstY;
+    length = sqrt(differenceX * differenceX + differenceY * differenceY);
+
+    cout &lt;&lt; <span class="st">&quot;Distance = &quot;</span> &lt;&lt; length &lt;&lt; endl;
+
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="page-footer"><a href="#scheme">← Блок-схеми</a><a href="#top">Усі розділи</a><a href="#results">Результати →</a></div></section>
+<section class="page" id="results" tabindex="-1"><p class="eyebrow">Лабораторна робота №1 / 06 з 08</p><h2>6. Результати виконання роботи</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 2</h3>
+<div class="result">
+<figure class="shot"><a href="img/task1-run-1.png"><img src="img/task1-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 3 - Обчислення при A = 1, B = 2, C = 1, D = 0</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-2.png"><img src="img/task1-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 4 - Дробові та від'ємні значення: A = 2.5, B = -1.5, C = 3, D = 1.2</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-3.png"><img src="img/task1-run-3.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 5 - Некоректне введення (abc і 1 x 2 3), після нього знаменник дорівнює нулю</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-4.png"><img src="img/task1-run-4.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 6 - Значення e у степені 100 не вміщується у float</figcaption></figure>
+</div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 5</h3>
+<div class="result">
+<figure class="shot"><a href="img/task2-run-1.png"><img src="img/task2-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 7 - Відстань між точками (1, 2) і (4, 6)</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-2.png"><img src="img/task2-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 8 - Дробові та від'ємні координати: (-1.5, 2.25) і (3, -0.75)</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-3.png"><img src="img/task2-run-3.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 9 - Некоректне введення (a b і x), точки збігаються</figcaption></figure>
+</div>
+</div>
+<div class="page-footer"><a href="#code">← Тексти програм</a><a href="#top">Усі розділи</a><a href="#check">Перевірка →</a></div></section>
+<section class="page" id="check" tabindex="-1"><p class="eyebrow">Лабораторна робота №1 / 07 з 08</p><h2>7. Аналіз достовірності результатів</h2>
+<div class="task">
+<h3>Перевірка в Excel</h3>
+<p>Результати обох програм перевірено в Excel (файл
+<a href="check.xlsx" download>check.xlsx</a>). Формули записано в клітинки за умовою задачі, через
+функції <code>EXP</code> і <code>SQRT</code>. Поруч стоять значення, які вивела програма для тих
+самих вхідних даних.</p>
+<figure class="shot"><a href="img/excel-check.png"><img src="img/excel-check.png" alt="" width="555" loading="lazy"></a><figcaption>Рисунок 10 - Перевірка результатів в Excel</figcaption></figure>
+<ul>
+<li>завдання 1: 8 наборів даних, найбільша відносна різниця 6.6 · 10<sup>-7</sup>;</li>
+<li>завдання 2: 6 наборів даних, найбільша різниця 2.4 · 10<sup>-4</sup> при відстані
+195.256.</li>
+</ul>
+<p>Такі різниці дає округлення: програма виводить 6 значущих цифр, а Excel показує більше.</p>
+</div>
+
+<div class="task">
+<h3>Ручна перевірка</h3>
+<p>Для завдання 1 візьмемо A = 1, B = 2, C = 1, D = 0:</p>
+<div class="formula">X = (2.3 + 1 · 2<sup>2</sup>) / (0.4 + 1 · e<sup>0</sup>) =
+(2.3 + 4) / (0.4 + 1) = 6.3 / 1.4 = 4.5</div>
+<p>Тепер дробові значення A = 2.5, B = -1.5, C = 3, D = 1.2:</p>
+<div class="formula">X = (2.3 + 2.5 · 2.25) / (0.4 + 3 · 3.320117) =
+7.925 / 10.360351 ≈ 0.764935</div>
+<p>Для завдання 2 візьмемо точки (1, 2) і (4, 6):</p>
+<div class="formula">d = √((4 - 1)<sup>2</sup> + (6 - 2)<sup>2</sup>) = √(9 + 16) =
+√25 = 5</div>
+<p>І точки з дробовими координатами (-1.5, 2.25) і (3, -0.75):</p>
+<div class="formula">d = √(4.5<sup>2</sup> + (-3)<sup>2</sup>) = √(20.25 + 9) =
+√29.25 ≈ 5.40833</div>
+<p>Ці приклади та випадки з помилками зібрано в таблиці.</p>
+<p class="tcap">Таблиця 2 - Контрольні випадки</p>
+<div class="table-scroll"><table>
+<tr><th>Вхідні дані</th><th>Очікуваний результат</th><th>Результат програми</th></tr>
+<tr><td>A = 1, B = 2, C = 1, D = 0</td><td>X = 4.5</td><td>X = 4.5</td></tr>
+<tr><td>A = 2.5, B = -1.5, C = 3, D = 1.2</td><td>X ≈ 0.764935</td><td>X = 0.764935</td></tr>
+<tr><td>A = 1, B = 2, C = -0.4, D = 0</td><td>знаменник 0.4 - 0.4 = 0, X не існує</td>
+<td>повідомлення про нульовий знаменник</td></tr>
+<tr><td>A = 1, B = 2, C = 0, D = 100</td><td>e<sup>100</sup> не вміщується у
+<code>float</code></td><td>повідомлення про завеликі числа</td></tr>
+<tr><td>abc; 1 x 2 3</td><td>повторне введення</td><td>Error! Enter four numbers</td></tr>
+<tr><td>(1, 2) і (4, 6)</td><td>d = 5</td><td>Distance = 5</td></tr>
+<tr><td>(-1.5, 2.25) і (3, -0.75)</td><td>d ≈ 5.40833</td><td>Distance = 5.40833</td></tr>
+<tr><td>(0, 0) і (0, 0)</td><td>d = 0</td><td>Distance = 0</td></tr>
+<tr><td>a b; x</td><td>повторне введення</td><td>Error! Enter two numbers</td></tr>
+</table></div>
+</div>
+<div class="page-footer"><a href="#results">← Результати</a><a href="#top">Усі розділи</a><a href="#conclusion">Висновки →</a></div></section>
+<section class="page" id="conclusion" tabindex="-1"><p class="eyebrow">Лабораторна робота №1 / 08 з 08</p><h2>8. Висновки</h2>
+<div class="card">
+<p>У ході лабораторної роботи розроблено дві програми мовою C++. Перша обчислює заданий вираз за
+допомогою функції <code>exp</code>, друга знаходить відстань між двома точками за теоремою Піфагора
+за допомогою <code>sqrt</code>. Обидві просять повторити введення, якщо введено не число. Виконано
+перевірку в Excel і вручну, значення збігаються. У першій програмі довелося окремо врахувати нульовий
+знаменник і значення, яке не вміщується у <code>float</code>.</p>
+</div>
+<div class="page-footer"><a href="#check">← Перевірка</a><a href="#top">Усі розділи</a><a href="#top">До розділів →</a></div></section>
+<p class="footer">Основи програмування • 2026</p>
+</main>
+</div>
+<script src="../site.js"></script>
+</body>
+</html>

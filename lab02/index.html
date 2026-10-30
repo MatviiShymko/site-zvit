@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторна №2. Розгалужені обчислювальні процеси та логічні оператори</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-lab="2">
+<a class="skip" href="#content">Перейти до вмісту</a>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Основи<br>програмування<small>Шимко Матвій • ІПЗ-11(3)</small></div><nav aria-label="Лабораторні роботи"><a href="../index.html">Головна сторінка</a><div class="side-label">ЛАБОРАТОРНІ РОБОТИ</div><a href="../lab01/index.html">Лабораторна робота №1</a><a href="../lab02/index.html#top" data-nav="top">Лабораторна робота №2</a><nav class="subnav" aria-label="Розділи звіту"><a href="#goal" data-nav="goal">Мета</a><a href="#task" data-nav="task">Умови задач</a><a href="#analysis" data-nav="analysis">Аналіз задач</a><a href="#scheme" data-nav="scheme">Блок-схеми</a><a href="#code" data-nav="code">Тексти програм</a><a href="#results" data-nav="results">Результати</a><a href="#check" data-nav="check">Перевірка</a><a href="#conclusion" data-nav="conclusion">Висновки</a></nav><a href="../lab03/index.html">Лабораторна робота №3</a><a href="../lab04/index.html">Лабораторна робота №4</a><a href="../lab05/index.html">Лабораторна робота №5</a><a href="../lab06/index.html">Лабораторна робота №6</a><a href="../lab07/index.html">Лабораторна робота №7</a><a href="../lab08/index.html">Лабораторна робота №8</a><a href="../lab09/index.html">Лабораторна робота №9</a><a href="../lab10/index.html">Лабораторна робота №10</a><a href="../lab11/index.html">Лабораторна робота №11</a></nav></aside>
+<main id="content" class="main">
+<p id="crumb" class="crumb"></p>
+<section class="page" id="top" tabindex="-1"><header class="hero"><p class="eyebrow">Основи програмування</p><h1>Звіт до лабораторної роботи №2</h1><p>Розгалужені обчислювальні процеси та логічні оператори • Варіанти 6 і 10</p></header><div class="meta"><p><b>Студент:</b> Шимко Матвій Анатолійович</p>
+<p><b>Група:</b> ІПЗ-11(3), 1 курс, 2026 рік</p>
+<p><b>Дисципліна:</b> Основи програмування</p>
+<p><b>Викладач:</b> Ковалюк Тетяна Володимирівна</p></div><h2>Оберіть розділ звіту</h2><div class="menu-grid"><a class="menu-card" href="#goal"><span class="num">01</span><b>Мета</b></a><a class="menu-card" href="#task"><span class="num">02</span><b>Умови задач</b></a><a class="menu-card" href="#analysis"><span class="num">03</span><b>Аналіз задач</b></a><a class="menu-card" href="#scheme"><span class="num">04</span><b>Блок-схеми</b></a><a class="menu-card" href="#code"><span class="num">05</span><b>Тексти програм</b></a><a class="menu-card" href="#results"><span class="num">06</span><b>Результати</b></a><a class="menu-card" href="#check"><span class="num">07</span><b>Перевірка</b></a><a class="menu-card" href="#conclusion"><span class="num">08</span><b>Висновки</b></a></div></section>
+<section class="page" id="goal" tabindex="-1"><p class="eyebrow">Лабораторна робота №2 / 01 з 08</p><h2>1. Мета роботи</h2>
+<div class="card"><ul>
+<li>Вивчити особливості розгалужених обчислювальних процесів.</li>
+<li>Опанувати технологію використання логічних операторів.</li>
+</ul></div>
+<div class="page-footer"><a href="#top">← До розділів</a><a href="#top">Усі розділи</a><a href="#task">Умови задач →</a></div></section>
+<section class="page" id="task" tabindex="-1"><p class="eyebrow">Лабораторна робота №2 / 02 з 08</p><h2>2. Умови задач</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p>Варіант 6 (у таблиці 24 варіанти, 30 - 24 = 6).</p>
+<p>Визначити значення функції в залежності від значення її аргументів, які вводяться з
+клавіатури:</p>
+<div class="formula">f = b<sup>2</sup> / (10 - ab), якщо 0 &lt; ab &lt; 10<br>
+f = 10a<sup>2</sup> / b, якщо ab &gt; 10<br>
+f = 1, якщо ab = 0</div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 10</h3>
+<p>Варіант 10 (у таблиці 20 варіантів, 30 - 20 = 10).</p>
+<p>Точка площини задана декартовими координатами (x, y). Перевірити, чи належить вона:</p>
+<ul>
+<li>а) трикутнику з вершинами A(x<sub>1</sub>, y<sub>1</sub>), B(x<sub>2</sub>,
+y<sub>2</sub>), C(x<sub>3</sub>, y<sub>3</sub>), значення координат якого вводяться з
+клавіатури;</li>
+<li>в) багатокутнику з вершинами A<sub>1</sub>(x<sub>1</sub>, y<sub>1</sub>), ...,
+A<sub>n</sub>(x<sub>n</sub>, y<sub>n</sub>).</li>
+</ul>
+<p>Підпункти позначено так, як у методичці: пункту б) там немає.</p>
+</div>
+<div class="page-footer"><a href="#goal">← Мета</a><a href="#top">Усі розділи</a><a href="#analysis">Аналіз задач →</a></div></section>
+<section class="page" id="analysis" tabindex="-1"><p class="eyebrow">Лабораторна робота №2 / 03 з 08</p><h2>3. Аналіз задач</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p>Вхідні дані: дійсні числа a і b (<code>float</code>). Формула залежить від добутку ab, тому
+програма рахує його один раз і зберігає в окремій змінній. </p>
+<p>Умова описує лише три випадки. Для ab &lt; 0 і ab = 10 формули немає, тому програма виводить
+повідомлення, що функція не визначена. В інших випадках вкладені <code>if</code> вибирають одну з
+трьох формул. За першої формули знаменник 10 - ab додатний. За другої ab &gt; 10, тому b не дорівнює
+нулю.</p>
+<p>Якщо введено не число, a і b вводяться знову, так само як у першій лабораторній.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 10: трикутник</h3>
+<p>Площа трикутника за координатами вершин:</p>
+<div class="formula">S = |(x<sub>2</sub> - x<sub>1</sub>)(y<sub>3</sub> - y<sub>1</sub>) -
+(x<sub>3</sub> - x<sub>1</sub>)(y<sub>2</sub> - y<sub>1</sub>)| / 2</div>
+<p>Точка P з'єднується з вершинами, і виходять три менші трикутники PAB, PBC, PCA. Якщо P всередині
+або на стороні, сума їхніх площ дорівнює S. Якщо P зовні, сума більша за S. Дробові числа
+зберігаються наближено, тому сума порівнюється з S із допуском:
+|сума - S| ≤ 10<sup>-5</sup> · S.</p>
+<p>Якщо вершини лежать на одній прямій, трикутника немає. Тоді програма виводить повідомлення і
+переходить до багатокутника. Цю перевірку робить функція <code>isOnOneLine</code>: вона порівнює
+два добутки з формули площі, теж із допуском.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 10: багатокутник</h3>
+<p>Масиви вивчаються пізніше, тому вершини не зберігаються. Вони вводяться в циклі по одній, а
+програма пам'ятає тільки першу й попередню. Кожна нова вершина разом із попередньою дає сторону, яка
+відразу обробляється. Після циклу обробляється остання сторона, від n-ої вершини до першої.</p>
+<p>З точки проводиться горизонтальний промінь праворуч. Якщо кількість його перетинів зі сторонами
+непарна, точка всередині, а якщо парна, то зовні. Для сторони з кінцями
+(x<sub>1</sub>, y<sub>1</sub>) і (x<sub>2</sub>, y<sub>2</sub>) перетин є тоді, коли y лежить між
+y<sub>1</sub> і y<sub>2</sub>, а абсциса перетину більша за x:</p>
+<div class="formula">c = x<sub>1</sub> + (y - y<sub>1</sub>)(x<sub>2</sub> - x<sub>1</sub>) /
+(y<sub>2</sub> - y<sub>1</sub>)</div>
+<p>Нижній кінець сторони враховується, а верхній ні: умова має вигляд
+y<sub>1</sub> ≤ y &lt; y<sub>2</sub> або y<sub>2</sub> ≤ y &lt; y<sub>1</sub>. Так вершина на рівні
+променя не дає зайвого перетину. </p>
+<p>Точка на стороні теж належить багатокутнику. Для кожної сторони програма перевіряє, чи лежить точка
+на прямій цієї сторони (<code>isOnOneLine</code>) і між її кінцями.</p>
+<p>Багатокутник вважається простим, тобто його сторони не перетинаються між собою. Вершини вводяться в порядку обходу.
+Кількість вершин має бути цілим числом, не менше 3. Якщо введено щось інше, програма просить увести
+ще раз. Те саме з координатами.</p>
+</div>
+
+<div class="task">
+<h3>Структура програм</h3>
+<p>Завдання 1 складається лише з функції <code>main</code>, а в завданні 2 є допоміжні функції.</p>
+<p class="tcap">Таблиця 1 - Функції програми task2.cpp</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків, введення координат точки</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputCoordinate</code></td><td>введення однієї координати з перевіркою</td></tr>
+<tr><td><code>calculateArea</code></td><td>обчислення площі трикутника за координатами вершин</td></tr>
+<tr><td><code>isOnOneLine</code></td><td>перевірка, чи лежать три точки на одній прямій</td></tr>
+<tr><td><code>checkTriangle</code></td><td>введення вершин і перевірка точки для трикутника</td></tr>
+<tr><td><code>checkSide</code></td><td>обробка однієї сторони: точка на стороні, перетин із променем</td></tr>
+<tr><td><code>checkPolygon</code></td><td>введення вершин і перевірка точки для багатокутника</td></tr>
+</table></div>
+<p>Джерела: Ковалюк Т.В. Алгоритмізація та програмування, 2024; Ковалюк Т.В.,
+Петрівський В.Я. Гарний стиль програмування мовами C, C++, C#, 2025; Кормен Т. та ін.
+Алгоритми: побудова і аналіз (розділ про обчислювальну геометрію).</p>
+</div>
+<div class="page-footer"><a href="#task">← Умови задач</a><a href="#top">Усі розділи</a><a href="#scheme">Блок-схеми →</a></div></section>
+<section class="page" id="scheme" tabindex="-1"><p class="eyebrow">Лабораторна робота №2 / 04 з 08</p><h2>4. Блок-схеми алгоритмів</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<figure class="fc"><a href="img/task1-fc-main.svg"><img src="img/task1-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 1 - Блок-схема функції <code>main</code> (головна функція: обчислення значення функції f)</figcaption></figure>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 10</h3>
+<figure class="fc"><a href="img/task2-fc-welcome.svg"><img src="img/task2-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 2 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputCoordinate.svg"><img src="img/task2-fc-inputCoordinate.svg" alt="" loading="lazy"></a><figcaption>Рисунок 3 - Блок-схема функції <code>inputCoordinate</code> (введення однієї координати з перевіркою)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-calculateArea.svg"><img src="img/task2-fc-calculateArea.svg" alt="" loading="lazy"></a><figcaption>Рисунок 4 - Блок-схема функції <code>calculateArea</code> (обчислення площі трикутника за координатами вершин)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-isOnOneLine.svg"><img src="img/task2-fc-isOnOneLine.svg" alt="" loading="lazy"></a><figcaption>Рисунок 5 - Блок-схема функції <code>isOnOneLine</code> (перевірка, чи лежать три точки на одній прямій)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-checkTriangle.svg"><img src="img/task2-fc-checkTriangle.svg" alt="" loading="lazy"></a><figcaption>Рисунок 6 - Блок-схема функції <code>checkTriangle</code> (введення вершин і перевірка належності точки трикутнику)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-checkSide.svg"><img src="img/task2-fc-checkSide.svg" alt="" loading="lazy"></a><figcaption>Рисунок 7 - Блок-схема функції <code>checkSide</code> (обробка однієї сторони багатокутника)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-checkPolygon.svg"><img src="img/task2-fc-checkPolygon.svg" alt="" loading="lazy"></a><figcaption>Рисунок 8 - Блок-схема функції <code>checkPolygon</code> (введення вершин і перевірка належності точки багатокутнику)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-main.svg"><img src="img/task2-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 9 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="page-footer"><a href="#analysis">← Аналіз задач</a><a href="#top">Усі розділи</a><a href="#code">Тексти програм →</a></div></section>
+<section class="page" id="code" tabindex="-1"><p class="eyebrow">Лабораторна робота №2 / 05 з 08</p><h2>5. Тексти програм</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p class="file">Файл <a href="task1.cpp" download>task1.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task1.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 2</span>
+<span class="cm">// Запланована ціль: лабораторна робота №2, завдання 1, варіант 6.</span>
+<span class="cm">//                   Обчислити значення функції f, формула якої</span>
+<span class="cm">//                   залежить від добутку ab.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">float</span> BORDER = <span class="nm">10</span>;     <span class="cm">// межа добутку ab з умови</span>
+<span class="kw">const</span> <span class="kw">float</span> MULTIPLIER = <span class="nm">10</span>; <span class="cm">// множник у формулі 10a^2 / b</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">float</span> a = <span class="nm">0</span>;       <span class="cm">// перший аргумент</span>
+<span class="kw">float</span> b = <span class="nm">0</span>;       <span class="cm">// другий аргумент</span>
+<span class="kw">float</span> product = <span class="nm">0</span>; <span class="cm">// добуток ab</span>
+<span class="kw">float</span> value = <span class="nm">0</span>;   <span class="cm">// значення функції f</span>
+
+<span class="cm">/*
+ * Функція вводить a і b, вибирає формулу за значенням добутку ab
+ * і виводить значення f. Для ab &lt; 0 і ab = 10 функція не визначена
+ * Параметри: немає
+ * Значення, що повертаються: 0
+ */</span>
+<span class="kw">int</span> main()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 2. Task 1. Variant 6.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Calculate the function&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;     b^2 / (10 - ab),  0 &lt; ab &lt; 10&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;f =  10a^2 / b,        ab &gt; 10&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;     1,                ab = 0&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Enter a and b: &quot;</span>;
+    cin &gt;&gt; a &gt;&gt; b;
+    <span class="kw">while</span> (cin.fail())
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter two numbers: &quot;</span>;
+        cin &gt;&gt; a &gt;&gt; b;
+    }
+
+    product = a * b;
+    cout &lt;&lt; <span class="st">&quot;ab = &quot;</span> &lt;&lt; product &lt;&lt; endl;
+
+    <span class="kw">if</span> (product &lt; <span class="nm">0</span> || product == BORDER)
+    {
+        cout &lt;&lt; <span class="st">&quot;The function is not defined for these a and b.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        <span class="kw">if</span> (product == <span class="nm">0</span>)
+        {
+            value = <span class="nm">1</span>;
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (product &lt; BORDER)
+        {
+            value = b * b / (BORDER - product);
+        }
+        <span class="kw">else</span>
+        {
+            value = MULTIPLIER * a * a / b;
+        }
+
+        cout &lt;&lt; <span class="st">&quot;f = &quot;</span> &lt;&lt; value &lt;&lt; endl;
+    }
+
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 10</h3>
+<p class="file">Файл <a href="task2.cpp" download>task2.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task2.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 2</span>
+<span class="cm">// Запланована ціль: лабораторна робота №2, завдання 2, варіант 10.</span>
+<span class="cm">//                   Перевірити, чи належить точка площини трикутнику</span>
+<span class="cm">//                   і багатокутнику, вершини яких вводяться.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cmath&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MIN_VERTICES = <span class="nm">3</span>;      <span class="cm">// найменша кількість вершин багатокутника</span>
+<span class="kw">const</span> <span class="kw">float</span> ACCURACY = <span class="nm">0</span>.00001f; <span class="cm">// відносний допуск порівняння чисел float</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">float</span> pointX = <span class="nm">0</span>;       <span class="cm">// абсциса точки, що перевіряється</span>
+<span class="kw">float</span> pointY = <span class="nm">0</span>;       <span class="cm">// ордината точки, що перевіряється</span>
+<span class="kw">float</span> vertexAX = <span class="nm">0</span>;     <span class="cm">// абсциса вершини A трикутника</span>
+<span class="kw">float</span> vertexAY = <span class="nm">0</span>;     <span class="cm">// ордината вершини A</span>
+<span class="kw">float</span> vertexBX = <span class="nm">0</span>;     <span class="cm">// абсциса вершини B</span>
+<span class="kw">float</span> vertexBY = <span class="nm">0</span>;     <span class="cm">// ордината вершини B</span>
+<span class="kw">float</span> vertexCX = <span class="nm">0</span>;     <span class="cm">// абсциса вершини C</span>
+<span class="kw">float</span> vertexCY = <span class="nm">0</span>;     <span class="cm">// ордината вершини C</span>
+<span class="kw">float</span> triangleArea = <span class="nm">0</span>; <span class="cm">// площа трикутника ABC</span>
+<span class="kw">float</span> areasSum = <span class="nm">0</span>;     <span class="cm">// сума площ PAB, PBC, PCA</span>
+<span class="kw">int</span> vertexCount = <span class="nm">0</span>;    <span class="cm">// кількість вершин багатокутника</span>
+<span class="kw">float</span> startX = <span class="nm">0</span>;       <span class="cm">// абсциса першої вершини багатокутника</span>
+<span class="kw">float</span> startY = <span class="nm">0</span>;       <span class="cm">// ордината першої вершини</span>
+<span class="kw">float</span> previousX = <span class="nm">0</span>;    <span class="cm">// абсциса попередньої вершини</span>
+<span class="kw">float</span> previousY = <span class="nm">0</span>;    <span class="cm">// ордината попередньої вершини</span>
+<span class="kw">float</span> currentX = <span class="nm">0</span>;     <span class="cm">// абсциса поточної вершини</span>
+<span class="kw">float</span> currentY = <span class="nm">0</span>;     <span class="cm">// ордината поточної вершини</span>
+<span class="kw">int</span> crossingCount = <span class="nm">0</span>;  <span class="cm">// кількість перетинів променя зі сторонами</span>
+<span class="kw">bool</span> isOnSide = <span class="kw">false</span>;  <span class="cm">// чи лежить точка на стороні багатокутника</span>
+<span class="kw">float</span> crossingX = <span class="nm">0</span>;    <span class="cm">// абсциса перетину сторони з променем</span>
+<span class="kw">int</span> i = <span class="nm">0</span>;              <span class="cm">// лічильник вершин</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 2. Task 2. Variant 10.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Check whether the point (x, y) belongs to&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;- the triangle A(x1, y1), B(x2, y2), C(x3, y3)&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;- the polygon A1(x1, y1), ..., An(xn, yn)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить одну координату. Якщо введено не число,
+ * введення повторюється. Підказку виводить той, хто її викликає
+ * Параметри: немає
+ * Значення, що повертаються: введена координата
+ */</span>
+<span class="kw">float</span> inputCoordinate()
+{
+    <span class="kw">float</span> coordinate = <span class="nm">0</span>;
+
+    cin &gt;&gt; coordinate;
+    <span class="kw">while</span> (cin.fail())
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter a number: &quot;</span>;
+        cin &gt;&gt; coordinate;
+    }
+
+    <span class="kw">return</span> coordinate;
+}
+
+<span class="cm">/*
+ * Функція обчислює площу трикутника за координатами його вершин
+ * Параметри: firstX, firstY, secondX, secondY, thirdX, thirdY - вершини
+ * Значення, що повертаються: площа трикутника
+ */</span>
+<span class="kw">float</span> calculateArea(<span class="kw">float</span> firstX,
+                    <span class="kw">float</span> firstY,
+                    <span class="kw">float</span> secondX,
+                    <span class="kw">float</span> secondY,
+                    <span class="kw">float</span> thirdX,
+                    <span class="kw">float</span> thirdY)
+{
+    <span class="kw">float</span> doubledArea = (secondX - firstX) * (thirdY - firstY)
+                        - (thirdX - firstX) * (secondY - firstY);
+
+    <span class="kw">return</span> fabs(doubledArea) / <span class="nm">2</span>;
+}
+
+<span class="cm">/*
+ * Функція перевіряє, чи лежать три точки на одній прямій. Для цього
+ * порівнює два добутки різниць координат: на одній прямій вони рівні.
+ * Допуск залежить від самих чисел, бо float має 6-7 значущих цифр
+ * Параметри: firstX, firstY, secondX, secondY, thirdX, thirdY - точки
+ * Значення, що повертаються: true, якщо точки лежать на одній прямій
+ */</span>
+<span class="kw">bool</span> isOnOneLine(<span class="kw">float</span> firstX,
+                 <span class="kw">float</span> firstY,
+                 <span class="kw">float</span> secondX,
+                 <span class="kw">float</span> secondY,
+                 <span class="kw">float</span> thirdX,
+                 <span class="kw">float</span> thirdY)
+{
+    <span class="kw">bool</span> isOnLine = <span class="kw">false</span>;
+    <span class="kw">float</span> firstProduct = (secondX - firstX) * (thirdY - firstY);
+    <span class="kw">float</span> secondProduct = (thirdX - firstX) * (secondY - firstY);
+
+    <span class="kw">if</span> (fabs(firstProduct - secondProduct)
+        &lt;= ACCURACY * (fabs(firstProduct) + fabs(secondProduct)))
+    {
+        isOnLine = <span class="kw">true</span>;
+    }
+
+    <span class="kw">return</span> isOnLine;
+}
+
+<span class="cm">/*
+ * Функція вводить вершини трикутника і перевіряє, чи належить йому
+ * точка: сума площ PAB, PBC, PCA має дорівнювати площі ABC
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> checkTriangle()
+{
+    cout &lt;&lt; <span class="st">&quot;Triangle&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Enter x and y of vertex A: &quot;</span>;
+    vertexAX = inputCoordinate();
+    vertexAY = inputCoordinate();
+    cout &lt;&lt; <span class="st">&quot;Enter x and y of vertex B: &quot;</span>;
+    vertexBX = inputCoordinate();
+    vertexBY = inputCoordinate();
+    cout &lt;&lt; <span class="st">&quot;Enter x and y of vertex C: &quot;</span>;
+    vertexCX = inputCoordinate();
+    vertexCY = inputCoordinate();
+
+    <span class="kw">if</span> (isOnOneLine(vertexAX, vertexAY, vertexBX, vertexBY, vertexCX, vertexCY))
+    {
+        cout &lt;&lt; <span class="st">&quot;The vertices lie on one line, it is not a triangle.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        triangleArea = calculateArea(vertexAX, vertexAY, vertexBX, vertexBY,
+                                     vertexCX, vertexCY);
+        areasSum = calculateArea(pointX, pointY, vertexAX, vertexAY, vertexBX,
+                                 vertexBY)
+                   + calculateArea(pointX, pointY, vertexBX, vertexBY, vertexCX,
+                                   vertexCY)
+                   + calculateArea(pointX, pointY, vertexCX, vertexCY, vertexAX,
+                                   vertexAY);
+
+        <span class="kw">if</span> (fabs(areasSum - triangleArea) &lt;= ACCURACY * triangleArea)
+        {
+            cout &lt;&lt; <span class="st">&quot;The point belongs to the triangle.&quot;</span> &lt;&lt; endl;
+        }
+        <span class="kw">else</span>
+        {
+            cout &lt;&lt; <span class="st">&quot;The point does not belong to the triangle.&quot;</span> &lt;&lt; endl;
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція обробляє одну сторону багатокутника: перевіряє, чи лежить
+ * на ній точка, і чи перетинає її промінь, що йде від точки праворуч.
+ * Нижній кінець сторони рахується, верхній ні, тому вершина на рівні
+ * променя не дає зайвого перетину
+ * Параметри: fromX, fromY, toX, toY - кінці сторони
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> checkSide(<span class="kw">float</span> fromX, <span class="kw">float</span> fromY, <span class="kw">float</span> toX, <span class="kw">float</span> toY)
+{
+    <span class="kw">if</span> (isOnOneLine(fromX, fromY, toX, toY, pointX, pointY)
+        &amp;&amp; (pointX - fromX) * (pointX - toX) &lt;= <span class="nm">0</span>
+        &amp;&amp; (pointY - fromY) * (pointY - toY) &lt;= <span class="nm">0</span>)
+    {
+        isOnSide = <span class="kw">true</span>;
+    }
+
+    <span class="kw">if</span> ((fromY &lt;= pointY &amp;&amp; toY &gt; pointY) || (toY &lt;= pointY &amp;&amp; fromY &gt; pointY))
+    {
+        crossingX = fromX + (pointY - fromY) * (toX - fromX) / (toY - fromY);
+
+        <span class="kw">if</span> (crossingX &gt; pointX)
+        {
+            crossingCount++;
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція вводить вершини багатокутника по одній і відразу обробляє
+ * кожну сторону. Пам&#x27;ятає лише першу й попередню вершини. Непарна
+ * кількість перетинів променя означає, що точка всередині
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> checkPolygon()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Polygon&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Enter the number of vertices n (at least 3): &quot;</span>;
+    cin &gt;&gt; vertexCount;
+    <span class="kw">while</span> (cin.fail() || vertexCount &lt; MIN_VERTICES)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter an integer n, at least 3: &quot;</span>;
+        cin &gt;&gt; vertexCount;
+    }
+
+    cout &lt;&lt; <span class="st">&quot;Enter x and y of vertex 1: &quot;</span>;
+    startX = inputCoordinate();
+    startY = inputCoordinate();
+    previousX = startX;
+    previousY = startY;
+
+    <span class="kw">for</span> (i = <span class="nm">2</span>; i &lt;= vertexCount; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot;Enter x and y of vertex &quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        currentX = inputCoordinate();
+        currentY = inputCoordinate();
+        checkSide(previousX, previousY, currentX, currentY);
+        previousX = currentX;
+        previousY = currentY;
+    }
+
+    checkSide(previousX, previousY, startX, startY); <span class="cm">// остання сторона</span>
+
+    <span class="kw">if</span> (isOnSide)
+    {
+        cout &lt;&lt; <span class="st">&quot;The point lies on a side, so it belongs to the polygon.&quot;</span>
+             &lt;&lt; endl;
+    }
+    <span class="kw">else</span> <span class="kw">if</span> (crossingCount % <span class="nm">2</span> == <span class="nm">1</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;The point is inside the polygon.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        cout &lt;&lt; <span class="st">&quot;The point is outside the polygon.&quot;</span> &lt;&lt; endl;
+    }
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+
+    cout &lt;&lt; <span class="st">&quot;Enter x and y of the point: &quot;</span>;
+    pointX = inputCoordinate();
+    pointY = inputCoordinate();
+    cout &lt;&lt; endl;
+
+    checkTriangle();
+    checkPolygon();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="page-footer"><a href="#scheme">← Блок-схеми</a><a href="#top">Усі розділи</a><a href="#results">Результати →</a></div></section>
+<section class="page" id="results" tabindex="-1"><p class="eyebrow">Лабораторна робота №2 / 06 з 08</p><h2>6. Результати виконання роботи</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<div class="result">
+<figure class="shot"><a href="img/task1-run-1.png"><img src="img/task1-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 10 - Випадок 0 < ab < 10: a = 2, b = 3</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-2.png"><img src="img/task1-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 11 - Випадок ab > 10: a = 4, b = 3</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-3.png"><img src="img/task1-run-3.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 12 - Випадок ab = 0: a = 0, b = 5</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-4.png"><img src="img/task1-run-4.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 13 - Некоректне введення (abc), далі ab = 10: функція не визначена</figcaption></figure>
+</div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 10</h3>
+<div class="result">
+<figure class="shot"><a href="img/task2-run-1.png"><img src="img/task2-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 14 - Точка всередині обох фігур (перед цим введено некоректні n: abc і 2)</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-2.png"><img src="img/task2-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 15 - Точка на стороні трикутника і на стороні квадрата</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-3.png"><img src="img/task2-run-3.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 16 - Неопуклий багатокутник: промінь іде через його вершини, точка всередині</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-4.png"><img src="img/task2-run-4.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 17 - Вершини A, B, C на одній прямій, точка у виїмці неопуклого багатокутника (перед цим літери замість числа)</figcaption></figure>
+</div>
+</div>
+<div class="page-footer"><a href="#code">← Тексти програм</a><a href="#top">Усі розділи</a><a href="#check">Перевірка →</a></div></section>
+<section class="page" id="check" tabindex="-1"><p class="eyebrow">Лабораторна робота №2 / 07 з 08</p><h2>7. Аналіз достовірності результатів</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p>Тести охоплюють усі гілки програми. Очікуване значення пораховано вручну за формулою умови.</p>
+<p class="tcap">Таблиця 2 - Ручні тести функції f</p>
+<div class="table-scroll"><table>
+<tr><th>a</th><th>b</th><th>ab</th><th>Випадок</th><th>Ручний розрахунок</th><th>Програма</th></tr>
+<tr><td>2</td><td>3</td><td>6</td><td>0 &lt; ab &lt; 10</td><td>9 / (10 - 6) = 2.25</td><td>f = 2.25</td></tr>
+<tr><td>1.5</td><td>2</td><td>3</td><td>0 &lt; ab &lt; 10</td><td>4 / 7 ≈ 0.571429</td><td>f = 0.571429</td></tr>
+<tr><td>4</td><td>3</td><td>12</td><td>ab &gt; 10</td><td>10 · 16 / 3 ≈ 53.3333</td><td>f = 53.3333</td></tr>
+<tr><td>-4</td><td>-3</td><td>12</td><td>ab &gt; 10</td><td>10 · 16 / (-3) ≈ -53.3333</td><td>f = -53.3333</td></tr>
+<tr><td>0.5</td><td>40</td><td>20</td><td>ab &gt; 10</td><td>10 · 0.25 / 40 = 0.0625</td><td>f = 0.0625</td></tr>
+<tr><td>0</td><td>5</td><td>0</td><td>ab = 0</td><td>1</td><td>f = 1</td></tr>
+<tr><td>5</td><td>0</td><td>0</td><td>ab = 0</td><td>1</td><td>f = 1</td></tr>
+<tr><td>2</td><td>5</td><td>10</td><td>ab = 10</td><td>не визначена</td><td>повідомлення</td></tr>
+<tr><td>2.5</td><td>4</td><td>10</td><td>ab = 10</td><td>не визначена</td><td>повідомлення</td></tr>
+<tr><td>-2</td><td>3</td><td>-6</td><td>ab &lt; 0</td><td>не визначена</td><td>повідомлення</td></tr>
+</table></div>
+<p>Якщо ввести abc, програма виводить <code>Error! Enter two numbers:</code> і чекає на
+нове введення.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 10: трикутник</h3>
+<p>Площі для кожного тесту пораховано вручну за формулою з аналізу.</p>
+<p class="tcap">Таблиця 3 - Ручні тести для трикутника</p>
+<div class="table-scroll"><table>
+<tr><th>Вершини</th><th>Точка</th><th>PAB + PBC + PCA</th><th>S</th><th>Очікувано</th><th>Програма</th></tr>
+<tr><td>(0, 0), (4, 0), (0, 4)</td><td>(1, 1)</td><td>2 + 4 + 2 = 8</td><td>8</td><td>належить</td><td>belongs</td></tr>
+<tr><td>(0, 0), (4, 0), (0, 4)</td><td>(2, 0), на стороні</td><td>0 + 4 + 4 = 8</td><td>8</td><td>належить</td><td>belongs</td></tr>
+<tr><td>(0, 0), (4, 0), (0, 4)</td><td>(0, 0), вершина</td><td>0 + 8 + 0 = 8</td><td>8</td><td>належить</td><td>belongs</td></tr>
+<tr><td>(0, 0), (4, 0), (0, 4)</td><td>(3, 3)</td><td>6 + 4 + 6 = 16</td><td>8</td><td>не належить</td><td>does not belong</td></tr>
+<tr><td>(0, 0), (4, 0), (0, 4)</td><td>(-1, 1)</td><td>2 + 8 + 2 = 12</td><td>8</td><td>не належить</td><td>does not belong</td></tr>
+<tr><td>(1, 0), (5, 1), (1, 4)</td><td>(1, 2), на стороні</td><td>4 + 4 + 0 = 8</td><td>8</td><td>належить</td><td>belongs</td></tr>
+<tr><td>(0, 0), (1, 1), (2, 2)</td><td>(3, 3)</td><td>-</td><td>0</td><td>не трикутник</td><td>повідомлення</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 10: багатокутник</h3>
+<p>Перетини променя підраховано вручну за малюнком. Квадрат має вершини (0, 0), (4, 0),
+(4, 4), (0, 4). Неопуклий багатокутник у формі літери L має вершини (0, 0), (4, 0), (4, 2),
+(2, 2), (2, 4), (0, 4).</p>
+<p class="tcap">Таблиця 4 - Ручні тести для багатокутника</p>
+<div class="table-scroll"><table>
+<tr><th>Багатокутник</th><th>Точка</th><th>Перетини праворуч від точки</th><th>Очікувано</th><th>Програма</th></tr>
+<tr><td>квадрат</td><td>(1, 1)</td><td>1 (сторона x = 4)</td><td>всередині</td><td>inside</td></tr>
+<tr><td>квадрат, вершини в оберненому порядку</td><td>(1, 1)</td><td>1</td><td>всередині</td><td>inside</td></tr>
+<tr><td>квадрат</td><td>(3, 3)</td><td>1</td><td>всередині</td><td>inside</td></tr>
+<tr><td>квадрат</td><td>(2, 0)</td><td>точка на стороні</td><td>належить</td><td>lies on a side</td></tr>
+<tr><td>квадрат</td><td>(0, 0)</td><td>точка у вершині</td><td>належить</td><td>lies on a side</td></tr>
+<tr><td>квадрат</td><td>(-1, 1)</td><td>2 (x = 0 і x = 4)</td><td>зовні</td><td>outside</td></tr>
+<tr><td>L</td><td>(1, 2)</td><td>1 (сторона x = 2), промінь іде через вершини (2, 2) і (4, 2)</td><td>всередині</td><td>inside</td></tr>
+<tr><td>L</td><td>(3, 1)</td><td>1 (сторона x = 4)</td><td>всередині</td><td>inside</td></tr>
+<tr><td>L</td><td>(3, 3)</td><td>0</td><td>зовні</td><td>outside</td></tr>
+<tr><td>L</td><td>(5, 2)</td><td>0</td><td>зовні</td><td>outside</td></tr>
+<tr><td>L</td><td>(3, 2)</td><td>точка на стороні</td><td>належить</td><td>lies on a side</td></tr>
+</table></div>
+<p>Якщо ввести abc або 2 замість кількості вершин, програма виводить
+<code>Error! Enter an integer n, at least 3:</code>. Літери замість координати дають
+<code>Error! Enter a number:</code>. У всіх тестах результат програми збігся з очікуваним.</p>
+</div>
+<div class="page-footer"><a href="#results">← Результати</a><a href="#top">Усі розділи</a><a href="#conclusion">Висновки →</a></div></section>
+<section class="page" id="conclusion" tabindex="-1"><p class="eyebrow">Лабораторна робота №2 / 08 з 08</p><h2>8. Висновки</h2>
+<div class="card">
+<p>Розроблено дві програми з розгалуженнями, у них застосовано вкладені конструкції <code>if</code> і
+логічні оператори <code>&amp;&amp;</code> та <code>||</code>. Перша вибирає формулу за значенням
+добутку ab і повідомляє, коли функція не визначена. Друга перевіряє точку для трикутника через суму
+площ, а для простого багатокутника через кількість перетинів променя зі сторонами. Масиви ще не вивчалися, тому кожна сторона обробляється відразу під час введення. Усі ручні тести дали очікувані результати.</p>
+</div>
+<div class="page-footer"><a href="#check">← Перевірка</a><a href="#top">Усі розділи</a><a href="#top">До розділів →</a></div></section>
+<p class="footer">Основи програмування • 2026</p>
+</main>
+</div>
+<script src="../site.js"></script>
+</body>
+</html>

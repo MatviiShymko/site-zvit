@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторна №4. Рекурентні співвідношення. Степеневі ряди. Ланцюгові дроби</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-lab="4">
+<a class="skip" href="#content">Перейти до вмісту</a>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Основи<br>програмування<small>Шимко Матвій • ІПЗ-11(3)</small></div><nav aria-label="Лабораторні роботи"><a href="../index.html">Головна сторінка</a><div class="side-label">ЛАБОРАТОРНІ РОБОТИ</div><a href="../lab01/index.html">Лабораторна робота №1</a><a href="../lab02/index.html">Лабораторна робота №2</a><a href="../lab03/index.html">Лабораторна робота №3</a><a href="../lab04/index.html#top" data-nav="top">Лабораторна робота №4</a><nav class="subnav" aria-label="Розділи звіту"><a href="#goal" data-nav="goal">Мета</a><a href="#task" data-nav="task">Умови задач</a><a href="#analysis" data-nav="analysis">Аналіз задач</a><a href="#scheme" data-nav="scheme">Блок-схеми</a><a href="#code" data-nav="code">Тексти програм</a><a href="#results" data-nav="results">Результати</a><a href="#check" data-nav="check">Перевірка</a><a href="#conclusion" data-nav="conclusion">Висновки</a></nav><a href="../lab05/index.html">Лабораторна робота №5</a><a href="../lab06/index.html">Лабораторна робота №6</a><a href="../lab07/index.html">Лабораторна робота №7</a><a href="../lab08/index.html">Лабораторна робота №8</a><a href="../lab09/index.html">Лабораторна робота №9</a><a href="../lab10/index.html">Лабораторна робота №10</a><a href="../lab11/index.html">Лабораторна робота №11</a></nav></aside>
+<main id="content" class="main">
+<p id="crumb" class="crumb"></p>
+<section class="page" id="top" tabindex="-1"><header class="hero"><p class="eyebrow">Основи програмування</p><h1>Звіт до лабораторної роботи №4</h1><p>Рекурентні співвідношення. Степеневі ряди. Ланцюгові дроби • Варіант 6</p></header><div class="meta"><p><b>Студент:</b> Шимко Матвій Анатолійович</p>
+<p><b>Група:</b> ІПЗ-11(3), 1 курс, 2026 рік</p>
+<p><b>Дисципліна:</b> Основи програмування</p>
+<p><b>Викладач:</b> Ковалюк Тетяна Володимирівна</p></div><h2>Оберіть розділ звіту</h2><div class="menu-grid"><a class="menu-card" href="#goal"><span class="num">01</span><b>Мета</b></a><a class="menu-card" href="#task"><span class="num">02</span><b>Умови задач</b></a><a class="menu-card" href="#analysis"><span class="num">03</span><b>Аналіз задач</b></a><a class="menu-card" href="#scheme"><span class="num">04</span><b>Блок-схеми</b></a><a class="menu-card" href="#code"><span class="num">05</span><b>Тексти програм</b></a><a class="menu-card" href="#results"><span class="num">06</span><b>Результати</b></a><a class="menu-card" href="#check"><span class="num">07</span><b>Перевірка</b></a><a class="menu-card" href="#conclusion"><span class="num">08</span><b>Висновки</b></a></div></section>
+<section class="page" id="goal" tabindex="-1"><p class="eyebrow">Лабораторна робота №4 / 01 з 08</p><h2>1. Мета роботи</h2>
+<div class="card"><ul>
+<li>Вивчити особливості циклічних обчислювальних процесів з розгалуженнями.</li>
+<li>Опанувати технологію рекурентних обчислень.</li>
+<li>Навчитися розробляти алгоритми та програми розвинення функцій у ряди.</li>
+</ul></div>
+<div class="page-footer"><a href="#top">← До розділів</a><a href="#top">Усі розділи</a><a href="#task">Умови задач →</a></div></section>
+<section class="page" id="task" tabindex="-1"><p class="eyebrow">Лабораторна робота №4 / 02 з 08</p><h2>2. Умови задач</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p>Варіант 6 (у таблиці 24 варіанти, 30 - 24 = 6).</p>
+<p>Обчислити значення функції y, розвинувши функцію cos(x) у ряд Тейлора. Визначити похибку.</p>
+<div class="formula">y = cos<sup>2</sup>(x) · cos(x<sup>2</sup>), &nbsp; -1 ≤ x ≤ 1<br>
+y = cos(x/2) / cos(x + 0.5), &nbsp; 1 ≤ x ≤ 2</div>
+<p>Вимоги до програми:</p>
+<ul>
+<li>параметр функції змінюється від заданого з клавіатури мінімального значення до заданого
+максимального значення із певним кроком;</li>
+<li>розвинення в ряд виконується із заданою з клавіатури точністю, яка вводиться дробовим числом
+у діапазоні від 10<sup>-2</sup> до 10<sup>-6</sup>;</li>
+<li>для розвинення функції в ряд створити власну функцію, яка рахує суму ряду за рекурентним
+співвідношенням, функції для обчислення факторіала і степеня не використовувати;</li>
+<li>стандартне значення функції обчислювати за допомогою бібліотечних математичних функцій;</li>
+<li>результати вивести таблицею з колонками "значення аргумента x", "значення функції y",
+"стандартне значення функції", "похибка";</li>
+<li>якщо для вибраного значення аргумента функція не визначена, друкувати повідомлення
+"function is not defined".</li>
+</ul>
+<p>Варіант без зірочки, тому потрібна одна функція користувача для ряду.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<p>Варіант 6 (у таблиці 24 варіанти, 30 - 24 = 6).</p>
+<p>Обчислити нескінченний ланцюговий дріб, задавши точність обчислення (10<sup>-5</sup>) з
+клавіатури. Ланцюговий дріб виражає число √3:</p>
+<div class="formula">√3 = 1 + 1 / (1 + 1 / (2 + 1 / (1 + 1 / (2 + ...))))</div>
+</div>
+<div class="page-footer"><a href="#goal">← Мета</a><a href="#top">Усі розділи</a><a href="#analysis">Аналіз задач →</a></div></section>
+<section class="page" id="analysis" tabindex="-1"><p class="eyebrow">Лабораторна робота №4 / 03 з 08</p><h2>3. Аналіз задач</h2>
+<div class="task">
+<h3>Завдання 1 - ряд для косинуса</h3>
+<p>Ряд для косинуса взято з таблиці 4.1 (рядок 6):</p>
+<div class="formula">cos x = 1 - x<sup>2</sup>/2! + x<sup>4</sup>/4! - x<sup>6</sup>/6! + ...</div>
+<p>Рекурентної формули там немає, тому її виведено так само, як у прикладі для sin x з методички: наступний
+член ділиться на попередній. Для члена з номером n маємо
+a<sub>n</sub> = (-1)<sup>n</sup> · t<sup>2n</sup> / (2n)!, де t є аргументом косинуса. Після
+скорочення лишається:</p>
+<div class="formula">a<sub>0</sub> = 1, &nbsp;&nbsp;
+a<sub>n</sub> = -a<sub>n-1</sub> · t<sup>2</sup> / ((2n - 1) · 2n)</div>
+<p>Сума накопичується, поки модуль поточного члена більший за точність ε. Функція <code>calculateCos</code> викликається для різних аргументів
+(x, x<sup>2</sup>, x / 2, x + 0.5), тому аргумент передається параметром.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 1 - вибір формули</h3>
+<p>Точка x = 1 належить обом проміжкам, а значення формул різні: 0.1577 і 12.4. У програмі першою
+перевіряється перша формула, тому при x = 1 діє вона. Якщо x поза проміжком від -1 до 2, функція не
+задана, і в рядку таблиці друкується "function is not defined".</p>
+<p>Таке саме повідомлення виводиться біля нуля знаменника. На проміжку від 1 до 2 вираз cos(x + 0.5)
+дорівнює нулю при x = π/2 - 0.5 ≈ 1.0708. Модуль знаменника менший за 0.0001 вважається нулем.
+Перевіряються обидва знаменники, через ряд і через бібліотечну функцію.</p>
+<p>Похибка в таблиці є модулем різниці |y - стандартне значення|, як у прикладі методички.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 1 - кроки по x і введення</h3>
+<p>Спочатку рахується кількість кроків, а x знаходиться через номер кроку:
+x = x<sub>min</sub> + i · крок. Так похибка <code>float</code> не накопичується і останнє значення
+не втрачається. До частки (x<sub>max</sub> - x<sub>min</sub>) / крок додається поправка 0.001.
+Межі проміжків теж перевіряються з поправкою, 0.00001: при x<sub>min</sub> = -1.1 і кроці 0.1
+значення, що мало б дорівнювати 1, у <code>float</code> виходить 1.0000001.</p>
+<p>Однакове введення повторюється чотири рази, тому воно винесене у функцію <code>inputNumber</code>
+з межами в параметрах. Якщо введено не число або число поза межами, програма повідомляє про помилку
+і просить увести ще раз. Межі такі: x<sub>min</sub> від -10 до 10, x<sub>max</sub> від
+x<sub>min</sub> до 10, крок від 0.01 до 10, точність від 10<sup>-6</sup> до 10<sup>-2</sup>.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 1 - структура програми</h3>
+<p class="tcap">Таблиця 1 - Функції програми завдання 1</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputNumber</code></td><td>введення дійсного числа з перевіркою меж</td></tr>
+<tr><td><code>inputData</code></td><td>введення меж x, кроку і точності</td></tr>
+<tr><td><code>calculateCos</code></td><td>сума ряду для косинуса за рекурентною формулою</td></tr>
+<tr><td><code>calculateFunction</code></td><td>вибір формули, обчислення y і стандартного значення для поточного x</td></tr>
+<tr><td><code>printTable</code></td><td>цикл по x і виведення таблиці</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - метод</h3>
+<p>Дріб із n рівнями рахується знизу вгору: береться найнижчий знаменник, а далі кожен рівень дорівнює
+своєму цілому числу плюс 1, поділене на значення рівня під ним:</p>
+<div class="formula">v = a<sub>i</sub> + 1 / v, &nbsp;&nbsp; i = n - 1, ..., 1 &nbsp;&nbsp;
+значення дробу = 1 + 1 / v</div>
+<p>Числа a<sub>i</sub> чергуються: для непарного i це 1, для парного 2. Найнижчий знаменник
+a<sub>n</sub> вибирається так само.</p>
+<p>Дріб нескінченний, тому кількість рівнів збільшується, поки два сусідні значення не стануть
+ближчими за ε: |c<sub>n</sub> - c<sub>n-1</sub>| ≤ ε. Значення по черзі стають то більшими, то
+меншими за √3 (2, 1.667, 1.75, 1.727, ...), тому справжня похибка менша за останню різницю.</p>
+<p>Точність вводиться від 10<sup>-5</sup> до 0.1. Якщо введено не число або число поза межами,
+введення повторюється.</p>
+<p class="tcap">Таблиця 2 - Функції програми завдання 2</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputAccuracy</code></td><td>введення точності з перевіркою</td></tr>
+<tr><td><code>calculateFraction</code></td><td>обчислення дробу із заданою кількістю рівнів</td></tr>
+<tr><td><code>calculateRoot</code></td><td>збільшення кількості рівнів до заданої точності, таблиця</td></tr>
+<tr><td><code>printResult</code></td><td>виведення результату і порівняння з <code>sqrt(3)</code></td></tr>
+</table></div>
+<p>Джерела: Ковалюк Т.В. Алгоритмізація та програмування, 2024; Ковалюк Т.В.,
+Петрівський В.Я. Гарний стиль програмування мовами C, C++, C#, 2025.</p>
+</div>
+<div class="page-footer"><a href="#task">← Умови задач</a><a href="#top">Усі розділи</a><a href="#scheme">Блок-схеми →</a></div></section>
+<section class="page" id="scheme" tabindex="-1"><p class="eyebrow">Лабораторна робота №4 / 04 з 08</p><h2>4. Блок-схеми алгоритмів</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<figure class="fc"><a href="img/task1-fc-welcome.svg"><img src="img/task1-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 1 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputNumber.svg"><img src="img/task1-fc-inputNumber.svg" alt="" loading="lazy"></a><figcaption>Рисунок 2 - Блок-схема функції <code>inputNumber</code> (введення дійсного числа з перевіркою меж)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputData.svg"><img src="img/task1-fc-inputData.svg" alt="" loading="lazy"></a><figcaption>Рисунок 3 - Блок-схема функції <code>inputData</code> (введення меж зміни x, кроку і точності)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-calculateCos.svg"><img src="img/task1-fc-calculateCos.svg" alt="" loading="lazy"></a><figcaption>Рисунок 4 - Блок-схема функції <code>calculateCos</code> (обчислення косинуса аргументу t через ряд Тейлора)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-calculateFunction.svg"><img src="img/task1-fc-calculateFunction.svg" alt="" loading="lazy"></a><figcaption>Рисунок 5 - Блок-схема функції <code>calculateFunction</code> (обчислення значення функції і стандартного значення)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printTable.svg"><img src="img/task1-fc-printTable.svg" alt="" loading="lazy"></a><figcaption>Рисунок 6 - Блок-схема функції <code>printTable</code> (обчислення значень x і виведення таблиці)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-main.svg"><img src="img/task1-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 7 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<figure class="fc"><a href="img/task2-fc-welcome.svg"><img src="img/task2-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 8 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputAccuracy.svg"><img src="img/task2-fc-inputAccuracy.svg" alt="" loading="lazy"></a><figcaption>Рисунок 9 - Блок-схема функції <code>inputAccuracy</code> (введення точності з перевіркою)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-calculateFraction.svg"><img src="img/task2-fc-calculateFraction.svg" alt="" loading="lazy"></a><figcaption>Рисунок 10 - Блок-схема функції <code>calculateFraction</code> (обчислення дробу із заданою кількістю рівнів)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-calculateRoot.svg"><img src="img/task2-fc-calculateRoot.svg" alt="" loading="lazy"></a><figcaption>Рисунок 11 - Блок-схема функції <code>calculateRoot</code> (обчислення дробу із заданою точністю і виведення таблиці)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-printResult.svg"><img src="img/task2-fc-printResult.svg" alt="" loading="lazy"></a><figcaption>Рисунок 12 - Блок-схема функції <code>printResult</code> (порівняння результату зі значенням кореня)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-main.svg"><img src="img/task2-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 13 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="page-footer"><a href="#analysis">← Аналіз задач</a><a href="#top">Усі розділи</a><a href="#code">Тексти програм →</a></div></section>
+<section class="page" id="code" tabindex="-1"><p class="eyebrow">Лабораторна робота №4 / 05 з 08</p><h2>5. Тексти програм</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p class="file">Файл <a href="task1.cpp" download>task1.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task1.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №4, завдання 1, варіант 6.</span>
+<span class="cm">//                   Обчислити кусково задану функцію, розвинувши</span>
+<span class="cm">//                   cos(x) у ряд Тейлора, і вивести таблицю.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cmath&gt;</span>
+<span class="pp">#include &lt;iomanip&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">float</span> MIN_X = -<span class="nm">10</span>;                <span class="cm">// найменше значення аргументу</span>
+<span class="kw">const</span> <span class="kw">float</span> MAX_X = <span class="nm">10</span>;                 <span class="cm">// найбільше значення аргументу</span>
+<span class="kw">const</span> <span class="kw">float</span> MIN_STEP = <span class="nm">0</span>.01f;           <span class="cm">// найменший крок</span>
+<span class="kw">const</span> <span class="kw">float</span> MAX_STEP = <span class="nm">10</span>;              <span class="cm">// найбільший крок</span>
+<span class="kw">const</span> <span class="kw">float</span> MIN_ACCURACY = <span class="nm">0</span>.000001f;   <span class="cm">// найменша точність</span>
+<span class="kw">const</span> <span class="kw">float</span> MAX_ACCURACY = <span class="nm">0</span>.01f;       <span class="cm">// найбільша точність</span>
+<span class="kw">const</span> <span class="kw">float</span> MIN_DENOMINATOR = <span class="nm">0</span>.0001f;  <span class="cm">// менший модуль вважається нулем</span>
+<span class="kw">const</span> <span class="kw">float</span> STEP_ROUNDING = <span class="nm">0</span>.001f;     <span class="cm">// поправка до кількості кроків</span>
+<span class="kw">const</span> <span class="kw">float</span> BORDER_ROUNDING = <span class="nm">0</span>.00001f; <span class="cm">// поправка до меж проміжків</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">float</span> minX = <span class="nm">0</span>;          <span class="cm">// початкове значення x</span>
+<span class="kw">float</span> maxX = <span class="nm">0</span>;          <span class="cm">// кінцеве значення x</span>
+<span class="kw">float</span> step = <span class="nm">0</span>;          <span class="cm">// крок зміни x</span>
+<span class="kw">float</span> accuracy = <span class="nm">0</span>;      <span class="cm">// точність ряду</span>
+<span class="kw">float</span> x = <span class="nm">0</span>;             <span class="cm">// поточне значення аргументу</span>
+<span class="kw">float</span> y = <span class="nm">0</span>;             <span class="cm">// значення функції через ряд</span>
+<span class="kw">float</span> standardValue = <span class="nm">0</span>; <span class="cm">// значення через бібліотечні функції</span>
+<span class="kw">float</span> deviation = <span class="nm">0</span>;     <span class="cm">// похибка</span>
+<span class="kw">int</span> stepCount = <span class="nm">0</span>;       <span class="cm">// кількість кроків</span>
+<span class="kw">bool</span> isDefined = <span class="kw">true</span>;   <span class="cm">// чи визначена функція в точці x</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 4. Task 1. Variant 6.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Calculate the function, using the Taylor series of cos(x)&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;    | cos(x)^2 * cos(x^2),      -1 &lt;= x &lt;= 1&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;y = |&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;    | cos(x/2) / cos(x + 0.5),   1 &lt;= x &lt;= 2&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить дійсне число. Якщо введено не число або число
+ * поза межами, введення повторюється
+ * Параметри: minValue - найменше допустиме значення,
+ *            maxValue - найбільше допустиме значення
+ * Значення, що повертаються: введене число
+ */</span>
+<span class="kw">float</span> inputNumber(<span class="kw">float</span> minValue, <span class="kw">float</span> maxValue)
+{
+    <span class="kw">float</span> number = <span class="nm">0</span>;
+
+    cin &gt;&gt; number;
+    <span class="kw">while</span> (cin.fail() || number &lt; minValue || number &gt; maxValue)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter a number from the given range: &quot;</span>;
+        cin &gt;&gt; number;
+    }
+
+    <span class="kw">return</span> number;
+}
+
+<span class="cm">/*
+ * Функція вводить межі зміни x, крок і точність
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputData()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter minimal x (from -10 to 10): &quot;</span>;
+    minX = inputNumber(MIN_X, MAX_X);
+
+    cout &lt;&lt; <span class="st">&quot;Enter maximal x (not less than minimal, up to 10): &quot;</span>;
+    maxX = inputNumber(minX, MAX_X);
+
+    cout &lt;&lt; <span class="st">&quot;Enter step (from 0.01 to 10): &quot;</span>;
+    step = inputNumber(MIN_STEP, MAX_STEP);
+
+    cout &lt;&lt; <span class="st">&quot;Enter accuracy (from 0.000001 to 0.01): &quot;</span>;
+    accuracy = inputNumber(MIN_ACCURACY, MAX_ACCURACY);
+}
+
+<span class="cm">/*
+ * Функція рахує cos через ряд Тейлора. Кожен член рахується через
+ * попередній, поки модуль члена більший за точність
+ * Параметри: argument - аргумент косинуса
+ * Значення, що повертаються: сума ряду
+ */</span>
+<span class="kw">float</span> calculateCos(<span class="kw">float</span> argument)
+{
+    <span class="kw">float</span> member = <span class="nm">1</span>; <span class="cm">// перший член ряду, коли n = 0</span>
+    <span class="kw">float</span> sum = <span class="nm">1</span>;    <span class="cm">// сума ряду</span>
+    <span class="kw">int</span> n = <span class="nm">0</span>;        <span class="cm">// номер члена ряду</span>
+
+    <span class="kw">while</span> (fabs(member) &gt; accuracy)
+    {
+        n++;
+        member = -member * argument * argument / ((<span class="nm">2</span> * n - <span class="nm">1</span>) * (<span class="nm">2</span> * n));
+        sum = sum + member;
+    }
+
+    <span class="kw">return</span> sum;
+}
+
+<span class="cm">/*
+ * Функція рахує y і стандартне значення для поточного x. Якщо x поза
+ * проміжками або один зі знаменників майже нуль, функція не визначена.
+ * При x = 1 формули перекриваються, діє перша
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> calculateFunction()
+{
+    <span class="kw">float</span> cosX = <span class="nm">0</span>;                <span class="cm">// cos(x) через ряд</span>
+    <span class="kw">float</span> denominator = <span class="nm">0</span>;         <span class="cm">// cos(x + 0.5) через ряд</span>
+    <span class="kw">float</span> standardDenominator = <span class="nm">0</span>; <span class="cm">// cos(x + 0.5) через бібліотечну функцію</span>
+
+    isDefined = <span class="kw">true</span>;
+    <span class="kw">if</span> (x &gt;= -<span class="nm">1</span> - BORDER_ROUNDING &amp;&amp; x &lt;= <span class="nm">1</span> + BORDER_ROUNDING)
+    {
+        cosX = calculateCos(x);
+        y = cosX * cosX * calculateCos(x * x);
+        standardValue = cos(x) * cos(x) * cos(x * x);
+    }
+    <span class="kw">else</span> <span class="kw">if</span> (x &gt; <span class="nm">1</span> &amp;&amp; x &lt;= <span class="nm">2</span> + BORDER_ROUNDING)
+    {
+        denominator = calculateCos(x + <span class="nm">0</span>.5f);
+        standardDenominator = cos(x + <span class="nm">0</span>.5f);
+        <span class="kw">if</span> (fabs(denominator) &lt; MIN_DENOMINATOR
+            || fabs(standardDenominator) &lt; MIN_DENOMINATOR)
+        {
+            isDefined = <span class="kw">false</span>;
+        }
+        <span class="kw">else</span>
+        {
+            y = calculateCos(x / <span class="nm">2</span>) / denominator;
+            standardValue = cos(x / <span class="nm">2</span>) / standardDenominator;
+        }
+    }
+    <span class="kw">else</span>
+    {
+        isDefined = <span class="kw">false</span>;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить таблицю. Значення x рахується через номер кроку,
+ * щоб похибка float не накопичувалась і останній x не втрачався
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printTable()
+{
+    stepCount = (<span class="kw">int</span>)((maxX - minX) / step + STEP_ROUNDING);
+
+    cout &lt;&lt; endl
+         &lt;&lt; setw(<span class="nm">10</span>) &lt;&lt; <span class="st">&quot;x&quot;</span> &lt;&lt; setw(<span class="nm">16</span>) &lt;&lt; <span class="st">&quot;y&quot;</span> &lt;&lt; setw(<span class="nm">18</span>) &lt;&lt; <span class="st">&quot;standard value&quot;</span>
+         &lt;&lt; setw(<span class="nm">14</span>) &lt;&lt; <span class="st">&quot;error&quot;</span> &lt;&lt; endl;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt;= stepCount; i++)
+    {
+        x = minX + i * step;
+        calculateFunction();
+
+        cout &lt;&lt; fixed &lt;&lt; setprecision(<span class="nm">4</span>) &lt;&lt; setw(<span class="nm">10</span>) &lt;&lt; x;
+        <span class="kw">if</span> (isDefined)
+        {
+            deviation = fabs(y - standardValue);
+            cout &lt;&lt; setprecision(<span class="nm">6</span>) &lt;&lt; setw(<span class="nm">16</span>) &lt;&lt; y &lt;&lt; setw(<span class="nm">18</span>)
+                 &lt;&lt; standardValue &lt;&lt; scientific &lt;&lt; setprecision(<span class="nm">2</span>) &lt;&lt; setw(<span class="nm">14</span>)
+                 &lt;&lt; deviation;
+        }
+        <span class="kw">else</span>
+        {
+            cout &lt;&lt; <span class="st">&quot;    function is not defined&quot;</span>;
+        }
+        cout &lt;&lt; endl;
+    }
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputData();
+    printTable();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<p class="file">Файл <a href="task2.cpp" download>task2.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task2.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №4, завдання 2, варіант 6.</span>
+<span class="cm">//                   Обчислити нескінченний ланцюговий дріб для</span>
+<span class="cm">//                   кореня з 3 із заданою точністю.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cmath&gt;</span>
+<span class="pp">#include &lt;iomanip&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">float</span> MIN_ACCURACY = <span class="nm">0</span>.00001f; <span class="cm">// найменша точність</span>
+<span class="kw">const</span> <span class="kw">float</span> MAX_ACCURACY = <span class="nm">0</span>.1f;     <span class="cm">// найбільша точність</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">float</span> accuracy = <span class="nm">0</span>;      <span class="cm">// точність</span>
+<span class="kw">float</span> current = <span class="nm">0</span>;       <span class="cm">// значення дробу для поточної кількості рівнів</span>
+<span class="kw">float</span> previous = <span class="nm">0</span>;      <span class="cm">// значення дробу на попередньому кроці</span>
+<span class="kw">float</span> difference = <span class="nm">0</span>;    <span class="cm">// модуль різниці двох сусідніх значень</span>
+<span class="kw">int</span> levelCount = <span class="nm">0</span>;      <span class="cm">// кількість рівнів дробу</span>
+<span class="kw">float</span> standardValue = <span class="nm">0</span>; <span class="cm">// значення кореня через sqrt</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 4. Task 2. Variant 6.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Calculate the infinite continued fraction for the root of 3&quot;</span>
+         &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;sqrt(3) = 1 + 1/(1 + 1/(2 + 1/(1 + 1/(2 + ...))))&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить точність. Якщо введено не число або число
+ * поза межами, введення повторюється
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputAccuracy()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter accuracy (from 0.00001 to 0.1): &quot;</span>;
+    cin &gt;&gt; accuracy;
+    <span class="kw">while</span> (cin.fail() || accuracy &lt; MIN_ACCURACY || accuracy &gt; MAX_ACCURACY)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter accuracy from 0.00001 to 0.1: &quot;</span>;
+        cin &gt;&gt; accuracy;
+    }
+}
+
+<span class="cm">/*
+ * Функція рахує дріб із заданою кількістю рівнів, починаючи знизу.
+ * Знаменники під першою одиницею чергуються: 1, 2, 1, 2, ...
+ * Параметри: levels - кількість рівнів дробу (не менше 1)
+ * Значення, що повертаються: значення дробу
+ */</span>
+<span class="kw">float</span> calculateFraction(<span class="kw">int</span> levels)
+{
+    <span class="kw">float</span> value = <span class="nm">2</span>; <span class="cm">// значення знаменника на найнижчому рівні</span>
+
+    <span class="kw">if</span> (levels % <span class="nm">2</span> == <span class="nm">1</span>)
+    {
+        value = <span class="nm">1</span>;
+    }
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = levels - <span class="nm">1</span>; i &gt;= <span class="nm">1</span>; i--)
+    {
+        <span class="kw">if</span> (i % <span class="nm">2</span> == <span class="nm">1</span>)
+        {
+            value = <span class="nm">1</span> + <span class="nm">1</span> / value;
+        }
+        <span class="kw">else</span>
+        {
+            value = <span class="nm">2</span> + <span class="nm">1</span> / value;
+        }
+    }
+
+    <span class="kw">return</span> <span class="nm">1</span> + <span class="nm">1</span> / value;
+}
+
+<span class="cm">/*
+ * Функція збільшує кількість рівнів дробу, поки два сусідні значення
+ * не стануть ближчими за точність, і виводить таблицю
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> calculateRoot()
+{
+    cout &lt;&lt; endl &lt;&lt; fixed &lt;&lt; setprecision(<span class="nm">6</span>);
+    cout &lt;&lt; setw(<span class="nm">8</span>) &lt;&lt; <span class="st">&quot;levels&quot;</span> &lt;&lt; setw(<span class="nm">14</span>) &lt;&lt; <span class="st">&quot;value&quot;</span> &lt;&lt; setw(<span class="nm">14</span>)
+         &lt;&lt; <span class="st">&quot;difference&quot;</span> &lt;&lt; endl;
+
+    levelCount = <span class="nm">1</span>;
+    current = calculateFraction(levelCount);
+    cout &lt;&lt; setw(<span class="nm">8</span>) &lt;&lt; levelCount &lt;&lt; setw(<span class="nm">14</span>) &lt;&lt; current &lt;&lt; endl;
+
+    <span class="kw">do</span>
+    {
+        previous = current;
+        levelCount++;
+        current = calculateFraction(levelCount);
+        difference = fabs(current - previous);
+        cout &lt;&lt; setw(<span class="nm">8</span>) &lt;&lt; levelCount &lt;&lt; setw(<span class="nm">14</span>) &lt;&lt; current &lt;&lt; setw(<span class="nm">14</span>)
+             &lt;&lt; difference &lt;&lt; endl;
+    } <span class="kw">while</span> (difference &gt; accuracy);
+}
+
+<span class="cm">/*
+ * Функція порівнює результат із значенням sqrt(3)
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printResult()
+{
+    standardValue = sqrt(<span class="nm">3</span>.0f);
+
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Continued fraction = &quot;</span> &lt;&lt; current &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;sqrt(3)            = &quot;</span> &lt;&lt; standardValue &lt;&lt; endl;
+    cout &lt;&lt; scientific &lt;&lt; setprecision(<span class="nm">2</span>);
+    cout &lt;&lt; <span class="st">&quot;Error              = &quot;</span> &lt;&lt; fabs(current - standardValue) &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Number of levels   = &quot;</span> &lt;&lt; levelCount &lt;&lt; endl;
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputAccuracy();
+    calculateRoot();
+    printResult();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="page-footer"><a href="#scheme">← Блок-схеми</a><a href="#top">Усі розділи</a><a href="#results">Результати →</a></div></section>
+<section class="page" id="results" tabindex="-1"><p class="eyebrow">Лабораторна робота №4 / 06 з 08</p><h2>6. Результати виконання роботи</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<div class="result">
+<figure class="shot"><a href="img/task1-run-1.png"><img src="img/task1-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 14 - Обчислення на всьому проміжку від -1 до 2 з кроком 0.25 і точністю 0.0001</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-2.png"><img src="img/task1-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 15 - Некоректне введення і значення x поза областю визначення функції</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-3.png"><img src="img/task1-run-3.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 16 - Значення x поруч із нулем знаменника x ≈ 1.0708, точність 0.000001</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-4.png"><img src="img/task1-run-4.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 17 - Крок 0.1: значення x = 1 і x = 2 взято в правильні проміжки, останнє значення x = 2.1 не втрачено, точність 0.00001</figcaption></figure>
+</div>
+<p>Третій сценарій показує зону поруч із нулем знаменника: при x = 1.0708 модуль знаменника менший
+за 0.0001, тому функція вважається невизначеною, а для сусідніх x значення сягають 86 за модулем.
+Похибка там найбільша: 2.8 · 10<sup>-4</sup> при точності ряду 10<sup>-6</sup>.</p>
+</div>
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<div class="result">
+<figure class="shot"><a href="img/task2-run-1.png"><img src="img/task2-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 18 - Обчислення з точністю 0.00001</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-2.png"><img src="img/task2-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 19 - Некоректне введення, потім точність 0.01</figcaption></figure>
+</div>
+</div>
+<div class="page-footer"><a href="#code">← Тексти програм</a><a href="#top">Усі розділи</a><a href="#check">Перевірка →</a></div></section>
+<section class="page" id="check" tabindex="-1"><p class="eyebrow">Лабораторна робота №4 / 07 з 08</p><h2>7. Аналіз достовірності результатів</h2>
+<div class="task">
+<h3>Завдання 1 - перевірка в Excel</h3>
+<p>Результати перевірено в Excel (файл <a href="check.xlsx" download>check.xlsx</a>, аркуш
+"Завдання 1"). Перевірка складається з двох частин.</p>
+<p>Спочатку окремо перевірено ряд. Його члени обчислено напряму через <code>POWER</code> і
+<code>FACT</code>, з тим самим правилом зупинки, для аргументів 0.5, 0.25, 0.75 і 2 при
+ε = 0.0001. Із цих сум отримано y при x = 0.5 і x = 1.5. Різниця з програмою
+1.5 · 10<sup>-7</sup> і 3.2 · 10<sup>-7</sup>, її дає округлення під час виведення.</p>
+<p>Потім для всіх 60 рядків чотирьох сценаріїв значення обчислено за умовою через вбудовану функцію
+<code>COS</code>, у порядку сценаріїв із розділу результатів:</p>
+<figure class="shot"><a href="img/excel-check-1.png"><img src="img/excel-check-1.png" alt="" width="645" loading="lazy"></a><figcaption>Рисунок 20 - Перевірка завдання 1 в Excel</figcaption></figure>
+<ul>
+<li>у сценаріях 1, 2 і 4 найбільша різниця між y програми й Excel 7.9 · 10<sup>-5</sup>, вона при
+x = 1.1, де знаменник малий. Для більшості рядків різниця не перевищує 10<sup>-6</sup>;</li>
+<li>біля нуля знаменника найбільша різниця 6.6 · 10<sup>-4</sup> при y ≈ 86. Значення тут дуже
+чутливе до x, а x в аркуші взято з 4 надрукованими знаками;</li>
+<li>рядків без значення в програмі 5, а в Excel 4. Зайвий рядок при x = 1.0708: Excel ділить на дуже
+мале число і дає близько -234146, а програма вважає такий знаменник нулем. Решта рядків "function is
+not defined" збігаються;</li>
+<li>колонка похибки програми збігається з різницею колонок y і стандартного значення з точністю до
+округлення.</li>
+</ul>
+</div>
+
+<div class="task">
+<h3>Завдання 1 - ручна перевірка</h3>
+<p>Перші члени ряду для t = 0.5, ε = 0.0001, a<sub>n</sub> = -a<sub>n-1</sub> · 0.25 / ((2n - 1) · 2n):</p>
+<p class="tcap">Таблиця 3 - Члени ряду для cos(0.5)</p>
+<div class="table-scroll"><table>
+<tr><th>n</th><th>Рекурентна формула</th><th>Пряма формула</th><th>Сума</th></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>-1 · 0.25 / (1 · 2) = -0.125</td><td>-0.25 / 2! = -0.125</td><td>0.875</td></tr>
+<tr><td>2</td><td>0.125 · 0.25 / (3 · 4) = 0.002604</td><td>0.0625 / 4! = 0.002604</td><td>0.877604</td></tr>
+<tr><td>3</td><td>-0.002604 · 0.25 / (5 · 6) = -0.000022</td><td>-0.015625 / 6! = -0.000022</td><td>0.877582</td></tr>
+</table></div>
+<p>Модуль члена з n = 3 менший за ε, тому сума зупиняється на 0.877582. Так само cos(0.25) ≈ 0.968912.
+Тоді y(0.5) = 0.877582<sup>2</sup> · 0.968912 ≈ 0.746209, програма вивела 0.746209. Для другої формули
+y(2) = cos(1) / cos(2.5) = 0.540302 / (-0.801144) ≈ -0.674414, програма вивела -0.674414.</p>
+<p>Межі теж перевірено. При x = 1 у сценаріях 1, 2 і 4 надруковано значення першої формули (0.1577),
+при x = -1.1, -1.5, 2.1 і 2.5 надруковано "function is not defined", при кроці 0.1 таблиця
+закінчується останнім значенням 2.1. Некоректні значення abc, -3 (менше за x<sub>min</sub>), 0 і 0.5
+відхилено.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - перевірка в Excel</h3>
+<p>На аркуші "Завдання 2" того самого файла дріб обчислено іншим способом. Програма рахує знизу
+вгору, а в Excel значення знаходиться зверху вниз через чисельники й знаменники p<sub>n</sub> =
+a<sub>n</sub>p<sub>n-1</sub> + p<sub>n-2</sub>, q<sub>n</sub> = a<sub>n</sub>q<sub>n-1</sub> +
+q<sub>n-2</sub>. Значення √3 у комірці обчислено функцією <code>SQRT</code>.</p>
+<figure class="shot"><a href="img/excel-check-2.png"><img src="img/excel-check-2.png" alt="" width="1049" loading="lazy"></a><figcaption>Рисунок 21 - Перевірка завдання 2 в Excel</figcaption></figure>
+<ul>
+<li>усі значення збігаються, найбільша різниця 4.2 · 10<sup>-7</sup>, її дає округлення при виведенні;</li>
+<li>значення по черзі більші й менші за √3, як описано в аналізі;</li>
+<li>при ε = 0.00001 програма зупинилась на 10 рівнях, останнє значення 989/571 ≈ 1.732049,
+похибка 1.8 · 10<sup>-6</sup> менша за задану точність. Програма вивела таку саму похибку 1.79e-06.</li>
+</ul>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - ручна перевірка</h3>
+<p class="tcap">Таблиця 4 - Значення дробу для малих рівнів</p>
+<div class="table-scroll"><table>
+<tr><th>Рівні</th><th>Обчислення вручну</th><th>Результат</th><th>Програма</th></tr>
+<tr><td>1</td><td>1 + 1/1</td><td>2</td><td>2.000000</td></tr>
+<tr><td>2</td><td>1 + 1/(1 + 1/2) = 1 + 2/3</td><td>5/3 ≈ 1.666667</td><td>1.666667</td></tr>
+<tr><td>3</td><td>1 + 1/(1 + 1/(2 + 1)) = 1 + 3/4</td><td>7/4 = 1.75</td><td>1.750000</td></tr>
+<tr><td>4</td><td>1 + 1/(1 + 1/(2 + 2/3)) = 1 + 8/11</td><td>19/11 ≈ 1.727273</td><td>1.727273</td></tr>
+</table></div>
+</div>
+<div class="page-footer"><a href="#results">← Результати</a><a href="#top">Усі розділи</a><a href="#conclusion">Висновки →</a></div></section>
+<section class="page" id="conclusion" tabindex="-1"><p class="eyebrow">Лабораторна робота №4 / 08 з 08</p><h2>8. Висновки</h2>
+<div class="card">
+<p>Розроблено дві програми. Перша обчислює кусково задану функцію, а косинус рахує власною функцією
+через ряд Тейлора, без факторіала і степеня. У таблиці поруч із y стоять стандартне значення і
+похибка, найбільша похибка вийшла біля нуля знаменника. Друга програма рахує ланцюговий дріб для √3
+і додає рівні, поки не досягне заданої точності: при ε = 0.00001 вистачило 10 рівнів. Результати
+обох програм збіглися з Excel і ручними розрахунками, відрізняється лише рядок x = 1.0708, де Excel
+дає число, а програма вважає функцію невизначеною.</p>
+</div>
+<div class="page-footer"><a href="#check">← Перевірка</a><a href="#top">Усі розділи</a><a href="#top">До розділів →</a></div></section>
+<p class="footer">Основи програмування • 2026</p>
+</main>
+</div>
+<script src="../site.js"></script>
+</body>
+</html>
