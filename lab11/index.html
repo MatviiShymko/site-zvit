@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторна №11. Текстові та бінарні файли</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-lab="11">
+<a class="skip" href="#content">Перейти до вмісту</a>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Основи<br>програмування<small>Шимко Матвій • ІПЗ-11(3)</small></div><nav aria-label="Лабораторні роботи"><a href="../index.html">Головна сторінка</a><div class="side-label">ЛАБОРАТОРНІ РОБОТИ</div><a href="../lab01/index.html">Лабораторна робота №1</a><a href="../lab02/index.html">Лабораторна робота №2</a><a href="../lab03/index.html">Лабораторна робота №3</a><a href="../lab04/index.html">Лабораторна робота №4</a><a href="../lab05/index.html">Лабораторна робота №5</a><a href="../lab06/index.html">Лабораторна робота №6</a><a href="../lab07/index.html">Лабораторна робота №7</a><a href="../lab08/index.html">Лабораторна робота №8</a><a href="../lab09/index.html">Лабораторна робота №9</a><a href="../lab10/index.html">Лабораторна робота №10</a><a href="../lab11/index.html#top" data-nav="top">Лабораторна робота №11</a><nav class="subnav" aria-label="Розділи звіту"><a href="#goal" data-nav="goal">Мета</a><a href="#task" data-nav="task">Умови задач</a><a href="#analysis" data-nav="analysis">Аналіз задач</a><a href="#scheme" data-nav="scheme">Блок-схеми</a><a href="#code" data-nav="code">Тексти програм</a><a href="#results" data-nav="results">Результати</a><a href="#check" data-nav="check">Перевірка</a><a href="#conclusion" data-nav="conclusion">Висновки</a></nav></nav></aside>
+<main id="content" class="main">
+<p id="crumb" class="crumb"></p>
+<section class="page" id="top" tabindex="-1"><header class="hero"><p class="eyebrow">Основи програмування</p><h1>Звіт до лабораторної роботи №11</h1><p>Текстові та бінарні файли • Варіанти 6.1 і 5.2</p></header><div class="meta"><p><b>Студент:</b> Шимко Матвій Анатолійович</p>
+<p><b>Група:</b> ІПЗ-11(3), 1 курс, 2026 рік</p>
+<p><b>Дисципліна:</b> Основи програмування</p>
+<p><b>Викладач:</b> Ковалюк Тетяна Володимирівна</p></div><h2>Оберіть розділ звіту</h2><div class="menu-grid"><a class="menu-card" href="#goal"><span class="num">01</span><b>Мета</b></a><a class="menu-card" href="#task"><span class="num">02</span><b>Умови задач</b></a><a class="menu-card" href="#analysis"><span class="num">03</span><b>Аналіз задач</b></a><a class="menu-card" href="#scheme"><span class="num">04</span><b>Блок-схеми</b></a><a class="menu-card" href="#code"><span class="num">05</span><b>Тексти програм</b></a><a class="menu-card" href="#results"><span class="num">06</span><b>Результати</b></a><a class="menu-card" href="#check"><span class="num">07</span><b>Перевірка</b></a><a class="menu-card" href="#conclusion"><span class="num">08</span><b>Висновки</b></a></div></section>
+<section class="page" id="goal" tabindex="-1"><p class="eyebrow">Лабораторна робота №11 / 01 з 08</p><h2>1. Мета роботи</h2>
+<div class="card"><ul>
+<li>Вивчити особливості використання текстових і бінарних файлів.</li>
+<li>Навчитися застосовувати текстові та бінарні файли в програмуванні.</li>
+</ul></div>
+<div class="page-footer"><a href="#top">← До розділів</a><a href="#top">Усі розділи</a><a href="#task">Умови задач →</a></div></section>
+<section class="page" id="task" tabindex="-1"><p class="eyebrow">Лабораторна робота №11 / 02 з 08</p><h2>2. Умови задач</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6.1</h3>
+<p>Варіант 6 (у таблиці 24 варіанти, 30 - 24 = 6).</p>
+<p>Увести рядки з клавіатури і записати їх у текстовий файл. Визначити:</p>
+<ul>
+<li>кількість рядків файла;</li>
+<li>максимальну довжину рядка;</li>
+<li>кількість порожніх рядків;</li>
+<li>рядок, що починається та завершується заданими користувачем символами.</li>
+</ul>
+<p>Отримані значення записати у новий текстовий файл.</p>
+<p>Вимоги до завдання 1:</p>
+<ul>
+<li>код складається з функцій, основна програма викликає їх залежно від вибору команд меню;</li>
+<li>меню команд виконує окремі операції з обробки файлу;</li>
+<li>програма створює текстовий файл шляхом введення даних з клавіатури і виводить вміст файлу
+на екран;</li>
+<li>у кожній функції відкривати вхідні файли та закривати вихідні;</li>
+<li>обробку рядків здійснювати в окремих функціях, використовувати тільки бібліотеку string.h;</li>
+<li>STL, методи класу string й ітератори використовувати заборонено.</li>
+</ul>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 5.2</h3>
+<p>Завдання 2 продовжує програму лабораторної роботи №10, а вона виконана за варіантом 5
+(у таблиці 25 варіантів, 30 - 25 = 5). Тому тут варіант 5.2.</p>
+<p>Створити масив структур. Кожна структура складається з таких елементів: місто, інститут,
+факультет, список спеціальностей, план прийому на перший курс. Створений масив структур
+записати до бінарного файла. Виконати такі операції з бінарним файлом:</p>
+<ul>
+<li>доповнити бінарний файл новими записами;</li>
+<li>замінити вибраний користувачем запис у бінарному файлі на новий, значення полів якого
+ввести з клавіатури;</li>
+<li>видалити з бінарного файлу вибраний користувачем запис.</li>
+</ul>
+<p>Здійснити пошук у бінарному файлі та вивести у вигляді таблиць:</p>
+<ul>
+<li>список спеціальностей, що містять у своїй назві слова "комп'ютерний" або "автоматизований";</li>
+<li>факультети й інститути, де є задана спеціальність;</li>
+<li>факультет, інститут і місто, де на вказану користувачем спеціальність виділено найбільше місць.</li>
+</ul>
+<p>Вимоги до завдання 2:</p>
+<ul>
+<li>створений масив структур записати до бінарного файлу;</li>
+<li>надрукувати масив структур у вигляді таблиці, зчитавши дані з бінарного файлу;</li>
+<li>результати запитів записати до нового бінарного файлу і вивести на екран;</li>
+<li>розробити функції додавання нових даних, видалення даних і заміни значень у бінарному
+файлі на вимогу користувача.</li>
+</ul>
+</div>
+<div class="page-footer"><a href="#goal">← Мета</a><a href="#top">Усі розділи</a><a href="#analysis">Аналіз задач →</a></div></section>
+<section class="page" id="analysis" tabindex="-1"><p class="eyebrow">Лабораторна робота №11 / 03 з 08</p><h2>3. Аналіз задач</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6.1</h3>
+<p>У цьому завданні файли обробляються класами потоків <code>ifstream</code> і
+<code>ofstream</code>. Рядки зберігаються у файлі lines.txt, результати у файлі result.txt.</p>
+<p>Спочатку вводиться кількість рядків від 1 до 20, потім самі рядки через
+<code>cin.getline</code>. Кількість потрібна, бо рядок може бути порожнім. Рядок, довший за 255
+символів, програма просить увести ще раз.</p>
+<p>Кожну характеристику рахує окрема функція, яка сама відкриває файл, читає його по рядках і
+закриває. Довжина рядка визначається через <code>strlen</code>. Функція <code>processFile</code>
+записує ці значення у файл результатів, а потім переглядає файл ще раз і дописує рядки, які
+починаються і завершуються заданими символами. Таких рядків може бути кілька, тому записуються всі
+та їх кількість. Символи порівнюються з урахуванням регістру.</p>
+<p>Якщо файлу немає, програма виводить повідомлення, і дія не виконується. Порожній файл теж не
+обробляється. Літери замість числа й число поза межами обробляються через <code>cin.fail()</code>,
+введення повторюється. Номер, якого немає в меню, обробляє <code>default</code>.</p>
+<p class="tcap">Таблиця 1 - Функції програми завдання 1</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>runMenu</code></td><td>меню і виклик вибраної дії</td></tr>
+<tr><td><code>createFile</code></td><td>запис рядків з клавіатури в текстовий файл</td></tr>
+<tr><td><code>showFile</code></td><td>виведення вмісту файлу на екран</td></tr>
+<tr><td><code>countLines</code></td><td>кількість рядків файлу</td></tr>
+<tr><td><code>findMaxLength</code></td><td>максимальна довжина рядка</td></tr>
+<tr><td><code>countEmptyLines</code></td><td>кількість порожніх рядків</td></tr>
+<tr><td><code>isMatchingLine</code></td><td>перевірка першого й останнього символів рядка</td></tr>
+<tr><td><code>processFile</code></td><td>введення символів і запис усіх значень у новий файл</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 5.2</h3>
+<p>Завдання 2 продовжує лабораторну роботу №10: структури <code>Specialty</code> і
+<code>Faculty</code>, створення масиву і таблиця лишилися такими самими. Файли обробляються
+функціями stdio.h: записи лежать у faculties.dat, результати запитів у results.dat. Рядки в
+записі є масивами символів, тому всі записи мають однаковий розмір 160 байтів
+(<code>sizeof(Faculty)</code>), і файл можна читати та змінювати цілими записами.</p>
+<p>Пункт меню 4 записує весь масив у файл у режимі <code>"wb"</code>, старий вміст файлу зникає.
+Пункт 5 читає записи з файлу і виводить таблицю, тому дані зберігаються між запусками програми.</p>
+<p>Функція <code>appendRecords</code> відкриває файл у режимі <code>"ab"</code>, і нові записи
+стають у кінець. Функція <code>replaceRecord</code> відкриває його в режимі <code>"r+b"</code>,
+через <code>fseek</code> переходить на зміщення (номер - 1) · 160 байтів і пише новий запис поверх
+старого. Запис не можна просто прибрати з файлу, тому <code>deleteRecord</code> переписує всі
+записи, крім вибраного, у тимчасовий файл temp.dat, видаляє старий файл і дає тимчасовому його
+ім'я.</p>
+<p>Кількість записів рахує <code>countRecords</code> за розміром файлу. Номер запису для заміни
+й видалення вводиться від 1 до цієї кількості.</p>
+<p>Запити читають дані з файлу. Кожен знайдений рядок записується в results.dat як запис
+<code>Faculty</code> з однією спеціальністю, а потім цей файл друкує функція
+<code>printFile</code>. Запит 3 проходить файл двічі: спочатку шукає найбільший план, потім
+<code>fseek</code> повертає покажчик на початок, і в результат потрапляють рядки з таким планом.
+Ключі вводяться з клавіатури, великі й малі літери розрізняються.</p>
+<p>Числа й рядки перевіряються так само, як у лабораторній роботі №10. Якщо файлу для читання
+немає (покажчик дорівнює <code>NULL</code>), програма виводить повідомлення, і дія не
+виконується.</p>
+<p class="tcap">Таблиця 2 - Функції програми завдання 2, яких не було в лабораторній роботі №10</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>writeArray</code></td><td>запис масиву в бінарний файл</td></tr>
+<tr><td><code>printFile</code></td><td>читання бінарного файлу і виведення таблиці</td></tr>
+<tr><td><code>countRecords</code></td><td>кількість записів за розміром файлу</td></tr>
+<tr><td><code>appendRecords</code></td><td>додавання записів у кінець файлу</td></tr>
+<tr><td><code>replaceRecord</code></td><td>заміна вибраного запису новим</td></tr>
+<tr><td><code>deleteRecord</code></td><td>видалення вибраного запису</td></tr>
+</table></div>
+<p>Функції <code>findByWords</code>, <code>findBySpecialty</code> і <code>findMaxPlan</code>
+тепер читають файл і записують результат у новий бінарний файл. У меню додано нові пункти. Решта
+функцій працює так само, як у лабораторній роботі №10.</p>
+<p>Джерела: Ковалюк Т.В. Алгоритмізація та програмування, 2024; Ковалюк Т.В., Петрівський В.Я.
+Гарний стиль програмування мовами C, C++, C#, 2025; Deitel P., Deitel H. C++ How to Program.</p>
+</div>
+<div class="page-footer"><a href="#task">← Умови задач</a><a href="#top">Усі розділи</a><a href="#scheme">Блок-схеми →</a></div></section>
+<section class="page" id="scheme" tabindex="-1"><p class="eyebrow">Лабораторна робота №11 / 04 з 08</p><h2>4. Блок-схеми алгоритмів</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6.1</h3>
+<figure class="fc"><a href="img/task1-fc-welcome.svg"><img src="img/task1-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 1 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-createFile.svg"><img src="img/task1-fc-createFile.svg" alt="" loading="lazy"></a><figcaption>Рисунок 2 - Блок-схема функції <code>createFile</code> (створення текстового файлу з клавіатури)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-showFile.svg"><img src="img/task1-fc-showFile.svg" alt="" loading="lazy"></a><figcaption>Рисунок 3 - Блок-схема функції <code>showFile</code> (виведення вмісту файлу на екран)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-countLines.svg"><img src="img/task1-fc-countLines.svg" alt="" loading="lazy"></a><figcaption>Рисунок 4 - Блок-схема функції <code>countLines</code> (підрахунок рядків файлу)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-findMaxLength.svg"><img src="img/task1-fc-findMaxLength.svg" alt="" loading="lazy"></a><figcaption>Рисунок 5 - Блок-схема функції <code>findMaxLength</code> (пошук максимальної довжини рядка)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-countEmptyLines.svg"><img src="img/task1-fc-countEmptyLines.svg" alt="" loading="lazy"></a><figcaption>Рисунок 6 - Блок-схема функції <code>countEmptyLines</code> (підрахунок порожніх рядків)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-isMatchingLine.svg"><img src="img/task1-fc-isMatchingLine.svg" alt="" loading="lazy"></a><figcaption>Рисунок 7 - Блок-схема функції <code>isMatchingLine</code> (перевірка першого й останнього символів рядка)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-processFile.svg"><img src="img/task1-fc-processFile.svg" alt="" loading="lazy"></a><figcaption>Рисунок 8 - Блок-схема функції <code>processFile</code> (обробка файлу і запис результатів у новий файл)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-runMenu.svg"><img src="img/task1-fc-runMenu.svg" alt="" loading="lazy"></a><figcaption>Рисунок 9 - Блок-схема функції <code>runMenu</code> (меню програми)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-main.svg"><img src="img/task1-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 10 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 5.2</h3>
+<figure class="fc"><a href="img/task2-fc-welcome.svg"><img src="img/task2-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 11 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputNumber.svg"><img src="img/task2-fc-inputNumber.svg" alt="" loading="lazy"></a><figcaption>Рисунок 12 - Блок-схема функції <code>inputNumber</code> (введення цілого числа із заданих меж)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputText.svg"><img src="img/task2-fc-inputText.svg" alt="" loading="lazy"></a><figcaption>Рисунок 13 - Блок-схема функції <code>inputText</code> (введення непорожнього рядка)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputRecord.svg"><img src="img/task2-fc-inputRecord.svg" alt="" loading="lazy"></a><figcaption>Рисунок 14 - Блок-схема функції <code>inputRecord</code> (введення одного запису з клавіатури)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-generateRecord.svg"><img src="img/task2-fc-generateRecord.svg" alt="" loading="lazy"></a><figcaption>Рисунок 15 - Блок-схема функції <code>generateRecord</code> (створення одного випадкового запису)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-printRow.svg"><img src="img/task2-fc-printRow.svg" alt="" loading="lazy"></a><figcaption>Рисунок 16 - Блок-схема функції <code>printRow</code> (виведення рядка таблиці)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-printArray.svg"><img src="img/task2-fc-printArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 17 - Блок-схема функції <code>printArray</code> (виведення масиву таблицею)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-createArray.svg"><img src="img/task2-fc-createArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 18 - Блок-схема функції <code>createArray</code> (створення масиву і його виведення)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-writeArray.svg"><img src="img/task2-fc-writeArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 19 - Блок-схема функції <code>writeArray</code> (запис масиву в бінарний файл)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-printFile.svg"><img src="img/task2-fc-printFile.svg" alt="" loading="lazy"></a><figcaption>Рисунок 20 - Блок-схема функції <code>printFile</code> (виведення записів бінарного файлу таблицею)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-countRecords.svg"><img src="img/task2-fc-countRecords.svg" alt="" loading="lazy"></a><figcaption>Рисунок 21 - Блок-схема функції <code>countRecords</code> (підрахунок записів файлу)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-appendRecords.svg"><img src="img/task2-fc-appendRecords.svg" alt="" loading="lazy"></a><figcaption>Рисунок 22 - Блок-схема функції <code>appendRecords</code> (додавання записів у кінець файлу)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-replaceRecord.svg"><img src="img/task2-fc-replaceRecord.svg" alt="" loading="lazy"></a><figcaption>Рисунок 23 - Блок-схема функції <code>replaceRecord</code> (заміна вибраного запису файлу)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-deleteRecord.svg"><img src="img/task2-fc-deleteRecord.svg" alt="" loading="lazy"></a><figcaption>Рисунок 24 - Блок-схема функції <code>deleteRecord</code> (видалення вибраного запису файлу)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-findByWords.svg"><img src="img/task2-fc-findByWords.svg" alt="" loading="lazy"></a><figcaption>Рисунок 25 - Блок-схема функції <code>findByWords</code> (запит 1: спеціальності за двома словами)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-findBySpecialty.svg"><img src="img/task2-fc-findBySpecialty.svg" alt="" loading="lazy"></a><figcaption>Рисунок 26 - Блок-схема функції <code>findBySpecialty</code> (запит 2: факультети й інститути зі спеціальністю)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-findMaxPlan.svg"><img src="img/task2-fc-findMaxPlan.svg" alt="" loading="lazy"></a><figcaption>Рисунок 27 - Блок-схема функції <code>findMaxPlan</code> (запит 3: найбільший план на спеціальність)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-runMenu.svg"><img src="img/task2-fc-runMenu.svg" alt="" loading="lazy"></a><figcaption>Рисунок 28 - Блок-схема функції <code>runMenu</code> (меню програми)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-main.svg"><img src="img/task2-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 29 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="page-footer"><a href="#analysis">← Аналіз задач</a><a href="#top">Усі розділи</a><a href="#code">Тексти програм →</a></div></section>
+<section class="page" id="code" tabindex="-1"><p class="eyebrow">Лабораторна робота №11 / 05 з 08</p><h2>5. Тексти програм</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6.1</h3>
+<p class="file">Файл <a href="task1.cpp" download>task1.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task1.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 2</span>
+<span class="cm">// Запланована ціль: лабораторна робота №11, завдання 1, варіант 6.1.</span>
+<span class="cm">//                   Записати рядки з клавіатури у текстовий файл,</span>
+<span class="cm">//                   визначити його характеристики і записати їх</span>
+<span class="cm">//                   у новий текстовий файл.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cstring&gt;</span>
+<span class="pp">#include &lt;fstream&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_LINES = <span class="nm">20</span>;    <span class="cm">// найбільша кількість рядків з клавіатури</span>
+<span class="kw">const</span> <span class="kw">int</span> LINE_LENGTH = <span class="nm">256</span>; <span class="cm">// розмір рядка разом із символом кінця рядка</span>
+<span class="kw">const</span> <span class="kw">char</span> TEXT_FILE[] = <span class="st">&quot;lines.txt&quot;</span>;    <span class="cm">// текстовий файл</span>
+<span class="kw">const</span> <span class="kw">char</span> RESULT_FILE[] = <span class="st">&quot;result.txt&quot;</span>; <span class="cm">// новий файл результатів</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+ifstream inputFile;          <span class="cm">// потік для читання файлу</span>
+ofstream outputFile;         <span class="cm">// потік для запису файлу</span>
+<span class="kw">char</span> line[LINE_LENGTH] = <span class="st">&quot;&quot;</span>; <span class="cm">// поточний рядок</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 11. Task 1. Variant 6.1.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Write lines from the keyboard to a text file. Find the number of&quot;</span>
+         &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;lines, the maximum length, the number of empty lines and the lines&quot;</span>
+         &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;with given first and last characters. Write it to a new file.&quot;</span>
+         &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить рядки з клавіатури і записує їх у текстовий файл.
+ * Рядок може бути порожнім
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> createFile()
+{
+    <span class="kw">int</span> count = <span class="nm">0</span>; <span class="cm">// кількість рядків</span>
+
+    outputFile.open(TEXT_FILE);
+    <span class="kw">if</span> (!outputFile.is_open())
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! Cannot open file &quot;</span> &lt;&lt; TEXT_FILE &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        cout &lt;&lt; <span class="st">&quot;Enter number of lines (from 1 to &quot;</span> &lt;&lt; MAX_LINES &lt;&lt; <span class="st">&quot;): &quot;</span>;
+        cin &gt;&gt; count;
+        <span class="kw">while</span> (cin.fail() || count &lt; <span class="nm">1</span> || count &gt; MAX_LINES)
+        {
+            cin.clear();            <span class="cm">// скинути помилку введення</span>
+            cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+            cout &lt;&lt; <span class="st">&quot;Error! Enter a number from 1 to &quot;</span> &lt;&lt; MAX_LINES &lt;&lt; <span class="st">&quot;: &quot;</span>;
+            cin &gt;&gt; count;
+        }
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// прибрати кінець рядка перед cin.getline</span>
+
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; count; i++)
+        {
+            cout &lt;&lt; <span class="st">&quot;Enter line &quot;</span> &lt;&lt; i + <span class="nm">1</span> &lt;&lt; <span class="st">&quot;: &quot;</span>;
+            cin.getline(line, LINE_LENGTH);
+            <span class="kw">while</span> (cin.fail())
+            {
+                cin.clear();            <span class="cm">// скинути помилку введення</span>
+                cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити залишок рядка</span>
+                cout &lt;&lt; <span class="st">&quot;Error! The line is too long. Enter it again: &quot;</span>;
+                cin.getline(line, LINE_LENGTH);
+            }
+            outputFile &lt;&lt; line &lt;&lt; endl;
+        }
+        outputFile.close();
+
+        cout &lt;&lt; <span class="st">&quot;File &quot;</span> &lt;&lt; TEXT_FILE &lt;&lt; <span class="st">&quot; is created.&quot;</span> &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить вміст файлу на екран
+ * Параметри: name - ім&#x27;я файлу
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> showFile(<span class="kw">const</span> <span class="kw">char</span> name[])
+{
+    inputFile.open(name);
+    <span class="kw">if</span> (!inputFile.is_open())
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! File &quot;</span> &lt;&lt; name &lt;&lt; <span class="st">&quot; does not exist.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Contents of file &quot;</span> &lt;&lt; name &lt;&lt; <span class="st">&quot;:&quot;</span> &lt;&lt; endl;
+        inputFile.getline(line, LINE_LENGTH);
+        <span class="kw">while</span> (!inputFile.fail())
+        {
+            cout &lt;&lt; line &lt;&lt; endl;
+            inputFile.getline(line, LINE_LENGTH);
+        }
+        inputFile.close();
+    }
+}
+
+<span class="cm">/*
+ * Функція рахує рядки текстового файлу. Якщо файлу немає, читання
+ * не вдається і кількість лишається 0
+ * Параметри: немає
+ * Значення, що повертаються: кількість рядків
+ */</span>
+<span class="kw">int</span> countLines()
+{
+    <span class="kw">int</span> count = <span class="nm">0</span>;
+
+    inputFile.open(TEXT_FILE);
+    inputFile.getline(line, LINE_LENGTH);
+    <span class="kw">while</span> (!inputFile.fail())
+    {
+        count++;
+        inputFile.getline(line, LINE_LENGTH);
+    }
+    inputFile.close();
+
+    <span class="kw">if</span> (count == <span class="nm">0</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! File &quot;</span> &lt;&lt; TEXT_FILE &lt;&lt; <span class="st">&quot; does not exist or is empty.&quot;</span>
+             &lt;&lt; endl;
+    }
+
+    <span class="kw">return</span> count;
+}
+
+<span class="cm">/*
+ * Функція знаходить максимальну довжину рядка текстового файлу
+ * Параметри: немає
+ * Значення, що повертаються: максимальна довжина
+ */</span>
+<span class="kw">int</span> findMaxLength()
+{
+    <span class="kw">int</span> maxLength = <span class="nm">0</span>;
+    <span class="kw">int</span> length = <span class="nm">0</span>;
+
+    inputFile.open(TEXT_FILE);
+    inputFile.getline(line, LINE_LENGTH);
+    <span class="kw">while</span> (!inputFile.fail())
+    {
+        length = strlen(line);
+        <span class="kw">if</span> (length &gt; maxLength)
+        {
+            maxLength = length;
+        }
+        inputFile.getline(line, LINE_LENGTH);
+    }
+    inputFile.close();
+
+    <span class="kw">return</span> maxLength;
+}
+
+<span class="cm">/*
+ * Функція рахує порожні рядки текстового файлу
+ * Параметри: немає
+ * Значення, що повертаються: кількість порожніх рядків
+ */</span>
+<span class="kw">int</span> countEmptyLines()
+{
+    <span class="kw">int</span> count = <span class="nm">0</span>;
+
+    inputFile.open(TEXT_FILE);
+    inputFile.getline(line, LINE_LENGTH);
+    <span class="kw">while</span> (!inputFile.fail())
+    {
+        <span class="kw">if</span> (strlen(line) == <span class="nm">0</span>)
+        {
+            count++;
+        }
+        inputFile.getline(line, LINE_LENGTH);
+    }
+    inputFile.close();
+
+    <span class="kw">return</span> count;
+}
+
+<span class="cm">/*
+ * Функція перевіряє, чи починається і чи завершується поточний рядок
+ * заданими символами
+ * Параметри: first, last - задані символи
+ * Значення, що повертаються: true, якщо рядок підходить
+ */</span>
+<span class="kw">bool</span> isMatchingLine(<span class="kw">char</span> first, <span class="kw">char</span> last)
+{
+    <span class="kw">bool</span> isMatching = <span class="kw">false</span>;
+    <span class="kw">int</span> length = strlen(line);
+
+    <span class="kw">if</span> (length &gt; <span class="nm">0</span>)
+    {
+        <span class="kw">if</span> (line[<span class="nm">0</span>] == first &amp;&amp; line[length - <span class="nm">1</span>] == last)
+        {
+            isMatching = <span class="kw">true</span>;
+        }
+    }
+
+    <span class="kw">return</span> isMatching;
+}
+
+<span class="cm">/*
+ * Функція вводить задані символи і записує у новий текстовий файл
+ * характеристики файлу та рядки, що починаються і завершуються цими
+ * символами
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> processFile()
+{
+    <span class="kw">char</span> first = <span class="st">&#x27; &#x27;</span>;   <span class="cm">// заданий символ на початку рядка</span>
+    <span class="kw">char</span> last = <span class="st">&#x27; &#x27;</span>;    <span class="cm">// заданий символ у кінці рядка</span>
+    <span class="kw">int</span> matchCount = <span class="nm">0</span>; <span class="cm">// кількість рядків із заданими символами</span>
+    <span class="kw">int</span> lineCount = countLines();
+
+    <span class="kw">if</span> (lineCount &gt; <span class="nm">0</span>)
+    {
+        outputFile.open(RESULT_FILE);
+        <span class="kw">if</span> (!outputFile.is_open())
+        {
+            cout &lt;&lt; <span class="st">&quot;Error! Cannot open file &quot;</span> &lt;&lt; RESULT_FILE &lt;&lt; endl;
+        }
+        <span class="kw">else</span>
+        {
+            cout &lt;&lt; <span class="st">&quot;Enter first character of the line: &quot;</span>;
+            cin &gt;&gt; first;
+            cout &lt;&lt; <span class="st">&quot;Enter last character of the line: &quot;</span>;
+            cin &gt;&gt; last;
+            cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// пропустити решту рядка</span>
+
+            outputFile &lt;&lt; <span class="st">&quot;Number of lines: &quot;</span> &lt;&lt; lineCount &lt;&lt; endl;
+            outputFile &lt;&lt; <span class="st">&quot;Maximum line length: &quot;</span> &lt;&lt; findMaxLength() &lt;&lt; endl;
+            outputFile &lt;&lt; <span class="st">&quot;Number of empty lines: &quot;</span> &lt;&lt; countEmptyLines()
+                       &lt;&lt; endl;
+            outputFile &lt;&lt; <span class="st">&quot;Lines that start with &#x27;&quot;</span> &lt;&lt; first
+                       &lt;&lt; <span class="st">&quot;&#x27; and end with &#x27;&quot;</span> &lt;&lt; last &lt;&lt; <span class="st">&quot;&#x27;:&quot;</span> &lt;&lt; endl;
+
+            inputFile.open(TEXT_FILE);
+            inputFile.getline(line, LINE_LENGTH);
+            <span class="kw">while</span> (!inputFile.fail())
+            {
+                <span class="kw">if</span> (isMatchingLine(first, last))
+                {
+                    outputFile &lt;&lt; line &lt;&lt; endl;
+                    matchCount++;
+                }
+                inputFile.getline(line, LINE_LENGTH);
+            }
+            inputFile.close();
+
+            outputFile &lt;&lt; <span class="st">&quot;Number of such lines: &quot;</span> &lt;&lt; matchCount &lt;&lt; endl;
+            outputFile.close();
+            cout &lt;&lt; <span class="st">&quot;Results are written to file &quot;</span> &lt;&lt; RESULT_FILE &lt;&lt; endl;
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить меню і викликає вибрану дію, поки не вибрано вихід
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> runMenu()
+{
+    <span class="kw">int</span> choice = -<span class="nm">1</span>;
+
+    <span class="kw">while</span> (choice != <span class="nm">0</span>)
+    {
+        cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Menu&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;1 - create text file from keyboard&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;2 - show text file&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;3 - process text file and write results&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;4 - show results file&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;0 - exit&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;Enter menu item: &quot;</span>;
+        cin &gt;&gt; choice;
+        <span class="kw">while</span> (cin.fail())
+        {
+            cin.clear();            <span class="cm">// скинути помилку введення</span>
+            cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+            cout &lt;&lt; <span class="st">&quot;Error! Enter a number: &quot;</span>;
+            cin &gt;&gt; choice;
+        }
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// прибрати кінець рядка перед cin.getline</span>
+
+        <span class="kw">switch</span> (choice)
+        {
+            <span class="kw">case</span> <span class="nm">1</span> : createFile(); <span class="kw">break</span>;
+            <span class="kw">case</span> <span class="nm">2</span> : showFile(TEXT_FILE); <span class="kw">break</span>;
+            <span class="kw">case</span> <span class="nm">3</span> : processFile(); <span class="kw">break</span>;
+            <span class="kw">case</span> <span class="nm">4</span> : showFile(RESULT_FILE); <span class="kw">break</span>;
+            <span class="kw">case</span> <span class="nm">0</span> : cout &lt;&lt; <span class="st">&quot;The program is finished.&quot;</span> &lt;&lt; endl; <span class="kw">break</span>;
+            <span class="kw">default</span> : cout &lt;&lt; <span class="st">&quot;Error! There is no such menu item.&quot;</span> &lt;&lt; endl;
+        }
+    }
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    runMenu();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 5.2</h3>
+<p class="file">Файл <a href="task2.cpp" download>task2.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task2.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 2</span>
+<span class="cm">// Запланована ціль: лабораторна робота №11, завдання 2, варіант 5.2.</span>
+<span class="cm">//                   Записати масив структур про факультети інститутів</span>
+<span class="cm">//                   у бінарний файл, виконати запити за даними файлу,</span>
+<span class="cm">//                   додавати, замінювати і видаляти записи файлу.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cstdio&gt;</span>
+<span class="pp">#include &lt;cstdlib&gt;</span>
+<span class="pp">#include &lt;cstring&gt;</span>
+<span class="pp">#include &lt;ctime&gt;</span>
+<span class="pp">#include &lt;iomanip&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_RECORDS = <span class="nm">10</span>;    <span class="cm">// найбільша кількість записів масиву</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_SPECIALTIES = <span class="nm">3</span>; <span class="cm">// найбільша кількість спеціальностей у записі</span>
+<span class="kw">const</span> <span class="kw">int</span> CITY_LENGTH = <span class="nm">15</span>;    <span class="cm">// довжини рядків разом із символом кінця рядка,</span>
+<span class="kw">const</span> <span class="kw">int</span> INSTITUTE_LENGTH = <span class="nm">22</span>; <span class="cm">// вони ж ширини колонок таблиці</span>
+<span class="kw">const</span> <span class="kw">int</span> FACULTY_LENGTH = <span class="nm">22</span>;
+<span class="kw">const</span> <span class="kw">int</span> SPECIALTY_LENGTH = <span class="nm">27</span>;
+<span class="kw">const</span> <span class="kw">int</span> NUMBER_WIDTH = <span class="nm">4</span>; <span class="cm">// ширина колонки з номером</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_PLAN = <span class="nm">500</span>;   <span class="cm">// найбільший план прийому на спеціальність</span>
+<span class="kw">const</span> <span class="kw">int</span> CITY_TOTAL = <span class="nm">3</span>;   <span class="cm">// кількість назв для генерації</span>
+<span class="kw">const</span> <span class="kw">int</span> INSTITUTE_TOTAL = <span class="nm">2</span>;
+<span class="kw">const</span> <span class="kw">int</span> FACULTY_TOTAL = <span class="nm">2</span>;
+<span class="kw">const</span> <span class="kw">int</span> SPECIALTY_TOTAL = <span class="nm">4</span>;
+<span class="kw">const</span> <span class="kw">char</span> DATA_FILE[] = <span class="st">&quot;faculties.dat&quot;</span>; <span class="cm">// бінарний файл із записами</span>
+<span class="kw">const</span> <span class="kw">char</span> RESULT_FILE[] = <span class="st">&quot;results.dat&quot;</span>; <span class="cm">// новий файл результатів запиту</span>
+<span class="kw">const</span> <span class="kw">char</span> TEMP_FILE[] = <span class="st">&quot;temp.dat&quot;</span>;      <span class="cm">// тимчасовий файл для видалення</span>
+
+<span class="cm">// назви, з яких генератор випадкових чисел складає записи</span>
+<span class="kw">const</span> <span class="kw">char</span> CITIES[CITY_TOTAL][CITY_LENGTH] = {<span class="st">&quot;Kyiv&quot;</span>, <span class="st">&quot;Lviv&quot;</span>, <span class="st">&quot;Odesa&quot;</span>};
+<span class="kw">const</span> <span class="kw">char</span> INSTITUTES[INSTITUTE_TOTAL][INSTITUTE_LENGTH] = {
+    <span class="st">&quot;Polytechnic Institute&quot;</span>, <span class="st">&quot;State University&quot;</span>};
+<span class="kw">const</span> <span class="kw">char</span> FACULTIES[FACULTY_TOTAL][FACULTY_LENGTH] = {<span class="st">&quot;Informatics&quot;</span>,
+                                                       <span class="st">&quot;Cybernetics&quot;</span>};
+<span class="kw">const</span> <span class="kw">char</span> SPECIALTIES[SPECIALTY_TOTAL][SPECIALTY_LENGTH] = {
+    <span class="st">&quot;Computer Science&quot;</span>, <span class="st">&quot;Software Engineering&quot;</span>, <span class="st">&quot;Computer Engineering&quot;</span>,
+    <span class="st">&quot;Automated Control Systems&quot;</span>};
+
+<span class="cm">// заголовок таблиці, колонки відповідають ширинам вище</span>
+<span class="kw">const</span> <span class="kw">char</span> TABLE_HEADER[] = <span class="st">&quot;No  City           Institute             &quot;</span>
+                            <span class="st">&quot;Faculty               Specialty                  &quot;</span>
+                            <span class="st">&quot;Plan&quot;</span>;
+
+<span class="cm">//=========== структури</span>
+<span class="kw">struct</span> Specialty <span class="cm">// спеціальність зі своїм планом прийому</span>
+{
+    <span class="kw">char</span> name[SPECIALTY_LENGTH]; <span class="cm">// назва спеціальності</span>
+    <span class="kw">int</span> plan;                    <span class="cm">// план прийому на перший курс</span>
+};
+
+<span class="kw">struct</span> Faculty <span class="cm">// один запис масиву</span>
+{
+    <span class="kw">char</span> city[CITY_LENGTH];                 <span class="cm">// місто</span>
+    <span class="kw">char</span> institute[INSTITUTE_LENGTH];       <span class="cm">// інститут</span>
+    <span class="kw">char</span> name[FACULTY_LENGTH];              <span class="cm">// факультет</span>
+    Specialty specialties[MAX_SPECIALTIES]; <span class="cm">// список спеціальностей</span>
+    <span class="kw">int</span> specialtyCount;                     <span class="cm">// кількість спеціальностей</span>
+};
+
+<span class="cm">//=========== глобальні змінні</span>
+Faculty records[MAX_RECORDS] = {}; <span class="cm">// масив структур</span>
+<span class="kw">int</span> recordCount = <span class="nm">0</span>;               <span class="cm">// кількість записів у масиві</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 11. Task 2. Variant 5.2.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout
+        &lt;&lt; <span class="st">&quot;Array of structures: city, institute, faculty, list of specialties,&quot;</span>
+        &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;admission plan to the first year (Plan in the tables).&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;The array is stored in a binary file, queries read this file.&quot;</span>
+         &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить ціле число із заданих меж. Якщо введено не число
+ * або число поза межами, введення повторюється
+ * Параметри: minValue, maxValue - межі числа
+ * Значення, що повертаються: введене число
+ */</span>
+<span class="kw">int</span> inputNumber(<span class="kw">int</span> minValue, <span class="kw">int</span> maxValue)
+{
+    <span class="kw">int</span> number = <span class="nm">0</span>;
+
+    cin &gt;&gt; number;
+    <span class="kw">while</span> (cin.fail() || number &lt; minValue || number &gt; maxValue)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter a number from &quot;</span> &lt;&lt; minValue &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; maxValue
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin &gt;&gt; number;
+    }
+    cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// прибрати кінець рядка перед cin.getline</span>
+
+    <span class="kw">return</span> number;
+}
+
+<span class="cm">/*
+ * Функція вводить непорожній рядок. Якщо рядок порожній або задовгий,
+ * введення повторюється
+ * Параметри: text - куди записати рядок; maxLength - розмір масиву text
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputText(<span class="kw">char</span>* text, <span class="kw">int</span> maxLength)
+{
+    cin.getline(text, maxLength);
+    <span class="kw">while</span> (cin.fail() || strlen(text) == <span class="nm">0</span>)
+    {
+        <span class="kw">if</span> (cin.fail())
+        {
+            cin.clear();            <span class="cm">// скинути помилку введення</span>
+            cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити залишок рядка</span>
+        }
+        cout &lt;&lt; <span class="st">&quot;Error! Enter text, maximum length is &quot;</span> &lt;&lt; maxLength - <span class="nm">1</span>
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin.getline(text, maxLength);
+    }
+}
+
+<span class="cm">/*
+ * Функція вводить з клавіатури один запис
+ * Параметри: немає
+ * Значення, що повертаються: заповнена структура
+ */</span>
+Faculty inputRecord()
+{
+    Faculty record = {};
+
+    cout &lt;&lt; <span class="st">&quot;Enter city: &quot;</span>;
+    inputText(record.city, CITY_LENGTH);
+    cout &lt;&lt; <span class="st">&quot;Enter institute: &quot;</span>;
+    inputText(record.institute, INSTITUTE_LENGTH);
+    cout &lt;&lt; <span class="st">&quot;Enter faculty: &quot;</span>;
+    inputText(record.name, FACULTY_LENGTH);
+
+    cout &lt;&lt; <span class="st">&quot;Enter number of specialties (from 1 to &quot;</span> &lt;&lt; MAX_SPECIALTIES
+         &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    record.specialtyCount = inputNumber(<span class="nm">1</span>, MAX_SPECIALTIES);
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; record.specialtyCount; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot;Enter specialty &quot;</span> &lt;&lt; i + <span class="nm">1</span> &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        inputText(record.specialties[i].name, SPECIALTY_LENGTH);
+        cout &lt;&lt; <span class="st">&quot;Enter plan (from 1 to &quot;</span> &lt;&lt; MAX_PLAN &lt;&lt; <span class="st">&quot;): &quot;</span>;
+        record.specialties[i].plan = inputNumber(<span class="nm">1</span>, MAX_PLAN);
+    }
+
+    <span class="kw">return</span> record;
+}
+
+<span class="cm">/*
+ * Функція складає один запис із випадкових назв і чисел. Спеціальності
+ * беруться зі списку поспіль, тому в записі вони не повторюються
+ * Параметри: немає
+ * Значення, що повертаються: заповнена структура
+ */</span>
+Faculty generateRecord()
+{
+    Faculty record = {};
+    <span class="kw">int</span> firstIndex = rand() % SPECIALTY_TOTAL; <span class="cm">// перша спеціальність запису</span>
+
+    strcpy(record.city, CITIES[rand() % CITY_TOTAL]);
+    strcpy(record.institute, INSTITUTES[rand() % INSTITUTE_TOTAL]);
+    strcpy(record.name, FACULTIES[rand() % FACULTY_TOTAL]);
+
+    record.specialtyCount = MAX_SPECIALTIES;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; record.specialtyCount; i++)
+    {
+        strcpy(record.specialties[i].name,
+               SPECIALTIES[(firstIndex + i) % SPECIALTY_TOTAL]);
+        record.specialties[i].plan = <span class="nm">1</span> + rand() % MAX_PLAN;
+    }
+
+    <span class="kw">return</span> record;
+}
+
+<span class="cm">/*
+ * Функція виводить рядок таблиці: запис з однією його спеціальністю
+ * Параметри: record - покажчик на запис; index - номер спеціальності;
+ *            number - номер у таблиці
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printRow(Faculty* record, <span class="kw">int</span> index, <span class="kw">int</span> number)
+{
+    cout &lt;&lt; left &lt;&lt; setw(NUMBER_WIDTH) &lt;&lt; number &lt;&lt; setw(CITY_LENGTH)
+         &lt;&lt; record-&gt;city &lt;&lt; setw(INSTITUTE_LENGTH) &lt;&lt; record-&gt;institute
+         &lt;&lt; setw(FACULTY_LENGTH) &lt;&lt; record-&gt;name &lt;&lt; setw(SPECIALTY_LENGTH)
+         &lt;&lt; record-&gt;specialties[index].name &lt;&lt; record-&gt;specialties[index].plan
+         &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція виводить масив структур таблицею
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printArray()
+{
+    cout &lt;&lt; endl &lt;&lt; TABLE_HEADER &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; recordCount; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; records[i].specialtyCount; j++)
+        {
+            printRow(&amp;records[i], j, i + <span class="nm">1</span>);
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція створює масив і виводить його таблицею
+ * Параметри: isRandom - true для генерації, false для введення з клавіатури
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> createArray(<span class="kw">bool</span> isRandom)
+{
+    cout &lt;&lt; <span class="st">&quot;Enter number of records (from 1 to &quot;</span> &lt;&lt; MAX_RECORDS &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    recordCount = inputNumber(<span class="nm">1</span>, MAX_RECORDS);
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; recordCount; i++)
+    {
+        <span class="kw">if</span> (isRandom)
+        {
+            records[i] = generateRecord();
+        }
+        <span class="kw">else</span>
+        {
+            cout &lt;&lt; <span class="st">&quot;Record &quot;</span> &lt;&lt; i + <span class="nm">1</span> &lt;&lt; endl;
+            records[i] = inputRecord();
+        }
+    }
+
+    printArray();
+}
+
+<span class="cm">/*
+ * Функція записує масив у бінарний файл, старий вміст файлу зникає
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> writeArray()
+{
+    FILE* file = fopen(DATA_FILE, <span class="st">&quot;wb&quot;</span>);
+
+    <span class="kw">if</span> (file == NULL)
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! Cannot open file &quot;</span> &lt;&lt; DATA_FILE &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        fwrite(records, <span class="kw">sizeof</span>(Faculty), recordCount, file);
+        fclose(file);
+        cout &lt;&lt; <span class="st">&quot;Records written to file: &quot;</span> &lt;&lt; recordCount &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція читає бінарний файл і виводить його записи таблицею
+ * Параметри: name - ім&#x27;я файлу
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printFile(<span class="kw">const</span> <span class="kw">char</span> name[])
+{
+    Faculty record;
+    <span class="kw">int</span> number = <span class="nm">0</span>; <span class="cm">// номер запису в таблиці</span>
+    FILE* file = fopen(name, <span class="st">&quot;rb&quot;</span>);
+
+    <span class="kw">if</span> (file == NULL)
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! File &quot;</span> &lt;&lt; name &lt;&lt; <span class="st">&quot; does not exist.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        cout &lt;&lt; endl &lt;&lt; TABLE_HEADER &lt;&lt; endl;
+        <span class="kw">while</span> (fread(&amp;record, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, file) == <span class="nm">1</span>)
+        {
+            number++;
+            <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; record.specialtyCount; j++)
+            {
+                printRow(&amp;record, j, number);
+            }
+        }
+        fclose(file);
+
+        <span class="kw">if</span> (number == <span class="nm">0</span>)
+        {
+            cout &lt;&lt; <span class="st">&quot;File &quot;</span> &lt;&lt; name &lt;&lt; <span class="st">&quot; has no records.&quot;</span> &lt;&lt; endl;
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція рахує записи у файлі за його розміром. Якщо файлу немає
+ * або в ньому немає записів, виводить повідомлення
+ * Параметри: немає
+ * Значення, що повертаються: кількість записів
+ */</span>
+<span class="kw">int</span> countRecords()
+{
+    <span class="kw">int</span> total = <span class="nm">0</span>;
+    FILE* file = fopen(DATA_FILE, <span class="st">&quot;rb&quot;</span>);
+
+    <span class="kw">if</span> (file != NULL)
+    {
+        fseek(file, <span class="nm">0</span>, SEEK_END);
+        total = ftell(file) / <span class="kw">sizeof</span>(Faculty);
+        fclose(file);
+    }
+
+    <span class="kw">if</span> (total == <span class="nm">0</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! File &quot;</span> &lt;&lt; DATA_FILE
+             &lt;&lt; <span class="st">&quot; does not exist or has no records.&quot;</span> &lt;&lt; endl;
+    }
+
+    <span class="kw">return</span> total;
+}
+
+<span class="cm">/*
+ * Функція дописує нові записи в кінець бінарного файлу
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> appendRecords()
+{
+    Faculty record;
+    <span class="kw">int</span> count = <span class="nm">0</span>; <span class="cm">// кількість нових записів</span>
+    FILE* file = fopen(DATA_FILE, <span class="st">&quot;ab&quot;</span>);
+
+    <span class="kw">if</span> (file == NULL)
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! Cannot open file &quot;</span> &lt;&lt; DATA_FILE &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        cout &lt;&lt; <span class="st">&quot;Enter number of new records (from 1 to &quot;</span> &lt;&lt; MAX_RECORDS
+             &lt;&lt; <span class="st">&quot;): &quot;</span>;
+        count = inputNumber(<span class="nm">1</span>, MAX_RECORDS);
+
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; count; i++)
+        {
+            cout &lt;&lt; <span class="st">&quot;New record &quot;</span> &lt;&lt; i + <span class="nm">1</span> &lt;&lt; endl;
+            record = inputRecord();
+            fwrite(&amp;record, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, file);
+        }
+
+        fclose(file);
+        cout &lt;&lt; <span class="st">&quot;Records added to file: &quot;</span> &lt;&lt; count &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція замінює вибраний запис файлу на новий, введений з клавіатури
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> replaceRecord()
+{
+    Faculty record;
+    FILE* file = NULL;
+    <span class="kw">int</span> total = countRecords(); <span class="cm">// кількість записів у файлі</span>
+    <span class="kw">int</span> number = <span class="nm">0</span>;             <span class="cm">// номер вибраного запису</span>
+
+    <span class="kw">if</span> (total &gt; <span class="nm">0</span>)
+    {
+        file = fopen(DATA_FILE, <span class="st">&quot;r+b&quot;</span>);
+        <span class="kw">if</span> (file == NULL)
+        {
+            cout &lt;&lt; <span class="st">&quot;Error! Cannot open file &quot;</span> &lt;&lt; DATA_FILE &lt;&lt; endl;
+        }
+        <span class="kw">else</span>
+        {
+            cout &lt;&lt; <span class="st">&quot;Enter record number (from 1 to &quot;</span> &lt;&lt; total &lt;&lt; <span class="st">&quot;): &quot;</span>;
+            number = inputNumber(<span class="nm">1</span>, total);
+            record = inputRecord();
+
+            <span class="cm">// перейти на початок вибраного запису і записати поверх нього</span>
+            fseek(file, (number - <span class="nm">1</span>) * <span class="kw">sizeof</span>(Faculty), SEEK_SET);
+            fwrite(&amp;record, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, file);
+            fclose(file);
+            cout &lt;&lt; <span class="st">&quot;Record &quot;</span> &lt;&lt; number &lt;&lt; <span class="st">&quot; is replaced.&quot;</span> &lt;&lt; endl;
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція видаляє вибраний запис: переписує решту записів у тимчасовий
+ * файл, який потім займає місце старого
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> deleteRecord()
+{
+    Faculty record;
+    FILE* file = NULL;
+    FILE* tempFile = NULL;
+    <span class="kw">int</span> total = countRecords(); <span class="cm">// кількість записів у файлі</span>
+    <span class="kw">int</span> number = <span class="nm">0</span>;             <span class="cm">// номер вибраного запису</span>
+    <span class="kw">int</span> current = <span class="nm">0</span>;            <span class="cm">// номер прочитаного запису</span>
+
+    <span class="kw">if</span> (total &gt; <span class="nm">0</span>)
+    {
+        tempFile = fopen(TEMP_FILE, <span class="st">&quot;wb&quot;</span>);
+        <span class="kw">if</span> (tempFile == NULL)
+        {
+            cout &lt;&lt; <span class="st">&quot;Error! Cannot open file &quot;</span> &lt;&lt; TEMP_FILE &lt;&lt; endl;
+        }
+        <span class="kw">else</span>
+        {
+            cout &lt;&lt; <span class="st">&quot;Enter record number (from 1 to &quot;</span> &lt;&lt; total &lt;&lt; <span class="st">&quot;): &quot;</span>;
+            number = inputNumber(<span class="nm">1</span>, total);
+
+            file = fopen(DATA_FILE, <span class="st">&quot;rb&quot;</span>);
+            <span class="kw">while</span> (fread(&amp;record, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, file) == <span class="nm">1</span>)
+            {
+                current++;
+                <span class="kw">if</span> (current != number)
+                {
+                    fwrite(&amp;record, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, tempFile);
+                }
+            }
+            fclose(file);
+            fclose(tempFile);
+
+            remove(DATA_FILE);
+            rename(TEMP_FILE, DATA_FILE);
+            cout &lt;&lt; <span class="st">&quot;Record &quot;</span> &lt;&lt; number &lt;&lt; <span class="st">&quot; is deleted.&quot;</span> &lt;&lt; endl;
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція шукає у файлі спеціальності, у назвах яких є хоча б одне
+ * з двох слів, записує результат у новий файл і виводить його
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> findByWords()
+{
+    Faculty record;
+    Faculty result; <span class="cm">// копія запису зі знайденою спеціальністю</span>
+    <span class="kw">char</span> firstWord[SPECIALTY_LENGTH] = <span class="st">&quot;&quot;</span>;
+    <span class="kw">char</span> secondWord[SPECIALTY_LENGTH] = <span class="st">&quot;&quot;</span>;
+    FILE* resultFile = NULL;
+    FILE* file = fopen(DATA_FILE, <span class="st">&quot;rb&quot;</span>);
+
+    <span class="kw">if</span> (file == NULL)
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! File &quot;</span> &lt;&lt; DATA_FILE &lt;&lt; <span class="st">&quot; does not exist.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        resultFile = fopen(RESULT_FILE, <span class="st">&quot;wb&quot;</span>);
+        <span class="kw">if</span> (resultFile == NULL)
+        {
+            cout &lt;&lt; <span class="st">&quot;Error! Cannot open file &quot;</span> &lt;&lt; RESULT_FILE &lt;&lt; endl;
+        }
+        <span class="kw">else</span>
+        {
+            cout &lt;&lt; <span class="st">&quot;Enter first word: &quot;</span>;
+            inputText(firstWord, SPECIALTY_LENGTH);
+            cout &lt;&lt; <span class="st">&quot;Enter second word: &quot;</span>;
+            inputText(secondWord, SPECIALTY_LENGTH);
+
+            <span class="kw">while</span> (fread(&amp;record, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, file) == <span class="nm">1</span>)
+            {
+                <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; record.specialtyCount; j++)
+                {
+                    <span class="kw">if</span> (strstr(record.specialties[j].name, firstWord) != NULL
+                        || strstr(record.specialties[j].name, secondWord)
+                               != NULL)
+                    {
+                        result = record;
+                        result.specialties[<span class="nm">0</span>] = record.specialties[j];
+                        result.specialtyCount = <span class="nm">1</span>;
+                        fwrite(&amp;result, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, resultFile);
+                    }
+                }
+            }
+            fclose(resultFile);
+            printFile(RESULT_FILE);
+        }
+        fclose(file);
+    }
+}
+
+<span class="cm">/*
+ * Функція шукає у файлі факультети й інститути, де є задана спеціальність,
+ * записує результат у новий файл і виводить його
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> findBySpecialty()
+{
+    Faculty record;
+    Faculty result; <span class="cm">// копія запису зі знайденою спеціальністю</span>
+    <span class="kw">char</span> specialty[SPECIALTY_LENGTH] = <span class="st">&quot;&quot;</span>;
+    FILE* resultFile = NULL;
+    FILE* file = fopen(DATA_FILE, <span class="st">&quot;rb&quot;</span>);
+
+    <span class="kw">if</span> (file == NULL)
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! File &quot;</span> &lt;&lt; DATA_FILE &lt;&lt; <span class="st">&quot; does not exist.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        resultFile = fopen(RESULT_FILE, <span class="st">&quot;wb&quot;</span>);
+        <span class="kw">if</span> (resultFile == NULL)
+        {
+            cout &lt;&lt; <span class="st">&quot;Error! Cannot open file &quot;</span> &lt;&lt; RESULT_FILE &lt;&lt; endl;
+        }
+        <span class="kw">else</span>
+        {
+            cout &lt;&lt; <span class="st">&quot;Enter specialty: &quot;</span>;
+            inputText(specialty, SPECIALTY_LENGTH);
+
+            <span class="kw">while</span> (fread(&amp;record, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, file) == <span class="nm">1</span>)
+            {
+                <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; record.specialtyCount; j++)
+                {
+                    <span class="kw">if</span> (strcmp(record.specialties[j].name, specialty) == <span class="nm">0</span>)
+                    {
+                        result = record;
+                        result.specialties[<span class="nm">0</span>] = record.specialties[j];
+                        result.specialtyCount = <span class="nm">1</span>;
+                        fwrite(&amp;result, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, resultFile);
+                    }
+                }
+            }
+            fclose(resultFile);
+            printFile(RESULT_FILE);
+        }
+        fclose(file);
+    }
+}
+
+<span class="cm">/*
+ * Функція знаходить у файлі найбільший план на задану спеціальність,
+ * записує факультет, інститут і місто у новий файл і виводить його.
+ * Якщо такий план є в кількох записах, у результат потрапляють усі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> findMaxPlan()
+{
+    Faculty record;
+    Faculty result; <span class="cm">// копія запису зі знайденою спеціальністю</span>
+    <span class="kw">char</span> specialty[SPECIALTY_LENGTH] = <span class="st">&quot;&quot;</span>;
+    <span class="kw">int</span> maxPlan = <span class="nm">0</span>; <span class="cm">// найбільший план на спеціальність</span>
+    FILE* resultFile = NULL;
+    FILE* file = fopen(DATA_FILE, <span class="st">&quot;rb&quot;</span>);
+
+    <span class="kw">if</span> (file == NULL)
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! File &quot;</span> &lt;&lt; DATA_FILE &lt;&lt; <span class="st">&quot; does not exist.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        resultFile = fopen(RESULT_FILE, <span class="st">&quot;wb&quot;</span>);
+        <span class="kw">if</span> (resultFile == NULL)
+        {
+            cout &lt;&lt; <span class="st">&quot;Error! Cannot open file &quot;</span> &lt;&lt; RESULT_FILE &lt;&lt; endl;
+        }
+        <span class="kw">else</span>
+        {
+            cout &lt;&lt; <span class="st">&quot;Enter specialty: &quot;</span>;
+            inputText(specialty, SPECIALTY_LENGTH);
+
+            <span class="kw">while</span> (fread(&amp;record, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, file) == <span class="nm">1</span>)
+            {
+                <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; record.specialtyCount; j++)
+                {
+                    <span class="kw">if</span> (strcmp(record.specialties[j].name, specialty) == <span class="nm">0</span>
+                        &amp;&amp; record.specialties[j].plan &gt; maxPlan)
+                    {
+                        maxPlan = record.specialties[j].plan;
+                    }
+                }
+            }
+
+            fseek(file, <span class="nm">0</span>, SEEK_SET); <span class="cm">// другий прохід файлу з початку</span>
+            <span class="kw">while</span> (fread(&amp;record, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, file) == <span class="nm">1</span>)
+            {
+                <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; record.specialtyCount; j++)
+                {
+                    <span class="kw">if</span> (strcmp(record.specialties[j].name, specialty) == <span class="nm">0</span>
+                        &amp;&amp; record.specialties[j].plan == maxPlan)
+                    {
+                        result = record;
+                        result.specialties[<span class="nm">0</span>] = record.specialties[j];
+                        result.specialtyCount = <span class="nm">1</span>;
+                        fwrite(&amp;result, <span class="kw">sizeof</span>(Faculty), <span class="nm">1</span>, resultFile);
+                    }
+                }
+            }
+            fclose(resultFile);
+            printFile(RESULT_FILE);
+        }
+        fclose(file);
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить меню і викликає вибрану дію, поки не вибрано вихід
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> runMenu()
+{
+    <span class="kw">int</span> choice = -<span class="nm">1</span>;
+
+    srand(time(NULL));
+    <span class="kw">while</span> (choice != <span class="nm">0</span>)
+    {
+        cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Menu&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;1 - create array from keyboard&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;2 - generate random array&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;3 - print array&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;4 - write array to binary file&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;5 - print binary file&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;6 - find specialties by two words&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;7 - find faculties and institutes with a specialty&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;8 - find the largest plan for a specialty&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;9 - add records to binary file&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;10 - replace record in binary file&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;11 - delete record from binary file&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;0 - exit&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;Enter menu item: &quot;</span>;
+        cin &gt;&gt; choice;
+        <span class="kw">while</span> (cin.fail())
+        {
+            cin.clear();            <span class="cm">// скинути помилку введення</span>
+            cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+            cout &lt;&lt; <span class="st">&quot;Error! Enter a number: &quot;</span>;
+            cin &gt;&gt; choice;
+        }
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// прибрати кінець рядка перед cin.getline</span>
+
+        <span class="kw">if</span> (recordCount == <span class="nm">0</span> &amp;&amp; (choice == <span class="nm">3</span> || choice == <span class="nm">4</span>))
+        {
+            cout &lt;&lt; <span class="st">&quot;Error! The array is empty. Create it first.&quot;</span> &lt;&lt; endl;
+        }
+        <span class="kw">else</span>
+        {
+            <span class="kw">switch</span> (choice)
+            {
+                <span class="kw">case</span> <span class="nm">1</span> : createArray(<span class="kw">false</span>); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">2</span> : createArray(<span class="kw">true</span>); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">3</span> : printArray(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">4</span> : writeArray(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">5</span> : printFile(DATA_FILE); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">6</span> : findByWords(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">7</span> : findBySpecialty(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">8</span> : findMaxPlan(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">9</span> : appendRecords(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">10</span> : replaceRecord(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">11</span> : deleteRecord(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">0</span> : cout &lt;&lt; <span class="st">&quot;The program is finished.&quot;</span> &lt;&lt; endl; <span class="kw">break</span>;
+                <span class="kw">default</span> : cout &lt;&lt; <span class="st">&quot;Error! There is no such menu item.&quot;</span> &lt;&lt; endl;
+            }
+        }
+    }
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    runMenu();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="page-footer"><a href="#scheme">← Блок-схеми</a><a href="#top">Усі розділи</a><a href="#results">Результати →</a></div></section>
+<section class="page" id="results" tabindex="-1"><p class="eyebrow">Лабораторна робота №11 / 06 з 08</p><h2>6. Результати виконання роботи</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6.1</h3>
+<div class="result">
+<p>Перший запуск виконано до створення файлу, останній з порожнім файлом lines.txt.</p>
+<figure class="shot"><a href="img/task1-run-1.png"><img src="img/task1-run-1.png" alt="" width="626" loading="lazy"></a><figcaption>Рисунок 30 - Завдання 1. Файл ще не створено: виведення й обробка повідомляють про помилку; некоректний і неіснуючий пункт меню</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-2.png"><img src="img/task1-run-2.png" alt="" width="626" loading="lazy"></a><figcaption>Рисунок 31 - Завдання 1. Створення файлу з клавіатури, виведення файлу, обробка і виведення файлу результатів</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-3.png"><img src="img/task1-run-3.png" alt="" width="626" loading="lazy"></a><figcaption>Рисунок 32 - Завдання 1. Новий запуск: обробка файлу з попереднього запуску з іншими символами, новий запис файлу, повторна обробка</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-4.png"><img src="img/task1-run-4.png" alt="" width="626" loading="lazy"></a><figcaption>Рисунок 33 - Завдання 1. Порожній файл</figcaption></figure>
+</div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 5.2</h3>
+<div class="result">
+<p>Запуски йдуть один за одним і працюють з тим самим файлом faculties.dat, тому кожен
+показує стан файлу після попереднього. Перший запуск виконано до створення файлу. Останній
+запуск використовує генератор, тому його значення змінюються.</p>
+<figure class="shot"><a href="img/task2-run-1.png"><img src="img/task2-run-1.png" alt="" width="635" loading="lazy"></a><figcaption>Рисунок 34 - Завдання 2. Файл ще не створено: виведення таблиці, запити, заміна і видалення повідомляють про помилку; порожній масив не записується</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-2.png"><img src="img/task2-run-2.png" alt="" width="878" loading="lazy"></a><figcaption>Рисунок 35 - Завдання 2. Створення масиву з клавіатури, запис у бінарний файл і виведення таблиці, прочитаної з файлу</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-3.png"><img src="img/task2-run-3.png" alt="" width="878" loading="lazy"></a><figcaption>Рисунок 36 - Завдання 2. Новий запуск програми: три запити до файлу з попереднього запуску, результати записано в новий бінарний файл і прочитано з нього</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-4.png"><img src="img/task2-run-4.png" alt="" width="878" loading="lazy"></a><figcaption>Рисунок 37 - Завдання 2. Додавання нового запису в кінець файлу</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-5.png"><img src="img/task2-run-5.png" alt="" width="878" loading="lazy"></a><figcaption>Рисунок 38 - Завдання 2. Заміна запису 2 новим записом (перед цим введено неправильний номер)</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-6.png"><img src="img/task2-run-6.png" alt="" width="878" loading="lazy"></a><figcaption>Рисунок 39 - Завдання 2. Видалення запису 1 (перед цим введено неправильний номер) і запит після змін</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-7.png"><img src="img/task2-run-7.png" alt="" width="878" loading="lazy"></a><figcaption>Рисунок 40 - Завдання 2. Генерація масиву, запис у файл і видалення єдиного запису: файл лишається без записів</figcaption></figure>
+</div>
+</div>
+<div class="page-footer"><a href="#code">← Тексти програм</a><a href="#top">Усі розділи</a><a href="#check">Перевірка →</a></div></section>
+<section class="page" id="check" tabindex="-1"><p class="eyebrow">Лабораторна робота №11 / 07 з 08</p><h2>7. Аналіз достовірності результатів</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6.1</h3>
+<p>Кількість рядків, найбільшу довжину й порожні рядки пораховано вручну за контрольним файлом,
+а потім порівняно з файлом результатів, який вивела програма.</p>
+<p class="tcap">Таблиця 3 - Рядки контрольного файлу lines.txt</p>
+<div class="table-scroll"><table>
+<tr><th>Рядок</th><th>Текст</th><th>Довжина</th><th>Початок T, кінець .</th><th>Початок T, кінець T</th></tr>
+<tr><td>1</td><td>To be or not to be.</td><td>19</td><td>так</td><td>ні</td></tr>
+<tr><td>2</td><td>(порожній)</td><td>0</td><td>ні</td><td>ні</td></tr>
+<tr><td>3</td><td>Tea is hot.</td><td>11</td><td>так</td><td>ні</td></tr>
+<tr><td>4</td><td>tiny</td><td>4</td><td>ні</td><td>ні</td></tr>
+<tr><td>5</td><td>(порожній)</td><td>0</td><td>ні</td><td>ні</td></tr>
+<tr><td>6</td><td>T</td><td>1</td><td>ні</td><td>так</td></tr>
+</table></div>
+<p class="tcap">Таблиця 4 - Перевірка завдання 1</p>
+<div class="table-scroll"><table>
+<tr><th>Випадок</th><th>Очікуваний результат</th><th>Результат програми</th></tr>
+<tr><td>lines.txt, символи T і .</td><td>6 рядків, максимум 19, порожніх 2, підходять рядки 1 і 3</td><td>Number of lines: 6, Maximum line length: 19, Number of empty lines: 2, Number of such lines: 2</td></tr>
+<tr><td>lines.txt, символи T і T</td><td>підходить лише рядок T</td><td>T, Number of such lines: 1</td></tr>
+<tr><td>новий вміст файлу: apple, порожній, a line; символи a і e</td><td>3 рядки, максимум 6, порожніх 1, підходять 2</td><td>значення збігаються, старий вміст зник</td></tr>
+<tr><td>файлу ще немає, пункти 2 і 4</td><td>повідомлення, програма працює далі</td><td>Error! File lines.txt does not exist. Для пункту 4 те саме про result.txt</td></tr>
+<tr><td>файлу ще немає, пункт 3</td><td>повідомлення, обробки немає</td><td>Error! File lines.txt does not exist or is empty.</td></tr>
+<tr><td>порожній файл, пункт 3</td><td>повідомлення, обробки немає</td><td>Error! File lines.txt does not exist or is empty.</td></tr>
+<tr><td>кількість рядків 0</td><td>повторити введення</td><td>Error! Enter a number from 1 to 20</td></tr>
+<tr><td>меню: abc; 5</td><td>повторити введення; такого пункту немає</td><td>Error! Enter a number; Error! There is no such menu item.</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 5.2</h3>
+<p>Після кожної операції таблицю надруковано з файлу (пункт 5). Також перевірено розмір файлу:
+він має дорівнювати кількості записів, помноженій на 160 байтів.</p>
+<p class="tcap">Таблиця 5 - Стан файлу faculties.dat після кожної операції</p>
+<div class="table-scroll"><table>
+<tr><th>Операція</th><th>Очікувані записи файлу</th><th>Розмір, байтів</th><th>Результат</th></tr>
+<tr><td>запис масиву (пункт 4)</td><td>Kyiv, Lviv, Odesa</td><td>3 · 160 = 480</td><td>збігається</td></tr>
+<tr><td>додавання запису Kharkiv (пункт 9)</td><td>Kyiv, Lviv, Odesa, Kharkiv</td><td>4 · 160 = 640</td><td>збігається</td></tr>
+<tr><td>заміна запису 2 на Dnipro (пункт 10)</td><td>Kyiv, Dnipro, Odesa, Kharkiv</td><td>640, розмір не змінився</td><td>збігається</td></tr>
+<tr><td>видалення запису 1 (пункт 11)</td><td>Dnipro, Odesa, Kharkiv</td><td>3 · 160 = 480</td><td>збігається</td></tr>
+<tr><td>видалення єдиного запису</td><td>записів немає</td><td>0</td><td>File faculties.dat has no records.</td></tr>
+</table></div>
+<p>Запити перевірено на тих самих значеннях, що в лабораторній роботі №10. Дані при цьому
+прочитано з файлу в новому запуску програми.</p>
+<p class="tcap">Таблиця 6 - Перевірка запитів і помилок завдання 2</p>
+<div class="table-scroll"><table>
+<tr><th>Випадок</th><th>Очікуваний результат</th><th>Результат програми</th></tr>
+<tr><td>Запит 1: Computer, Automated</td><td>6 рядків, усі спеціальності, крім Software Engineering; у файлі результатів 6 · 160 = 960 байтів</td><td>6 рядків, таблицю прочитано з results.dat</td></tr>
+<tr><td>Запит 2: Computer Science</td><td>3 рядки</td><td>3 рядки, збігається</td></tr>
+<tr><td>Запит 3: Computer Science</td><td>план 150 у двох записах: Cybernetics, Automation</td><td>2 рядки, збігається</td></tr>
+<tr><td>Запит 3: Biology</td><td>файл результатів порожній</td><td>File results.dat has no records.</td></tr>
+<tr><td>Запит 3 після змін: Applied Mathematics</td><td>Kharkiv, план 70, додано пунктом 9</td><td>1 рядок, збігається</td></tr>
+<tr><td>файлу ще немає, пункти 5, 6, 7, 8</td><td>повідомлення, програма працює далі</td><td>Error! File faculties.dat does not exist.</td></tr>
+<tr><td>файлу ще немає, пункти 10, 11</td><td>повідомлення, програма працює далі</td><td>Error! File faculties.dat does not exist or has no records.</td></tr>
+<tr><td>пункт 4 при порожньому масиві</td><td>масив не записується</td><td>Error! The array is empty. Create it first.</td></tr>
+<tr><td>файл без записів, пункти 5 і 10</td><td>повідомлення</td><td>has no records</td></tr>
+<tr><td>номер запису 9 або 0 при 4 записах</td><td>повторити введення</td><td>Error! Enter a number from 1 to 4</td></tr>
+</table></div>
+</div>
+<div class="page-footer"><a href="#results">← Результати</a><a href="#top">Усі розділи</a><a href="#conclusion">Висновки →</a></div></section>
+<section class="page" id="conclusion" tabindex="-1"><p class="eyebrow">Лабораторна робота №11 / 08 з 08</p><h2>8. Висновки</h2>
+<div class="card">
+<p>Розроблено дві програми з меню: перша працює з текстовим файлом через класи потоків, друга з
+бінарним файлом через функції stdio.h. Перша записує рядки з клавіатури у файл, знаходить кількість
+рядків, найбільшу довжину, порожні рядки й рядки із заданими символами і записує це в новий
+файл.</p>
+<p>Друга продовжує лабораторну роботу №10: масив структур зберігається в бінарному файлі, запити
+читають цей файл, а результат записують у новий. Записи можна додавати, замінювати і видаляти,
+після кожної такої операції перевірено таблицю і розмір файлу. Заміна виконується прямо у файлі
+через <code>fseek</code>, а для видалення потрібен тимчасовий файл.</p>
+</div>
+<div class="page-footer"><a href="#check">← Перевірка</a><a href="#top">Усі розділи</a><a href="#top">До розділів →</a></div></section>
+<p class="footer">Основи програмування • 2026</p>
+</main>
+</div>
+<script src="../site.js"></script>
+</body>
+</html>

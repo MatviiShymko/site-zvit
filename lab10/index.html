@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторна №10. Структури, масиви структур та об&#x27;єднання</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-lab="10">
+<a class="skip" href="#content">Перейти до вмісту</a>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Основи<br>програмування<small>Шимко Матвій • ІПЗ-11(3)</small></div><nav aria-label="Лабораторні роботи"><a href="../index.html">Головна сторінка</a><div class="side-label">ЛАБОРАТОРНІ РОБОТИ</div><a href="../lab01/index.html">Лабораторна робота №1</a><a href="../lab02/index.html">Лабораторна робота №2</a><a href="../lab03/index.html">Лабораторна робота №3</a><a href="../lab04/index.html">Лабораторна робота №4</a><a href="../lab05/index.html">Лабораторна робота №5</a><a href="../lab06/index.html">Лабораторна робота №6</a><a href="../lab07/index.html">Лабораторна робота №7</a><a href="../lab08/index.html">Лабораторна робота №8</a><a href="../lab09/index.html">Лабораторна робота №9</a><a href="../lab10/index.html#top" data-nav="top">Лабораторна робота №10</a><nav class="subnav" aria-label="Розділи звіту"><a href="#goal" data-nav="goal">Мета</a><a href="#task" data-nav="task">Умова задачі</a><a href="#analysis" data-nav="analysis">Аналіз задачі</a><a href="#scheme" data-nav="scheme">Блок-схеми</a><a href="#code" data-nav="code">Текст програми</a><a href="#results" data-nav="results">Результати</a><a href="#check" data-nav="check">Перевірка</a><a href="#conclusion" data-nav="conclusion">Висновки</a></nav><a href="../lab11/index.html">Лабораторна робота №11</a></nav></aside>
+<main id="content" class="main">
+<p id="crumb" class="crumb"></p>
+<section class="page" id="top" tabindex="-1"><header class="hero"><p class="eyebrow">Основи програмування</p><h1>Звіт до лабораторної роботи №10</h1><p>Структури, масиви структур та об'єднання • Варіант 5</p></header><div class="meta"><p><b>Студент:</b> Шимко Матвій Анатолійович</p>
+<p><b>Група:</b> ІПЗ-11(3), 1 курс, 2026 рік</p>
+<p><b>Дисципліна:</b> Основи програмування</p>
+<p><b>Викладач:</b> Ковалюк Тетяна Володимирівна</p></div><h2>Оберіть розділ звіту</h2><div class="menu-grid"><a class="menu-card" href="#goal"><span class="num">01</span><b>Мета</b></a><a class="menu-card" href="#task"><span class="num">02</span><b>Умова задачі</b></a><a class="menu-card" href="#analysis"><span class="num">03</span><b>Аналіз задачі</b></a><a class="menu-card" href="#scheme"><span class="num">04</span><b>Блок-схеми</b></a><a class="menu-card" href="#code"><span class="num">05</span><b>Текст програми</b></a><a class="menu-card" href="#results"><span class="num">06</span><b>Результати</b></a><a class="menu-card" href="#check"><span class="num">07</span><b>Перевірка</b></a><a class="menu-card" href="#conclusion"><span class="num">08</span><b>Висновки</b></a></div></section>
+<section class="page" id="goal" tabindex="-1"><p class="eyebrow">Лабораторна робота №10 / 01 з 08</p><h2>1. Мета роботи</h2>
+<div class="card"><ul>
+<li>Вивчити особливості типу даних "структура" і масивів структур.</li>
+<li>Опанувати передачу структур у функції, повернення структур із функцій та доступ до полів через покажчик.</li>
+<li>Навчитися розробляти програми з меню, які виконують пошук у масиві структур за ключами, заданими з клавіатури.</li>
+</ul></div>
+<div class="page-footer"><a href="#top">← До розділів</a><a href="#top">Усі розділи</a><a href="#task">Умова задачі →</a></div></section>
+<section class="page" id="task" tabindex="-1"><p class="eyebrow">Лабораторна робота №10 / 02 з 08</p><h2>2. Умова задачі</h2>
+<div class="task">
+<h3>Варіант 5</h3>
+<p>Варіант 5 (у таблиці 25 варіантів, 30 - 25 = 5).</p>
+<p>Створити масив структур. Кожна структура складається з таких елементів: місто, інститут,
+факультет, список спеціальностей, план прийому на перший курс. Реалізувати запити, визначивши:</p>
+<ul>
+<li>список спеціальностей, що містять у своїй назві слова "комп'ютерний" або "автоматизований";</li>
+<li>факультети й інститути, де є задана спеціальність;</li>
+<li>факультет, інститут і місто, де на вказану користувачем спеціальність виділено найбільше місць.</li>
+</ul>
+<p>Результати запитів вивести у вигляді таблиць.</p>
+<p>Вимоги до програми:</p>
+<ul>
+<li>програма повинна мати меню команд, виконання яких здійснювати через виклики функцій;</li>
+<li>кожна функція має визначати окрему обмежену дію: створення масиву структур, виведення
+масиву структур, пошук і виведення результатів запитів;</li>
+<li>застосування покажчиків на масив структур та окремі структури схвалюється;</li>
+<li>створення масиву структур здійснювати через введення з клавіатури або генерацію рядків і
+чисел за допомогою генератора псевдовипадкових чисел;</li>
+<li>створений масив структур обов'язково вивести на екран у табличній формі, заголовок таблиці
+має відповідати переліку полів структури;</li>
+<li>пошук по масиву структур здійснювати, задаючи ключі пошуку з клавіатури;</li>
+<li>результати запитів виводити в табличній формі: заголовок таблиці виводиться один раз, далі
+виводяться дані результату пошуку;</li>
+<li>бібліотеку стандартних шаблонів STL використовувати заборонено, дозволено функції
+заголовних файлів string.h, ctype.h, stdlib.h.</li>
+</ul>
+</div>
+<div class="page-footer"><a href="#goal">← Мета</a><a href="#top">Усі розділи</a><a href="#analysis">Аналіз задачі →</a></div></section>
+<section class="page" id="analysis" tabindex="-1"><p class="eyebrow">Лабораторна робота №10 / 03 з 08</p><h2>3. Аналіз задачі</h2>
+<div class="task">
+<h3>Варіант 5</h3>
+<p>Для розв'язання задачі потрібен масив записів про факультети. На кожну спеціальність
+виділено свій план прийому, тому спеціальність зберігається в окремій структурі
+<code>Specialty</code> з полями <code>name</code> і <code>plan</code>. Структура
+<code>Faculty</code> містить місто, інститут, факультет, масив до 3 спеціальностей та їх
+кількість. Усі записи лежать у глобальному масиві <code>records</code>, їх може бути до 10.</p>
+<p>Програма виводить текст англійською, тому назви в записах теж англійські. Слову
+"комп'ютерний" відповідає Computer, а слову "автоматизований" відповідає Automated.</p>
+<p>Масив можна ввести з клавіатури або згенерувати. Функції <code>inputRecord</code> і
+<code>generateRecord</code> заповнюють один запис і повертають його як структуру. Під час
+генерації місто, інститут і факультет вибираються через <code>rand()</code> зі сталих списків.
+Спеціальності беруться поспіль зі списку з 4 назв, починаючи з випадкової, тому в одному записі
+вони не повторюються. План є випадковим числом від 1 до 500.</p>
+<p>Кожен рядок таблиці показує запис з однією спеціальністю. Запис із трьома спеціальностями
+займає три рядки з однаковим номером. Рядок виводить функція <code>printRow</code>, яка отримує
+запис через покажчик. У запитах заголовок таблиці виводиться один раз.</p>
+<p>Запит 1 шукає спеціальності, у назві яких є хоча б одне з двох слів. Обидва слова вводяться з
+клавіатури. Для умови варіанта беруться Computer і Automated. Шукає їх функція
+<code>strstr</code>. У запитах 2 і 3 <code>strcmp</code> порівнює всю назву. Запит 3 проходить
+масив двічі: спочатку знаходить найбільший план, потім виводить рядки з таким планом.
+Якщо такий план є в кількох записах, виводяться всі. Великі й малі літери розрізняються, тому ключ
+треба вводити так, як назву записано в даних.</p>
+<p>Числа вводяться через функцію <code>inputNumber</code>. Якщо введено літери або число поза
+межами, <code>cin.fail()</code> показує помилку, і введення повторюється. Функція
+<code>inputText</code> так само повторює порожній або задовгий рядок. Номер, якого
+немає в меню, обробляє <code>default</code> в операторі <code>switch</code>. Пункти 3-6 не
+працюють, поки масив порожній: програма виводить повідомлення. Якщо запит нічого не знайшов, після
+заголовка виводиться Nothing found.</p>
+<p class="tcap">Таблиця 1 - Функції програми</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>runMenu</code></td><td>меню і виклик вибраної дії</td></tr>
+<tr><td><code>inputNumber</code></td><td>введення цілого числа із заданих меж</td></tr>
+<tr><td><code>inputText</code></td><td>введення непорожнього рядка заданої довжини</td></tr>
+<tr><td><code>inputRecord</code></td><td>введення одного запису, повертає структуру</td></tr>
+<tr><td><code>generateRecord</code></td><td>створення випадкового запису, повертає структуру</td></tr>
+<tr><td><code>createArray</code></td><td>створення масиву з клавіатури або генерацією</td></tr>
+<tr><td><code>printRow</code></td><td>виведення рядка таблиці, запис передається через покажчик</td></tr>
+<tr><td><code>printArray</code></td><td>виведення масиву таблицею</td></tr>
+<tr><td><code>findByWords</code></td><td>запит 1: спеціальності за двома словами</td></tr>
+<tr><td><code>findBySpecialty</code></td><td>запит 2: факультети й інститути із заданою спеціальністю</td></tr>
+<tr><td><code>findMaxPlan</code></td><td>запит 3: найбільший план на задану спеціальність</td></tr>
+</table></div>
+<p>Джерела: Ковалюк Т.В. Алгоритмізація та програмування, 2024; Ковалюк Т.В., Петрівський В.Я.
+Гарний стиль програмування мовами C, C++, C#, 2025; Deitel P., Deitel H. C++ How to Program.</p>
+</div>
+<div class="page-footer"><a href="#task">← Умова задачі</a><a href="#top">Усі розділи</a><a href="#scheme">Блок-схеми →</a></div></section>
+<section class="page" id="scheme" tabindex="-1"><p class="eyebrow">Лабораторна робота №10 / 04 з 08</p><h2>4. Блок-схеми алгоритмів</h2>
+<div class="task">
+<h3>Варіант 5</h3>
+<figure class="fc"><a href="img/task1-fc-welcome.svg"><img src="img/task1-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 1 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputNumber.svg"><img src="img/task1-fc-inputNumber.svg" alt="" loading="lazy"></a><figcaption>Рисунок 2 - Блок-схема функції <code>inputNumber</code> (введення цілого числа із заданих меж)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputText.svg"><img src="img/task1-fc-inputText.svg" alt="" loading="lazy"></a><figcaption>Рисунок 3 - Блок-схема функції <code>inputText</code> (введення непорожнього рядка)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputRecord.svg"><img src="img/task1-fc-inputRecord.svg" alt="" loading="lazy"></a><figcaption>Рисунок 4 - Блок-схема функції <code>inputRecord</code> (введення одного запису з клавіатури)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-generateRecord.svg"><img src="img/task1-fc-generateRecord.svg" alt="" loading="lazy"></a><figcaption>Рисунок 5 - Блок-схема функції <code>generateRecord</code> (створення одного випадкового запису)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printRow.svg"><img src="img/task1-fc-printRow.svg" alt="" loading="lazy"></a><figcaption>Рисунок 6 - Блок-схема функції <code>printRow</code> (виведення рядка таблиці)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printArray.svg"><img src="img/task1-fc-printArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 7 - Блок-схема функції <code>printArray</code> (виведення масиву таблицею)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-createArray.svg"><img src="img/task1-fc-createArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 8 - Блок-схема функції <code>createArray</code> (створення масиву і його виведення)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-findByWords.svg"><img src="img/task1-fc-findByWords.svg" alt="" loading="lazy"></a><figcaption>Рисунок 9 - Блок-схема функції <code>findByWords</code> (запит 1: спеціальності за двома словами)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-findBySpecialty.svg"><img src="img/task1-fc-findBySpecialty.svg" alt="" loading="lazy"></a><figcaption>Рисунок 10 - Блок-схема функції <code>findBySpecialty</code> (запит 2: факультети й інститути зі спеціальністю)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-findMaxPlan.svg"><img src="img/task1-fc-findMaxPlan.svg" alt="" loading="lazy"></a><figcaption>Рисунок 11 - Блок-схема функції <code>findMaxPlan</code> (запит 3: найбільший план на спеціальність)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-runMenu.svg"><img src="img/task1-fc-runMenu.svg" alt="" loading="lazy"></a><figcaption>Рисунок 12 - Блок-схема функції <code>runMenu</code> (меню програми)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-main.svg"><img src="img/task1-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 13 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="page-footer"><a href="#analysis">← Аналіз задачі</a><a href="#top">Усі розділи</a><a href="#code">Текст програми →</a></div></section>
+<section class="page" id="code" tabindex="-1"><p class="eyebrow">Лабораторна робота №10 / 05 з 08</p><h2>5. Текст програми</h2>
+<div class="task">
+<h3>Варіант 5</h3>
+<p class="file">Файл <a href="task1.cpp" download>task1.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task1.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 2</span>
+<span class="cm">// Запланована ціль: лабораторна робота №10, варіант 5.</span>
+<span class="cm">//                   Створити масив структур про факультети інститутів</span>
+<span class="cm">//                   і виконати запити за спеціальностями.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cstdlib&gt;</span>
+<span class="pp">#include &lt;cstring&gt;</span>
+<span class="pp">#include &lt;ctime&gt;</span>
+<span class="pp">#include &lt;iomanip&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_RECORDS = <span class="nm">10</span>;    <span class="cm">// найбільша кількість записів масиву</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_SPECIALTIES = <span class="nm">3</span>; <span class="cm">// найбільша кількість спеціальностей у записі</span>
+<span class="kw">const</span> <span class="kw">int</span> CITY_LENGTH = <span class="nm">15</span>;    <span class="cm">// довжини рядків разом із символом кінця рядка,</span>
+<span class="kw">const</span> <span class="kw">int</span> INSTITUTE_LENGTH = <span class="nm">22</span>; <span class="cm">// вони ж ширини колонок таблиці</span>
+<span class="kw">const</span> <span class="kw">int</span> FACULTY_LENGTH = <span class="nm">22</span>;
+<span class="kw">const</span> <span class="kw">int</span> SPECIALTY_LENGTH = <span class="nm">27</span>;
+<span class="kw">const</span> <span class="kw">int</span> NUMBER_WIDTH = <span class="nm">4</span>; <span class="cm">// ширина колонки з номером</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_PLAN = <span class="nm">500</span>;   <span class="cm">// найбільший план прийому на спеціальність</span>
+<span class="kw">const</span> <span class="kw">int</span> CITY_TOTAL = <span class="nm">3</span>;   <span class="cm">// кількість назв для генерації</span>
+<span class="kw">const</span> <span class="kw">int</span> INSTITUTE_TOTAL = <span class="nm">2</span>;
+<span class="kw">const</span> <span class="kw">int</span> FACULTY_TOTAL = <span class="nm">2</span>;
+<span class="kw">const</span> <span class="kw">int</span> SPECIALTY_TOTAL = <span class="nm">4</span>;
+
+<span class="cm">// назви, з яких генератор випадкових чисел складає записи</span>
+<span class="kw">const</span> <span class="kw">char</span> CITIES[CITY_TOTAL][CITY_LENGTH] = {<span class="st">&quot;Kyiv&quot;</span>, <span class="st">&quot;Lviv&quot;</span>, <span class="st">&quot;Odesa&quot;</span>};
+<span class="kw">const</span> <span class="kw">char</span> INSTITUTES[INSTITUTE_TOTAL][INSTITUTE_LENGTH] = {
+    <span class="st">&quot;Polytechnic Institute&quot;</span>, <span class="st">&quot;State University&quot;</span>};
+<span class="kw">const</span> <span class="kw">char</span> FACULTIES[FACULTY_TOTAL][FACULTY_LENGTH] = {<span class="st">&quot;Informatics&quot;</span>,
+                                                       <span class="st">&quot;Cybernetics&quot;</span>};
+<span class="kw">const</span> <span class="kw">char</span> SPECIALTIES[SPECIALTY_TOTAL][SPECIALTY_LENGTH] = {
+    <span class="st">&quot;Computer Science&quot;</span>, <span class="st">&quot;Software Engineering&quot;</span>, <span class="st">&quot;Computer Engineering&quot;</span>,
+    <span class="st">&quot;Automated Control Systems&quot;</span>};
+
+<span class="cm">// заголовок таблиці, колонки відповідають ширинам вище</span>
+<span class="kw">const</span> <span class="kw">char</span> TABLE_HEADER[] = <span class="st">&quot;No  City           Institute             &quot;</span>
+                            <span class="st">&quot;Faculty               Specialty                  &quot;</span>
+                            <span class="st">&quot;Plan&quot;</span>;
+
+<span class="cm">//=========== структури</span>
+<span class="kw">struct</span> Specialty <span class="cm">// спеціальність зі своїм планом прийому</span>
+{
+    <span class="kw">char</span> name[SPECIALTY_LENGTH]; <span class="cm">// назва спеціальності</span>
+    <span class="kw">int</span> plan;                    <span class="cm">// план прийому на перший курс</span>
+};
+
+<span class="kw">struct</span> Faculty <span class="cm">// один запис масиву</span>
+{
+    <span class="kw">char</span> city[CITY_LENGTH];                 <span class="cm">// місто</span>
+    <span class="kw">char</span> institute[INSTITUTE_LENGTH];       <span class="cm">// інститут</span>
+    <span class="kw">char</span> name[FACULTY_LENGTH];              <span class="cm">// факультет</span>
+    Specialty specialties[MAX_SPECIALTIES]; <span class="cm">// список спеціальностей</span>
+    <span class="kw">int</span> specialtyCount;                     <span class="cm">// кількість спеціальностей</span>
+};
+
+<span class="cm">//=========== глобальні змінні</span>
+Faculty records[MAX_RECORDS] = {}; <span class="cm">// масив структур</span>
+<span class="kw">int</span> recordCount = <span class="nm">0</span>;               <span class="cm">// кількість записів у масиві</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 10. Variant 5.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout
+        &lt;&lt; <span class="st">&quot;Array of structures: city, institute, faculty, list of specialties,&quot;</span>
+        &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;admission plan to the first year (Plan in the tables).&quot;</span> &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить ціле число із заданих меж. Якщо введено не число
+ * або число поза межами, введення повторюється
+ * Параметри: minValue, maxValue - межі числа
+ * Значення, що повертаються: введене число
+ */</span>
+<span class="kw">int</span> inputNumber(<span class="kw">int</span> minValue, <span class="kw">int</span> maxValue)
+{
+    <span class="kw">int</span> number = <span class="nm">0</span>;
+
+    cin &gt;&gt; number;
+    <span class="kw">while</span> (cin.fail() || number &lt; minValue || number &gt; maxValue)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter a number from &quot;</span> &lt;&lt; minValue &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; maxValue
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin &gt;&gt; number;
+    }
+    cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// прибрати кінець рядка перед cin.getline</span>
+
+    <span class="kw">return</span> number;
+}
+
+<span class="cm">/*
+ * Функція вводить непорожній рядок. Якщо рядок порожній або задовгий,
+ * введення повторюється
+ * Параметри: text - куди записати рядок; maxLength - розмір масиву text
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputText(<span class="kw">char</span>* text, <span class="kw">int</span> maxLength)
+{
+    cin.getline(text, maxLength);
+    <span class="kw">while</span> (cin.fail() || strlen(text) == <span class="nm">0</span>)
+    {
+        <span class="kw">if</span> (cin.fail())
+        {
+            cin.clear();            <span class="cm">// скинути помилку введення</span>
+            cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити залишок рядка</span>
+        }
+        cout &lt;&lt; <span class="st">&quot;Error! Enter text, maximum length is &quot;</span> &lt;&lt; maxLength - <span class="nm">1</span>
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin.getline(text, maxLength);
+    }
+}
+
+<span class="cm">/*
+ * Функція вводить з клавіатури один запис
+ * Параметри: немає
+ * Значення, що повертаються: заповнена структура
+ */</span>
+Faculty inputRecord()
+{
+    Faculty record = {};
+
+    cout &lt;&lt; <span class="st">&quot;Enter city: &quot;</span>;
+    inputText(record.city, CITY_LENGTH);
+    cout &lt;&lt; <span class="st">&quot;Enter institute: &quot;</span>;
+    inputText(record.institute, INSTITUTE_LENGTH);
+    cout &lt;&lt; <span class="st">&quot;Enter faculty: &quot;</span>;
+    inputText(record.name, FACULTY_LENGTH);
+
+    cout &lt;&lt; <span class="st">&quot;Enter number of specialties (from 1 to &quot;</span> &lt;&lt; MAX_SPECIALTIES
+         &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    record.specialtyCount = inputNumber(<span class="nm">1</span>, MAX_SPECIALTIES);
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; record.specialtyCount; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot;Enter specialty &quot;</span> &lt;&lt; i + <span class="nm">1</span> &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        inputText(record.specialties[i].name, SPECIALTY_LENGTH);
+        cout &lt;&lt; <span class="st">&quot;Enter plan (from 1 to &quot;</span> &lt;&lt; MAX_PLAN &lt;&lt; <span class="st">&quot;): &quot;</span>;
+        record.specialties[i].plan = inputNumber(<span class="nm">1</span>, MAX_PLAN);
+    }
+
+    <span class="kw">return</span> record;
+}
+
+<span class="cm">/*
+ * Функція складає один запис із випадкових назв і чисел. Спеціальності
+ * беруться зі списку поспіль, тому в записі вони не повторюються
+ * Параметри: немає
+ * Значення, що повертаються: заповнена структура
+ */</span>
+Faculty generateRecord()
+{
+    Faculty record = {};
+    <span class="kw">int</span> firstIndex = rand() % SPECIALTY_TOTAL; <span class="cm">// перша спеціальність запису</span>
+
+    strcpy(record.city, CITIES[rand() % CITY_TOTAL]);
+    strcpy(record.institute, INSTITUTES[rand() % INSTITUTE_TOTAL]);
+    strcpy(record.name, FACULTIES[rand() % FACULTY_TOTAL]);
+
+    record.specialtyCount = MAX_SPECIALTIES;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; record.specialtyCount; i++)
+    {
+        strcpy(record.specialties[i].name,
+               SPECIALTIES[(firstIndex + i) % SPECIALTY_TOTAL]);
+        record.specialties[i].plan = <span class="nm">1</span> + rand() % MAX_PLAN;
+    }
+
+    <span class="kw">return</span> record;
+}
+
+<span class="cm">/*
+ * Функція виводить рядок таблиці: запис з однією його спеціальністю
+ * Параметри: record - покажчик на запис; index - номер спеціальності;
+ *            number - номер у таблиці
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printRow(Faculty* record, <span class="kw">int</span> index, <span class="kw">int</span> number)
+{
+    cout &lt;&lt; left &lt;&lt; setw(NUMBER_WIDTH) &lt;&lt; number &lt;&lt; setw(CITY_LENGTH)
+         &lt;&lt; record-&gt;city &lt;&lt; setw(INSTITUTE_LENGTH) &lt;&lt; record-&gt;institute
+         &lt;&lt; setw(FACULTY_LENGTH) &lt;&lt; record-&gt;name &lt;&lt; setw(SPECIALTY_LENGTH)
+         &lt;&lt; record-&gt;specialties[index].name &lt;&lt; record-&gt;specialties[index].plan
+         &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція виводить масив структур таблицею
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printArray()
+{
+    cout &lt;&lt; endl &lt;&lt; TABLE_HEADER &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; recordCount; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; records[i].specialtyCount; j++)
+        {
+            printRow(&amp;records[i], j, i + <span class="nm">1</span>);
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція створює масив і виводить його таблицею
+ * Параметри: isRandom - true для генерації, false для введення з клавіатури
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> createArray(<span class="kw">bool</span> isRandom)
+{
+    cout &lt;&lt; <span class="st">&quot;Enter number of records (from 1 to &quot;</span> &lt;&lt; MAX_RECORDS &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    recordCount = inputNumber(<span class="nm">1</span>, MAX_RECORDS);
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; recordCount; i++)
+    {
+        <span class="kw">if</span> (isRandom)
+        {
+            records[i] = generateRecord();
+        }
+        <span class="kw">else</span>
+        {
+            cout &lt;&lt; <span class="st">&quot;Record &quot;</span> &lt;&lt; i + <span class="nm">1</span> &lt;&lt; endl;
+            records[i] = inputRecord();
+        }
+    }
+
+    printArray();
+}
+
+<span class="cm">/*
+ * Функція виводить спеціальності, у назвах яких є хоча б одне
+ * з двох слів, заданих з клавіатури
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> findByWords()
+{
+    <span class="kw">char</span> firstWord[SPECIALTY_LENGTH] = <span class="st">&quot;&quot;</span>;
+    <span class="kw">char</span> secondWord[SPECIALTY_LENGTH] = <span class="st">&quot;&quot;</span>;
+    <span class="kw">int</span> count = <span class="nm">0</span>; <span class="cm">// кількість знайдених рядків</span>
+
+    cout &lt;&lt; <span class="st">&quot;Enter first word: &quot;</span>;
+    inputText(firstWord, SPECIALTY_LENGTH);
+    cout &lt;&lt; <span class="st">&quot;Enter second word: &quot;</span>;
+    inputText(secondWord, SPECIALTY_LENGTH);
+
+    cout &lt;&lt; endl &lt;&lt; TABLE_HEADER &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; recordCount; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; records[i].specialtyCount; j++)
+        {
+            <span class="kw">if</span> (strstr(records[i].specialties[j].name, firstWord) != NULL
+                || strstr(records[i].specialties[j].name, secondWord) != NULL)
+            {
+                count++;
+                printRow(&amp;records[i], j, count);
+            }
+        }
+    }
+
+    <span class="kw">if</span> (count == <span class="nm">0</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;Nothing found.&quot;</span> &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить факультети й інститути, де є задана спеціальність
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> findBySpecialty()
+{
+    <span class="kw">char</span> specialty[SPECIALTY_LENGTH] = <span class="st">&quot;&quot;</span>;
+    <span class="kw">int</span> count = <span class="nm">0</span>; <span class="cm">// кількість знайдених рядків</span>
+
+    cout &lt;&lt; <span class="st">&quot;Enter specialty: &quot;</span>;
+    inputText(specialty, SPECIALTY_LENGTH);
+
+    cout &lt;&lt; endl &lt;&lt; TABLE_HEADER &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; recordCount; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; records[i].specialtyCount; j++)
+        {
+            <span class="kw">if</span> (strcmp(records[i].specialties[j].name, specialty) == <span class="nm">0</span>)
+            {
+                count++;
+                printRow(&amp;records[i], j, count);
+            }
+        }
+    }
+
+    <span class="kw">if</span> (count == <span class="nm">0</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;Nothing found.&quot;</span> &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція знаходить найбільший план на задану спеціальність і виводить
+ * факультет, інститут і місто. Якщо такий план є в кількох записах,
+ * виводяться всі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> findMaxPlan()
+{
+    <span class="kw">char</span> specialty[SPECIALTY_LENGTH] = <span class="st">&quot;&quot;</span>;
+    <span class="kw">int</span> maxPlan = <span class="nm">0</span>; <span class="cm">// найбільший план на спеціальність</span>
+    <span class="kw">int</span> count = <span class="nm">0</span>;   <span class="cm">// кількість знайдених рядків</span>
+
+    cout &lt;&lt; <span class="st">&quot;Enter specialty: &quot;</span>;
+    inputText(specialty, SPECIALTY_LENGTH);
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; recordCount; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; records[i].specialtyCount; j++)
+        {
+            <span class="kw">if</span> (strcmp(records[i].specialties[j].name, specialty) == <span class="nm">0</span>
+                &amp;&amp; records[i].specialties[j].plan &gt; maxPlan)
+            {
+                maxPlan = records[i].specialties[j].plan;
+            }
+        }
+    }
+
+    cout &lt;&lt; endl &lt;&lt; TABLE_HEADER &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; recordCount; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; records[i].specialtyCount; j++)
+        {
+            <span class="kw">if</span> (strcmp(records[i].specialties[j].name, specialty) == <span class="nm">0</span>
+                &amp;&amp; records[i].specialties[j].plan == maxPlan)
+            {
+                count++;
+                printRow(&amp;records[i], j, count);
+            }
+        }
+    }
+
+    <span class="kw">if</span> (count == <span class="nm">0</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;Nothing found.&quot;</span> &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить меню і викликає вибрану дію, поки не вибрано вихід
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> runMenu()
+{
+    <span class="kw">int</span> choice = -<span class="nm">1</span>;
+
+    srand(time(NULL));
+    <span class="kw">while</span> (choice != <span class="nm">0</span>)
+    {
+        cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Menu&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;1 - create array from keyboard&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;2 - generate random array&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;3 - print array&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;4 - find specialties by two words&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;5 - find faculties and institutes with a specialty&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;6 - find the largest plan for a specialty&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;0 - exit&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;Enter menu item: &quot;</span>;
+        cin &gt;&gt; choice;
+        <span class="kw">while</span> (cin.fail())
+        {
+            cin.clear();            <span class="cm">// скинути помилку введення</span>
+            cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+            cout &lt;&lt; <span class="st">&quot;Error! Enter a number: &quot;</span>;
+            cin &gt;&gt; choice;
+        }
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// прибрати кінець рядка перед cin.getline</span>
+
+        <span class="kw">if</span> (recordCount == <span class="nm">0</span> &amp;&amp; choice &gt;= <span class="nm">3</span> &amp;&amp; choice &lt;= <span class="nm">6</span>)
+        {
+            cout &lt;&lt; <span class="st">&quot;Error! The array is empty. Create it first.&quot;</span> &lt;&lt; endl;
+        }
+        <span class="kw">else</span>
+        {
+            <span class="kw">switch</span> (choice)
+            {
+                <span class="kw">case</span> <span class="nm">1</span> : createArray(<span class="kw">false</span>); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">2</span> : createArray(<span class="kw">true</span>); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">3</span> : printArray(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">4</span> : findByWords(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">5</span> : findBySpecialty(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">6</span> : findMaxPlan(); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="nm">0</span> : cout &lt;&lt; <span class="st">&quot;The program is finished.&quot;</span> &lt;&lt; endl; <span class="kw">break</span>;
+                <span class="kw">default</span> : cout &lt;&lt; <span class="st">&quot;Error! There is no such menu item.&quot;</span> &lt;&lt; endl;
+            }
+        }
+    }
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    runMenu();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="page-footer"><a href="#scheme">← Блок-схеми</a><a href="#top">Усі розділи</a><a href="#results">Результати →</a></div></section>
+<section class="page" id="results" tabindex="-1"><p class="eyebrow">Лабораторна робота №10 / 06 з 08</p><h2>6. Результати виконання роботи</h2>
+<div class="task">
+<h3>Варіант 5</h3>
+<div class="result">
+<p>Перший рисунок показує створення масиву з клавіатури і всі три запити. На другому масив
+згенеровано, тому його значення змінюються від запуску до запуску. Останні два рисунки
+показують обробку некоректних даних, випадок, коли нічого не знайдено, і вплив регістру
+літер на пошук.</p>
+<figure class="shot"><a href="img/task1-run-1.png"><img src="img/task1-run-1.png" alt="" width="878" loading="lazy"></a><figcaption>Рисунок 14 - Створення масиву з клавіатури і три запити: слова Computer і Automated, спеціальність Computer Science; найбільший план 150 є у двох записах</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-2.png"><img src="img/task1-run-2.png" alt="" width="878" loading="lazy"></a><figcaption>Рисунок 15 - Генерація масиву з 5 записів, виведення масиву і запити до випадкових даних</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-3.png"><img src="img/task1-run-3.png" alt="" width="878" loading="lazy"></a><figcaption>Рисунок 16 - Некоректне введення: літери замість числа, неіснуючий пункт меню, запити до порожнього масиву, порожній і задовгий рядок, числа поза межами</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-4.png"><img src="img/task1-run-4.png" alt="" width="878" loading="lazy"></a><figcaption>Рисунок 17 - Спеціальності, якої немає в масиві, і регістр літер: назва, введена малими літерами, не знаходиться</figcaption></figure>
+</div>
+</div>
+<div class="page-footer"><a href="#code">← Текст програми</a><a href="#top">Усі розділи</a><a href="#check">Перевірка →</a></div></section>
+<section class="page" id="check" tabindex="-1"><p class="eyebrow">Лабораторна робота №10 / 07 з 08</p><h2>7. Аналіз достовірності результатів</h2>
+<div class="task">
+<h3>Контрольний приклад</h3>
+<p>Запити перевірено вручну на масиві з трьох записів. Результат кожного запиту спочатку
+визначено за таблицею вхідних даних, а потім порівняно з тим, що вивела програма. Останні шість
+рядків другої таблиці взято з окремого запуску, де в масиві один запис: Kharkiv, State University,
+Applied Sciences, Applied Mathematics, план 70.</p>
+<p class="tcap">Таблиця 2 - Вхідні дані контрольного прикладу</p>
+<div class="table-scroll"><table>
+<tr><th>Запис</th><th>Місто, інститут, факультет</th><th>Спеціальності та план</th></tr>
+<tr><td>1</td><td>Kyiv, Polytechnic Institute, Informatics</td><td>Computer Science 120; Software Engineering 90; Automated Control Systems 60</td></tr>
+<tr><td>2</td><td>Lviv, Polytechnic Institute, Cybernetics</td><td>Computer Science 150; Automated Design Systems 40</td></tr>
+<tr><td>3</td><td>Odesa, National Academy, Automation</td><td>Computer Engineering 80; Computer Science 150</td></tr>
+</table></div>
+<p class="tcap">Таблиця 3 - Ручна перевірка запитів</p>
+<div class="table-scroll"><table>
+<tr><th>Запит і ключ</th><th>Очікуваний результат</th><th>Результат програми</th></tr>
+<tr><td>Запит 1: Computer, Automated</td><td>усі 7 спеціальностей, крім Software Engineering, тобто 6 рядків</td><td>6 рядків, Software Engineering немає</td></tr>
+<tr><td>Запит 2: Computer Science</td><td>3 рядки: Informatics, Cybernetics, Automation</td><td>3 рядки, збігається</td></tr>
+<tr><td>Запит 3: Computer Science</td><td>max(120, 150, 150) = 150, два рядки: Cybernetics у Lviv, Automation в Odesa</td><td>два рядки з планом 150, збігається</td></tr>
+<tr><td>Запит 1: Biology, Chemistry</td><td>нічого не знайдено</td><td>Nothing found.</td></tr>
+<tr><td>Запит 1: Mathematics, Automated</td><td>Applied Mathematics</td><td>Applied Mathematics, план 70</td></tr>
+<tr><td>Запит 2: Applied Mathematics</td><td>1 рядок: Applied Sciences, State University</td><td>1 рядок, збігається</td></tr>
+<tr><td>Запит 2: applied mathematics</td><td>нічого не знайдено, регістр має значення</td><td>Nothing found.</td></tr>
+<tr><td>Запит 2 і 3: Biology</td><td>такої спеціальності немає</td><td>Nothing found.</td></tr>
+<tr><td>Запит 3: Applied Mathematics</td><td>єдиний план 70</td><td>1 рядок, план 70</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Некоректні дані і випадковий масив</h3>
+<p class="tcap">Таблиця 4 - Перевірка обробки некоректних даних</p>
+<div class="table-scroll"><table>
+<tr><th>Вхід</th><th>Очікувана реакція</th><th>Результат програми</th></tr>
+<tr><td>меню: abc</td><td>повторити введення</td><td>Error! Enter a number</td></tr>
+<tr><td>меню: 7</td><td>такого пункту немає</td><td>Error! There is no such menu item.</td></tr>
+<tr><td>пункти 3, 4, 5, 6 до створення масиву</td><td>масив порожній</td><td>Error! The array is empty. Create it first.</td></tr>
+<tr><td>кількість записів 0, abc</td><td>повторити введення</td><td>Error! Enter a number from 1 to 10</td></tr>
+<tr><td>порожнє місто; місто з 24 символів</td><td>повторити введення</td><td>Error! Enter text, maximum length is 14</td></tr>
+<tr><td>кількість спеціальностей 4</td><td>повторити введення</td><td>Error! Enter a number from 1 to 3</td></tr>
+<tr><td>план 0, 501</td><td>повторити введення</td><td>Error! Enter a number from 1 to 500</td></tr>
+</table></div>
+<p>Результати для випадкового масиву можна перевірити за таблицею на тому самому рисунку. У
+запиті 1 є всі рядки зі словами Computer і Automated, у запиті 2 усі рядки Computer Science, а
+запит 3 показує найбільший план цієї спеціальності. Спеціальності в одному записі не
+повторюються, плани лежать у межах від 1 до 500.</p>
+</div>
+<div class="page-footer"><a href="#results">← Результати</a><a href="#top">Усі розділи</a><a href="#conclusion">Висновки →</a></div></section>
+<section class="page" id="conclusion" tabindex="-1"><p class="eyebrow">Лабораторна робота №10 / 08 з 08</p><h2>8. Висновки</h2>
+<div class="card">
+<p>У ході лабораторної роботи розглянуто структури і масиви структур. Розроблено програму з меню,
+яка створює масив з клавіатури або генератором випадкових чисел, виводить його таблицею і виконує
+три запити за спеціальностями. Функції введення і генерації повертають структуру, а
+<code>printRow</code> отримує запис через покажчик.</p>
+<p>Результати запитів знайдено вручну на контрольному прикладі, вони збіглися з виведенням
+програми. Пошук розрізняє великі й малі літери, тому ключі треба вводити так, як назви записані в
+даних.</p>
+</div>
+<div class="page-footer"><a href="#check">← Перевірка</a><a href="#top">Усі розділи</a><a href="#top">До розділів →</a></div></section>
+<p class="footer">Основи програмування • 2026</p>
+</main>
+</div>
+<script src="../site.js"></script>
+</body>
+</html>

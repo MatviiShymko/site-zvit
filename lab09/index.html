@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторна №9. Обробка рядків</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-lab="9">
+<a class="skip" href="#content">Перейти до вмісту</a>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Основи<br>програмування<small>Шимко Матвій • ІПЗ-11(3)</small></div><nav aria-label="Лабораторні роботи"><a href="../index.html">Головна сторінка</a><div class="side-label">ЛАБОРАТОРНІ РОБОТИ</div><a href="../lab01/index.html">Лабораторна робота №1</a><a href="../lab02/index.html">Лабораторна робота №2</a><a href="../lab03/index.html">Лабораторна робота №3</a><a href="../lab04/index.html">Лабораторна робота №4</a><a href="../lab05/index.html">Лабораторна робота №5</a><a href="../lab06/index.html">Лабораторна робота №6</a><a href="../lab07/index.html">Лабораторна робота №7</a><a href="../lab08/index.html">Лабораторна робота №8</a><a href="../lab09/index.html#top" data-nav="top">Лабораторна робота №9</a><nav class="subnav" aria-label="Розділи звіту"><a href="#goal" data-nav="goal">Мета</a><a href="#task" data-nav="task">Умови задач</a><a href="#analysis" data-nav="analysis">Аналіз задач</a><a href="#scheme" data-nav="scheme">Блок-схеми</a><a href="#code" data-nav="code">Тексти програм</a><a href="#results" data-nav="results">Результати</a><a href="#check" data-nav="check">Перевірка</a><a href="#conclusion" data-nav="conclusion">Висновки</a></nav><a href="../lab10/index.html">Лабораторна робота №10</a><a href="../lab11/index.html">Лабораторна робота №11</a></nav></aside>
+<main id="content" class="main">
+<p id="crumb" class="crumb"></p>
+<section class="page" id="top" tabindex="-1"><header class="hero"><p class="eyebrow">Основи програмування</p><h1>Звіт до лабораторної роботи №9</h1><p>Обробка рядків • Варіант 6</p></header><div class="meta"><p><b>Студент:</b> Шимко Матвій Анатолійович</p>
+<p><b>Група:</b> ІПЗ-11(3), 1 курс, 2026 рік</p>
+<p><b>Дисципліна:</b> Основи програмування</p>
+<p><b>Викладач:</b> Ковалюк Тетяна Володимирівна</p></div><h2>Оберіть розділ звіту</h2><div class="menu-grid"><a class="menu-card" href="#goal"><span class="num">01</span><b>Мета</b></a><a class="menu-card" href="#task"><span class="num">02</span><b>Умови задач</b></a><a class="menu-card" href="#analysis"><span class="num">03</span><b>Аналіз задач</b></a><a class="menu-card" href="#scheme"><span class="num">04</span><b>Блок-схеми</b></a><a class="menu-card" href="#code"><span class="num">05</span><b>Тексти програм</b></a><a class="menu-card" href="#results"><span class="num">06</span><b>Результати</b></a><a class="menu-card" href="#check"><span class="num">07</span><b>Перевірка</b></a><a class="menu-card" href="#conclusion"><span class="num">08</span><b>Висновки</b></a></div></section>
+<section class="page" id="goal" tabindex="-1"><p class="eyebrow">Лабораторна робота №9 / 01 з 08</p><h2>1. Мета роботи</h2>
+<div class="card"><ul>
+<li>Вивчити подання рядків і текстів у мові C як масивів символів.</li>
+<li>Опанувати функції обробки рядків із заголовних файлів string.h та ctype.h.</li>
+<li>Навчитися розробляти алгоритми та програми обробки рядків і текстів.</li>
+</ul></div>
+<div class="page-footer"><a href="#top">← До розділів</a><a href="#top">Усі розділи</a><a href="#task">Умови задач →</a></div></section>
+<section class="page" id="task" tabindex="-1"><p class="eyebrow">Лабораторна робота №9 / 02 з 08</p><h2>2. Умови задач</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6.1</h3>
+<p>Варіант 6 (у таблиці 24 варіанти, 30 - 24 = 6).</p>
+<p>Увести з клавіатури рядок символів, включаючи розділові символи (пробіли, коми та крапки).
+Передбачити меню для виконання таких дій:</p>
+<ol>
+<li>виділити слова в рядку та підрахувати їх кількість. Слова - це лексеми, які не містять
+всередині розділових символів;</li>
+<li>кожне друге слово розбити на склади, враховуючи голосні та приголосні літери;</li>
+<li>видалити з рядка односкладові слова та замінити двоскладові слова на рядок "...".</li>
+</ol>
+<p>Вивести на екран масив слів, їх кількість, слова, розбиті на склади, та перетворений рядок.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6.2</h3>
+<p>Увести з клавіатури текст з n рядків символів. Увести тематику тексту у вигляді окремого
+речення. Визначити в тексті ключові слова, які відповідають заданій тематиці. Слова - це
+лексеми, які не містять всередині розділових символів. Для пошуку ключових слів використати
+будь-який алгоритм. На основі ключових слів згенерувати акронім. Акронім - це слово,
+сформоване з окремих (перших) букв певної фрази або речення. Порахувати кількість
+згенерованих акронімів. Серед множини згенерованих акронімів вибрати найкращий. Критерій
+вибору найкращого акроніму визначити самостійно.</p>
+</div>
+
+<div class="task">
+<h3>Загальні вимоги методички</h3>
+<p>Заборонено використовувати бібліотеку стандартних шаблонів STL, методи класу string,
+ітератори, контейнери. Дозволено використовувати функції заголовних файлів string.h, ctype.h,
+stdlib.h. Невиконання цих умов знижує оцінку на 50%.</p>
+</div>
+<div class="page-footer"><a href="#goal">← Мета</a><a href="#top">Усі розділи</a><a href="#analysis">Аналіз задач →</a></div></section>
+<section class="page" id="analysis" tabindex="-1"><p class="eyebrow">Лабораторна робота №9 / 03 з 08</p><h2>3. Аналіз задач</h2>
+<div class="task">
+<h3>Завдання 1 - слова</h3>
+<p>Рядок зберігається як масив символів і вводиться функцією <code>cin.getline</code>, бо
+операція <code>&gt;&gt;</code> читає лише до першого пропуску. Слова виділяє функція
+<code>strtok</code> з роздільниками пробіл, кома і крапка. Вона псує рядок, тому працює з
+копією.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 1 - поділ на склади</h3>
+<p>Слова в рядку англійські. Голосними вважаються літери a, e, i, o, u, y у будь-якому
+регістрі, решта символів вважаються приголосними. Слово ділиться на склади за простим
+правилом:</p>
+<ol>
+<li>кілька голосних поспіль дають один склад: <i>rea-ding</i>;</li>
+<li>склад закінчується голосною: <i>com-pu-ter</i>;</li>
+<li>кілька приголосних між голосними діляться навпіл, непарна переходить у наступний склад:
+<i>sub-ject</i>, <i>sim-ple</i>;</li>
+<li>слово без голосних вважається односкладовим.</li>
+</ol>
+<p>Кількість складів дорівнює кількості груп голосних. Винятки англійської мови не
+враховуються: наприклад, <i>make</i> ділиться як <i>ma-ke</i> і вважається двоскладовим.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 1 - перетворення рядка</h3>
+<p>Новий рядок будується посимвольно, а вхідний не змінюється. Функція <code>strcspn</code>
+дає довжину слова на поточній позиції. Розділові символи копіюються. Односкладове слово
+видаляється разом із розділовими символами після нього, двоскладове замінюється на "...", а
+довші слова лишаються без змін. Якщо всі слова односкладові, новий рядок порожній, і програма
+про це повідомляє.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 1 - перевірка введення і структура</h3>
+<p>Занадто довгий рядок або рядок без жодного слова вводиться ще раз. Номер команди має бути
+числом від 0 до 3, інакше введення повторюється. Якщо у рядку одне слово, команда 2 повідомляє,
+що другого слова немає.</p>
+<p class="tcap">Таблиця 1 - Функції програми завдання 1</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputLine</code></td><td>введення рядка з перевіркою</td></tr>
+<tr><td><code>extractWords</code></td><td>розбиття рядка на слова</td></tr>
+<tr><td><code>isVowel</code></td><td>перевірка, чи символ є голосною літерою</td></tr>
+<tr><td><code>splitIntoSyllables</code></td><td>поділ слова на склади, підрахунок складів</td></tr>
+<tr><td><code>printWords</code></td><td>команда 1: слова та їх кількість</td></tr>
+<tr><td><code>printSyllables</code></td><td>команда 2: кожне друге слово зі складами</td></tr>
+<tr><td><code>transformLine</code></td><td>команда 3: новий рядок</td></tr>
+<tr><td><code>runMenu</code></td><td>меню команд</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - ключові слова</h3>
+<p>Текст вводиться в масив рядків. Меню в цьому завданні немає, дії виконуються послідовно.
+Ключове слово шукається за збігом початку слова:</p>
+<ol>
+<li>з тематики беруться слова від 4 символів, що починаються з літери, тому <i>of</i>,
+<i>the</i>, <i>and</i> не беруться;</li>
+<li>усі слова переводяться в нижній регістр;</li>
+<li>слово тексту (теж від 4 символів) є ключовим, якщо його перші 4 символи збігаються з
+першими 4 символами якогось слова тематики, наприклад, <i>analytics</i> і <i>analysis</i>;</li>
+<li>кожне ключове слово запам'ятовується один раз, їх не більше 12.</li>
+</ol>
+<p>Порівняння робить функція <code>strncmp</code>. Роздільниками в тексті, крім пробілу, коми й
+крапки, є ще крапка з комою, двокрапка, знаки оклику й питання.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - акроніми і вибір найкращого</h3>
+<p>Акронім складається з великих перших літер ключових слів. Беруться всі набори ключових
+слів, що йдуть поспіль і містять щонайменше два слова. Для k ключових слів це k(k - 1) / 2
+наборів. Однакові акроніми зберігаються один раз.</p>
+<p>Найкращим вважається акронім, який легше вимовити. Його оцінка дорівнює кількості пар
+сусідніх літер, у яких одна голосна, а друга приголосна. Вибирається акронім з найбільшою
+оцінкою, а за однакової оцінки той, що знайдено раніше. Голосними вважаються A, E, I, O, U,
+Y.</p>
+<p>Текст і тематика мають бути англійськими, слова з українськими літерами програма не бере
+до уваги.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - перевірка введення і структура</h3>
+<p>Кількість рядків вводиться від 1 до 10 з перевіркою. Занадто довгий рядок вводиться ще раз,
+так само як і тематика без жодного слова від 4 символів. Якщо ключових слів менше двох,
+програма повідомляє, що акронім скласти неможливо.</p>
+<p class="tcap">Таблиця 2 - Функції програми завдання 2</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputLine</code></td><td>введення одного рядка з перевіркою довжини</td></tr>
+<tr><td><code>inputText</code></td><td>введення кількості рядків і тексту</td></tr>
+<tr><td><code>isLongWord</code></td><td>перевірка першого символу і довжини слова</td></tr>
+<tr><td><code>toLowerCase</code></td><td>переведення слова в нижній регістр</td></tr>
+<tr><td><code>inputTopic</code></td><td>введення тематики і виділення її слів</td></tr>
+<tr><td><code>isTopicWord</code></td><td>перевірка, чи слово відповідає тематиці</td></tr>
+<tr><td><code>addKeyword</code></td><td>додавання ключового слова без повторів</td></tr>
+<tr><td><code>findKeywords</code></td><td>пошук і виведення ключових слів</td></tr>
+<tr><td><code>addAcronym</code></td><td>додавання акроніма без повторів</td></tr>
+<tr><td><code>generateAcronyms</code></td><td>складання акронімів</td></tr>
+<tr><td><code>calculateScore</code></td><td>оцінка акроніма</td></tr>
+<tr><td><code>printAcronyms</code></td><td>виведення акронімів і найкращого з них</td></tr>
+</table></div>
+<p>Джерела: Ковалюк Т.В. Алгоритмізація та програмування, 2024; Ковалюк Т.В., Петрівський
+В.Я. Гарний стиль програмування мовами C, C++, C#, 2025; Deitel P., Deitel H. C++ How to
+Program (розділ про рядки на основі покажчиків).</p>
+</div>
+<div class="page-footer"><a href="#task">← Умови задач</a><a href="#top">Усі розділи</a><a href="#scheme">Блок-схеми →</a></div></section>
+<section class="page" id="scheme" tabindex="-1"><p class="eyebrow">Лабораторна робота №9 / 04 з 08</p><h2>4. Блок-схеми алгоритмів</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6.1</h3>
+<figure class="fc"><a href="img/task1-fc-welcome.svg"><img src="img/task1-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 1 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputLine.svg"><img src="img/task1-fc-inputLine.svg" alt="" loading="lazy"></a><figcaption>Рисунок 2 - Блок-схема функції <code>inputLine</code> (введення рядка з перевіркою)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-extractWords.svg"><img src="img/task1-fc-extractWords.svg" alt="" loading="lazy"></a><figcaption>Рисунок 3 - Блок-схема функції <code>extractWords</code> (розбиття рядка на слова)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-isVowel.svg"><img src="img/task1-fc-isVowel.svg" alt="" loading="lazy"></a><figcaption>Рисунок 4 - Блок-схема функції <code>isVowel</code> (перевірка, чи символ є голосною літерою)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-splitIntoSyllables.svg"><img src="img/task1-fc-splitIntoSyllables.svg" alt="" loading="lazy"></a><figcaption>Рисунок 5 - Блок-схема функції <code>splitIntoSyllables</code> (поділ слова на склади)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printWords.svg"><img src="img/task1-fc-printWords.svg" alt="" loading="lazy"></a><figcaption>Рисунок 6 - Блок-схема функції <code>printWords</code> (команда 1: виведення слів та їх кількості)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printSyllables.svg"><img src="img/task1-fc-printSyllables.svg" alt="" loading="lazy"></a><figcaption>Рисунок 7 - Блок-схема функції <code>printSyllables</code> (команда 2: кожне друге слово зі складами)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-transformLine.svg"><img src="img/task1-fc-transformLine.svg" alt="" loading="lazy"></a><figcaption>Рисунок 8 - Блок-схема функції <code>transformLine</code> (команда 3: побудова нового рядка)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-runMenu.svg"><img src="img/task1-fc-runMenu.svg" alt="" loading="lazy"></a><figcaption>Рисунок 9 - Блок-схема функції <code>runMenu</code> (меню команд)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-main.svg"><img src="img/task1-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 10 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="task">
+<h3>Завдання 2 - варіант 6.2</h3>
+<figure class="fc"><a href="img/task2-fc-welcome.svg"><img src="img/task2-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 11 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputLine.svg"><img src="img/task2-fc-inputLine.svg" alt="" loading="lazy"></a><figcaption>Рисунок 12 - Блок-схема функції <code>inputLine</code> (введення одного рядка з перевіркою довжини)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputText.svg"><img src="img/task2-fc-inputText.svg" alt="" loading="lazy"></a><figcaption>Рисунок 13 - Блок-схема функції <code>inputText</code> (введення кількості рядків і тексту)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-isLongWord.svg"><img src="img/task2-fc-isLongWord.svg" alt="" loading="lazy"></a><figcaption>Рисунок 14 - Блок-схема функції <code>isLongWord</code> (перевірка першого символу і довжини слова)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-toLowerCase.svg"><img src="img/task2-fc-toLowerCase.svg" alt="" loading="lazy"></a><figcaption>Рисунок 15 - Блок-схема функції <code>toLowerCase</code> (переведення слова в нижній регістр)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputTopic.svg"><img src="img/task2-fc-inputTopic.svg" alt="" loading="lazy"></a><figcaption>Рисунок 16 - Блок-схема функції <code>inputTopic</code> (введення тематики і виділення її слів)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-isTopicWord.svg"><img src="img/task2-fc-isTopicWord.svg" alt="" loading="lazy"></a><figcaption>Рисунок 17 - Блок-схема функції <code>isTopicWord</code> (перевірка, чи слово відповідає тематиці)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-addKeyword.svg"><img src="img/task2-fc-addKeyword.svg" alt="" loading="lazy"></a><figcaption>Рисунок 18 - Блок-схема функції <code>addKeyword</code> (додавання слова до ключових без повторів)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-findKeywords.svg"><img src="img/task2-fc-findKeywords.svg" alt="" loading="lazy"></a><figcaption>Рисунок 19 - Блок-схема функції <code>findKeywords</code> (пошук ключових слів у тексті)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-addAcronym.svg"><img src="img/task2-fc-addAcronym.svg" alt="" loading="lazy"></a><figcaption>Рисунок 20 - Блок-схема функції <code>addAcronym</code> (додавання акроніма без повторів)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-generateAcronyms.svg"><img src="img/task2-fc-generateAcronyms.svg" alt="" loading="lazy"></a><figcaption>Рисунок 21 - Блок-схема функції <code>generateAcronyms</code> (складання акронімів із наборів ключових слів)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-calculateScore.svg"><img src="img/task2-fc-calculateScore.svg" alt="" loading="lazy"></a><figcaption>Рисунок 22 - Блок-схема функції <code>calculateScore</code> (оцінка акроніма)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-printAcronyms.svg"><img src="img/task2-fc-printAcronyms.svg" alt="" loading="lazy"></a><figcaption>Рисунок 23 - Блок-схема функції <code>printAcronyms</code> (виведення акронімів і вибір найкращого)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-main.svg"><img src="img/task2-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 24 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="page-footer"><a href="#analysis">← Аналіз задач</a><a href="#top">Усі розділи</a><a href="#code">Тексти програм →</a></div></section>
+<section class="page" id="code" tabindex="-1"><p class="eyebrow">Лабораторна робота №9 / 05 з 08</p><h2>5. Тексти програм</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6.1</h3>
+<p class="file">Файл <a href="task1.cpp" download>task1.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task1.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №9, завдання 1, варіант 6.1.</span>
+<span class="cm">//                   Виділити слова в рядку, розбити кожне друге слово на</span>
+<span class="cm">//                   склади, видалити односкладові слова і замінити</span>
+<span class="cm">//                   двоскладові на &quot;...&quot;.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cstring&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_LENGTH = <span class="nm">256</span>;           <span class="cm">// найбільший розмір рядка</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_WORDS = MAX_LENGTH / <span class="nm">2</span>; <span class="cm">// більше слів у рядок не вміститься</span>
+<span class="kw">const</span> <span class="kw">char</span> SEPARATORS[] = <span class="st">&quot; ,.&quot;</span>;      <span class="cm">// розділові символи</span>
+<span class="kw">const</span> <span class="kw">char</span> VOWELS[] = <span class="st">&quot;aeiouyAEIOUY&quot;</span>; <span class="cm">// голосні літери</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">char</span> line[MAX_LENGTH] = <span class="st">&quot;&quot;</span>;               <span class="cm">// введений рядок</span>
+<span class="kw">char</span> words[MAX_WORDS][MAX_LENGTH] = {<span class="st">&quot;&quot;</span>}; <span class="cm">// масив слів</span>
+<span class="kw">int</span> wordCount = <span class="nm">0</span>;                        <span class="cm">// кількість слів</span>
+<span class="kw">int</span> choice = <span class="nm">0</span>;                           <span class="cm">// номер команди меню</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 9. Task 1. Variant 6.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Find the words of a line, split every second word into syllables,&quot;</span>
+         &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;remove one-syllable words and replace two-syllable words with ...&quot;</span>
+         &lt;&lt; endl
+         &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить рядок. Занадто довгий рядок або рядок без слів
+ * вводиться ще раз
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputLine()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter a line: &quot;</span>;
+    cin.getline(line, MAX_LENGTH);
+    <span class="kw">while</span> (cin.fail() || strspn(line, SEPARATORS) == strlen(line))
+    {
+        <span class="kw">if</span> (cin.fail())
+        {
+            cin.clear();            <span class="cm">// скинути помилку введення</span>
+            cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити занадто довгий рядок</span>
+        }
+        cout &lt;&lt; <span class="st">&quot;Error! Enter up to &quot;</span> &lt;&lt; MAX_LENGTH - <span class="nm">1</span>
+             &lt;&lt; <span class="st">&quot; characters with at least one word: &quot;</span>;
+        cin.getline(line, MAX_LENGTH);
+    }
+}
+
+<span class="cm">/*
+ * Функція розбиває рядок на слова. Функція strtok псує рядок, тому
+ * працює з його копією
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> extractWords()
+{
+    <span class="kw">char</span> copy[MAX_LENGTH];
+    <span class="kw">char</span>* word = NULL;
+
+    strcpy(copy, line);
+    wordCount = <span class="nm">0</span>;
+
+    word = strtok(copy, SEPARATORS);
+    <span class="kw">while</span> (word != NULL)
+    {
+        strcpy(words[wordCount], word);
+        wordCount++;
+        word = strtok(NULL, SEPARATORS);
+    }
+}
+
+<span class="cm">/*
+ * Функція перевіряє, чи є символ голосною літерою
+ * Параметри: symbol - символ, який перевіряється
+ * Значення, що повертаються: true, якщо це голосна літера
+ */</span>
+<span class="kw">bool</span> isVowel(<span class="kw">char</span> symbol)
+{
+    <span class="kw">bool</span> isFound = <span class="kw">false</span>;
+
+    <span class="kw">if</span> (symbol != <span class="st">&#x27;\0&#x27;</span>)
+    {
+        <span class="kw">if</span> (strchr(VOWELS, symbol) != NULL)
+        {
+            isFound = <span class="kw">true</span>;
+        }
+    }
+
+    <span class="kw">return</span> isFound;
+}
+
+<span class="cm">/*
+ * Функція розбиває слово на склади. Кілька голосних поспіль дають один
+ * склад, склад закінчується голосною, а приголосні між двома голосними
+ * діляться навпіл
+ * Параметри: word - слово, parts - слово з дефісами між складами
+ * Значення, що повертаються: кількість складів
+ */</span>
+<span class="kw">int</span> splitIntoSyllables(<span class="kw">char</span>* word, <span class="kw">char</span>* parts)
+{
+    <span class="kw">int</span> syllableCount = <span class="nm">0</span>;
+    <span class="kw">int</span> consonantCount = <span class="nm">0</span>; <span class="cm">// приголосні до наступної голосної</span>
+    <span class="kw">int</span> i = <span class="nm">0</span>;
+
+    parts[<span class="nm">0</span>] = <span class="st">&#x27;\0&#x27;</span>;
+    <span class="kw">while</span> (word[i] != <span class="st">&#x27;\0&#x27;</span>)
+    {
+        strncat(parts, word + i, <span class="nm">1</span>);
+        <span class="kw">if</span> (isVowel(word[i]) &amp;&amp; !isVowel(word[i + <span class="nm">1</span>]))
+        {
+            syllableCount++;
+            consonantCount = strcspn(word + i + <span class="nm">1</span>, VOWELS);
+
+            <span class="kw">if</span> (word[i + <span class="nm">1</span> + consonantCount] != <span class="st">&#x27;\0&#x27;</span>)
+            {
+                strncat(parts, word + i + <span class="nm">1</span>, consonantCount / <span class="nm">2</span>);
+                strcat(parts, <span class="st">&quot;-&quot;</span>);
+                i = i + consonantCount / <span class="nm">2</span>;
+            }
+        }
+        i++;
+    }
+
+    <span class="cm">// слово без голосних вважається односкладовим</span>
+    <span class="kw">if</span> (syllableCount == <span class="nm">0</span>)
+    {
+        syllableCount = <span class="nm">1</span>;
+    }
+
+    <span class="kw">return</span> syllableCount;
+}
+
+<span class="cm">/*
+ * Команда меню: виділяє слова і виводить масив слів та їх кількість
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printWords()
+{
+    extractWords();
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; wordCount; i++)
+    {
+        cout &lt;&lt; i + <span class="nm">1</span> &lt;&lt; <span class="st">&quot;. &quot;</span> &lt;&lt; words[i] &lt;&lt; endl;
+    }
+    cout &lt;&lt; <span class="st">&quot;Number of words: &quot;</span> &lt;&lt; wordCount &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Команда меню: виводить кожне друге слово, розбите на склади
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printSyllables()
+{
+    <span class="kw">char</span> parts[<span class="nm">2</span> * MAX_LENGTH]; <span class="cm">// слово з дефісами</span>
+
+    extractWords();
+
+    <span class="kw">if</span> (wordCount &lt; <span class="nm">2</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;The line has no second word.&quot;</span> &lt;&lt; endl;
+    }
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">1</span>; i &lt; wordCount; i = i + <span class="nm">2</span>)
+    {
+        splitIntoSyllables(words[i], parts);
+        cout &lt;&lt; i + <span class="nm">1</span> &lt;&lt; <span class="st">&quot;. &quot;</span> &lt;&lt; parts &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Команда меню: будує новий рядок. Розділові символи копіюються,
+ * односкладове слово видаляється разом із символами після нього,
+ * двоскладове замінюється на &quot;...&quot;, довші слова лишаються
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> transformLine()
+{
+    <span class="kw">char</span> word[MAX_LENGTH];
+    <span class="kw">char</span> parts[<span class="nm">2</span> * MAX_LENGTH];
+    <span class="kw">char</span> result[<span class="nm">2</span> * MAX_LENGTH] = <span class="st">&quot;&quot;</span>; <span class="cm">// новий рядок</span>
+    <span class="kw">int</span> position = <span class="nm">0</span>;                 <span class="cm">// поточне місце в рядку line</span>
+    <span class="kw">int</span> length = <span class="nm">0</span>;                   <span class="cm">// довжина поточного слова</span>
+    <span class="kw">int</span> syllableCount = <span class="nm">0</span>;
+
+    <span class="kw">while</span> (line[position] != <span class="st">&#x27;\0&#x27;</span>)
+    {
+        length = strcspn(line + position, SEPARATORS);
+
+        <span class="kw">if</span> (length == <span class="nm">0</span>)
+        {
+            strncat(result, line + position, <span class="nm">1</span>);
+            position++;
+        }
+        <span class="kw">else</span>
+        {
+            strncpy(word, line + position, length);
+            word[length] = <span class="st">&#x27;\0&#x27;</span>; <span class="cm">// strncpy не ставить кінець рядка</span>
+            position = position + length;
+            syllableCount = splitIntoSyllables(word, parts);
+
+            <span class="kw">if</span> (syllableCount == <span class="nm">1</span>)
+            {
+                position = position + strspn(line + position, SEPARATORS);
+            }
+            <span class="kw">else</span> <span class="kw">if</span> (syllableCount == <span class="nm">2</span>)
+            {
+                strcat(result, <span class="st">&quot;...&quot;</span>);
+            }
+            <span class="kw">else</span>
+            {
+                strcat(result, word);
+            }
+        }
+    }
+
+    cout &lt;&lt; <span class="st">&quot;Source line: &quot;</span> &lt;&lt; line &lt;&lt; endl;
+    <span class="kw">if</span> (result[<span class="nm">0</span>] == <span class="st">&#x27;\0&#x27;</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;All words are removed, the new line is empty.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        cout &lt;&lt; <span class="st">&quot;New line:    &quot;</span> &lt;&lt; result &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція показує меню і виконує вибрані команди
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> runMenu()
+{
+    <span class="kw">do</span>
+    {
+        cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;1 - find the words and count them&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;2 - split every second word into syllables&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;3 - remove one-syllable words, replace two-syllable words&quot;</span>
+             &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;0 - exit&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;Enter a command (from 0 to 3): &quot;</span>;
+        cin &gt;&gt; choice;
+        <span class="kw">while</span> (cin.fail() || choice &lt; <span class="nm">0</span> || choice &gt; <span class="nm">3</span>)
+        {
+            cin.clear();            <span class="cm">// скинути помилку введення</span>
+            cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+            cout &lt;&lt; <span class="st">&quot;Error! Enter a command from 0 to 3: &quot;</span>;
+            cin &gt;&gt; choice;
+        }
+
+        <span class="kw">switch</span> (choice)
+        {
+            <span class="kw">case</span> <span class="nm">1</span> : printWords(); <span class="kw">break</span>;
+            <span class="kw">case</span> <span class="nm">2</span> : printSyllables(); <span class="kw">break</span>;
+            <span class="kw">case</span> <span class="nm">3</span> : transformLine(); <span class="kw">break</span>;
+            <span class="kw">default</span> : cout &lt;&lt; <span class="st">&quot;End of work.&quot;</span> &lt;&lt; endl; <span class="kw">break</span>;
+        }
+    } <span class="kw">while</span> (choice != <span class="nm">0</span>);
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputLine();
+    runMenu();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="task">
+<h3>Завдання 2 - варіант 6.2</h3>
+<p class="file">Файл <a href="task2.cpp" download>task2.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task2.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №9, завдання 2, варіант 6.2.</span>
+<span class="cm">//                   Знайти в тексті ключові слова за тематикою, скласти</span>
+<span class="cm">//                   з них акроніми і вибрати найкращий.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cctype&gt;</span>
+<span class="pp">#include &lt;cstring&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_LINES = <span class="nm">10</span>;            <span class="cm">// найбільша кількість рядків тексту</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_LENGTH = <span class="nm">256</span>;          <span class="cm">// найбільший розмір рядка</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_TOPIC_WORDS = <span class="nm">64</span>;      <span class="cm">// слів з 4 літер у рядку не більше</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_KEYWORDS = <span class="nm">12</span>;         <span class="cm">// найбільша кількість ключових слів</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_ACRONYMS = <span class="nm">66</span>;         <span class="cm">// пар &quot;перше - останнє&quot; ключове слово</span>
+<span class="kw">const</span> <span class="kw">int</span> MATCH_LENGTH = <span class="nm">4</span>;          <span class="cm">// скільки перших літер має збігатися</span>
+<span class="kw">const</span> <span class="kw">char</span> SEPARATORS[] = <span class="st">&quot; ,.;:!?&quot;</span>; <span class="cm">// розділові символи</span>
+<span class="kw">const</span> <span class="kw">char</span> VOWELS[] = <span class="st">&quot;AEIOUY&quot;</span>;      <span class="cm">// голосні літери</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">char</span> text[MAX_LINES][MAX_LENGTH] = {<span class="st">&quot;&quot;</span>};              <span class="cm">// введений текст</span>
+<span class="kw">char</span> topic[MAX_LENGTH] = <span class="st">&quot;&quot;</span>;                          <span class="cm">// тематика тексту</span>
+<span class="kw">char</span> topicWords[MAX_TOPIC_WORDS][MAX_LENGTH] = {<span class="st">&quot;&quot;</span>};  <span class="cm">// слова тематики</span>
+<span class="kw">char</span> keywords[MAX_KEYWORDS][MAX_LENGTH] = {<span class="st">&quot;&quot;</span>};       <span class="cm">// знайдені ключові слова</span>
+<span class="kw">char</span> acronyms[MAX_ACRONYMS][MAX_KEYWORDS + <span class="nm">1</span>] = {<span class="st">&quot;&quot;</span>}; <span class="cm">// згенеровані акроніми</span>
+<span class="kw">int</span> lineCount = <span class="nm">0</span>;                                    <span class="cm">// кількість рядків тексту</span>
+<span class="kw">int</span> topicWordCount = <span class="nm">0</span>;                               <span class="cm">// кількість слів тематики</span>
+<span class="kw">int</span> keywordCount = <span class="nm">0</span>;                                 <span class="cm">// кількість ключових слів</span>
+<span class="kw">int</span> acronymCount = <span class="nm">0</span>;                                 <span class="cm">// кількість акронімів</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 9. Task 2. Variant 6.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Find keywords of a text by its topic, make acronyms from them&quot;</span>
+         &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;and choose the best acronym.&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить один рядок. Занадто довгий рядок вводиться ще раз
+ * Параметри: target - куди записати рядок
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputLine(<span class="kw">char</span>* target)
+{
+    cin.getline(target, MAX_LENGTH);
+    <span class="kw">while</span> (cin.fail())
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити занадто довгий рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! The line is too long. Enter it again: &quot;</span>;
+        cin.getline(target, MAX_LENGTH);
+    }
+}
+
+<span class="cm">/*
+ * Функція вводить кількість рядків і сам текст
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputText()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter the number of lines (from 1 to &quot;</span> &lt;&lt; MAX_LINES &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    cin &gt;&gt; lineCount;
+    <span class="kw">while</span> (cin.fail() || lineCount &lt; <span class="nm">1</span> || lineCount &gt; MAX_LINES)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter the number of lines from 1 to &quot;</span> &lt;&lt; MAX_LINES
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin &gt;&gt; lineCount;
+    }
+    cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// кінець рядка після числа</span>
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; lineCount; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot;Line &quot;</span> &lt;&lt; i + <span class="nm">1</span> &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        inputLine(text[i]);
+    }
+}
+
+<span class="cm">/*
+ * Функція перевіряє, що слово починається з літери і не коротше
+ * за MATCH_LENGTH символів
+ * Параметри: word - слово, яке перевіряється
+ * Значення, що повертаються: true, якщо слово можна брати до уваги
+ */</span>
+<span class="kw">bool</span> isLongWord(<span class="kw">char</span>* word)
+{
+    <span class="kw">bool</span> isLong = <span class="kw">false</span>;
+    <span class="kw">int</span> length = strlen(word);
+
+    <span class="kw">if</span> (isalpha(word[<span class="nm">0</span>]) &amp;&amp; length &gt;= MATCH_LENGTH)
+    {
+        isLong = <span class="kw">true</span>;
+    }
+
+    <span class="kw">return</span> isLong;
+}
+
+<span class="cm">/*
+ * Функція переводить слово в нижній регістр, щоб порівняння не
+ * залежало від великих літер
+ * Параметри: word - слово
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> toLowerCase(<span class="kw">char</span>* word)
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; word[i] != <span class="st">&#x27;\0&#x27;</span>; i++)
+    {
+        word[i] = tolower(word[i]);
+    }
+}
+
+<span class="cm">/*
+ * Функція вводить тематику і виділяє з неї слова з 4 і більше літер.
+ * Якщо таких слів немає, тематика вводиться ще раз
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputTopic()
+{
+    <span class="kw">char</span> copy[MAX_LENGTH];
+    <span class="kw">char</span>* word = NULL;
+
+    <span class="kw">do</span>
+    {
+        cout &lt;&lt; <span class="st">&quot;Enter the topic of the text: &quot;</span>;
+        inputLine(topic);
+        strcpy(copy, topic);
+        topicWordCount = <span class="nm">0</span>;
+
+        word = strtok(copy, SEPARATORS);
+        <span class="kw">while</span> (word != NULL)
+        {
+            toLowerCase(word);
+            <span class="kw">if</span> (isLongWord(word))
+            {
+                strcpy(topicWords[topicWordCount], word);
+                topicWordCount++;
+            }
+            word = strtok(NULL, SEPARATORS);
+        }
+
+        <span class="kw">if</span> (topicWordCount == <span class="nm">0</span>)
+        {
+            cout &lt;&lt; <span class="st">&quot;Error! The topic needs a word of at least &quot;</span> &lt;&lt; MATCH_LENGTH
+                 &lt;&lt; <span class="st">&quot; letters.&quot;</span> &lt;&lt; endl;
+        }
+    } <span class="kw">while</span> (topicWordCount == <span class="nm">0</span>);
+}
+
+<span class="cm">/*
+ * Функція перевіряє, чи відповідає слово тематиці: його початок
+ * має збігатися з початком хоча б одного слова тематики
+ * Параметри: word - слово в нижньому регістрі
+ * Значення, що повертаються: true, якщо слово відповідає тематиці
+ */</span>
+<span class="kw">bool</span> isTopicWord(<span class="kw">char</span>* word)
+{
+    <span class="kw">bool</span> isFound = <span class="kw">false</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; topicWordCount; i++)
+    {
+        <span class="kw">if</span> (strncmp(word, topicWords[i], MATCH_LENGTH) == <span class="nm">0</span>)
+        {
+            isFound = <span class="kw">true</span>;
+        }
+    }
+
+    <span class="kw">return</span> isFound;
+}
+
+<span class="cm">/*
+ * Функція додає слово до ключових, якщо його там ще немає
+ * і в масиві є місце
+ * Параметри: word - слово в нижньому регістрі
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> addKeyword(<span class="kw">char</span>* word)
+{
+    <span class="kw">bool</span> isFound = <span class="kw">false</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; keywordCount; i++)
+    {
+        <span class="kw">if</span> (strcmp(word, keywords[i]) == <span class="nm">0</span>)
+        {
+            isFound = <span class="kw">true</span>;
+        }
+    }
+
+    <span class="kw">if</span> (!isFound &amp;&amp; keywordCount &lt; MAX_KEYWORDS)
+    {
+        strcpy(keywords[keywordCount], word);
+        keywordCount++;
+    }
+}
+
+<span class="cm">/*
+ * Функція переглядає текст і збирає ключові слова
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> findKeywords()
+{
+    <span class="kw">char</span> copy[MAX_LENGTH];
+    <span class="kw">char</span>* word = NULL;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; lineCount; i++)
+    {
+        strcpy(copy, text[i]);
+        word = strtok(copy, SEPARATORS);
+        <span class="kw">while</span> (word != NULL)
+        {
+            toLowerCase(word);
+            <span class="kw">if</span> (isLongWord(word) &amp;&amp; isTopicWord(word))
+            {
+                addKeyword(word);
+            }
+            word = strtok(NULL, SEPARATORS);
+        }
+    }
+
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Keywords: &quot;</span> &lt;&lt; keywordCount &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; keywordCount; i++)
+    {
+        cout &lt;&lt; i + <span class="nm">1</span> &lt;&lt; <span class="st">&quot;. &quot;</span> &lt;&lt; keywords[i] &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція додає акронім, якщо такого ще немає
+ * Параметри: acronym - новий акронім
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> addAcronym(<span class="kw">char</span>* acronym)
+{
+    <span class="kw">bool</span> isFound = <span class="kw">false</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; acronymCount; i++)
+    {
+        <span class="kw">if</span> (strcmp(acronym, acronyms[i]) == <span class="nm">0</span>)
+        {
+            isFound = <span class="kw">true</span>;
+        }
+    }
+
+    <span class="kw">if</span> (!isFound)
+    {
+        strcpy(acronyms[acronymCount], acronym);
+        acronymCount++;
+    }
+}
+
+<span class="cm">/*
+ * Функція складає акроніми з перших літер кожного набору ключових слів,
+ * що йдуть поспіль і містять щонайменше два слова
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> generateAcronyms()
+{
+    <span class="kw">char</span> acronym[MAX_KEYWORDS + <span class="nm">1</span>];
+
+    <span class="kw">for</span> (<span class="kw">int</span> first = <span class="nm">0</span>; first &lt; keywordCount; first++)
+    {
+        acronym[<span class="nm">0</span>] = toupper(keywords[first][<span class="nm">0</span>]);
+        <span class="kw">for</span> (<span class="kw">int</span> last = first + <span class="nm">1</span>; last &lt; keywordCount; last++)
+        {
+            acronym[last - first] = toupper(keywords[last][<span class="nm">0</span>]);
+            acronym[last - first + <span class="nm">1</span>] = <span class="st">&#x27;\0&#x27;</span>;
+            addAcronym(acronym);
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція рахує оцінку акроніма: кількість пар сусідніх літер, де
+ * голосна стоїть поруч із приголосною. Чим більше таких пар, тим легше
+ * вимовити акронім
+ * Параметри: acronym - акронім
+ * Значення, що повертаються: оцінка
+ */</span>
+<span class="kw">int</span> calculateScore(<span class="kw">char</span>* acronym)
+{
+    <span class="kw">int</span> score = <span class="nm">0</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; acronym[i + <span class="nm">1</span>] != <span class="st">&#x27;\0&#x27;</span>; i++)
+    {
+        <span class="kw">if</span> (strchr(VOWELS, acronym[i]) != NULL
+            &amp;&amp; strchr(VOWELS, acronym[i + <span class="nm">1</span>]) == NULL)
+        {
+            score++;
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (strchr(VOWELS, acronym[i]) == NULL
+                 &amp;&amp; strchr(VOWELS, acronym[i + <span class="nm">1</span>]) != NULL)
+        {
+            score++;
+        }
+    }
+
+    <span class="kw">return</span> score;
+}
+
+<span class="cm">/*
+ * Функція виводить усі акроніми з оцінками і найкращий акронім. За
+ * однакової оцінки найкращим лишається той, що знайдено раніше
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printAcronyms()
+{
+    <span class="kw">int</span> bestScore = -<span class="nm">1</span>;
+    <span class="kw">int</span> bestNumber = <span class="nm">0</span>;
+
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Acronyms: &quot;</span> &lt;&lt; acronymCount &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; acronymCount; i++)
+    {
+        cout &lt;&lt; i + <span class="nm">1</span> &lt;&lt; <span class="st">&quot;. &quot;</span> &lt;&lt; acronyms[i] &lt;&lt; <span class="st">&quot;, score &quot;</span>
+             &lt;&lt; calculateScore(acronyms[i]) &lt;&lt; endl;
+        <span class="kw">if</span> (calculateScore(acronyms[i]) &gt; bestScore)
+        {
+            bestScore = calculateScore(acronyms[i]);
+            bestNumber = i;
+        }
+    }
+
+    <span class="kw">if</span> (acronymCount == <span class="nm">0</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;At least two keywords are needed.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        cout &lt;&lt; <span class="st">&quot;Best acronym: &quot;</span> &lt;&lt; acronyms[bestNumber] &lt;&lt; endl;
+    }
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputText();
+    inputTopic();
+    findKeywords();
+    generateAcronyms();
+    printAcronyms();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="page-footer"><a href="#scheme">← Блок-схеми</a><a href="#top">Усі розділи</a><a href="#results">Результати →</a></div></section>
+<section class="page" id="results" tabindex="-1"><p class="eyebrow">Лабораторна робота №9 / 06 з 08</p><h2>6. Результати виконання роботи</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6.1</h3>
+<div class="result">
+<figure class="shot"><a href="img/task1-run-1.png"><img src="img/task1-run-1.png" alt="" width="851" loading="lazy"></a><figcaption>Рисунок 25 - Рядок із різними розділовими символами: усі команди меню</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-2.png"><img src="img/task1-run-2.png" alt="" width="653" loading="lazy"></a><figcaption>Рисунок 26 - Некоректні дані: рядок без слів, літери і неіснуюча команда; рядок з одного слова</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-3.png"><img src="img/task1-run-3.png" alt="" width="617" loading="lazy"></a><figcaption>Рисунок 27 - Усі слова односкладові: новий рядок порожній</figcaption></figure>
+</div>
+</div>
+<div class="task">
+<h3>Завдання 2 - варіант 6.2</h3>
+<div class="result">
+<figure class="shot"><a href="img/task2-run-1.png"><img src="img/task2-run-1.png" alt="" width="617" loading="lazy"></a><figcaption>Рисунок 28 - Текст із трьох рядків: ключові слова, акроніми, найкращий акронім</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-2.png"><img src="img/task2-run-2.png" alt="" width="581" loading="lazy"></a><figcaption>Рисунок 29 - Некоректні дані: літери й число поза межами, тематика без довгих слів; знайдено лише одне ключове слово</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-3.png"><img src="img/task2-run-3.png" alt="" width="581" loading="lazy"></a><figcaption>Рисунок 30 - Ключових слів у тексті немає</figcaption></figure>
+</div>
+</div>
+<div class="page-footer"><a href="#code">← Тексти програм</a><a href="#top">Усі розділи</a><a href="#check">Перевірка →</a></div></section>
+<section class="page" id="check" tabindex="-1"><p class="eyebrow">Лабораторна робота №9 / 07 з 08</p><h2>7. Аналіз достовірності результатів</h2>
+<div class="task">
+<h3>Завдання 1 - ручна перевірка</h3>
+<p>Контрольний рядок: <i>Modern computer science, reading long books. It is a very interesting
+subject</i>. У ньому 12 слів. Для кожного слова вручну знайдено групи голосних і застосовано
+правило поділу.</p>
+<p class="tcap">Таблиця 3 - Контрольний рядок завдання 1</p>
+<div class="table-scroll"><table>
+<tr><th>№</th><th>Слово</th><th>Групи голосних</th><th>Складів</th><th>Склади (для парних номерів)</th><th>У новому рядку</th></tr>
+<tr><td>1</td><td>Modern</td><td>o, e</td><td>2</td><td></td><td>...</td></tr>
+<tr><td>2</td><td>computer</td><td>o, u, e</td><td>3</td><td>com-pu-ter</td><td>computer</td></tr>
+<tr><td>3</td><td>science</td><td>ie, e</td><td>2</td><td></td><td>...</td></tr>
+<tr><td>4</td><td>reading</td><td>ea, i</td><td>2</td><td>rea-ding</td><td>...</td></tr>
+<tr><td>5</td><td>long</td><td>o</td><td>1</td><td></td><td>видалено</td></tr>
+<tr><td>6</td><td>books</td><td>oo</td><td>1</td><td>books</td><td>видалено</td></tr>
+<tr><td>7</td><td>It</td><td>I</td><td>1</td><td></td><td>видалено</td></tr>
+<tr><td>8</td><td>is</td><td>i</td><td>1</td><td>is</td><td>видалено</td></tr>
+<tr><td>9</td><td>a</td><td>a</td><td>1</td><td></td><td>видалено</td></tr>
+<tr><td>10</td><td>very</td><td>e, y</td><td>2</td><td>ve-ry</td><td>...</td></tr>
+<tr><td>11</td><td>interesting</td><td>i, e, e, i</td><td>4</td><td></td><td>interesting</td></tr>
+<tr><td>12</td><td>subject</td><td>u, e</td><td>2</td><td>sub-ject</td><td>...</td></tr>
+</table></div>
+<p>Очікуваний новий рядок: <code>... computer ..., ... ... interesting ...</code>. Програма
+вивела такий самий рядок, 12 слів і такі самі склади.</p>
+<p class="tcap">Таблиця 4 - Контрольні тести завдання 1</p>
+<div class="table-scroll"><table>
+<tr><th>Вхідні дані</th><th>Очікуваний результат</th><th>Результат програми</th></tr>
+<tr><td>рядок <code>,. ,</code> без слів</td><td>повторне введення</td><td>Error! Enter up to 255 characters with at least one word:</td></tr>
+<tr><td>команда abc або 7</td><td>повторне введення</td><td>Error! Enter a command from 0 to 3:</td></tr>
+<tr><td>одне слово Programming, команда 2</td><td>другого слова немає</td><td>The line has no second word.</td></tr>
+<tr><td>Programming, команда 3</td><td>o, a, i: 3 склади, слово лишається</td><td>New line: Programming</td></tr>
+<tr><td>The cat, sat on a mat.</td><td>усі слова односкладові, новий рядок порожній</td><td>All words are removed, the new line is empty.</td></tr>
+</table></div>
+<p>Рядок довжиною понад 255 символів програма просить увести ще раз, а слово без голосних
+вважає односкладовим.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - ручна перевірка</h3>
+<p>Тематика: <i>Data analysis tools and applications</i>. Слова тематики від 4 символів: data,
+analysis, tools, applications. Слово <i>and</i> закоротке. Перші 4 символи цих слів: data,
+anal, tool, appl. Текст із трьох рядків дає таку перевірку:</p>
+<p class="tcap">Таблиця 5 - Пошук ключових слів</p>
+<div class="table-scroll"><table>
+<tr><th>Рядок</th><th>Слова від 4 символів</th><th>Ключові слова (нові)</th></tr>
+<tr><td>Data from sensors goes to analysis every hour.</td><td>data, from, sensors, goes, analysis, every, hour</td><td>data, analysis</td></tr>
+<tr><td>Good tools make applications faster.</td><td>good, tools, make, applications, faster</td><td>tools, applications</td></tr>
+<tr><td>Applied analytics tools save time for data teams.</td><td>applied, analytics, tools, save, time, data, teams</td><td>applied, analytics (tools і data вже є)</td></tr>
+</table></div>
+<p>Вийшло 6 ключових слів з першими літерами D, A, T, A, A, A. Наборів поспіль
+6 · 5 / 2 = 15, але останній набір (applied, analytics) дає AA, що вже є від набору
+(applications, applied). Лишається 14 різних акронімів, програма вивела 14.</p>
+<p class="tcap">Таблиця 6 - Оцінка акронімів</p>
+<div class="table-scroll"><table>
+<tr><th>Акронім</th><th>Пари голосна-приголосна</th><th>Оцінка вручну</th><th>Програма</th></tr>
+<tr><td>DA</td><td>DA</td><td>1</td><td>1</td></tr>
+<tr><td>DAT</td><td>DA, AT</td><td>2</td><td>2</td></tr>
+<tr><td>DATA</td><td>DA, AT, TA</td><td>3</td><td>3</td></tr>
+<tr><td>DATAA</td><td>DA, AT, TA</td><td>3</td><td>3</td></tr>
+<tr><td>AAA</td><td>немає</td><td>0</td><td>0</td></tr>
+</table></div>
+<p>Найбільша оцінка 3 трапляється в DATA, DATAA і DATAAA. Першим знайдено DATA, тому він
+найкращий. Програма вивела <code>Best acronym: DATA</code>.</p>
+<p class="tcap">Таблиця 7 - Контрольні тести завдання 2</p>
+<div class="table-scroll"><table>
+<tr><th>Вхідні дані</th><th>Очікуваний результат</th><th>Результат програми</th></tr>
+<tr><td>кількість рядків abc, 0, 11</td><td>повторне введення</td><td>Error! Enter the number of lines from 1 to 10:</td></tr>
+<tr><td>тематика <i>of a</i></td><td>повторне введення</td><td>Error! The topic needs a word of at least 4 letters.</td></tr>
+<tr><td>два рядки зі словом weather, тематика <i>Weather on the sea</i></td><td>одне ключове слово, акронімів 0</td><td>Keywords: 1, Acronyms: 0, At least two keywords are needed.</td></tr>
+<tr><td>текст про котів, тематика про космос</td><td>ключових слів немає</td><td>Keywords: 0, Acronyms: 0</td></tr>
+</table></div>
+</div>
+<div class="page-footer"><a href="#results">← Результати</a><a href="#top">Усі розділи</a><a href="#conclusion">Висновки →</a></div></section>
+<section class="page" id="conclusion" tabindex="-1"><p class="eyebrow">Лабораторна робота №9 / 08 з 08</p><h2>8. Висновки</h2>
+<div class="card">
+<p>Розроблено дві програми обробки рядків на масивах символів, без STL і класу string. Перша
+через меню виділяє слова, ділить кожне друге слово на склади, видаляє односкладові слова і
+замінює двоскладові на "...". Склади рахуються за простим правилом, тому слово make у
+програмі двоскладове. Друга програма шукає ключові слова за першими чотирма
+символами і складає з них акроніми. На контрольному тексті вручну вийшло 14 акронімів і
+найкращий DATA, програма вивела те саме.</p>
+</div>
+<div class="page-footer"><a href="#check">← Перевірка</a><a href="#top">Усі розділи</a><a href="#top">До розділів →</a></div></section>
+<p class="footer">Основи програмування • 2026</p>
+</main>
+</div>
+<script src="../site.js"></script>
+</body>
+</html>
