@@ -1,0 +1,1281 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторна №6. Одновимірні масиви</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-lab="6">
+<a class="skip" href="#content">Перейти до вмісту</a>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Основи<br>програмування<small>Шимко Матвій • ІПЗ-11(3)</small></div><nav aria-label="Лабораторні роботи"><a href="../index.html">Головна сторінка</a><div class="side-label">ЛАБОРАТОРНІ РОБОТИ</div><a href="../lab01/index.html">Лабораторна робота №1</a><a href="../lab02/index.html">Лабораторна робота №2</a><a href="../lab03/index.html">Лабораторна робота №3</a><a href="../lab04/index.html">Лабораторна робота №4</a><a href="../lab05/index.html">Лабораторна робота №5</a><a href="../lab06/index.html#top" data-nav="top">Лабораторна робота №6</a><nav class="subnav" aria-label="Розділи звіту"><a href="#goal" data-nav="goal">Мета</a><a href="#task" data-nav="task">Умови задач</a><a href="#analysis" data-nav="analysis">Аналіз задач</a><a href="#scheme" data-nav="scheme">Блок-схеми</a><a href="#code" data-nav="code">Тексти програм</a><a href="#results" data-nav="results">Результати</a><a href="#check" data-nav="check">Перевірка</a><a href="#conclusion" data-nav="conclusion">Висновки</a></nav><a href="../lab07/index.html">Лабораторна робота №7</a><a href="../lab08/index.html">Лабораторна робота №8</a><a href="../lab09/index.html">Лабораторна робота №9</a><a href="../lab10/index.html">Лабораторна робота №10</a><a href="../lab11/index.html">Лабораторна робота №11</a></nav></aside>
+<main id="content" class="main">
+<p id="crumb" class="crumb"></p>
+<section class="page" id="top" tabindex="-1"><header class="hero"><p class="eyebrow">Основи програмування</p><h1>Звіт до лабораторної роботи №6</h1><p>Одновимірні масиви • Варіант 6</p></header><div class="meta"><p><b>Студент:</b> Шимко Матвій Анатолійович</p>
+<p><b>Група:</b> ІПЗ-11(3), 1 курс, 2026 рік</p>
+<p><b>Дисципліна:</b> Основи програмування</p>
+<p><b>Викладач:</b> Ковалюк Тетяна Володимирівна</p></div><h2>Оберіть розділ звіту</h2><div class="menu-grid"><a class="menu-card" href="#goal"><span class="num">01</span><b>Мета</b></a><a class="menu-card" href="#task"><span class="num">02</span><b>Умови задач</b></a><a class="menu-card" href="#analysis"><span class="num">03</span><b>Аналіз задач</b></a><a class="menu-card" href="#scheme"><span class="num">04</span><b>Блок-схеми</b></a><a class="menu-card" href="#code"><span class="num">05</span><b>Тексти програм</b></a><a class="menu-card" href="#results"><span class="num">06</span><b>Результати</b></a><a class="menu-card" href="#check"><span class="num">07</span><b>Перевірка</b></a><a class="menu-card" href="#conclusion"><span class="num">08</span><b>Висновки</b></a></div></section>
+<section class="page" id="goal" tabindex="-1"><p class="eyebrow">Лабораторна робота №6 / 01 з 08</p><h2>1. Мета роботи</h2>
+<div class="card"><ul>
+<li>Ознайомитися з особливостями типу масиву.</li>
+<li>Опанувати технологію застосування масивів даних.</li>
+<li>Навчитися розробляти алгоритми та програми із застосуванням одновимірних масивів.</li>
+</ul></div>
+<div class="page-footer"><a href="#top">← До розділів</a><a href="#top">Усі розділи</a><a href="#task">Умови задач →</a></div></section>
+<section class="page" id="task" tabindex="-1"><p class="eyebrow">Лабораторна робота №6 / 02 з 08</p><h2>2. Умови задач</h2>
+<p>Варіант 6 (у таблиці 24 варіанти, 30 - 24 = 6).</p>
+
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p>Створити одновимірний масив цілих чисел, кількість елементів якого ввести з клавіатури.
+Передбачити меню вибору способу створення масиву: введення з клавіатури або генерація
+псевдовипадкових чисел. Обчислити кількість елементів у найдовшій серії. Серія - це
+послідовність однакових елементів, розташованих поспіль. Надрукувати масив, усі серії
+однакових елементів та довжину найдовшої серії.</p>
+<p>Загальні вимоги до завдання: передбачити вибір способу створення масиву; заборонено
+використовувати бібліотеку стандартних шаблонів STL і шаблон вектору
+<code>std::vector</code>.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<p>Створити одновимірний масив, кількість елементів якого ввести з клавіатури. Передбачити
+меню вибору способу створення масиву: введення з клавіатури або генерація псевдовипадкових
+чисел. Відсортувати масив за алгоритмом парно-непарного сортування (Even-odd sort) та
+здійснити пошук в масиві за алгоритмом пошуку у відсортованому масиві з обертанням.
+Передбачити виведення проміжних результатів в процесі виконання ітерацій сортування
+масиву.</p>
+<p>Загальні вимоги до завдання:</p>
+<ul>
+<li>визначити ефективність методу сортування: кількість порівнянь та обмінів;</li>
+<li>визначити ефективність методу пошуку: кількість порівнянь;</li>
+<li>передбачити вибір режиму виведення результатів: або тільки відсортований масив, або з
+проміжними ітераціями;</li>
+<li>заборонено використовувати STL, шаблон вектору, а також бібліотечні методи сортування
+та пошуку.</li>
+</ul>
+</div>
+
+<div class="task">
+<h3>Завдання 3 - варіант 6</h3>
+<p>Увести з клавіатури цілі числа m, n, m &gt; n, що є степенями двох многочленів,
+m &gt; 2, n &gt; 2. Увести або згенерувати у вказаному користувачем діапазоні значення
+коефіцієнтів двох многочленів:</p>
+<div class="formula">P<sub>n</sub>(x) = ∑<sub>i=0</sub><sup>n</sup> a<sub>i</sub>x<sup>n-i</sup>,
+&nbsp;&nbsp; P<sub>m</sub>(x) = ∑<sub>i=0</sub><sup>m</sup> b<sub>i</sub>x<sup>m-i</sup></div>
+<p>Значення деяких коефіцієнтів можуть дорівнювати нулю. Визначити і вивести на екран
+вирази, що є часткою та остачею від ділення одного многочлена на інший. Здійснити
+перевірку результату ділення многочленів, визначивши добуток частки на многочлен-дільник
+з додаванням остачі.</p>
+<p>Загальні вимоги до завдання: заборонено використовувати STL, шаблон вектору, а також
+бібліотечні методи.</p>
+</div>
+
+<p>У всіх завданнях застосування покажчиків, динамічних масивів, операторів
+<code>new</code> і <code>delete</code> не схвалюється, тому в програмах їх немає.</p>
+<div class="page-footer"><a href="#goal">← Мета</a><a href="#top">Усі розділи</a><a href="#analysis">Аналіз задач →</a></div></section>
+<section class="page" id="analysis" tabindex="-1"><p class="eyebrow">Лабораторна робота №6 / 03 з 08</p><h2>3. Аналіз задач</h2>
+<div class="task">
+<h3>Спільне для всіх завдань</h3>
+<p>Покажчики й динамічні масиви в цій роботі не схвалюються, тому кожен масив оголошено із запасом на
+найбільший розмір.</p>
+<p>Усі цілі числа вводить одна функція <code>inputNumber(minValue, maxValue)</code>. Якщо введено не
+число або число поза межами, програма скидає помилку через <code>cin.clear()</code>, пропускає
+неправильний рядок через <code>cin.ignore()</code> і просить увести значення ще раз. У завданнях 1 і 2
+елементи масиву з клавіатури лежать у межах від -1000 до 1000. Меню зроблено оператором
+<code>switch</code>, пункт меню вводиться через ту саму функцію.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p>Умова не каже, чи є серією один елемент. У програмі один елемент теж вважається серією, якщо сусідні
+елементи від нього відрізняються.</p>
+<p>Лічильник довжини починається з 1 і збільшується, поки поточний елемент
+дорівнює попередньому. Коли елемент інший або масив закінчився, серія виводиться, її довжина
+порівнюється з найбільшою, а лічильник знову стає 1.</p>
+<p>Цикл іде до i = n включно, щоб вивести й останню серію.</p>
+<p>Псевдовипадкові числа беруться від 0 до 4, щоб траплялись однакові сусідні елементи.</p>
+<p class="tcap">Таблиця 1 - Функції програми завдання 1</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputNumber</code></td><td>введення цілого числа з перевіркою</td></tr>
+<tr><td><code>inputSize</code></td><td>введення кількості елементів</td></tr>
+<tr><td><code>inputArray</code></td><td>введення масиву з клавіатури</td></tr>
+<tr><td><code>generateArray</code></td><td>заповнення масиву псевдовипадковими числами</td></tr>
+<tr><td><code>runMenu</code></td><td>меню вибору способу створення масиву</td></tr>
+<tr><td><code>printArray</code></td><td>виведення масиву</td></tr>
+<tr><td><code>printSeries</code></td><td>виведення однієї серії, її довжини та початку</td></tr>
+<tr><td><code>findSeries</code></td><td>прохід по масиву, кількість серій, найбільша довжина</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<p>Одна ітерація парно-непарного сортування складається з двох проходів. Перший порівнює пари
+(a<sub>0</sub>, a<sub>1</sub>), (a<sub>2</sub>, a<sub>3</sub>), ..., другий пари
+(a<sub>1</sub>, a<sub>2</sub>), (a<sub>3</sub>, a<sub>4</sub>), ... Якщо елементи пари стоять неправильно,
+вони міняються місцями. Сортування закінчується, коли за всю ітерацію не було жодного обміну. За одну
+ітерацію виконується n - 1 порівняння.</p>
+<p>Обмін міняє місцями два сусідні елементи і виправляє одну пару, що стояла в неправильному порядку.
+Тому обмінів стільки, скільки таких пар у вхідному масиві.</p>
+<p>Пошук у масиві з обертанням призначений для масиву, який після сортування зсунули по колу. В умові
+цього кроку немає, тому після сортування програма просить увести зсув k від 0 до n - 1 і зсуває масив
+вправо на k позицій. Елемент з індексом i переходить на місце, що дорівнює остачі від ділення i + k на n.
+Зсув виконується через допоміжний масив.</p>
+<p>Сам пошук є зміненим двійковим пошуком. На відрізку [l, r] береться середина m. Якщо a<sub>m</sub>
+дорівнює ключу, пошук закінчено. Інакше хоча б одна половина відрізка відсортована:</p>
+<ul>
+<li>якщо a<sub>l</sub> ≤ a<sub>m</sub>, відсортована ліва половина. Якщо ключ лежить між
+a<sub>l</sub> і a<sub>m</sub>, пошук продовжується в ній, інакше у правій;</li>
+<li>інакше відсортована права половина. Якщо ключ лежить між a<sub>m</sub> і a<sub>r</sub>,
+пошук продовжується в ній, інакше у лівій.</li>
+</ul>
+<p>Якщо a<sub>l</sub> = a<sub>m</sub> = a<sub>r</sub>, визначити
+відсортовану половину не можна, тому програма відкидає обидва краї: l збільшується, r зменшується.</p>
+<p>У сортуванні рахуються всі порівняння двох елементів і всі обміни, у пошуку порівняння ключа із
+середнім елементом, тобто кроки пошуку. Користувач обирає режим виведення: лише результат або проміжні
+ітерації. У другому режимі програма друкує масив після кожного проходу сортування, а також межі й середину
+відрізка на кожному кроці пошуку.</p>
+<p class="tcap">Таблиця 2 - Функції програми завдання 2</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputNumber</code></td><td>введення цілого числа з перевіркою</td></tr>
+<tr><td><code>inputSize</code></td><td>введення кількості елементів</td></tr>
+<tr><td><code>inputArray</code></td><td>введення масиву з клавіатури</td></tr>
+<tr><td><code>generateArray</code></td><td>заповнення масиву числами від 0 до 99</td></tr>
+<tr><td><code>runMenu</code></td><td>меню вибору способу створення масиву</td></tr>
+<tr><td><code>inputOutputMode</code></td><td>вибір режиму виведення</td></tr>
+<tr><td><code>printArray</code></td><td>виведення елементів масиву</td></tr>
+<tr><td><code>sortPairs</code></td><td>один прохід по парах сусідніх елементів</td></tr>
+<tr><td><code>sortArray</code></td><td>парно-непарне сортування, лічильники</td></tr>
+<tr><td><code>rotateArray</code></td><td>введення зсуву і циклічний зсув масиву</td></tr>
+<tr><td><code>searchKey</code></td><td>введення ключа і пошук у масиві з обертанням</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 3 - варіант 6</h3>
+<p>Многочлени діляться стовпчиком. Коефіцієнти зберігаються від старшого до вільного члена, як у
+формулах умови. Діленим є P<sub>m</sub>, бо його степінь більший. Степінь частки дорівнює m - n, а степінь остачі менший за n. На
+кроці i (від 0 до m - n):</p>
+<div class="formula">q<sub>i</sub> = r<sub>i</sub> / a<sub>0</sub>, &nbsp;&nbsp;
+r<sub>i+j</sub> = r<sub>i+j</sub> - q<sub>i</sub> · a<sub>j</sub>, &nbsp; j = 0, 1, ..., n</div>
+<p>Спочатку r дорівнює коефіцієнтам діленого. Після всіх кроків останні n значень r є коефіцієнтами
+остачі.</p>
+<p>Для перевірки програма множить частку на дільник, додає остачу і порівнює коефіцієнти результату з
+коефіцієнтами P<sub>m</sub>:</p>
+<div class="formula">c<sub>i+j</sub> = c<sub>i+j</sub> + q<sub>i</sub> · a<sub>j</sub></div>
+<p>На a<sub>0</sub> виконується ділення, тому він не може дорівнювати нулю. Під час введення нуль не
+приймається, а під час генерації a<sub>0</sub> генерується знову, поки не стане відмінним від нуля.
+Нижня межа діапазону має бути меншою за верхню. Якщо справжній
+степінь діленого менший за n, частка дорівнює 0, а остача дорівнює діленому.</p>
+<p>Коефіцієнти P<sub>m</sub> і P<sub>n</sub> цілі, від -100 до 100, а m не більше 8. Коефіцієнти
+частки й остачі дійсні. Для них обрано <code>double</code>, бо коефіцієнти частки швидко ростуть і
+точності <code>float</code> для перевірки не вистачає. Числа, менші за модулем від 10<sup>-6</sup>,
+вважаються нулем.</p>
+<p class="tcap">Таблиця 3 - Функції програми завдання 3</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputNumber</code></td><td>введення цілого числа з перевіркою</td></tr>
+<tr><td><code>inputDegrees</code></td><td>введення степенів m і n</td></tr>
+<tr><td><code>inputCoefficients</code></td><td>введення коефіцієнтів з клавіатури</td></tr>
+<tr><td><code>generateCoefficients</code></td><td>введення діапазону і генерація коефіцієнтів</td></tr>
+<tr><td><code>runMenu</code></td><td>меню вибору способу створення коефіцієнтів</td></tr>
+<tr><td><code>printPolynomial</code></td><td>виведення многочлена у вигляді виразу</td></tr>
+<tr><td><code>dividePolynomials</code></td><td>ділення стовпчиком, частка й остача</td></tr>
+<tr><td><code>checkDivision</code></td><td>обчислення частка · дільник + остача і порівняння</td></tr>
+<tr><td><code>printResults</code></td><td>виведення многочленів, частки, остачі, перевірки</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Джерела</h3>
+<p>Ковалюк Т.В. Алгоритмізація та програмування, 2024; Ковалюк Т.В., Петрівський В.Я. Гарний
+стиль програмування мовами C, C++, C#, 2025; Кормен Т. та ін. Вступ до алгоритмів (сортування
+порівняннями і двійковий пошук); матеріали з переліку методички: [1.6] парне-непарне сортування,
+[2.13] пошук у відсортованому масиві з обертанням, [3.5] ділення многочленів.</p>
+</div>
+<div class="page-footer"><a href="#task">← Умови задач</a><a href="#top">Усі розділи</a><a href="#scheme">Блок-схеми →</a></div></section>
+<section class="page" id="scheme" tabindex="-1"><p class="eyebrow">Лабораторна робота №6 / 04 з 08</p><h2>4. Блок-схеми алгоритмів</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<figure class="fc"><a href="img/task1-fc-welcome.svg"><img src="img/task1-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 1 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputNumber.svg"><img src="img/task1-fc-inputNumber.svg" alt="" loading="lazy"></a><figcaption>Рисунок 2 - Блок-схема функції <code>inputNumber</code> (введення цілого числа з перевіркою)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputSize.svg"><img src="img/task1-fc-inputSize.svg" alt="" loading="lazy"></a><figcaption>Рисунок 3 - Блок-схема функції <code>inputSize</code> (введення кількості елементів масиву)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputArray.svg"><img src="img/task1-fc-inputArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 4 - Блок-схема функції <code>inputArray</code> (введення масиву з клавіатури)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-generateArray.svg"><img src="img/task1-fc-generateArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 5 - Блок-схема функції <code>generateArray</code> (заповнення масиву псевдовипадковими числами)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-runMenu.svg"><img src="img/task1-fc-runMenu.svg" alt="" loading="lazy"></a><figcaption>Рисунок 6 - Блок-схема функції <code>runMenu</code> (меню вибору способу створення масиву)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printArray.svg"><img src="img/task1-fc-printArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 7 - Блок-схема функції <code>printArray</code> (виведення масиву)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printSeries.svg"><img src="img/task1-fc-printSeries.svg" alt="" loading="lazy"></a><figcaption>Рисунок 8 - Блок-схема функції <code>printSeries</code> (виведення однієї серії)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-findSeries.svg"><img src="img/task1-fc-findSeries.svg" alt="" loading="lazy"></a><figcaption>Рисунок 9 - Блок-схема функції <code>findSeries</code> (пошук усіх серій і найдовшої серії)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-main.svg"><img src="img/task1-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 10 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<figure class="fc"><a href="img/task2-fc-welcome.svg"><img src="img/task2-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 11 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputNumber.svg"><img src="img/task2-fc-inputNumber.svg" alt="" loading="lazy"></a><figcaption>Рисунок 12 - Блок-схема функції <code>inputNumber</code> (введення цілого числа з перевіркою)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputSize.svg"><img src="img/task2-fc-inputSize.svg" alt="" loading="lazy"></a><figcaption>Рисунок 13 - Блок-схема функції <code>inputSize</code> (введення кількості елементів масиву)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputArray.svg"><img src="img/task2-fc-inputArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 14 - Блок-схема функції <code>inputArray</code> (введення масиву з клавіатури)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-generateArray.svg"><img src="img/task2-fc-generateArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 15 - Блок-схема функції <code>generateArray</code> (заповнення масиву псевдовипадковими числами)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-runMenu.svg"><img src="img/task2-fc-runMenu.svg" alt="" loading="lazy"></a><figcaption>Рисунок 16 - Блок-схема функції <code>runMenu</code> (меню вибору способу створення масиву)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputOutputMode.svg"><img src="img/task2-fc-inputOutputMode.svg" alt="" loading="lazy"></a><figcaption>Рисунок 17 - Блок-схема функції <code>inputOutputMode</code> (вибір режиму виведення)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-printArray.svg"><img src="img/task2-fc-printArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 18 - Блок-схема функції <code>printArray</code> (виведення елементів масиву)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-sortPairs.svg"><img src="img/task2-fc-sortPairs.svg" alt="" loading="lazy"></a><figcaption>Рисунок 19 - Блок-схема функції <code>sortPairs</code> (один прохід по парах сусідніх елементів)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-sortArray.svg"><img src="img/task2-fc-sortArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 20 - Блок-схема функції <code>sortArray</code> (парно-непарне сортування масиву)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-rotateArray.svg"><img src="img/task2-fc-rotateArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 21 - Блок-схема функції <code>rotateArray</code> (циклічний зсув масиву вправо)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-searchKey.svg"><img src="img/task2-fc-searchKey.svg" alt="" loading="lazy"></a><figcaption>Рисунок 22 - Блок-схема функції <code>searchKey</code> (пошук ключа в масиві з обертанням)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-main.svg"><img src="img/task2-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 23 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+
+<div class="task">
+<h3>Завдання 3 - варіант 6</h3>
+<figure class="fc"><a href="img/task3-fc-welcome.svg"><img src="img/task3-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 24 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task3-fc-inputNumber.svg"><img src="img/task3-fc-inputNumber.svg" alt="" loading="lazy"></a><figcaption>Рисунок 25 - Блок-схема функції <code>inputNumber</code> (введення цілого числа з перевіркою)</figcaption></figure>
+<figure class="fc"><a href="img/task3-fc-inputDegrees.svg"><img src="img/task3-fc-inputDegrees.svg" alt="" loading="lazy"></a><figcaption>Рисунок 26 - Блок-схема функції <code>inputDegrees</code> (введення степенів многочленів)</figcaption></figure>
+<figure class="fc"><a href="img/task3-fc-inputCoefficients.svg"><img src="img/task3-fc-inputCoefficients.svg" alt="" loading="lazy"></a><figcaption>Рисунок 27 - Блок-схема функції <code>inputCoefficients</code> (введення коефіцієнтів з клавіатури)</figcaption></figure>
+<figure class="fc"><a href="img/task3-fc-generateCoefficients.svg"><img src="img/task3-fc-generateCoefficients.svg" alt="" loading="lazy"></a><figcaption>Рисунок 28 - Блок-схема функції <code>generateCoefficients</code> (генерація коефіцієнтів у заданому діапазоні)</figcaption></figure>
+<figure class="fc"><a href="img/task3-fc-runMenu.svg"><img src="img/task3-fc-runMenu.svg" alt="" loading="lazy"></a><figcaption>Рисунок 29 - Блок-схема функції <code>runMenu</code> (меню вибору способу створення коефіцієнтів)</figcaption></figure>
+<figure class="fc"><a href="img/task3-fc-printPolynomial.svg"><img src="img/task3-fc-printPolynomial.svg" alt="" loading="lazy"></a><figcaption>Рисунок 30 - Блок-схема функції <code>printPolynomial</code> (виведення многочлена у вигляді виразу)</figcaption></figure>
+<figure class="fc"><a href="img/task3-fc-dividePolynomials.svg"><img src="img/task3-fc-dividePolynomials.svg" alt="" loading="lazy"></a><figcaption>Рисунок 31 - Блок-схема функції <code>dividePolynomials</code> (ділення многочленів стовпчиком)</figcaption></figure>
+<figure class="fc"><a href="img/task3-fc-checkDivision.svg"><img src="img/task3-fc-checkDivision.svg" alt="" loading="lazy"></a><figcaption>Рисунок 32 - Блок-схема функції <code>checkDivision</code> (перевірка результату ділення)</figcaption></figure>
+<figure class="fc"><a href="img/task3-fc-printResults.svg"><img src="img/task3-fc-printResults.svg" alt="" loading="lazy"></a><figcaption>Рисунок 33 - Блок-схема функції <code>printResults</code> (виведення многочленів, частки, остачі та перевірки)</figcaption></figure>
+<figure class="fc"><a href="img/task3-fc-main.svg"><img src="img/task3-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 34 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="page-footer"><a href="#analysis">← Аналіз задач</a><a href="#top">Усі розділи</a><a href="#code">Тексти програм →</a></div></section>
+<section class="page" id="code" tabindex="-1"><p class="eyebrow">Лабораторна робота №6 / 05 з 08</p><h2>5. Тексти програм</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p class="file">Файл <a href="task1.cpp" download>task1.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task1.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №6, завдання 1, варіант 6.</span>
+<span class="cm">//                   Знайти в цілочисельному масиві всі серії однакових</span>
+<span class="cm">//                   елементів і довжину найдовшої серії.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cstdlib&gt;</span>
+<span class="pp">#include &lt;ctime&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_SIZE = <span class="nm">100</span>;    <span class="cm">// найбільша кількість елементів масиву</span>
+<span class="kw">const</span> <span class="kw">int</span> MIN_VALUE = -<span class="nm">1000</span>; <span class="cm">// межі елемента, що вводиться з клавіатури</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_VALUE = <span class="nm">1000</span>;
+<span class="kw">const</span> <span class="kw">int</span> RANDOM_RANGE = <span class="nm">5</span>; <span class="cm">// випадкові числа від 0 до 4, щоб були повтори</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">int</span> numbers[MAX_SIZE] = {<span class="nm">0</span>}; <span class="cm">// масив</span>
+<span class="kw">int</span> elementCount = <span class="nm">0</span>;        <span class="cm">// кількість елементів масиву</span>
+<span class="kw">int</span> choice = <span class="nm">0</span>;              <span class="cm">// вибраний пункт меню</span>
+<span class="kw">int</span> seriesLength = <span class="nm">0</span>;        <span class="cm">// довжина поточної серії</span>
+<span class="kw">int</span> longestLength = <span class="nm">0</span>;       <span class="cm">// довжина найдовшої серії</span>
+<span class="kw">int</span> seriesCount = <span class="nm">0</span>;         <span class="cm">// кількість серій</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 6. Task 1. Variant 6.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Find all series of equal elements standing in a row&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;and the length of the longest series.&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить ціле число. Якщо введено не число або число поза
+ * межами, введення повторюється
+ * Параметри: minValue, maxValue - межі допустимого значення
+ * Значення, що повертаються: введене число
+ */</span>
+<span class="kw">int</span> inputNumber(<span class="kw">int</span> minValue, <span class="kw">int</span> maxValue)
+{
+    <span class="kw">int</span> number = <span class="nm">0</span>;
+
+    cin &gt;&gt; number;
+    <span class="kw">while</span> (cin.fail() || number &lt; minValue || number &gt; maxValue)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter a number from &quot;</span> &lt;&lt; minValue &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; maxValue
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin &gt;&gt; number;
+    }
+
+    <span class="kw">return</span> number;
+}
+
+<span class="cm">/*
+ * Функція вводить кількість елементів масиву
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputSize()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter the number of elements (from 1 to &quot;</span> &lt;&lt; MAX_SIZE &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    elementCount = inputNumber(<span class="nm">1</span>, MAX_SIZE);
+}
+
+<span class="cm">/*
+ * Функція вводить елементи масиву з клавіатури
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputArray()
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; elementCount; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot;Enter element &quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        numbers[i] = inputNumber(MIN_VALUE, MAX_VALUE);
+    }
+}
+
+<span class="cm">/*
+ * Функція заповнює масив псевдовипадковими числами від 0 до 4
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> generateArray()
+{
+    srand(time(NULL));
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; elementCount; i++)
+    {
+        numbers[i] = rand() % RANDOM_RANGE;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить меню і створює масив вибраним способом
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> runMenu()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;How to create the array:&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;1 - enter from the keyboard&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;2 - fill with pseudorandom numbers&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Your choice: &quot;</span>;
+    choice = inputNumber(<span class="nm">1</span>, <span class="nm">2</span>);
+
+    <span class="kw">switch</span> (choice)
+    {
+        <span class="kw">case</span> <span class="nm">1</span> : inputArray(); <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="nm">2</span> : generateArray(); <span class="kw">break</span>;
+        <span class="kw">default</span> : cout &lt;&lt; <span class="st">&quot;There is no such menu item.&quot;</span> &lt;&lt; endl; <span class="kw">break</span>;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить масив
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printArray()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Array:&quot;</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; elementCount; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot; &quot;</span> &lt;&lt; numbers[i];
+    }
+    cout &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція виводить одну серію, що закінчується перед індексом endIndex
+ * Параметри: endIndex - індекс елемента після серії
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printSeries(<span class="kw">int</span> endIndex)
+{
+    cout &lt;&lt; <span class="st">&quot;Series &quot;</span> &lt;&lt; seriesCount &lt;&lt; <span class="st">&quot;:&quot;</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = endIndex - seriesLength; i &lt; endIndex; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot; &quot;</span> &lt;&lt; numbers[i];
+    }
+    cout &lt;&lt; <span class="st">&quot; (length &quot;</span> &lt;&lt; seriesLength &lt;&lt; <span class="st">&quot;, starts at index &quot;</span>
+         &lt;&lt; endIndex - seriesLength &lt;&lt; <span class="st">&quot;)&quot;</span> &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція проходить масив, виводить усі серії і довжину найдовшої.
+ * Серія закінчується, коли наступний елемент інший або масив закінчився
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> findSeries()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Series of equal elements:&quot;</span> &lt;&lt; endl;
+
+    seriesLength = <span class="nm">1</span>;
+    longestLength = <span class="nm">1</span>;
+    seriesCount = <span class="nm">0</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">1</span>; i &lt;= elementCount; i++)
+    {
+        <span class="kw">if</span> (i &lt; elementCount &amp;&amp; numbers[i] == numbers[i - <span class="nm">1</span>])
+        {
+            seriesLength++;
+        }
+        <span class="kw">else</span>
+        {
+            seriesCount++;
+            printSeries(i);
+            <span class="kw">if</span> (seriesLength &gt; longestLength)
+            {
+                longestLength = seriesLength;
+            }
+            seriesLength = <span class="nm">1</span>;
+        }
+    }
+
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Number of series: &quot;</span> &lt;&lt; seriesCount &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Length of the longest series: &quot;</span> &lt;&lt; longestLength &lt;&lt; endl;
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputSize();
+    runMenu();
+    printArray();
+    findSeries();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<p class="file">Файл <a href="task2.cpp" download>task2.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task2.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №6, завдання 2, варіант 6.</span>
+<span class="cm">//                   Парно-непарне сортування масиву, циклічний зсув</span>
+<span class="cm">//                   і пошук ключа у відсортованому масиві з обертанням.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cstdlib&gt;</span>
+<span class="pp">#include &lt;ctime&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_SIZE = <span class="nm">100</span>;    <span class="cm">// найбільша кількість елементів масиву</span>
+<span class="kw">const</span> <span class="kw">int</span> MIN_VALUE = -<span class="nm">1000</span>; <span class="cm">// межі елемента, що вводиться з клавіатури</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_VALUE = <span class="nm">1000</span>;
+<span class="kw">const</span> <span class="kw">int</span> RANDOM_RANGE = <span class="nm">100</span>; <span class="cm">// випадкові числа від 0 до 99</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">int</span> numbers[MAX_SIZE] = {<span class="nm">0</span>};        <span class="cm">// масив</span>
+<span class="kw">int</span> shiftedNumbers[MAX_SIZE] = {<span class="nm">0</span>}; <span class="cm">// допоміжний масив для зсуву</span>
+<span class="kw">int</span> elementCount = <span class="nm">0</span>;               <span class="cm">// кількість елементів масиву</span>
+<span class="kw">int</span> choice = <span class="nm">0</span>;                     <span class="cm">// вибраний пункт меню</span>
+<span class="kw">bool</span> isDetailed = <span class="kw">false</span>;            <span class="cm">// чи виводити проміжні ітерації</span>
+<span class="kw">bool</span> isSorted = <span class="kw">false</span>;              <span class="cm">// чи не було обмінів за ітерацію</span>
+<span class="kw">int</span> iteration = <span class="nm">0</span>;                  <span class="cm">// номер ітерації сортування</span>
+<span class="kw">int</span> comparisonCount = <span class="nm">0</span>;            <span class="cm">// кількість порівнянь у сортуванні</span>
+<span class="kw">int</span> swapCount = <span class="nm">0</span>;                  <span class="cm">// кількість обмінів у сортуванні</span>
+<span class="kw">int</span> shift = <span class="nm">0</span>;                      <span class="cm">// зсув вправо</span>
+<span class="kw">int</span> key = <span class="nm">0</span>;                        <span class="cm">// шукане значення</span>
+<span class="kw">int</span> leftIndex = <span class="nm">0</span>;                  <span class="cm">// ліва межа відрізка пошуку</span>
+<span class="kw">int</span> rightIndex = <span class="nm">0</span>;                 <span class="cm">// права межа відрізка пошуку</span>
+<span class="kw">int</span> middleIndex = <span class="nm">0</span>;                <span class="cm">// середина відрізка пошуку</span>
+<span class="kw">int</span> foundIndex = -<span class="nm">1</span>;                <span class="cm">// індекс ключа, -1 якщо його немає</span>
+<span class="kw">int</span> searchCount = <span class="nm">0</span>;                <span class="cm">// кількість порівнянь із ключем</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 6. Task 2. Variant 6.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Sort the array by even-odd sort, shift it cyclically&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;and search for a key in the rotated sorted array.&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить ціле число. Якщо введено не число або число поза
+ * межами, введення повторюється
+ * Параметри: minValue, maxValue - межі допустимого значення
+ * Значення, що повертаються: введене число
+ */</span>
+<span class="kw">int</span> inputNumber(<span class="kw">int</span> minValue, <span class="kw">int</span> maxValue)
+{
+    <span class="kw">int</span> number = <span class="nm">0</span>;
+
+    cin &gt;&gt; number;
+    <span class="kw">while</span> (cin.fail() || number &lt; minValue || number &gt; maxValue)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter a number from &quot;</span> &lt;&lt; minValue &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; maxValue
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin &gt;&gt; number;
+    }
+
+    <span class="kw">return</span> number;
+}
+
+<span class="cm">/*
+ * Функція вводить кількість елементів масиву
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputSize()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter the number of elements (from 1 to &quot;</span> &lt;&lt; MAX_SIZE &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    elementCount = inputNumber(<span class="nm">1</span>, MAX_SIZE);
+}
+
+<span class="cm">/*
+ * Функція вводить елементи масиву з клавіатури
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputArray()
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; elementCount; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot;Enter element &quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        numbers[i] = inputNumber(MIN_VALUE, MAX_VALUE);
+    }
+}
+
+<span class="cm">/*
+ * Функція заповнює масив псевдовипадковими числами від 0 до 99
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> generateArray()
+{
+    srand(time(NULL));
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; elementCount; i++)
+    {
+        numbers[i] = rand() % RANDOM_RANGE;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить меню і створює масив вибраним способом
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> runMenu()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;How to create the array:&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;1 - enter from the keyboard&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;2 - fill with pseudorandom numbers&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Your choice: &quot;</span>;
+    choice = inputNumber(<span class="nm">1</span>, <span class="nm">2</span>);
+
+    <span class="kw">switch</span> (choice)
+    {
+        <span class="kw">case</span> <span class="nm">1</span> : inputArray(); <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="nm">2</span> : generateArray(); <span class="kw">break</span>;
+        <span class="kw">default</span> : cout &lt;&lt; <span class="st">&quot;There is no such menu item.&quot;</span> &lt;&lt; endl; <span class="kw">break</span>;
+    }
+}
+
+<span class="cm">/*
+ * Функція вводить режим виведення результатів
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputOutputMode()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Output mode:&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;1 - only the sorted array&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;2 - with intermediate iterations&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Your choice: &quot;</span>;
+    choice = inputNumber(<span class="nm">1</span>, <span class="nm">2</span>);
+    <span class="kw">if</span> (choice == <span class="nm">2</span>)
+    {
+        isDetailed = <span class="kw">true</span>;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить елементи масиву в один рядок
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printArray()
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; elementCount; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot; &quot;</span> &lt;&lt; numbers[i];
+    }
+    cout &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція порівнює пари сусідніх елементів, починаючи з firstIndex,
+ * і міняє місцями ті, що стоять неправильно
+ * Параметри: firstIndex - індекс першого елемента першої пари
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> sortPairs(<span class="kw">int</span> firstIndex)
+{
+    <span class="kw">int</span> temporary = <span class="nm">0</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = firstIndex; i &lt; elementCount - <span class="nm">1</span>; i = i + <span class="nm">2</span>)
+    {
+        comparisonCount++;
+        <span class="kw">if</span> (numbers[i] &gt; numbers[i + <span class="nm">1</span>])
+        {
+            temporary = numbers[i];
+            numbers[i] = numbers[i + <span class="nm">1</span>];
+            numbers[i + <span class="nm">1</span>] = temporary;
+            swapCount++;
+            isSorted = <span class="kw">false</span>;
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція сортує масив за зростанням. Кожна ітерація проходить пари
+ * з парним першим індексом, потім з непарним. Сортування закінчується,
+ * коли за ітерацію не було жодного обміну
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> sortArray()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Input array:&quot;</span>;
+    printArray();
+
+    isSorted = <span class="kw">false</span>;
+    <span class="kw">while</span> (!isSorted)
+    {
+        isSorted = <span class="kw">true</span>;
+        iteration++;
+
+        sortPairs(<span class="nm">0</span>);
+        <span class="kw">if</span> (isDetailed)
+        {
+            cout &lt;&lt; <span class="st">&quot;Iteration &quot;</span> &lt;&lt; iteration &lt;&lt; <span class="st">&quot;, even pairs:&quot;</span>;
+            printArray();
+        }
+
+        sortPairs(<span class="nm">1</span>);
+        <span class="kw">if</span> (isDetailed)
+        {
+            cout &lt;&lt; <span class="st">&quot;Iteration &quot;</span> &lt;&lt; iteration &lt;&lt; <span class="st">&quot;, odd pairs: &quot;</span>;
+            printArray();
+        }
+    }
+
+    cout &lt;&lt; <span class="st">&quot;Sorted array:&quot;</span>;
+    printArray();
+    cout &lt;&lt; <span class="st">&quot;Iterations: &quot;</span> &lt;&lt; iteration &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Comparisons: &quot;</span> &lt;&lt; comparisonCount &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Swaps: &quot;</span> &lt;&lt; swapCount &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить зсув і циклічно зсуває масив вправо
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> rotateArray()
+{
+    cout &lt;&lt; endl
+         &lt;&lt; <span class="st">&quot;Enter the cyclic shift to the right (from 0 to &quot;</span>
+         &lt;&lt; elementCount - <span class="nm">1</span> &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    shift = inputNumber(<span class="nm">0</span>, elementCount - <span class="nm">1</span>);
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; elementCount; i++)
+    {
+        shiftedNumbers[(i + shift) % elementCount] = numbers[i];
+    }
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; elementCount; i++)
+    {
+        numbers[i] = shiftedNumbers[i];
+    }
+
+    cout &lt;&lt; <span class="st">&quot;Rotated array:&quot;</span>;
+    printArray();
+}
+
+<span class="cm">/*
+ * Функція шукає ключ у масиві з обертанням. На кожному кроці одна
+ * половина відрізка відсортована: якщо ключ лежить у ній, пошук іде
+ * там, інакше в другій половині. Якщо обидва краї дорівнюють
+ * середньому елементу, половину визначити не можна, тому краї
+ * відкидаються
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> searchKey()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Enter the key: &quot;</span>;
+    key = inputNumber(MIN_VALUE, MAX_VALUE);
+
+    leftIndex = <span class="nm">0</span>;
+    rightIndex = elementCount - <span class="nm">1</span>;
+    foundIndex = -<span class="nm">1</span>;
+
+    <span class="kw">while</span> (leftIndex &lt;= rightIndex &amp;&amp; foundIndex == -<span class="nm">1</span>)
+    {
+        middleIndex = (leftIndex + rightIndex) / <span class="nm">2</span>;
+        searchCount++;
+
+        <span class="kw">if</span> (isDetailed)
+        {
+            cout &lt;&lt; <span class="st">&quot;Step &quot;</span> &lt;&lt; searchCount &lt;&lt; <span class="st">&quot;: left = &quot;</span> &lt;&lt; leftIndex
+                 &lt;&lt; <span class="st">&quot;, right = &quot;</span> &lt;&lt; rightIndex &lt;&lt; <span class="st">&quot;, middle = &quot;</span> &lt;&lt; middleIndex
+                 &lt;&lt; <span class="st">&quot;, element = &quot;</span> &lt;&lt; numbers[middleIndex] &lt;&lt; endl;
+        }
+
+        <span class="kw">if</span> (numbers[middleIndex] == key)
+        {
+            foundIndex = middleIndex;
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (numbers[leftIndex] == numbers[middleIndex]
+                 &amp;&amp; numbers[rightIndex] == numbers[middleIndex])
+        {
+            leftIndex++;
+            rightIndex--;
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (numbers[leftIndex] &lt;= numbers[middleIndex])
+        {
+            <span class="kw">if</span> (numbers[leftIndex] &lt;= key &amp;&amp; key &lt; numbers[middleIndex])
+            {
+                rightIndex = middleIndex - <span class="nm">1</span>;
+            }
+            <span class="kw">else</span>
+            {
+                leftIndex = middleIndex + <span class="nm">1</span>;
+            }
+        }
+        <span class="kw">else</span>
+        {
+            <span class="kw">if</span> (numbers[middleIndex] &lt; key &amp;&amp; key &lt;= numbers[rightIndex])
+            {
+                leftIndex = middleIndex + <span class="nm">1</span>;
+            }
+            <span class="kw">else</span>
+            {
+                rightIndex = middleIndex - <span class="nm">1</span>;
+            }
+        }
+    }
+
+    <span class="kw">if</span> (foundIndex == -<span class="nm">1</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;The key &quot;</span> &lt;&lt; key &lt;&lt; <span class="st">&quot; is not in the array.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        cout &lt;&lt; <span class="st">&quot;The key &quot;</span> &lt;&lt; key &lt;&lt; <span class="st">&quot; is at index &quot;</span> &lt;&lt; foundIndex &lt;&lt; <span class="st">&quot;.&quot;</span>
+             &lt;&lt; endl;
+    }
+    cout &lt;&lt; <span class="st">&quot;Search comparisons: &quot;</span> &lt;&lt; searchCount &lt;&lt; endl;
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputSize();
+    runMenu();
+    inputOutputMode();
+    sortArray();
+    rotateArray();
+    searchKey();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+
+<div class="task">
+<h3>Завдання 3 - варіант 6</h3>
+<p class="file">Файл <a href="task3.cpp" download>task3.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task3.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №6, завдання 3, варіант 6.</span>
+<span class="cm">//                   Поділити многочлен степеня m на многочлен степеня n</span>
+<span class="cm">//                   і перевірити результат.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cmath&gt;</span>
+<span class="pp">#include &lt;cstdlib&gt;</span>
+<span class="pp">#include &lt;ctime&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MIN_DEGREE = <span class="nm">3</span>;         <span class="cm">// найменший степінь дільника</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_DEGREE = <span class="nm">8</span>;         <span class="cm">// найбільший степінь діленого</span>
+<span class="kw">const</span> <span class="kw">int</span> MIN_COEFFICIENT = -<span class="nm">100</span>; <span class="cm">// межі коефіцієнтів</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_COEFFICIENT = <span class="nm">100</span>;
+<span class="kw">const</span> <span class="kw">double</span> TOLERANCE = <span class="nm">0.000001</span>; <span class="cm">// менші за модулем числа вважаємо нулем</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="cm">// double, бо коефіцієнти частки швидко ростуть, і 7 цифр float не вистачає:</span>
+<span class="cm">// перевірка показала б різницю, якої насправді немає</span>
+<span class="kw">double</span> dividend[MAX_DEGREE + <span class="nm">1</span>] = {<span class="nm">0</span>};      <span class="cm">// коефіцієнти діленого</span>
+<span class="kw">double</span> divisor[MAX_DEGREE + <span class="nm">1</span>] = {<span class="nm">0</span>};       <span class="cm">// коефіцієнти дільника</span>
+<span class="kw">double</span> workArray[MAX_DEGREE + <span class="nm">1</span>] = {<span class="nm">0</span>};     <span class="cm">// залишок під час ділення</span>
+<span class="kw">double</span> quotient[MAX_DEGREE + <span class="nm">1</span>] = {<span class="nm">0</span>};      <span class="cm">// коефіцієнти частки</span>
+<span class="kw">double</span> remainderPart[MAX_DEGREE + <span class="nm">1</span>] = {<span class="nm">0</span>}; <span class="cm">// коефіцієнти остачі</span>
+<span class="kw">double</span> checkResult[MAX_DEGREE + <span class="nm">1</span>] = {<span class="nm">0</span>};   <span class="cm">// частка * дільник + остача</span>
+<span class="kw">int</span> dividendDegree = <span class="nm">0</span>;                     <span class="cm">// степінь діленого m</span>
+<span class="kw">int</span> divisorDegree = <span class="nm">0</span>;                      <span class="cm">// степінь дільника n</span>
+<span class="kw">int</span> quotientDegree = <span class="nm">0</span>;                     <span class="cm">// степінь частки m - n</span>
+<span class="kw">int</span> lowerBound = <span class="nm">0</span>;                         <span class="cm">// межі випадкових коефіцієнтів</span>
+<span class="kw">int</span> upperBound = <span class="nm">0</span>;
+<span class="kw">int</span> choice = <span class="nm">0</span>;        <span class="cm">// вибраний пункт меню</span>
+<span class="kw">bool</span> isCorrect = <span class="kw">true</span>; <span class="cm">// чи збігся результат перевірки</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 6. Task 3. Variant 6.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Divide the polynomial Pm(x) by the polynomial Pn(x), m &gt; n &gt; 2:&quot;</span>
+         &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Pm(x) = b0*x^m + b1*x^(m-1) + ... + bm&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Pn(x) = a0*x^n + a1*x^(n-1) + ... + an&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Then check: Q(x) * Pn(x) + R(x) = Pm(x).&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить ціле число. Якщо введено не число або число поза
+ * межами, введення повторюється
+ * Параметри: minValue, maxValue - межі допустимого значення
+ * Значення, що повертаються: введене число
+ */</span>
+<span class="kw">int</span> inputNumber(<span class="kw">int</span> minValue, <span class="kw">int</span> maxValue)
+{
+    <span class="kw">int</span> number = <span class="nm">0</span>;
+
+    cin &gt;&gt; number;
+    <span class="kw">while</span> (cin.fail() || number &lt; minValue || number &gt; maxValue)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter a number from &quot;</span> &lt;&lt; minValue &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; maxValue
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin &gt;&gt; number;
+    }
+
+    <span class="kw">return</span> number;
+}
+
+<span class="cm">/*
+ * Функція вводить степені многочленів m і n, m &gt; n &gt; 2
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputDegrees()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter degree m (from &quot;</span> &lt;&lt; MIN_DEGREE + <span class="nm">1</span> &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; MAX_DEGREE
+         &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    dividendDegree = inputNumber(MIN_DEGREE + <span class="nm">1</span>, MAX_DEGREE);
+
+    cout &lt;&lt; <span class="st">&quot;Enter degree n (from &quot;</span> &lt;&lt; MIN_DEGREE &lt;&lt; <span class="st">&quot; to &quot;</span>
+         &lt;&lt; dividendDegree - <span class="nm">1</span> &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    divisorDegree = inputNumber(MIN_DEGREE, dividendDegree - <span class="nm">1</span>);
+
+    quotientDegree = dividendDegree - divisorDegree;
+}
+
+<span class="cm">/*
+ * Функція вводить коефіцієнти обох многочленів з клавіатури.
+ * Старший коефіцієнт дільника не може дорівнювати нулю
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputCoefficients()
+{
+    cout &lt;&lt; endl
+         &lt;&lt; <span class="st">&quot;Coefficients of Pm(x) (integers from &quot;</span> &lt;&lt; MIN_COEFFICIENT &lt;&lt; <span class="st">&quot; to &quot;</span>
+         &lt;&lt; MAX_COEFFICIENT &lt;&lt; <span class="st">&quot;):&quot;</span> &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt;= dividendDegree; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot;b&quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot; (at x^&quot;</span> &lt;&lt; dividendDegree - i &lt;&lt; <span class="st">&quot;): &quot;</span>;
+        dividend[i] = inputNumber(MIN_COEFFICIENT, MAX_COEFFICIENT);
+    }
+
+    cout &lt;&lt; <span class="st">&quot;Coefficients of Pn(x) (integers from &quot;</span> &lt;&lt; MIN_COEFFICIENT &lt;&lt; <span class="st">&quot; to &quot;</span>
+         &lt;&lt; MAX_COEFFICIENT &lt;&lt; <span class="st">&quot;):&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;a0 (at x^&quot;</span> &lt;&lt; divisorDegree &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    divisor[<span class="nm">0</span>] = inputNumber(MIN_COEFFICIENT, MAX_COEFFICIENT);
+    <span class="kw">while</span> (divisor[<span class="nm">0</span>] == <span class="nm">0</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! a0 must not be 0. Enter a0: &quot;</span>;
+        divisor[<span class="nm">0</span>] = inputNumber(MIN_COEFFICIENT, MAX_COEFFICIENT);
+    }
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">1</span>; i &lt;= divisorDegree; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot;a&quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot; (at x^&quot;</span> &lt;&lt; divisorDegree - i &lt;&lt; <span class="st">&quot;): &quot;</span>;
+        divisor[i] = inputNumber(MIN_COEFFICIENT, MAX_COEFFICIENT);
+    }
+}
+
+<span class="cm">/*
+ * Функція вводить діапазон і заповнює коефіцієнти псевдовипадковими
+ * цілими числами. Нижня межа менша за верхню, тому старший коефіцієнт
+ * дільника рано чи пізно вийде відмінним від нуля
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> generateCoefficients()
+{
+    cout &lt;&lt; endl
+         &lt;&lt; <span class="st">&quot;Enter the lower bound (from &quot;</span> &lt;&lt; MIN_COEFFICIENT &lt;&lt; <span class="st">&quot; to &quot;</span>
+         &lt;&lt; MAX_COEFFICIENT - <span class="nm">1</span> &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    lowerBound = inputNumber(MIN_COEFFICIENT, MAX_COEFFICIENT - <span class="nm">1</span>);
+
+    cout &lt;&lt; <span class="st">&quot;Enter the upper bound (from &quot;</span> &lt;&lt; lowerBound + <span class="nm">1</span> &lt;&lt; <span class="st">&quot; to &quot;</span>
+         &lt;&lt; MAX_COEFFICIENT &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    upperBound = inputNumber(lowerBound + <span class="nm">1</span>, MAX_COEFFICIENT);
+
+    srand(time(NULL));
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt;= dividendDegree; i++)
+    {
+        dividend[i] = rand() % (upperBound - lowerBound + <span class="nm">1</span>) + lowerBound;
+    }
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt;= divisorDegree; i++)
+    {
+        divisor[i] = rand() % (upperBound - lowerBound + <span class="nm">1</span>) + lowerBound;
+    }
+
+    <span class="kw">while</span> (divisor[<span class="nm">0</span>] == <span class="nm">0</span>)
+    {
+        divisor[<span class="nm">0</span>] = rand() % (upperBound - lowerBound + <span class="nm">1</span>) + lowerBound;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить меню і створює коефіцієнти вибраним способом
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> runMenu()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;How to create the coefficients:&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;1 - enter from the keyboard&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;2 - generate pseudorandom numbers in a given range&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Your choice: &quot;</span>;
+    choice = inputNumber(<span class="nm">1</span>, <span class="nm">2</span>);
+
+    <span class="kw">switch</span> (choice)
+    {
+        <span class="kw">case</span> <span class="nm">1</span> : inputCoefficients(); <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="nm">2</span> : generateCoefficients(); <span class="kw">break</span>;
+        <span class="kw">default</span> : cout &lt;&lt; <span class="st">&quot;There is no such menu item.&quot;</span> &lt;&lt; endl; <span class="kw">break</span>;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить многочлен у вигляді виразу, нульові члени пропускає
+ * Параметри: coefficients - коефіцієнти від старшого до вільного члена,
+ *            degree - степінь многочлена
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printPolynomial(<span class="kw">double</span> coefficients[], <span class="kw">int</span> degree)
+{
+    <span class="kw">bool</span> isFirst = <span class="kw">true</span>; <span class="cm">// чи ще не виведено жодного члена</span>
+    <span class="kw">int</span> power = <span class="nm">0</span>;       <span class="cm">// степінь x у поточному члені</span>
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt;= degree; i++)
+    {
+        power = degree - i;
+        <span class="kw">if</span> (fabs(coefficients[i]) &gt; TOLERANCE)
+        {
+            <span class="kw">if</span> (coefficients[i] &lt; <span class="nm">0</span> &amp;&amp; isFirst)
+            {
+                cout &lt;&lt; <span class="st">&quot;-&quot;</span>;
+            }
+            <span class="kw">else</span> <span class="kw">if</span> (coefficients[i] &lt; <span class="nm">0</span>)
+            {
+                cout &lt;&lt; <span class="st">&quot; - &quot;</span>;
+            }
+            <span class="kw">else</span> <span class="kw">if</span> (!isFirst)
+            {
+                cout &lt;&lt; <span class="st">&quot; + &quot;</span>;
+            }
+
+            cout &lt;&lt; fabs(coefficients[i]);
+            <span class="kw">if</span> (power &gt; <span class="nm">0</span>)
+            {
+                cout &lt;&lt; <span class="st">&quot;x&quot;</span>;
+            }
+            <span class="kw">if</span> (power &gt; <span class="nm">1</span>)
+            {
+                cout &lt;&lt; <span class="st">&quot;^&quot;</span> &lt;&lt; power;
+            }
+            isFirst = <span class="kw">false</span>;
+        }
+    }
+
+    <span class="kw">if</span> (isFirst)
+    {
+        cout &lt;&lt; <span class="st">&quot;0&quot;</span>;
+    }
+    cout &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція ділить многочлени стовпчиком. Кожен коефіцієнт частки це
+ * старший коефіцієнт залишку, поділений на старший коефіцієнт дільника.
+ * Від залишку віднімається дільник, помножений на цей коефіцієнт
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> dividePolynomials()
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt;= dividendDegree; i++)
+    {
+        workArray[i] = dividend[i];
+    }
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt;= quotientDegree; i++)
+    {
+        quotient[i] = workArray[i] / divisor[<span class="nm">0</span>];
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt;= divisorDegree; j++)
+        {
+            workArray[i + j] = workArray[i + j] - quotient[i] * divisor[j];
+        }
+    }
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; divisorDegree; i++)
+    {
+        remainderPart[i] = workArray[quotientDegree + <span class="nm">1</span> + i];
+    }
+}
+
+<span class="cm">/*
+ * Функція множить частку на дільник, додає остачу і порівнює
+ * результат із діленим
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> checkDivision()
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt;= dividendDegree; i++)
+    {
+        checkResult[i] = <span class="nm">0</span>;
+    }
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt;= quotientDegree; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt;= divisorDegree; j++)
+        {
+            checkResult[i + j] = checkResult[i + j] + quotient[i] * divisor[j];
+        }
+    }
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; divisorDegree; i++)
+    {
+        checkResult[quotientDegree + <span class="nm">1</span> + i] =
+            checkResult[quotientDegree + <span class="nm">1</span> + i] + remainderPart[i];
+    }
+
+    isCorrect = <span class="kw">true</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt;= dividendDegree; i++)
+    {
+        <span class="kw">if</span> (fabs(checkResult[i] - dividend[i]) &gt; TOLERANCE)
+        {
+            isCorrect = <span class="kw">false</span>;
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить многочлени, частку, остачу і результат перевірки
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printResults()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Pm(x) = &quot;</span>;
+    printPolynomial(dividend, dividendDegree);
+    cout &lt;&lt; <span class="st">&quot;Pn(x) = &quot;</span>;
+    printPolynomial(divisor, divisorDegree);
+
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Quotient  Q(x) = &quot;</span>;
+    printPolynomial(quotient, quotientDegree);
+    cout &lt;&lt; <span class="st">&quot;Remainder R(x) = &quot;</span>;
+    printPolynomial(remainderPart, divisorDegree - <span class="nm">1</span>);
+
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Check: Q(x) * Pn(x) + R(x) = &quot;</span>;
+    printPolynomial(checkResult, dividendDegree);
+
+    <span class="kw">if</span> (isCorrect)
+    {
+        cout &lt;&lt; <span class="st">&quot;The result of the check is equal to Pm(x).&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        cout &lt;&lt; <span class="st">&quot;The result of the check is NOT equal to Pm(x).&quot;</span> &lt;&lt; endl;
+    }
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputDegrees();
+    runMenu();
+    dividePolynomials();
+    checkDivision();
+    printResults();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="page-footer"><a href="#scheme">← Блок-схеми</a><a href="#top">Усі розділи</a><a href="#results">Результати →</a></div></section>
+<section class="page" id="results" tabindex="-1"><p class="eyebrow">Лабораторна робота №6 / 06 з 08</p><h2>6. Результати виконання роботи</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<div class="result">
+<figure class="shot"><a href="img/task1-run-1.png"><img src="img/task1-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 35 - Створення масиву з клавіатури (перед цим введено некоректні значення кількості, пункту меню та елементів)</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-2.png"><img src="img/task1-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 36 - Створення масиву псевдовипадковими числами</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-3.png"><img src="img/task1-run-3.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 37 - Крайній випадок: усі елементи різні, кожна серія має довжину 1</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-4.png"><img src="img/task1-run-4.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 38 - Крайній випадок: усі елементи однакові, масив є однією серією</figcaption></figure>
+</div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<div class="result">
+<figure class="shot"><a href="img/task2-run-1.png"><img src="img/task2-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 39 - Масив з клавіатури, режим із проміжними ітераціями, ключ знайдено (перед цим введено некоректні значення)</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-2.png"><img src="img/task2-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 40 - Псевдовипадковий масив, режим виведення лише результату</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-3.png"><img src="img/task2-run-3.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 41 - Масив з однаковими елементами: пошук відкидає краї відрізка</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-4.png"><img src="img/task2-run-4.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 42 - Найгірший випадок сортування (масив за спаданням), зсуву немає, ключа в масиві немає</figcaption></figure>
+</div>
+</div>
+
+<div class="task">
+<h3>Завдання 3 - варіант 6</h3>
+<div class="result">
+<figure class="shot"><a href="img/task3-run-1.png"><img src="img/task3-run-1.png" alt="" width="599" loading="lazy"></a><figcaption>Рисунок 43 - Ділення з остачею, коефіцієнти з клавіатури (a0 = 0 і літери відхилено)</figcaption></figure>
+<figure class="shot"><a href="img/task3-run-2.png"><img src="img/task3-run-2.png" alt="" width="671" loading="lazy"></a><figcaption>Рисунок 44 - Коефіцієнти згенеровано в діапазоні від -9 до 9</figcaption></figure>
+<figure class="shot"><a href="img/task3-run-3.png"><img src="img/task3-run-3.png" alt="" width="599" loading="lazy"></a><figcaption>Рисунок 45 - Ділення без остачі: R(x) = 0</figcaption></figure>
+<figure class="shot"><a href="img/task3-run-4.png"><img src="img/task3-run-4.png" alt="" width="599" loading="lazy"></a><figcaption>Рисунок 46 - Крайній випадок: нульові старші коефіцієнти діленого, частка дорівнює 0</figcaption></figure>
+</div>
+</div>
+<div class="page-footer"><a href="#code">← Тексти програм</a><a href="#top">Усі розділи</a><a href="#check">Перевірка →</a></div></section>
+<section class="page" id="check" tabindex="-1"><p class="eyebrow">Лабораторна робота №6 / 07 з 08</p><h2>7. Аналіз достовірності результатів</h2>
+<div class="task">
+<h3>Завдання 1: перевірка в Excel</h3>
+<p>Результати першого сценарію перевірено в Excel (файл <a href="check.xlsx" download>check.xlsx</a>,
+аркуш «Завдання 1»). Excel рахує серії своїми формулами: довжина поточної серії
+<code>=IF(B6=B5,C5+1,1)</code>, ознака кінця серії, номер серії, а довжину і початок кожної серії
+знаходить через <code>COUNTIF</code> і <code>MATCH</code>.</p>
+<figure class="shot"><a href="img/excel-check-1.png"><img src="img/excel-check-1.png" alt="" width="703" loading="lazy"></a><figcaption>Рисунок 47 - Перевірка завдання 1 в Excel</figcaption></figure>
+<p>Для масиву 4 4 7 7 7 7 -2 5 5 0 Excel і програма дають 5 серій, а найдовша має довжину 4. Довжина
+і початок кожної серії теж збігаються. Ще три масиви перевірено вручну:</p>
+<p class="tcap">Таблиця 4 - Ручні тести завдання 1</p>
+<div class="table-scroll"><table>
+<tr><th>Масив</th><th>Очікувані серії</th><th>Очікувана найбільша довжина</th><th>Програма</th></tr>
+<tr><td>1 2 3 4 5</td><td>5 серій довжини 1</td><td>1</td><td>збігається</td></tr>
+<tr><td>9 9 9 9</td><td>1 серія довжини 4</td><td>4</td><td>збігається</td></tr>
+<tr><td>1 1 2 2 3</td><td>1 1; 2 2; 3</td><td>2</td><td>збігається</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 2: контрольні тести</h3>
+<p>Кількість обмінів має дорівнювати кількості пар елементів, що стоять у неправильному порядку у
+вхідному масиві, а кількість порівнянь кількості ітерацій, помноженій на n - 1. Обидві величини
+пораховано вручну.</p>
+<p class="tcap">Таблиця 5 - Контрольні тести сортування</p>
+<div class="table-scroll"><table>
+<tr><th>Вхідний масив</th><th>Неправильних пар</th><th>Ітерації · (n - 1)</th><th>Програма: обміни, порівняння</th></tr>
+<tr><td>9 3 7 1 8 2 6 4</td><td>7 + 2 + 4 + 3 + 1 = 17</td><td>5 · 7 = 35</td><td>17, 35</td></tr>
+<tr><td>5 5 5 1 5 5 5</td><td>3</td><td>3 · 6 = 18</td><td>3, 18</td></tr>
+<tr><td>8 7 6 5 4 3 2 1</td><td>8 · 7 / 2 = 28</td><td>5 · 7 = 35</td><td>28, 35</td></tr>
+<tr><td>1 2 3 4 5</td><td>0</td><td>1 · 4 = 4</td><td>0, 4</td></tr>
+<tr><td>3 1 2 2 1 3</td><td>6</td><td>3 · 5 = 15</td><td>6, 15</td></tr>
+<tr><td>7</td><td>0</td><td>1 · 0 = 0</td><td>0, 0</td></tr>
+</table></div>
+<p>У масиві 8 7 6 5 4 3 2 1 неправильною є кожна пара, тому обмінів найбільше: 28.</p>
+<p class="tcap">Таблиця 6 - Контрольні тести пошуку</p>
+<div class="table-scroll"><table>
+<tr><th>Масив із зсувом</th><th>Ключ</th><th>Очікувано</th><th>Програма</th><th>Порівнянь</th></tr>
+<tr><td>7 8 9 1 2 3 4 6 (k = 3)</td><td>6</td><td>індекс 7</td><td>індекс 7</td><td>4</td></tr>
+<tr><td>5 5 1 5 5 5 5 (k = 2)</td><td>1</td><td>індекс 2</td><td>індекс 2</td><td>4</td></tr>
+<tr><td>1 2 3 4 5 6 7 8 (k = 0)</td><td>10</td><td>немає</td><td>немає</td><td>4</td></tr>
+<tr><td>4 5 1 2 3 (k = 2)</td><td>5</td><td>індекс 1</td><td>індекс 1</td><td>3</td></tr>
+<tr><td>2 2 3 3 1 1 (k = 4)</td><td>4</td><td>немає</td><td>немає</td><td>3</td></tr>
+<tr><td>7 (k = 0)</td><td>7</td><td>індекс 0</td><td>індекс 0</td><td>1</td></tr>
+</table></div>
+<p>Перший тест розписано вручну, ключ 6, масив 7 8 9 1 2 3 4 6:</p>
+<ul>
+<li>l = 0, r = 7, m = 3, a<sub>m</sub> = 1. Ліва частина 7 ... 1 не відсортована, права 1 ... 6
+відсортована, ключ у ній, тому l = 4;</li>
+<li>l = 4, r = 7, m = 5, a<sub>m</sub> = 3. Ключ більший за 3 і не більший за 6, тому l = 6;</li>
+<li>l = 6, r = 7, m = 6, a<sub>m</sub> = 4. Ключ більший за 4, тому l = 7;</li>
+<li>l = 7, r = 7, m = 7, a<sub>m</sub> = 6. Ключ знайдено, індекс 7.</li>
+</ul>
+<p>Програма теж вивела 4 кроки.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 3: перевірка в Excel і вручну</h3>
+<p>Сценарії 1 і 3 перевірено в Excel (файл <a href="check.xlsx" download>check.xlsx</a>, аркуш
+«Завдання 3»). Excel ділить многочлени своїми формулами: кожен рядок залишку обчислено з попереднього,
+а поруч стоять значення програми. Потім Excel множить частку на дільник і додає остачу. Частка, остача
+і результат перевірки збіглися в обох сценаріях.</p>
+<figure class="shot"><a href="img/excel-check-2.png"><img src="img/excel-check-2.png" alt="" width="452" loading="lazy"></a><figcaption>Рисунок 48 - Перевірка завдання 3 в Excel</figcaption></figure>
+<p>Сценарій 1 перевірено ще й вручну. Частка x² - 2x + 2.5, дільник 2x³ + x² - 3x + 1:</p>
+<div class="formula">(x² - 2x + 2.5)(2x³ + x² - 3x + 1) = 2x<sup>5</sup> - 3x<sup>4</sup> + 9.5x² - 9.5x + 2.5</div>
+<p>Додаємо остачу -4.5x² + 8.5x + 1.5 і отримуємо 2x<sup>5</sup> - 3x<sup>4</sup> + 5x² - x + 4,
+тобто ділене P<sub>m</sub>.</p>
+<p class="tcap">Таблиця 7 - Ручні тести завдання 3</p>
+<div class="table-scroll"><table>
+<tr><th>Тест</th><th>Очікувано</th><th>Програма</th></tr>
+<tr><td>(x³ - 2x + 1)(x² + 3) ділиться на x³ - 2x + 1</td><td>Q = x² + 3, R = 0</td><td>збігається</td></tr>
+<tr><td>x² + 2x + 3 ділиться на x³ + 1 (b<sub>0</sub> = b<sub>1</sub> = 0)</td><td>Q = 0, R = x² + 2x + 3</td><td>збігається</td></tr>
+<tr><td>a<sub>0</sub> = 0 під час введення</td><td>повідомлення, повторне введення</td><td>збігається</td></tr>
+</table></div>
+</div>
+<div class="page-footer"><a href="#results">← Результати</a><a href="#top">Усі розділи</a><a href="#conclusion">Висновки →</a></div></section>
+<section class="page" id="conclusion" tabindex="-1"><p class="eyebrow">Лабораторна робота №6 / 08 з 08</p><h2>8. Висновки</h2>
+<div class="card">
+<p>У цій роботі написано три програми з одновимірними масивами: пошук серій однакових елементів,
+парно-непарне сортування з пошуком у масиві з обертанням і ділення многочленів стовпчиком. В умові
+завдання 2 немає зсуву масиву, тому програма вводить його окремо, після сортування. Кількість обмінів і
+порівнянь у тестах збіглася з ручним підрахунком, а результати завдань 1 і 3 збіглися з Excel. Для
+многочленів довелося взяти <code>double</code>, бо точності <code>float</code> для перевірки ділення не
+вистачало.</p>
+</div>
+<div class="page-footer"><a href="#check">← Перевірка</a><a href="#top">Усі розділи</a><a href="#top">До розділів →</a></div></section>
+<p class="footer">Основи програмування • 2026</p>
+</main>
+</div>
+<script src="../site.js"></script>
+</body>
+</html>
