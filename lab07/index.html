@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторна №7. Багатовимірні масиви</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-lab="7">
+<a class="skip" href="#content">Перейти до вмісту</a>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Основи<br>програмування<small>Шимко Матвій • ІПЗ-11(3)</small></div><nav aria-label="Лабораторні роботи"><a href="../index.html">Головна сторінка</a><div class="side-label">ЛАБОРАТОРНІ РОБОТИ</div><a href="../lab01/index.html">Лабораторна робота №1</a><a href="../lab02/index.html">Лабораторна робота №2</a><a href="../lab03/index.html">Лабораторна робота №3</a><a href="../lab04/index.html">Лабораторна робота №4</a><a href="../lab05/index.html">Лабораторна робота №5</a><a href="../lab06/index.html">Лабораторна робота №6</a><a href="../lab07/index.html#top" data-nav="top">Лабораторна робота №7</a><nav class="subnav" aria-label="Розділи звіту"><a href="#goal" data-nav="goal">Мета</a><a href="#task" data-nav="task">Умови задач</a><a href="#analysis" data-nav="analysis">Аналіз задач</a><a href="#scheme" data-nav="scheme">Блок-схеми</a><a href="#code" data-nav="code">Тексти програм</a><a href="#results" data-nav="results">Результати</a><a href="#check" data-nav="check">Перевірка</a><a href="#conclusion" data-nav="conclusion">Висновки</a></nav><a href="../lab08/index.html">Лабораторна робота №8</a><a href="../lab09/index.html">Лабораторна робота №9</a><a href="../lab10/index.html">Лабораторна робота №10</a><a href="../lab11/index.html">Лабораторна робота №11</a></nav></aside>
+<main id="content" class="main">
+<p id="crumb" class="crumb"></p>
+<section class="page" id="top" tabindex="-1"><header class="hero"><p class="eyebrow">Основи програмування</p><h1>Звіт до лабораторної роботи №7</h1><p>Багатовимірні масиви • Варіант 6</p></header><div class="meta"><p><b>Студент:</b> Шимко Матвій Анатолійович</p>
+<p><b>Група:</b> ІПЗ-11(3), 1 курс, 2026 рік</p>
+<p><b>Дисципліна:</b> Основи програмування</p>
+<p><b>Викладач:</b> Ковалюк Тетяна Володимирівна</p></div><h2>Оберіть розділ звіту</h2><div class="menu-grid"><a class="menu-card" href="#goal"><span class="num">01</span><b>Мета</b></a><a class="menu-card" href="#task"><span class="num">02</span><b>Умови задач</b></a><a class="menu-card" href="#analysis"><span class="num">03</span><b>Аналіз задач</b></a><a class="menu-card" href="#scheme"><span class="num">04</span><b>Блок-схеми</b></a><a class="menu-card" href="#code"><span class="num">05</span><b>Тексти програм</b></a><a class="menu-card" href="#results"><span class="num">06</span><b>Результати</b></a><a class="menu-card" href="#check"><span class="num">07</span><b>Перевірка</b></a><a class="menu-card" href="#conclusion"><span class="num">08</span><b>Висновки</b></a></div></section>
+<section class="page" id="goal" tabindex="-1"><p class="eyebrow">Лабораторна робота №7 / 01 з 08</p><h2>1. Мета роботи</h2>
+<div class="card"><ul>
+<li>Вивчити особливості оголошення двовимірних масивів і доступу до їхніх елементів.</li>
+<li>Опанувати базові операції обробки матриць: введення, виведення, пошук елементів, перестановку
+рядків, поелементні дії над матрицями.</li>
+<li>Навчитися розробляти алгоритми та програми із застосуванням двовимірних масивів.</li>
+</ul></div>
+<div class="page-footer"><a href="#top">← До розділів</a><a href="#top">Усі розділи</a><a href="#task">Умови задач →</a></div></section>
+<section class="page" id="task" tabindex="-1"><p class="eyebrow">Лабораторна робота №7 / 02 з 08</p><h2>2. Умови задач</h2>
+<p>Варіант 6 (у таблиці 24 варіанти, 30 - 24 = 6).</p>
+
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p>Створити квадратну матрицю, розмірність якої n ≥ 3 ввести з клавіатури. Передбачити меню вибору
+способу створення матриці: введення з клавіатури або генерація псевдовипадкових додатних та
+від'ємних чисел. У створеній квадратній матриці визначити максимальний та мінімальний елементи та їх
+індекси. Поміняти місцями рядки, що містять максимальний та мінімальний елементи.</p>
+<p>Якщо максимальний та мінімальний елементи знаходяться в одному стовпчику матриці, то визначити
+суму елементів цього стовпчика, інакше визначити суму елементів, що розташовані над головною
+діагоналлю. Надрукувати вхідну матрицю у вигляді таблиці, максимальний та мінімальний елементи та їх
+індекси, матрицю після переміни місцями рядків, шукані суми.</p>
+<p>Загальні вимоги до завдання: передбачити вибір способу створення матриці; заборонено
+використовувати бібліотеку стандартних шаблонів STL, шаблон вектору <code>std::vector</code>,
+ітератори, контейнери, бібліотеки для роботи з матрицями.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<p>Знайти суму та різницю двох матриць A, B однакової вимірності. Перевірити матриці на рівність.
+Вимірності матриць A, B увести з клавіатури. Перевірити можливість виконати операції додавання та
+віднімання матриць. У випадку, коли вимірності матриць різні, вивести відповідне повідомлення. Для
+вибору способу створення матриць використовувати меню: введення значень елементів матриці з клавіатури
+або генерація псевдовипадкових чисел в заданому з клавіатури діапазоні значень. Вивести на екран вхідні
+матриці та результати їх суми, різниці та перевірки на рівність.</p>
+<p>Загальні вимоги до завдання:</p>
+<ul>
+<li>передбачити вибір способу створення матриць;</li>
+<li>передбачити вибір режиму виведення результатів: або тільки кінцевий результат, або з проміжними
+ітераціями;</li>
+<li>заборонено використовувати STL, шаблон вектору, ітератори, контейнери, бібліотеки для роботи з
+матрицями.</li>
+</ul>
+</div>
+
+<p>В обох завданнях застосування покажчиків, динамічних масивів, операторів <code>new</code> і
+<code>delete</code> не схвалюється, тому в програмах їх немає.</p>
+<div class="page-footer"><a href="#goal">← Мета</a><a href="#top">Усі розділи</a><a href="#analysis">Аналіз задач →</a></div></section>
+<section class="page" id="analysis" tabindex="-1"><p class="eyebrow">Лабораторна робота №7 / 03 з 08</p><h2>3. Аналіз задач</h2>
+<div class="task">
+<h3>Спільне для обох завдань</h3>
+<p>Матриця зберігається у двовимірному масиві, обидва індекси рахуються від нуля.</p>
+<p>Динамічні масиви в цій роботі не схвалюються, тому матриці оголошено із запасом на 10 рядків і
+10 стовпчиків. Елементи мають тип <code>int</code>, значення з клавіатури лежать від -1000 до 1000.</p>
+<p>Усі цілі числа вводить функція <code>inputNumber(minValue, maxValue)</code>. Якщо введено не число
+або число поза межами, значення вводиться ще раз. Через неї ж вводиться пункт меню, а саме меню зроблено
+оператором <code>switch</code>.</p>
+</div>
+
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p>Спочатку максимум і мінімум дорівнюють a<sub>00</sub>, далі кожен елемент порівнюється з ними.
+Порівняння строгі, тому якщо таких елементів кілька, береться перший під час проходу по рядках.</p>
+<p>Рядки міняються місцями в циклі по стовпчиках, через тимчасову змінну. Якщо максимум і мінімум в
+одному рядку, рядки не міняються, і програма повідомляє про це.</p>
+<p>Умова не каже, для якої матриці рахувати суму, до перестановки чи після. У завданні спочатку йде
+перестановка, тому сума рахується для матриці після неї. Для суми над головною діагоналлю це важливо: у
+сценарії 1 вона дорівнює 4 до перестановки і 11 після.</p>
+<p>Номери стовпчиків після перестановки рядків не змінюються, тому знайдені індекси підходять і далі.
+Над головною діагоналлю лежать елементи, для яких j &gt; i, тому
+внутрішній цикл починається з j = i + 1. Якщо всі елементи однакові, максимумом і мінімумом є той самий
+елемент a<sub>00</sub>, рядки не міняються, а сума рахується для стовпчика 0.</p>
+<p>Псевдовипадкові числа беруться від -99 до 99, щоб у матриці були додатні й від'ємні значення.</p>
+<p class="tcap">Таблиця 1 - Функції програми завдання 1</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputNumber</code></td><td>введення цілого числа з перевіркою</td></tr>
+<tr><td><code>inputSize</code></td><td>введення розмірності матриці</td></tr>
+<tr><td><code>inputMatrix</code></td><td>введення матриці з клавіатури</td></tr>
+<tr><td><code>generateMatrix</code></td><td>заповнення матриці числами від -99 до 99</td></tr>
+<tr><td><code>runMenu</code></td><td>меню вибору способу створення матриці</td></tr>
+<tr><td><code>printMatrix</code></td><td>виведення матриці у вигляді таблиці</td></tr>
+<tr><td><code>findExtremes</code></td><td>виведення вхідної матриці, пошук максимуму й мінімуму</td></tr>
+<tr><td><code>swapRows</code></td><td>перестановка рядків, виведення вихідної матриці</td></tr>
+<tr><td><code>calculateSum</code></td><td>обчислення і виведення шуканої суми</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<p>Сума й різниця двох матриць однакової вимірності обчислюються поелементно:</p>
+<div class="formula">S<sub>ij</sub> = A<sub>ij</sub> + B<sub>ij</sub>, &nbsp;&nbsp;
+D<sub>ij</sub> = A<sub>ij</sub> - B<sub>ij</sub></div>
+<p>Для перевірки на рівність програма рахує кількість пар різних елементів. Якщо вона дорівнює нулю,
+матриці рівні.</p>
+<p>Спочатку вводяться вимірності A і B. Якщо вони різні, програма виводить повідомлення і завершує
+роботу, елементи матриць не вводяться.</p>
+<p>Спосіб створення обирається один раз для обох матриць. Для генерації вводяться нижня і верхня межі,
+верхня не може бути меншою за нижню.</p>
+<p>Користувач обирає режим виведення: лише кінцевий результат або проміжні ітерації. У другому режимі
+програма друкує кожен крок обчислення суми й різниці, а також кожну пару елементів під час порівняння і
+кількість різних елементів на цей момент.</p>
+<p class="tcap">Таблиця 2 - Функції програми завдання 2</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputNumber</code></td><td>введення цілого числа з перевіркою</td></tr>
+<tr><td><code>inputSizes</code></td><td>введення вимірностей обох матриць</td></tr>
+<tr><td><code>inputMatrix</code></td><td>введення матриці з клавіатури</td></tr>
+<tr><td><code>inputRange</code></td><td>введення діапазону псевдовипадкових чисел</td></tr>
+<tr><td><code>generateMatrix</code></td><td>заповнення матриці числами з діапазону</td></tr>
+<tr><td><code>runMenu</code></td><td>меню вибору способу створення матриць</td></tr>
+<tr><td><code>inputOutputMode</code></td><td>вибір режиму виведення</td></tr>
+<tr><td><code>printMatrix</code></td><td>виведення матриці у вигляді таблиці</td></tr>
+<tr><td><code>calculateSum</code></td><td>обчислення суми матриць</td></tr>
+<tr><td><code>calculateDifference</code></td><td>обчислення різниці матриць</td></tr>
+<tr><td><code>compareMatrices</code></td><td>перевірка матриць на рівність</td></tr>
+<tr><td><code>processMatrices</code></td><td>перевірка вимірностей і виконання операцій</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Джерела</h3>
+<p>Ковалюк Т.В. Алгоритмізація та програмування, 2024; Ковалюк Т.В., Петрівський В.Я. Гарний стиль
+програмування мовами C, C++, C#, 2025.</p>
+</div>
+<div class="page-footer"><a href="#task">← Умови задач</a><a href="#top">Усі розділи</a><a href="#scheme">Блок-схеми →</a></div></section>
+<section class="page" id="scheme" tabindex="-1"><p class="eyebrow">Лабораторна робота №7 / 04 з 08</p><h2>4. Блок-схеми алгоритмів</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<figure class="fc"><a href="img/task1-fc-welcome.svg"><img src="img/task1-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 1 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputNumber.svg"><img src="img/task1-fc-inputNumber.svg" alt="" loading="lazy"></a><figcaption>Рисунок 2 - Блок-схема функції <code>inputNumber</code> (введення цілого числа з перевіркою)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputSize.svg"><img src="img/task1-fc-inputSize.svg" alt="" loading="lazy"></a><figcaption>Рисунок 3 - Блок-схема функції <code>inputSize</code> (введення розмірності матриці)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputMatrix.svg"><img src="img/task1-fc-inputMatrix.svg" alt="" loading="lazy"></a><figcaption>Рисунок 4 - Блок-схема функції <code>inputMatrix</code> (введення матриці з клавіатури)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-generateMatrix.svg"><img src="img/task1-fc-generateMatrix.svg" alt="" loading="lazy"></a><figcaption>Рисунок 5 - Блок-схема функції <code>generateMatrix</code> (заповнення матриці псевдовипадковими числами)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-runMenu.svg"><img src="img/task1-fc-runMenu.svg" alt="" loading="lazy"></a><figcaption>Рисунок 6 - Блок-схема функції <code>runMenu</code> (меню вибору способу створення матриці)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printMatrix.svg"><img src="img/task1-fc-printMatrix.svg" alt="" loading="lazy"></a><figcaption>Рисунок 7 - Блок-схема функції <code>printMatrix</code> (виведення матриці у вигляді таблиці)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-findExtremes.svg"><img src="img/task1-fc-findExtremes.svg" alt="" loading="lazy"></a><figcaption>Рисунок 8 - Блок-схема функції <code>findExtremes</code> (пошук максимального і мінімального елементів)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-swapRows.svg"><img src="img/task1-fc-swapRows.svg" alt="" loading="lazy"></a><figcaption>Рисунок 9 - Блок-схема функції <code>swapRows</code> (перестановка рядків з максимумом і мінімумом)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-calculateSum.svg"><img src="img/task1-fc-calculateSum.svg" alt="" loading="lazy"></a><figcaption>Рисунок 10 - Блок-схема функції <code>calculateSum</code> (обчислення шуканої суми)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-main.svg"><img src="img/task1-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 11 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<figure class="fc"><a href="img/task2-fc-welcome.svg"><img src="img/task2-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 12 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputNumber.svg"><img src="img/task2-fc-inputNumber.svg" alt="" loading="lazy"></a><figcaption>Рисунок 13 - Блок-схема функції <code>inputNumber</code> (введення цілого числа з перевіркою)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputSizes.svg"><img src="img/task2-fc-inputSizes.svg" alt="" loading="lazy"></a><figcaption>Рисунок 14 - Блок-схема функції <code>inputSizes</code> (введення вимірностей обох матриць)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputMatrix.svg"><img src="img/task2-fc-inputMatrix.svg" alt="" loading="lazy"></a><figcaption>Рисунок 15 - Блок-схема функції <code>inputMatrix</code> (введення матриці з клавіатури)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputRange.svg"><img src="img/task2-fc-inputRange.svg" alt="" loading="lazy"></a><figcaption>Рисунок 16 - Блок-схема функції <code>inputRange</code> (введення діапазону псевдовипадкових чисел)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-generateMatrix.svg"><img src="img/task2-fc-generateMatrix.svg" alt="" loading="lazy"></a><figcaption>Рисунок 17 - Блок-схема функції <code>generateMatrix</code> (заповнення матриці псевдовипадковими числами)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-runMenu.svg"><img src="img/task2-fc-runMenu.svg" alt="" loading="lazy"></a><figcaption>Рисунок 18 - Блок-схема функції <code>runMenu</code> (меню вибору способу створення матриць)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-inputOutputMode.svg"><img src="img/task2-fc-inputOutputMode.svg" alt="" loading="lazy"></a><figcaption>Рисунок 19 - Блок-схема функції <code>inputOutputMode</code> (вибір режиму виведення)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-printMatrix.svg"><img src="img/task2-fc-printMatrix.svg" alt="" loading="lazy"></a><figcaption>Рисунок 20 - Блок-схема функції <code>printMatrix</code> (виведення матриці у вигляді таблиці)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-calculateSum.svg"><img src="img/task2-fc-calculateSum.svg" alt="" loading="lazy"></a><figcaption>Рисунок 21 - Блок-схема функції <code>calculateSum</code> (обчислення суми матриць)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-calculateDifference.svg"><img src="img/task2-fc-calculateDifference.svg" alt="" loading="lazy"></a><figcaption>Рисунок 22 - Блок-схема функції <code>calculateDifference</code> (обчислення різниці матриць)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-compareMatrices.svg"><img src="img/task2-fc-compareMatrices.svg" alt="" loading="lazy"></a><figcaption>Рисунок 23 - Блок-схема функції <code>compareMatrices</code> (перевірка матриць на рівність)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-processMatrices.svg"><img src="img/task2-fc-processMatrices.svg" alt="" loading="lazy"></a><figcaption>Рисунок 24 - Блок-схема функції <code>processMatrices</code> (перевірка вимірностей і виконання операцій)</figcaption></figure>
+<figure class="fc"><a href="img/task2-fc-main.svg"><img src="img/task2-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 25 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="page-footer"><a href="#analysis">← Аналіз задач</a><a href="#top">Усі розділи</a><a href="#code">Тексти програм →</a></div></section>
+<section class="page" id="code" tabindex="-1"><p class="eyebrow">Лабораторна робота №7 / 05 з 08</p><h2>5. Тексти програм</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<p class="file">Файл <a href="task1.cpp" download>task1.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task1.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №7, завдання 1, варіант 6.</span>
+<span class="cm">//                   Знайти максимальний і мінімальний елементи квадратної</span>
+<span class="cm">//                   матриці, поміняти місцями їхні рядки, обчислити суму.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cstdlib&gt;</span>
+<span class="pp">#include &lt;ctime&gt;</span>
+<span class="pp">#include &lt;iomanip&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MIN_SIZE = <span class="nm">3</span>;      <span class="cm">// найменша розмірність матриці</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_SIZE = <span class="nm">10</span>;     <span class="cm">// найбільша розмірність матриці</span>
+<span class="kw">const</span> <span class="kw">int</span> MIN_VALUE = -<span class="nm">1000</span>; <span class="cm">// межі елемента, що вводиться з клавіатури</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_VALUE = <span class="nm">1000</span>;
+<span class="kw">const</span> <span class="kw">int</span> RANDOM_LIMIT = <span class="nm">99</span>; <span class="cm">// випадкові числа від -99 до 99</span>
+<span class="kw">const</span> <span class="kw">int</span> CELL_WIDTH = <span class="nm">7</span>;    <span class="cm">// ширина стовпчика під час виведення</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">int</span> matrix[MAX_SIZE][MAX_SIZE] = {{<span class="nm">0</span>}}; <span class="cm">// квадратна матриця</span>
+<span class="kw">int</span> matrixSize = <span class="nm">0</span>;                     <span class="cm">// розмірність матриці</span>
+<span class="kw">int</span> choice = <span class="nm">0</span>;                         <span class="cm">// вибраний пункт меню</span>
+<span class="kw">int</span> maximum = <span class="nm">0</span>;                        <span class="cm">// максимальний елемент</span>
+<span class="kw">int</span> maxRow = <span class="nm">0</span>;                         <span class="cm">// його рядок</span>
+<span class="kw">int</span> maxColumn = <span class="nm">0</span>;                      <span class="cm">// його стовпчик</span>
+<span class="kw">int</span> minimum = <span class="nm">0</span>;                        <span class="cm">// мінімальний елемент</span>
+<span class="kw">int</span> minRow = <span class="nm">0</span>;                         <span class="cm">// його рядок</span>
+<span class="kw">int</span> minColumn = <span class="nm">0</span>;                      <span class="cm">// його стовпчик</span>
+<span class="kw">int</span> sum = <span class="nm">0</span>;                            <span class="cm">// шукана сума</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 7. Task 1. Variant 6.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Find the maximum and minimum of a square matrix and swap their&quot;</span>
+         &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;rows. If they are in one column, find the sum of this column,&quot;</span>
+         &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;otherwise the sum of the elements above the main diagonal.&quot;</span> &lt;&lt; endl
+         &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить ціле число. Якщо введено не число або число поза
+ * межами, введення повторюється
+ * Параметри: minValue, maxValue - межі допустимого значення
+ * Значення, що повертаються: введене число
+ */</span>
+<span class="kw">int</span> inputNumber(<span class="kw">int</span> minValue, <span class="kw">int</span> maxValue)
+{
+    <span class="kw">int</span> number = <span class="nm">0</span>;
+
+    cin &gt;&gt; number;
+    <span class="kw">while</span> (cin.fail() || number &lt; minValue || number &gt; maxValue)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter a number from &quot;</span> &lt;&lt; minValue &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; maxValue
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin &gt;&gt; number;
+    }
+
+    <span class="kw">return</span> number;
+}
+
+<span class="cm">/*
+ * Функція вводить розмірність матриці
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputSize()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter the matrix size n (from &quot;</span> &lt;&lt; MIN_SIZE &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; MAX_SIZE
+         &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    matrixSize = inputNumber(MIN_SIZE, MAX_SIZE);
+}
+
+<span class="cm">/*
+ * Функція вводить елементи матриці з клавіатури
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputMatrix()
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; matrixSize; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; matrixSize; j++)
+        {
+            cout &lt;&lt; <span class="st">&quot;Enter the element [&quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot;][&quot;</span> &lt;&lt; j &lt;&lt; <span class="st">&quot;]: &quot;</span>;
+            matrix[i][j] = inputNumber(MIN_VALUE, MAX_VALUE);
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція заповнює матрицю псевдовипадковими числами від -99 до 99
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> generateMatrix()
+{
+    srand(time(NULL));
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; matrixSize; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; matrixSize; j++)
+        {
+            matrix[i][j] = rand() % (<span class="nm">2</span> * RANDOM_LIMIT + <span class="nm">1</span>) - RANDOM_LIMIT;
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить меню і створює матрицю вибраним способом
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> runMenu()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;How to create the matrix:&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;1 - enter from the keyboard&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;2 - fill with pseudorandom numbers&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Your choice: &quot;</span>;
+    choice = inputNumber(<span class="nm">1</span>, <span class="nm">2</span>);
+
+    <span class="kw">switch</span> (choice)
+    {
+        <span class="kw">case</span> <span class="nm">1</span> : inputMatrix(); <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="nm">2</span> : generateMatrix(); <span class="kw">break</span>;
+        <span class="kw">default</span> : cout &lt;&lt; <span class="st">&quot;There is no such menu item.&quot;</span> &lt;&lt; endl; <span class="kw">break</span>;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить матрицю у вигляді таблиці
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printMatrix()
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; matrixSize; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; matrixSize; j++)
+        {
+            cout &lt;&lt; setw(CELL_WIDTH) &lt;&lt; matrix[i][j];
+        }
+        cout &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить вхідну матрицю, знаходить максимальний і мінімальний
+ * елементи та їх індекси. Якщо таких елементів кілька, береться перший
+ * під час проходу по рядках
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> findExtremes()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Input matrix:&quot;</span> &lt;&lt; endl;
+    printMatrix();
+
+    maximum = matrix[<span class="nm">0</span>][<span class="nm">0</span>];
+    minimum = matrix[<span class="nm">0</span>][<span class="nm">0</span>];
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; matrixSize; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; matrixSize; j++)
+        {
+            <span class="kw">if</span> (matrix[i][j] &gt; maximum)
+            {
+                maximum = matrix[i][j];
+                maxRow = i;
+                maxColumn = j;
+            }
+            <span class="kw">if</span> (matrix[i][j] &lt; minimum)
+            {
+                minimum = matrix[i][j];
+                minRow = i;
+                minColumn = j;
+            }
+        }
+    }
+
+    cout &lt;&lt; endl
+         &lt;&lt; <span class="st">&quot;Maximum = &quot;</span> &lt;&lt; maximum &lt;&lt; <span class="st">&quot;, row &quot;</span> &lt;&lt; maxRow &lt;&lt; <span class="st">&quot;, column &quot;</span>
+         &lt;&lt; maxColumn &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Minimum = &quot;</span> &lt;&lt; minimum &lt;&lt; <span class="st">&quot;, row &quot;</span> &lt;&lt; minRow &lt;&lt; <span class="st">&quot;, column &quot;</span>
+         &lt;&lt; minColumn &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція міняє місцями рядки з максимальним і мінімальним елементами.
+ * Якщо це один рядок, матриця не змінюється
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> swapRows()
+{
+    <span class="kw">int</span> temporary = <span class="nm">0</span>;
+
+    <span class="kw">if</span> (maxRow == minRow)
+    {
+        cout &lt;&lt; endl
+             &lt;&lt; <span class="st">&quot;Maximum and minimum are in the same row, &quot;</span>
+             &lt;&lt; <span class="st">&quot;there is nothing to swap.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; matrixSize; j++)
+        {
+            temporary = matrix[maxRow][j];
+            matrix[maxRow][j] = matrix[minRow][j];
+            matrix[minRow][j] = temporary;
+        }
+        cout &lt;&lt; endl
+             &lt;&lt; <span class="st">&quot;Rows &quot;</span> &lt;&lt; maxRow &lt;&lt; <span class="st">&quot; and &quot;</span> &lt;&lt; minRow &lt;&lt; <span class="st">&quot; are swapped.&quot;</span>
+             &lt;&lt; endl;
+    }
+
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Output matrix:&quot;</span> &lt;&lt; endl;
+    printMatrix();
+}
+
+<span class="cm">/*
+ * Функція рахує суму для матриці після перестановки: суму стовпчика, якщо
+ * максимальний і мінімальний елементи в ньому обидва, інакше суму
+ * елементів над головною діагоналлю
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> calculateSum()
+{
+    sum = <span class="nm">0</span>;
+
+    <span class="kw">if</span> (maxColumn == minColumn)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; matrixSize; i++)
+        {
+            sum = sum + matrix[i][maxColumn];
+        }
+        cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Maximum and minimum are in the same column.&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;Sum of column &quot;</span> &lt;&lt; maxColumn &lt;&lt; <span class="st">&quot; = &quot;</span> &lt;&lt; sum &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; matrixSize; i++)
+        {
+            <span class="kw">for</span> (<span class="kw">int</span> j = i + <span class="nm">1</span>; j &lt; matrixSize; j++)
+            {
+                sum = sum + matrix[i][j];
+            }
+        }
+        cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Maximum and minimum are in different columns.&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;Sum of the elements above the main diagonal = &quot;</span> &lt;&lt; sum &lt;&lt; endl;
+    }
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputSize();
+    runMenu();
+    findExtremes();
+    swapRows();
+    calculateSum();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<p class="file">Файл <a href="task2.cpp" download>task2.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task2.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №7, завдання 2, варіант 6.</span>
+<span class="cm">//                   Знайти суму і різницю двох матриць однакової</span>
+<span class="cm">//                   вимірності, перевірити матриці на рівність.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cstdlib&gt;</span>
+<span class="pp">#include &lt;ctime&gt;</span>
+<span class="pp">#include &lt;iomanip&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_SIZE = <span class="nm">10</span>;     <span class="cm">// найбільша кількість рядків і стовпчиків</span>
+<span class="kw">const</span> <span class="kw">int</span> MIN_VALUE = -<span class="nm">1000</span>; <span class="cm">// межі елемента матриці</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_VALUE = <span class="nm">1000</span>;
+<span class="kw">const</span> <span class="kw">int</span> CELL_WIDTH = <span class="nm">7</span>; <span class="cm">// ширина стовпчика під час виведення</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">int</span> matrixA[MAX_SIZE][MAX_SIZE] = {{<span class="nm">0</span>}};          <span class="cm">// матриця A</span>
+<span class="kw">int</span> matrixB[MAX_SIZE][MAX_SIZE] = {{<span class="nm">0</span>}};          <span class="cm">// матриця B</span>
+<span class="kw">int</span> matrixSum[MAX_SIZE][MAX_SIZE] = {{<span class="nm">0</span>}};        <span class="cm">// сума A + B</span>
+<span class="kw">int</span> matrixDifference[MAX_SIZE][MAX_SIZE] = {{<span class="nm">0</span>}}; <span class="cm">// різниця A - B</span>
+<span class="kw">int</span> rowsA = <span class="nm">0</span>;                                    <span class="cm">// вимірність матриці A</span>
+<span class="kw">int</span> columnsA = <span class="nm">0</span>;
+<span class="kw">int</span> rowsB = <span class="nm">0</span>; <span class="cm">// вимірність матриці B</span>
+<span class="kw">int</span> columnsB = <span class="nm">0</span>;
+<span class="kw">int</span> choice = <span class="nm">0</span>;          <span class="cm">// вибраний пункт меню</span>
+<span class="kw">bool</span> isDetailed = <span class="kw">false</span>; <span class="cm">// чи виводити проміжні ітерації</span>
+<span class="kw">int</span> lowerBound = <span class="nm">0</span>;      <span class="cm">// межі випадкових чисел</span>
+<span class="kw">int</span> upperBound = <span class="nm">0</span>;
+<span class="kw">int</span> differentCount = <span class="nm">0</span>; <span class="cm">// скільки елементів не збігаються</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 7. Task 2. Variant 6.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Find the sum and the difference of matrices A and B&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;and check whether they are equal.&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить ціле число. Якщо введено не число або число поза
+ * межами, введення повторюється
+ * Параметри: minValue, maxValue - межі допустимого значення
+ * Значення, що повертаються: введене число
+ */</span>
+<span class="kw">int</span> inputNumber(<span class="kw">int</span> minValue, <span class="kw">int</span> maxValue)
+{
+    <span class="kw">int</span> number = <span class="nm">0</span>;
+
+    cin &gt;&gt; number;
+    <span class="kw">while</span> (cin.fail() || number &lt; minValue || number &gt; maxValue)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter a number from &quot;</span> &lt;&lt; minValue &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; maxValue
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin &gt;&gt; number;
+    }
+
+    <span class="kw">return</span> number;
+}
+
+<span class="cm">/*
+ * Функція вводить вимірності обох матриць
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputSizes()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter the rows of A (from 1 to &quot;</span> &lt;&lt; MAX_SIZE &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    rowsA = inputNumber(<span class="nm">1</span>, MAX_SIZE);
+    cout &lt;&lt; <span class="st">&quot;Enter the columns of A (from 1 to &quot;</span> &lt;&lt; MAX_SIZE &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    columnsA = inputNumber(<span class="nm">1</span>, MAX_SIZE);
+    cout &lt;&lt; <span class="st">&quot;Enter the rows of B (from 1 to &quot;</span> &lt;&lt; MAX_SIZE &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    rowsB = inputNumber(<span class="nm">1</span>, MAX_SIZE);
+    cout &lt;&lt; <span class="st">&quot;Enter the columns of B (from 1 to &quot;</span> &lt;&lt; MAX_SIZE &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    columnsB = inputNumber(<span class="nm">1</span>, MAX_SIZE);
+}
+
+<span class="cm">/*
+ * Функція вводить елементи матриці з клавіатури
+ * Параметри: matrix - матриця, name - її назва для підказки
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputMatrix(<span class="kw">int</span> matrix[MAX_SIZE][MAX_SIZE], <span class="kw">char</span> name)
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowsA; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; columnsA; j++)
+        {
+            cout &lt;&lt; <span class="st">&quot;Enter &quot;</span> &lt;&lt; name &lt;&lt; <span class="st">&quot;[&quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot;][&quot;</span> &lt;&lt; j &lt;&lt; <span class="st">&quot;]: &quot;</span>;
+            matrix[i][j] = inputNumber(MIN_VALUE, MAX_VALUE);
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція вводить діапазон псевдовипадкових чисел
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputRange()
+{
+    srand(time(NULL)); <span class="cm">// запустити генератор один раз, перед генерацією</span>
+
+    cout &lt;&lt; <span class="st">&quot;Enter the lower bound (from &quot;</span> &lt;&lt; MIN_VALUE &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; MAX_VALUE
+         &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    lowerBound = inputNumber(MIN_VALUE, MAX_VALUE);
+    cout &lt;&lt; <span class="st">&quot;Enter the upper bound (from &quot;</span> &lt;&lt; lowerBound &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; MAX_VALUE
+         &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    upperBound = inputNumber(lowerBound, MAX_VALUE);
+}
+
+<span class="cm">/*
+ * Функція заповнює матрицю псевдовипадковими числами з діапазону
+ * Параметри: matrix - матриця, яку заповнюємо
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> generateMatrix(<span class="kw">int</span> matrix[MAX_SIZE][MAX_SIZE])
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowsA; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; columnsA; j++)
+        {
+            matrix[i][j] = rand() % (upperBound - lowerBound + <span class="nm">1</span>) + lowerBound;
+        }
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить меню і створює матриці вибраним способом
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> runMenu()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;How to create the matrices:&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;1 - enter from the keyboard&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;2 - fill with pseudorandom numbers in a given range&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Your choice: &quot;</span>;
+    choice = inputNumber(<span class="nm">1</span>, <span class="nm">2</span>);
+
+    <span class="kw">switch</span> (choice)
+    {
+        <span class="kw">case</span> <span class="nm">1</span> :
+            inputMatrix(matrixA, <span class="st">&#x27;A&#x27;</span>);
+            inputMatrix(matrixB, <span class="st">&#x27;B&#x27;</span>);
+            <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="nm">2</span> :
+            inputRange();
+            generateMatrix(matrixA);
+            generateMatrix(matrixB);
+            <span class="kw">break</span>;
+        <span class="kw">default</span> : cout &lt;&lt; <span class="st">&quot;There is no such menu item.&quot;</span> &lt;&lt; endl; <span class="kw">break</span>;
+    }
+}
+
+<span class="cm">/*
+ * Функція вводить режим виведення результатів
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputOutputMode()
+{
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Output mode:&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;1 - only the final result&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;2 - with intermediate iterations&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Your choice: &quot;</span>;
+    choice = inputNumber(<span class="nm">1</span>, <span class="nm">2</span>);
+    <span class="kw">if</span> (choice == <span class="nm">2</span>)
+    {
+        isDetailed = <span class="kw">true</span>;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить матрицю у вигляді таблиці
+ * Параметри: matrix - матриця, яку виводимо
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printMatrix(<span class="kw">int</span> matrix[MAX_SIZE][MAX_SIZE])
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowsA; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; columnsA; j++)
+        {
+            cout &lt;&lt; setw(CELL_WIDTH) &lt;&lt; matrix[i][j];
+        }
+        cout &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція обчислює суму матриць
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> calculateSum()
+{
+    cout &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowsA; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; columnsA; j++)
+        {
+            matrixSum[i][j] = matrixA[i][j] + matrixB[i][j];
+            <span class="kw">if</span> (isDetailed)
+            {
+                cout &lt;&lt; <span class="st">&quot;S[&quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot;][&quot;</span> &lt;&lt; j &lt;&lt; <span class="st">&quot;] = &quot;</span> &lt;&lt; matrixA[i][j]
+                     &lt;&lt; <span class="st">&quot; + &quot;</span> &lt;&lt; matrixB[i][j] &lt;&lt; <span class="st">&quot; = &quot;</span> &lt;&lt; matrixSum[i][j]
+                     &lt;&lt; endl;
+            }
+        }
+    }
+
+    cout &lt;&lt; <span class="st">&quot;Sum A + B:&quot;</span> &lt;&lt; endl;
+    printMatrix(matrixSum);
+}
+
+<span class="cm">/*
+ * Функція обчислює різницю матриць
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> calculateDifference()
+{
+    cout &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowsA; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; columnsA; j++)
+        {
+            matrixDifference[i][j] = matrixA[i][j] - matrixB[i][j];
+            <span class="kw">if</span> (isDetailed)
+            {
+                cout &lt;&lt; <span class="st">&quot;D[&quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot;][&quot;</span> &lt;&lt; j &lt;&lt; <span class="st">&quot;] = &quot;</span> &lt;&lt; matrixA[i][j]
+                     &lt;&lt; <span class="st">&quot; - &quot;</span> &lt;&lt; matrixB[i][j] &lt;&lt; <span class="st">&quot; = &quot;</span>
+                     &lt;&lt; matrixDifference[i][j] &lt;&lt; endl;
+            }
+        }
+    }
+
+    cout &lt;&lt; <span class="st">&quot;Difference A - B:&quot;</span> &lt;&lt; endl;
+    printMatrix(matrixDifference);
+}
+
+<span class="cm">/*
+ * Функція порівнює матриці поелементно. Матриці рівні, якщо немає
+ * жодної пари різних елементів
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> compareMatrices()
+{
+    cout &lt;&lt; endl;
+    differentCount = <span class="nm">0</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowsA; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; columnsA; j++)
+        {
+            <span class="kw">if</span> (matrixA[i][j] != matrixB[i][j])
+            {
+                differentCount++;
+            }
+            <span class="kw">if</span> (isDetailed)
+            {
+                cout &lt;&lt; <span class="st">&quot;A[&quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot;][&quot;</span> &lt;&lt; j &lt;&lt; <span class="st">&quot;] = &quot;</span> &lt;&lt; matrixA[i][j]
+                     &lt;&lt; <span class="st">&quot;, B[&quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot;][&quot;</span> &lt;&lt; j &lt;&lt; <span class="st">&quot;] = &quot;</span> &lt;&lt; matrixB[i][j]
+                     &lt;&lt; <span class="st">&quot;, different so far: &quot;</span> &lt;&lt; differentCount &lt;&lt; endl;
+            }
+        }
+    }
+
+    <span class="kw">if</span> (differentCount == <span class="nm">0</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;The matrices are equal.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        cout &lt;&lt; <span class="st">&quot;The matrices are not equal, different elements: &quot;</span>
+             &lt;&lt; differentCount &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція виконує операції, якщо вимірності однакові, інакше
+ * виводить повідомлення
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> processMatrices()
+{
+    <span class="kw">if</span> (rowsA != rowsB || columnsA != columnsB)
+    {
+        cout &lt;&lt; endl
+             &lt;&lt; <span class="st">&quot;The dimensions are different: &quot;</span> &lt;&lt; rowsA &lt;&lt; <span class="st">&quot; x &quot;</span> &lt;&lt; columnsA
+             &lt;&lt; <span class="st">&quot; and &quot;</span> &lt;&lt; rowsB &lt;&lt; <span class="st">&quot; x &quot;</span> &lt;&lt; columnsB &lt;&lt; <span class="st">&quot;.&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;The sum and the difference cannot be found, &quot;</span>
+             &lt;&lt; <span class="st">&quot;and the matrices are not equal.&quot;</span> &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        runMenu();
+        inputOutputMode();
+
+        cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;Matrix A:&quot;</span> &lt;&lt; endl;
+        printMatrix(matrixA);
+        cout &lt;&lt; <span class="st">&quot;Matrix B:&quot;</span> &lt;&lt; endl;
+        printMatrix(matrixB);
+
+        calculateSum();
+        calculateDifference();
+        compareMatrices();
+    }
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    inputSizes();
+    processMatrices();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="page-footer"><a href="#scheme">← Блок-схеми</a><a href="#top">Усі розділи</a><a href="#results">Результати →</a></div></section>
+<section class="page" id="results" tabindex="-1"><p class="eyebrow">Лабораторна робота №7 / 06 з 08</p><h2>6. Результати виконання роботи</h2>
+<div class="task">
+<h3>Завдання 1 - варіант 6</h3>
+<div class="result">
+<figure class="shot"><a href="img/task1-run-1.png"><img src="img/task1-run-1.png" alt="" width="590" loading="lazy"></a><figcaption>Рисунок 26 - Максимум і мінімум у різних стовпчиках (перед цим введено некоректні значення)</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-2.png"><img src="img/task1-run-2.png" alt="" width="590" loading="lazy"></a><figcaption>Рисунок 27 - Максимум і мінімум в одному стовпчику</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-3.png"><img src="img/task1-run-3.png" alt="" width="626" loading="lazy"></a><figcaption>Рисунок 28 - Максимум і мінімум в одному рядку: рядки не міняються</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-4.png"><img src="img/task1-run-4.png" alt="" width="590" loading="lazy"></a><figcaption>Рисунок 29 - Матриця з псевдовипадкових додатних і від'ємних чисел</figcaption></figure>
+</div>
+</div>
+
+<div class="task">
+<h3>Завдання 2 - варіант 6</h3>
+<div class="result">
+<figure class="shot"><a href="img/task2-run-1.png"><img src="img/task2-run-1.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 30 - Матриці з клавіатури, режим із проміжними ітераціями (перед цим введено некоректні значення)</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-2.png"><img src="img/task2-run-2.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 31 - Псевдовипадкові матриці в діапазоні від -10 до 10, режим виведення лише результату</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-3.png"><img src="img/task2-run-3.png" alt="" width="572" loading="lazy"></a><figcaption>Рисунок 32 - Однакові матриці: перевірка на рівність дає так</figcaption></figure>
+<figure class="shot"><a href="img/task2-run-4.png"><img src="img/task2-run-4.png" alt="" width="707" loading="lazy"></a><figcaption>Рисунок 33 - Різні вимірності: операції неможливі</figcaption></figure>
+</div>
+</div>
+<div class="page-footer"><a href="#code">← Тексти програм</a><a href="#top">Усі розділи</a><a href="#check">Перевірка →</a></div></section>
+<section class="page" id="check" tabindex="-1"><p class="eyebrow">Лабораторна робота №7 / 07 з 08</p><h2>7. Аналіз достовірності результатів</h2>
+<div class="task">
+<h3>Завдання 1: перевірка в Excel і вручну</h3>
+<p>Сценарії 1, 2 і 3 перевірено в Excel (файл <a href="check.xlsx" download>check.xlsx</a>, аркуш
+«Завдання 1»). Excel знаходить максимум і мінімум функціями <code>MAX</code> і <code>MIN</code>, їхні
+індекси через <code>SUMPRODUCT</code>, міняє рядки формулою з <code>INDEX</code>, а суму рахує для
+матриці після перестановки. Порахована матриця порівнюється з виведеною програмою.</p>
+<figure class="shot"><a href="img/excel-check-1.png"><img src="img/excel-check-1.png" alt="" width="480" loading="lazy"></a><figcaption>Рисунок 34 - Перевірка завдання 1 в Excel</figcaption></figure>
+<p>У всіх трьох сценаріях значення, індекси й суми збіглися, а кількість різних клітинок дорівнює 0.
+Суми пораховано ще й вручну:</p>
+<p class="tcap">Таблиця 3 - Ручні тести завдання 1</p>
+<div class="table-scroll"><table>
+<tr><th>Сценарій</th><th>Ручний розрахунок суми</th><th>Програма</th></tr>
+<tr><td>Різні стовпчики, рядки 1 і 2 поміняно</td><td>над діагоналлю: -3 + 8 + 6 = 11</td><td>11</td></tr>
+<tr><td>Один стовпчик 2, рядки 0 і 2 поміняно</td><td>-40 + 7 + 30 + 15 = 12</td><td>12</td></tr>
+<tr><td>Один рядок 0, перестановки немає</td><td>над діагоналлю: 0 - 10 + 3 = -7</td><td>-7</td></tr>
+<tr><td>Матриця 3 x 3, усі елементи 4</td><td>стовпчик 0: 4 + 4 + 4 = 12</td><td>12</td></tr>
+</table></div>
+</div>
+
+<div class="task">
+<h3>Завдання 2: перевірка в Excel і вручну</h3>
+<p>Сценарії 1 і 3 перевірено в Excel (аркуш «Завдання 2» того самого файлу). Суму й різницю Excel рахує
+поелементно своїми формулами, кількість різних елементів дає <code>SUMPRODUCT</code>.</p>
+<figure class="shot"><a href="img/excel-check-2.png"><img src="img/excel-check-2.png" alt="" width="499" loading="lazy"></a><figcaption>Рисунок 35 - Перевірка завдання 2 в Excel</figcaption></figure>
+<p>Різних клітинок між матрицями Excel і програми немає. Кількість різних елементів A і B збіглася: 6 у
+сценарії 1 і 0 у сценарії 3.</p>
+<p class="tcap">Таблиця 4 - Ручні тести завдання 2</p>
+<div class="table-scroll"><table>
+<tr><th>Тест</th><th>Очікувано</th><th>Програма</th></tr>
+<tr><td>A = (1 2 3; 4 -5 6), B = (6 -5 4; 3 2 -1)</td><td>елемент S<sub>11</sub> = -5 + 2 = -3,
+D<sub>01</sub> = 2 - (-5) = 7, матриці не рівні</td><td>збігається</td></tr>
+<tr><td>A = B = (8 0; -3 5)</td><td>різниця нульова, матриці рівні</td><td>збігається</td></tr>
+<tr><td>Вимірності 2 x 3 і 3 x 2</td><td>повідомлення, операції не виконуються</td><td>збігається</td></tr>
+</table></div>
+</div>
+<div class="page-footer"><a href="#results">← Результати</a><a href="#top">Усі розділи</a><a href="#conclusion">Висновки →</a></div></section>
+<section class="page" id="conclusion" tabindex="-1"><p class="eyebrow">Лабораторна робота №7 / 08 з 08</p><h2>8. Висновки</h2>
+<div class="card">
+<p>Написано дві програми для роботи з матрицями. Перша знаходить максимальний і мінімальний елементи
+квадратної матриці, міняє місцями їхні рядки і рахує суму стовпчика або суму над головною діагоналлю.
+Умова не каже, коли рахувати суму, тому програма рахує її після перестановки, у першому сценарії це дало
+11 замість 4. Друга програма знаходить суму й різницю двох матриць, перевіряє їх на рівність, а якщо
+вимірності різні, виводить повідомлення. Значення збіглися з Excel і з ручними тестами.</p>
+</div>
+<div class="page-footer"><a href="#check">← Перевірка</a><a href="#top">Усі розділи</a><a href="#top">До розділів →</a></div></section>
+<p class="footer">Основи програмування • 2026</p>
+</main>
+</div>
+<script src="../site.js"></script>
+</body>
+</html>

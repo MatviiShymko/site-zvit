@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторна №8. Покажчики та посилання. Покажчики на функції</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-lab="8">
+<a class="skip" href="#content">Перейти до вмісту</a>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Основи<br>програмування<small>Шимко Матвій • ІПЗ-11(3)</small></div><nav aria-label="Лабораторні роботи"><a href="../index.html">Головна сторінка</a><div class="side-label">ЛАБОРАТОРНІ РОБОТИ</div><a href="../lab01/index.html">Лабораторна робота №1</a><a href="../lab02/index.html">Лабораторна робота №2</a><a href="../lab03/index.html">Лабораторна робота №3</a><a href="../lab04/index.html">Лабораторна робота №4</a><a href="../lab05/index.html">Лабораторна робота №5</a><a href="../lab06/index.html">Лабораторна робота №6</a><a href="../lab07/index.html">Лабораторна робота №7</a><a href="../lab08/index.html#top" data-nav="top">Лабораторна робота №8</a><nav class="subnav" aria-label="Розділи звіту"><a href="#goal" data-nav="goal">Мета</a><a href="#task" data-nav="task">Умова задачі</a><a href="#analysis" data-nav="analysis">Аналіз задачі</a><a href="#scheme" data-nav="scheme">Блок-схеми</a><a href="#code" data-nav="code">Текст програми</a><a href="#results" data-nav="results">Результати</a><a href="#check" data-nav="check">Перевірка</a><a href="#conclusion" data-nav="conclusion">Висновки</a></nav><a href="../lab09/index.html">Лабораторна робота №9</a><a href="../lab10/index.html">Лабораторна робота №10</a><a href="../lab11/index.html">Лабораторна робота №11</a></nav></aside>
+<main id="content" class="main">
+<p id="crumb" class="crumb"></p>
+<section class="page" id="top" tabindex="-1"><header class="hero"><p class="eyebrow">Основи програмування</p><h1>Звіт до лабораторної роботи №8</h1><p>Покажчики та посилання. Покажчики на функції • Варіант 6</p></header><div class="meta"><p><b>Студент:</b> Шимко Матвій Анатолійович</p>
+<p><b>Група:</b> ІПЗ-11(3), 1 курс, 2026 рік</p>
+<p><b>Дисципліна:</b> Основи програмування</p>
+<p><b>Викладач:</b> Ковалюк Тетяна Володимирівна</p></div><h2>Оберіть розділ звіту</h2><div class="menu-grid"><a class="menu-card" href="#goal"><span class="num">01</span><b>Мета</b></a><a class="menu-card" href="#task"><span class="num">02</span><b>Умова задачі</b></a><a class="menu-card" href="#analysis"><span class="num">03</span><b>Аналіз задачі</b></a><a class="menu-card" href="#scheme"><span class="num">04</span><b>Блок-схеми</b></a><a class="menu-card" href="#code"><span class="num">05</span><b>Текст програми</b></a><a class="menu-card" href="#results"><span class="num">06</span><b>Результати</b></a><a class="menu-card" href="#check"><span class="num">07</span><b>Перевірка</b></a><a class="menu-card" href="#conclusion"><span class="num">08</span><b>Висновки</b></a></div></section>
+<section class="page" id="goal" tabindex="-1"><p class="eyebrow">Лабораторна робота №8 / 01 з 08</p><h2>1. Мета роботи</h2>
+<div class="card"><ul>
+<li>Ознайомитися з особливостями посилальних типів даних.</li>
+<li>Опанувати технологію застосування посилальних типів даних.</li>
+<li>Навчитися розробляти алгоритми та програми із застосуванням посилальних типів даних.</li>
+</ul></div>
+<div class="page-footer"><a href="#top">← До розділів</a><a href="#top">Усі розділи</a><a href="#task">Умова задачі →</a></div></section>
+<section class="page" id="task" tabindex="-1"><p class="eyebrow">Лабораторна робота №8 / 02 з 08</p><h2>2. Умова задачі</h2>
+<div class="task">
+<h3>Варіант 6</h3>
+<p>Варіант 6 (у таблиці 24 варіанти, 30 - 24 = 6). Завдання позначене символом * і є
+завданням підвищеної складності.</p>
+<p>Розробити програму, команди меню якої передбачають такі дії:</p>
+<ol>
+<li>Згенерувати розріджену матрицю з парною кількістю рядків, кількість нульових елементів
+якої більше за 60%. Збереження матриці в оперативній пам'яті здійснити в стислому рядковому
+форматі CRS (CSR) у вигляді трьох одновимірних масивів: AN зберігає значення ненульових
+елементів в кількості NNZ, JA зберігає номери стовпців з ненульовими елементами матриці в
+кількості NNZ, IA має по одному елементу на рядок матриці і кодує індекс ненульового
+елемента в AN, з якого починається даний рядок. (Він може містити додатковий кінцевий
+елемент, для якого встановлено значення NNZ.)</li>
+<li>Вивести матрицю на екран по рядках та стовпцях.</li>
+<li>Вивести на екран одновимірні масиви, що зберігають розріджену матрицю.</li>
+<li>Визначити скалярний добуток кожного i-го рядка на кожний i+1-ий рядок за алгоритмом
+обробки розріджених матриць.</li>
+<li>Визначити скалярний добуток кожного i-го рядка на кожний i+1-ий рядок за стандартним
+алгоритмом обробки матриць.</li>
+<li>Порівняти час виконання операцій і обсяг пам'яті при використанні цих двох алгоритмів.</li>
+</ol>
+<p>Загальні вимоги методички, за невиконання яких оцінка знижується на 50%:</p>
+<ul>
+<li>програма повинна мати меню команд, виконання яких здійснюється через покажчики на функції;</li>
+<li>пам'ять під масив (матрицю) виділяється та звільняється динамічно з використанням покажчиків;</li>
+<li>передача масивів (матриць) у функції здійснюється через покажчики;</li>
+<li>функції повертають масиви (матриці) через покажчики;</li>
+<li>доступ до елементів масивів (матриць) здійснюється через покажчики.</li>
+</ul>
+<p>Заборонено використовувати бібліотеку стандартних шаблонів STL.</p>
+</div>
+<div class="page-footer"><a href="#goal">← Мета</a><a href="#top">Усі розділи</a><a href="#analysis">Аналіз задачі →</a></div></section>
+<section class="page" id="analysis" tabindex="-1"><p class="eyebrow">Лабораторна робота №8 / 03 з 08</p><h2>3. Аналіз задачі</h2>
+<div class="task">
+<h3>Формат CRS</h3>
+<p>У розрідженій матриці багато нулів, і зберігати їх немає сенсу. У форматі CRS лишаються
+тільки ненульові елементи. Матриця переглядається по рядках зліва направо, а дані записуються
+в три масиви:</p>
+<ul>
+<li>AN зберігає значення елементів, їх кількість NNZ;</li>
+<li>JA зберігає номер стовпця кожного елемента;</li>
+<li>IA для кожного рядка зберігає місце в AN, з якого цей рядок починається.</li>
+</ul>
+<p>Останній елемент IA дорівнює NNZ. Рядок i займає в AN місця від IA<sub>i</sub> до
+IA<sub>i+1</sub> - 1, а для порожнього рядка IA<sub>i</sub> = IA<sub>i+1</sub>. У масивах
+нумерація йде з 0, у таблиці результатів рядки підписано з 1.</p>
+</div>
+
+<div class="task">
+<h3>Скалярний добуток рядків</h3>
+<p>Кількість рядків парна, тому рядки взято парами: (1, 2), (3, 4), (5, 6) і так далі. При
+n рядках виходить n / 2 добутків:</p>
+<div class="formula">S<sub>i</sub> = ∑<sub>j=0</sub><sup>m-1</sup> a<sub>i,j</sub> · a<sub>i+1,j</sub>,
+&nbsp;&nbsp; i = 0, 2, 4, ..., n - 2</div>
+<p>Стандартний алгоритм перебирає всі m стовпців і множить кожну пару елементів, зокрема
+нульові.</p>
+<p>Алгоритм для розрідженої матриці працює лише з масивами CRS. Множаться тільки елементи зі
+спільного стовпця. Номери стовпців у рядку йдуть за зростанням, а k і l показують на поточні
+елементи першого і другого рядка пари:</p>
+<ul>
+<li>якщо JA<sub>k</sub> = JA<sub>l</sub>, стовпець спільний: елементи множаться, k і l
+збільшуються;</li>
+<li>якщо JA<sub>k</sub> &lt; JA<sub>l</sub>, збільшується k;</li>
+<li>інакше збільшується l.</li>
+</ul>
+<p>Цикл закінчується, коли дійшли до кінця одного з рядків.</p>
+</div>
+
+<div class="task">
+<h3>Генерація і введення матриці</h3>
+<p>Користувач вводить розміри матриці і відсоток нулів p від 61 до 99. Кількість ненульових
+елементів обчислюється за формулою:</p>
+<div class="formula">NNZ = ціла частина [n · m · (100 - p) / 100]</div>
+<p>Ненульові значення від -9 до 9 ставляться у випадкові клітинки. Якщо клітинка вже зайнята
+або випало 0, спроба не рахується.</p>
+<p>Кількість рядків має бути парною, інакше програма просить увести її ще раз.</p>
+<p>Команди 2 в умові немає. Вона вводить матрицю з клавіатури, щоб можна було перевірити
+результат вручну. Для такої матриці теж перевіряється умова про 60% нулів, і якщо її не
+виконано, матриця не зберігається.</p>
+</div>
+
+<div class="task">
+<h3>Порівняння часу і пам'яті</h3>
+<p>Час вимірюється функцією <code>clock()</code>. Одне обчислення надто швидке, тому воно
+повторюється c разів, однаково для обох алгоритмів:</p>
+<div class="formula">c = ціла частина [20000000 / (n · m)] + 1</div>
+<p>Програма виводить час усіх повторів і час одного обчислення.</p>
+<p>Пам'ять рахується через <code>sizeof</code>. На <code>int</code> припадає 4 байти, на
+покажчик 8 байтів:</p>
+<div class="formula">пам'ять CRS = (2 · NNZ + n + 1) · sizeof(int)</div>
+<div class="formula">пам'ять матриці = n · sizeof(int*) + n · m · sizeof(int)</div>
+<p>На один ненульовий елемент CRS витрачає два числа: значення і номер стовпця. За умовою
+таких елементів менше 40%, тому CRS займає менше пам'яті, ніж звичайна матриця.</p>
+</div>
+
+<div class="task">
+<h3>Виконання вимог методички</h3>
+<p class="tcap">Таблиця 1 - Як виконано обов'язкові вимоги</p>
+<div class="table-scroll"><table>
+<tr><th>Вимога</th><th>Реалізація</th></tr>
+<tr><td>меню через покажчики на функції</td><td>у <code>runMenu</code> є таблиця
+<code>commands</code> з адресами семи функцій; вибрана адреса записується в покажчик
+<code>command</code>, а виклик іде через нього: <code>(*command)()</code></td></tr>
+<tr><td>динамічна пам'ять</td><td>матриця і масиви виділяються операцією <code>new</code>,
+звільняються операцією <code>delete[]</code></td></tr>
+<tr><td>передача через покажчики</td><td><code>convertToCrs(int** table)</code>,
+<code>printArray(int* array, int size)</code>, функції обчислення добутків</td></tr>
+<tr><td>повернення через покажчики</td><td><code>createMatrix</code> повертає <code>int**</code>,
+<code>calculateSparseProducts</code> і <code>calculateStandardProducts</code> повертають
+<code>int*</code></td></tr>
+<tr><td>доступ через покажчики</td><td>лише вирази <code>*(array + i)</code> і
+<code>*(*(table + i) + j)</code>; індексації елементів дужками в програмі немає</td></tr>
+</table></div>
+<p>Масив результатів звільняється в <code>printProducts</code> або одразу після вимірювання.
+Матриця і масиви CRS звільняються перед створенням нової матриці та перед завершенням
+програми.</p>
+</div>
+
+<div class="task">
+<h3>Перевірка введення</h3>
+<p>Усі числа вводяться однією функцією <code>inputNumber</code>: якщо введено не число або
+число поза межами, програма виводить повідомлення і чекає нове значення.
+Команди 3-7 не виконуються, поки матрицю не створено.</p>
+<p>Елементи матриці і добутки мають тип <code>int</code>, час зберігається у
+<code>float</code>.</p>
+</div>
+
+<div class="task">
+<h3>Структура програми</h3>
+<p class="tcap">Таблиця 2 - Функції програми</p>
+<div class="table-scroll"><table>
+<tr><th>Функція</th><th>Призначення</th></tr>
+<tr><td><code>main</code></td><td>виклик основних кроків програми</td></tr>
+<tr><td><code>welcome</code></td><td>виведення даних про автора та умови задачі</td></tr>
+<tr><td><code>inputNumber</code></td><td>введення цілого числа з перевіркою</td></tr>
+<tr><td><code>inputSize</code></td><td>введення розмірів, перевірка парності рядків</td></tr>
+<tr><td><code>createMatrix</code></td><td>виділення пам'яті, повернення покажчика на нульову матрицю</td></tr>
+<tr><td><code>convertToCrs</code></td><td>заповнення масивів AN, JA, IA</td></tr>
+<tr><td><code>freeMemory</code></td><td>звільнення матриці й масивів CRS</td></tr>
+<tr><td><code>generateMatrix</code></td><td>команда 1: генерація матриці</td></tr>
+<tr><td><code>enterMatrix</code></td><td>команда 2: введення матриці з клавіатури</td></tr>
+<tr><td><code>showMatrix</code></td><td>команда 3: виведення матриці</td></tr>
+<tr><td><code>printArray</code></td><td>виведення одновимірного масиву</td></tr>
+<tr><td><code>showArrays</code></td><td>команда 4: виведення масивів AN, JA, IA</td></tr>
+<tr><td><code>calculateSparseProducts</code></td><td>добутки за масивами CRS</td></tr>
+<tr><td><code>calculateStandardProducts</code></td><td>добутки за повною матрицею</td></tr>
+<tr><td><code>printProducts</code></td><td>виведення таблиці добутків, звільнення масиву</td></tr>
+<tr><td><code>showSparseProducts</code></td><td>команда 5: добутки за алгоритмом для розрідженої матриці</td></tr>
+<tr><td><code>showStandardProducts</code></td><td>команда 6: добутки за стандартним алгоритмом</td></tr>
+<tr><td><code>compareAlgorithms</code></td><td>команда 7: порівняння часу і пам'яті</td></tr>
+<tr><td><code>runMenu</code></td><td>меню, виклик команд через покажчик на функцію</td></tr>
+</table></div>
+<p>Джерела: Ковалюк Т.В. Алгоритмізація та програмування, 2024; Ковалюк Т.В., Петрівський
+В.Я. Гарний стиль програмування мовами C, C++, C#, 2025; Писсанецки С. Технология
+разреженных матриц; Deitel P., Deitel H. C++ How to Program (розділ про покажчики).</p>
+</div>
+<div class="page-footer"><a href="#task">← Умова задачі</a><a href="#top">Усі розділи</a><a href="#scheme">Блок-схеми →</a></div></section>
+<section class="page" id="scheme" tabindex="-1"><p class="eyebrow">Лабораторна робота №8 / 04 з 08</p><h2>4. Блок-схеми алгоритмів</h2>
+<div class="task">
+<h3>Варіант 6</h3>
+<figure class="fc"><a href="img/task1-fc-welcome.svg"><img src="img/task1-fc-welcome.svg" alt="" loading="lazy"></a><figcaption>Рисунок 1 - Блок-схема функції <code>welcome</code> (виведення даних про автора та умови задачі)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputNumber.svg"><img src="img/task1-fc-inputNumber.svg" alt="" loading="lazy"></a><figcaption>Рисунок 2 - Блок-схема функції <code>inputNumber</code> (введення цілого числа з перевіркою)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-inputSize.svg"><img src="img/task1-fc-inputSize.svg" alt="" loading="lazy"></a><figcaption>Рисунок 3 - Блок-схема функції <code>inputSize</code> (введення розмірів матриці)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-createMatrix.svg"><img src="img/task1-fc-createMatrix.svg" alt="" loading="lazy"></a><figcaption>Рисунок 4 - Блок-схема функції <code>createMatrix</code> (виділення пам'яті під нульову матрицю)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-convertToCrs.svg"><img src="img/task1-fc-convertToCrs.svg" alt="" loading="lazy"></a><figcaption>Рисунок 5 - Блок-схема функції <code>convertToCrs</code> (заповнення масивів AN, JA, IA за матрицею)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-freeMemory.svg"><img src="img/task1-fc-freeMemory.svg" alt="" loading="lazy"></a><figcaption>Рисунок 6 - Блок-схема функції <code>freeMemory</code> (звільнення пам'яті матриці та масивів CRS)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-generateMatrix.svg"><img src="img/task1-fc-generateMatrix.svg" alt="" loading="lazy"></a><figcaption>Рисунок 7 - Блок-схема функції <code>generateMatrix</code> (команда 1: генерація матриці)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-enterMatrix.svg"><img src="img/task1-fc-enterMatrix.svg" alt="" loading="lazy"></a><figcaption>Рисунок 8 - Блок-схема функції <code>enterMatrix</code> (команда 2: введення матриці з клавіатури)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-showMatrix.svg"><img src="img/task1-fc-showMatrix.svg" alt="" loading="lazy"></a><figcaption>Рисунок 9 - Блок-схема функції <code>showMatrix</code> (команда 3: виведення матриці)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printArray.svg"><img src="img/task1-fc-printArray.svg" alt="" loading="lazy"></a><figcaption>Рисунок 10 - Блок-схема функції <code>printArray</code> (виведення одновимірного масиву)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-showArrays.svg"><img src="img/task1-fc-showArrays.svg" alt="" loading="lazy"></a><figcaption>Рисунок 11 - Блок-схема функції <code>showArrays</code> (команда 4: виведення масивів AN, JA, IA)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-calculateSparseProducts.svg"><img src="img/task1-fc-calculateSparseProducts.svg" alt="" loading="lazy"></a><figcaption>Рисунок 12 - Блок-схема функції <code>calculateSparseProducts</code> (скалярні добутки за масивами CRS)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-calculateStandardProducts.svg"><img src="img/task1-fc-calculateStandardProducts.svg" alt="" loading="lazy"></a><figcaption>Рисунок 13 - Блок-схема функції <code>calculateStandardProducts</code> (скалярні добутки за повною матрицею)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-printProducts.svg"><img src="img/task1-fc-printProducts.svg" alt="" loading="lazy"></a><figcaption>Рисунок 14 - Блок-схема функції <code>printProducts</code> (виведення таблиці добутків і звільнення масиву)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-showSparseProducts.svg"><img src="img/task1-fc-showSparseProducts.svg" alt="" loading="lazy"></a><figcaption>Рисунок 15 - Блок-схема функції <code>showSparseProducts</code> (команда 5: добутки за алгоритмом для розрідженої матриці)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-showStandardProducts.svg"><img src="img/task1-fc-showStandardProducts.svg" alt="" loading="lazy"></a><figcaption>Рисунок 16 - Блок-схема функції <code>showStandardProducts</code> (команда 6: добутки за стандартним алгоритмом)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-compareAlgorithms.svg"><img src="img/task1-fc-compareAlgorithms.svg" alt="" loading="lazy"></a><figcaption>Рисунок 17 - Блок-схема функції <code>compareAlgorithms</code> (команда 7: порівняння часу і пам'яті)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-runMenu.svg"><img src="img/task1-fc-runMenu.svg" alt="" loading="lazy"></a><figcaption>Рисунок 18 - Блок-схема функції <code>runMenu</code> (меню: виклик команд через покажчик на функцію)</figcaption></figure>
+<figure class="fc"><a href="img/task1-fc-main.svg"><img src="img/task1-fc-main.svg" alt="" loading="lazy"></a><figcaption>Рисунок 19 - Блок-схема функції <code>main</code> (головна функція)</figcaption></figure>
+</div>
+<div class="page-footer"><a href="#analysis">← Аналіз задачі</a><a href="#top">Усі розділи</a><a href="#code">Текст програми →</a></div></section>
+<section class="page" id="code" tabindex="-1"><p class="eyebrow">Лабораторна робота №8 / 05 з 08</p><h2>5. Текст програми</h2>
+<div class="task">
+<h3>Варіант 6</h3>
+<p class="file">Файл <a href="task1.cpp" download>task1.cpp</a></p>
+<pre><code><span class="cm">/////////////////////////////////////////////////////////////////////</span>
+<span class="cm">// Ім&#x27;я файлу: task1.cpp</span>
+<span class="cm">// Автор: Шимко Матвій, гр. ІПЗ-11(3)</span>
+<span class="cm">// Номер версії модуля: version 1</span>
+<span class="cm">// Запланована ціль: лабораторна робота №8, варіант 6.</span>
+<span class="cm">//                   Зберегти розріджену матрицю у форматі CRS, знайти</span>
+<span class="cm">//                   скалярні добутки рядків двома алгоритмами</span>
+<span class="cm">//                   і порівняти час та обсяг пам&#x27;яті.</span>
+<span class="cm">/////////////////////////////////////////////////////////////////////</span>
+
+<span class="pp">#include &lt;cstdlib&gt;</span>
+<span class="pp">#include &lt;ctime&gt;</span>
+<span class="pp">#include &lt;iomanip&gt;</span>
+<span class="pp">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="cm">//=========== константи</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_SIZE = <span class="nm">1000</span>;            <span class="cm">// найбільша кількість рядків і стовпців</span>
+<span class="kw">const</span> <span class="kw">int</span> MAX_VALUE = <span class="nm">9</span>;              <span class="cm">// найбільший модуль елемента матриці</span>
+<span class="kw">const</span> <span class="kw">int</span> ZERO_LIMIT = <span class="nm">60</span>;            <span class="cm">// нулів має бути більше за цей відсоток</span>
+<span class="kw">const</span> <span class="kw">int</span> COMMAND_COUNT = <span class="nm">7</span>;          <span class="cm">// кількість команд меню без виходу</span>
+<span class="kw">const</span> <span class="kw">int</span> CREATE_COMMANDS = <span class="nm">2</span>;        <span class="cm">// команд, що створюють матрицю</span>
+<span class="kw">const</span> <span class="kw">int</span> OPERATION_LIMIT = <span class="nm">20000000</span>; <span class="cm">// для підбору кількості повторів</span>
+
+<span class="cm">//=========== глобальні змінні</span>
+<span class="kw">int</span>** matrix = NULL;       <span class="cm">// покажчик на матрицю</span>
+<span class="kw">int</span>* values = NULL;        <span class="cm">// масив AN: ненульові елементи</span>
+<span class="kw">int</span>* columnNumbers = NULL; <span class="cm">// масив JA: номери стовпців цих елементів</span>
+<span class="kw">int</span>* rowStarts = NULL;     <span class="cm">// масив IA: початки рядків у масиві AN</span>
+<span class="kw">int</span> rowCount = <span class="nm">0</span>;          <span class="cm">// кількість рядків</span>
+<span class="kw">int</span> columnCount = <span class="nm">0</span>;       <span class="cm">// кількість стовпців</span>
+<span class="kw">int</span> nonZeroCount = <span class="nm">0</span>;      <span class="cm">// кількість ненульових елементів NNZ</span>
+<span class="kw">int</span> choice = <span class="nm">0</span>;            <span class="cm">// номер команди меню</span>
+<span class="kw">void</span> (*command)() = NULL;  <span class="cm">// покажчик на функцію вибраної команди</span>
+
+<span class="cm">/*
+ * Функція виводить дані про автора та умову задачі
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> welcome()
+{
+    cout &lt;&lt; <span class="st">&quot;Lab work 8. Variant 6.&quot;</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Author: Matvii Shimko, group IPZ-11(3)&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; <span class="st">&quot;Sparse matrix in CRS format: scalar products of rows 1 and 2,&quot;</span>
+         &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;3 and 4, and so on by the sparse and the standard algorithm.&quot;</span>
+         &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція вводить ціле число. Якщо введено не число або число
+ * поза межами, введення повторюється
+ * Параметри: minValue, maxValue - межі числа
+ * Значення, що повертаються: введене число
+ */</span>
+<span class="kw">int</span> inputNumber(<span class="kw">int</span> minValue, <span class="kw">int</span> maxValue)
+{
+    <span class="kw">int</span> number = <span class="nm">0</span>;
+
+    cin &gt;&gt; number;
+    <span class="kw">while</span> (cin.fail() || number &lt; minValue || number &gt; maxValue)
+    {
+        cin.clear();            <span class="cm">// скинути помилку введення</span>
+        cin.ignore(<span class="nm">1000</span>, <span class="st">&#x27;\n&#x27;</span>); <span class="cm">// і пропустити неправильний рядок</span>
+        cout &lt;&lt; <span class="st">&quot;Error! Enter a number from &quot;</span> &lt;&lt; minValue &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; maxValue
+             &lt;&lt; <span class="st">&quot;: &quot;</span>;
+        cin &gt;&gt; number;
+    }
+
+    <span class="kw">return</span> number;
+}
+
+<span class="cm">/*
+ * Функція вводить розміри матриці. Кількість рядків має бути парною
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> inputSize()
+{
+    cout &lt;&lt; <span class="st">&quot;Enter an even number of rows (from 2 to &quot;</span> &lt;&lt; MAX_SIZE &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    rowCount = inputNumber(<span class="nm">2</span>, MAX_SIZE);
+    <span class="kw">while</span> (rowCount % <span class="nm">2</span> != <span class="nm">0</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! The number of rows must be even. Enter it again: &quot;</span>;
+        rowCount = inputNumber(<span class="nm">2</span>, MAX_SIZE);
+    }
+
+    cout &lt;&lt; <span class="st">&quot;Enter the number of columns (from 1 to &quot;</span> &lt;&lt; MAX_SIZE &lt;&lt; <span class="st">&quot;): &quot;</span>;
+    columnCount = inputNumber(<span class="nm">1</span>, MAX_SIZE);
+}
+
+<span class="cm">/*
+ * Функція виділяє пам&#x27;ять під матрицю і заповнює її нулями
+ * Параметри: rows, columns - розміри матриці
+ * Значення, що повертаються: покажчик на створену матрицю
+ */</span>
+<span class="kw">int</span>** createMatrix(<span class="kw">int</span> rows, <span class="kw">int</span> columns)
+{
+    <span class="kw">int</span>** table = <span class="kw">new</span> <span class="kw">int</span>*[rows];
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rows; i++)
+    {
+        *(table + i) = <span class="kw">new</span> <span class="kw">int</span>[columns];
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; columns; j++)
+        {
+            *(*(table + i) + j) = <span class="nm">0</span>;
+        }
+    }
+
+    <span class="kw">return</span> table;
+}
+
+<span class="cm">/*
+ * Функція виділяє масиви AN, JA, IA і заповнює їх за матрицею
+ * Параметри: table - покажчик на матрицю
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> convertToCrs(<span class="kw">int</span>** table)
+{
+    <span class="kw">int</span> position = <span class="nm">0</span>; <span class="cm">// номер наступного вільного місця в AN і JA</span>
+
+    values = <span class="kw">new</span> <span class="kw">int</span>[nonZeroCount];
+    columnNumbers = <span class="kw">new</span> <span class="kw">int</span>[nonZeroCount];
+    rowStarts = <span class="kw">new</span> <span class="kw">int</span>[rowCount + <span class="nm">1</span>];
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowCount; i++)
+    {
+        *(rowStarts + i) = position;
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; columnCount; j++)
+        {
+            <span class="kw">if</span> (*(*(table + i) + j) != <span class="nm">0</span>)
+            {
+                *(values + position) = *(*(table + i) + j);
+                *(columnNumbers + position) = j;
+                position++;
+            }
+        }
+    }
+
+    *(rowStarts + rowCount) = position; <span class="cm">// кінцевий елемент IA дорівнює NNZ</span>
+}
+
+<span class="cm">/*
+ * Функція звільняє всю динамічну пам&#x27;ять матриці й масивів CRS
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> freeMemory()
+{
+    <span class="kw">if</span> (matrix != NULL)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowCount; i++)
+        {
+            <span class="kw">delete</span>[] *(matrix + i);
+        }
+
+        <span class="kw">delete</span>[] matrix;
+        <span class="kw">delete</span>[] values;
+        <span class="kw">delete</span>[] columnNumbers;
+        <span class="kw">delete</span>[] rowStarts;
+
+        <span class="cm">// щоб наступний виклик не звільнив ті самі масиви вдруге</span>
+        matrix = NULL;
+        values = NULL;
+        columnNumbers = NULL;
+        rowStarts = NULL;
+    }
+}
+
+<span class="cm">/*
+ * Команда меню: генерує матрицю із заданим відсотком нулів. Ненульові
+ * значення ставляться у випадкові клітинки, зайняті обходяться
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> generateMatrix()
+{
+    <span class="kw">int</span> row = <span class="nm">0</span>;
+    <span class="kw">int</span> column = <span class="nm">0</span>;
+    <span class="kw">int</span> placed = <span class="nm">0</span>; <span class="cm">// скільки ненульових елементів уже поставлено</span>
+    <span class="kw">int</span> zeroPercent = <span class="nm">0</span>;
+
+    freeMemory();
+    inputSize();
+    cout &lt;&lt; <span class="st">&quot;Enter the percent of zeros (from &quot;</span> &lt;&lt; ZERO_LIMIT + <span class="nm">1</span>
+         &lt;&lt; <span class="st">&quot; to 99): &quot;</span>;
+    zeroPercent = inputNumber(ZERO_LIMIT + <span class="nm">1</span>, <span class="nm">99</span>);
+    nonZeroCount = rowCount * columnCount * (<span class="nm">100</span> - zeroPercent) / <span class="nm">100</span>;
+
+    matrix = createMatrix(rowCount, columnCount);
+    <span class="kw">while</span> (placed &lt; nonZeroCount)
+    {
+        row = rand() % rowCount;
+        column = rand() % columnCount;
+        <span class="kw">if</span> (*(*(matrix + row) + column) == <span class="nm">0</span>)
+        {
+            <span class="cm">// значення від -MAX_VALUE до MAX_VALUE, нуль просто не рахується</span>
+            *(*(matrix + row) + column) =
+                rand() % (<span class="nm">2</span> * MAX_VALUE + <span class="nm">1</span>) - MAX_VALUE;
+            <span class="kw">if</span> (*(*(matrix + row) + column) != <span class="nm">0</span>)
+            {
+                placed++;
+            }
+        }
+    }
+
+    convertToCrs(matrix);
+    cout &lt;&lt; <span class="st">&quot;Matrix is created, NNZ = &quot;</span> &lt;&lt; nonZeroCount &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Команда меню: вводить матрицю з клавіатури, щоб перевірити програму
+ * на прикладі, порахованому вручну
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> enterMatrix()
+{
+    freeMemory();
+    inputSize();
+    matrix = createMatrix(rowCount, columnCount);
+    nonZeroCount = <span class="nm">0</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowCount; i++)
+    {
+        cout &lt;&lt; <span class="st">&quot;Enter row &quot;</span> &lt;&lt; i + <span class="nm">1</span> &lt;&lt; <span class="st">&quot; (&quot;</span> &lt;&lt; columnCount &lt;&lt; <span class="st">&quot; numbers): &quot;</span>;
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; columnCount; j++)
+        {
+            *(*(matrix + i) + j) = inputNumber(-MAX_VALUE, MAX_VALUE);
+            <span class="kw">if</span> (*(*(matrix + i) + j) != <span class="nm">0</span>)
+            {
+                nonZeroCount++;
+            }
+        }
+    }
+
+    <span class="kw">if</span> (nonZeroCount * <span class="nm">100</span> &lt; rowCount * columnCount * (<span class="nm">100</span> - ZERO_LIMIT))
+    {
+        convertToCrs(matrix);
+        cout &lt;&lt; <span class="st">&quot;Matrix is stored, NNZ = &quot;</span> &lt;&lt; nonZeroCount &lt;&lt; endl;
+    }
+    <span class="kw">else</span>
+    {
+        cout &lt;&lt; <span class="st">&quot;Error! Zeros must be more than &quot;</span> &lt;&lt; ZERO_LIMIT &lt;&lt; <span class="st">&quot;%.&quot;</span> &lt;&lt; endl;
+        freeMemory();
+    }
+}
+
+<span class="cm">/*
+ * Команда меню: виводить матрицю по рядках та стовпцях
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> showMatrix()
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowCount; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; columnCount; j++)
+        {
+            cout &lt;&lt; setw(<span class="nm">3</span>) &lt;&lt; *(*(matrix + i) + j);
+        }
+        cout &lt;&lt; endl;
+    }
+}
+
+<span class="cm">/*
+ * Функція виводить одновимірний масив в один рядок
+ * Параметри: array - покажчик на масив, size - кількість елементів
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printArray(<span class="kw">int</span>* array, <span class="kw">int</span> size)
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; size; i++)
+    {
+        cout &lt;&lt; *(array + i) &lt;&lt; <span class="st">&quot; &quot;</span>;
+    }
+    cout &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Команда меню: виводить масиви AN, JA, IA
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> showArrays()
+{
+    cout &lt;&lt; <span class="st">&quot;AN: &quot;</span>;
+    printArray(values, nonZeroCount);
+    cout &lt;&lt; <span class="st">&quot;JA: &quot;</span>;
+    printArray(columnNumbers, nonZeroCount);
+    cout &lt;&lt; <span class="st">&quot;IA: &quot;</span>;
+    printArray(rowStarts, rowCount + <span class="nm">1</span>);
+}
+
+<span class="cm">/*
+ * Функція рахує добутки пар рядків за масивами CRS. Стовпці в рядку йдуть
+ * за зростанням, тому менший номер стовпця просувається вперед, а
+ * множаться лише елементи зі спільного стовпця
+ * Параметри: elements - покажчик на AN, columns - покажчик на JA,
+ *            starts - покажчик на IA, rows - кількість рядків
+ * Значення, що повертаються: покажчик на масив добутків
+ */</span>
+<span class="kw">int</span>* calculateSparseProducts(<span class="kw">int</span>* elements, <span class="kw">int</span>* columns, <span class="kw">int</span>* starts, <span class="kw">int</span> rows)
+{
+    <span class="kw">int</span>* result = <span class="kw">new</span> <span class="kw">int</span>[rows / <span class="nm">2</span>];
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rows; i = i + <span class="nm">2</span>)
+    {
+        <span class="kw">int</span> first = *(starts + i);      <span class="cm">// поточний елемент першого рядка</span>
+        <span class="kw">int</span> second = *(starts + i + <span class="nm">1</span>); <span class="cm">// поточний елемент другого рядка</span>
+        <span class="kw">int</span> sum = <span class="nm">0</span>;
+
+        <span class="kw">while</span> (first &lt; *(starts + i + <span class="nm">1</span>) &amp;&amp; second &lt; *(starts + i + <span class="nm">2</span>))
+        {
+            <span class="kw">if</span> (*(columns + first) == *(columns + second))
+            {
+                sum = sum + *(elements + first) * *(elements + second);
+                first++;
+                second++;
+            }
+            <span class="kw">else</span> <span class="kw">if</span> (*(columns + first) &lt; *(columns + second))
+            {
+                first++;
+            }
+            <span class="kw">else</span>
+            {
+                second++;
+            }
+        }
+
+        *(result + i / <span class="nm">2</span>) = sum;
+    }
+
+    <span class="kw">return</span> result;
+}
+
+<span class="cm">/*
+ * Функція рахує добутки пар рядків за повною матрицею
+ * Параметри: table - покажчик на матрицю, rows, columns - її розміри
+ * Значення, що повертаються: покажчик на масив добутків
+ */</span>
+<span class="kw">int</span>* calculateStandardProducts(<span class="kw">int</span>** table, <span class="kw">int</span> rows, <span class="kw">int</span> columns)
+{
+    <span class="kw">int</span>* result = <span class="kw">new</span> <span class="kw">int</span>[rows / <span class="nm">2</span>];
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rows; i = i + <span class="nm">2</span>)
+    {
+        *(result + i / <span class="nm">2</span>) = <span class="nm">0</span>;
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nm">0</span>; j &lt; columns; j++)
+        {
+            *(result + i / <span class="nm">2</span>) = *(result + i / <span class="nm">2</span>)
+                                + *(*(table + i) + j) * *(*(table + i + <span class="nm">1</span>) + j);
+        }
+    }
+
+    <span class="kw">return</span> result;
+}
+
+<span class="cm">/*
+ * Функція виводить таблицю добутків і звільняє пам&#x27;ять цього масиву
+ * Параметри: result - покажчик на масив добутків
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> printProducts(<span class="kw">int</span>* result)
+{
+    cout &lt;&lt; setw(<span class="nm">10</span>) &lt;&lt; <span class="st">&quot;rows&quot;</span> &lt;&lt; setw(<span class="nm">10</span>) &lt;&lt; <span class="st">&quot;product&quot;</span> &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; rowCount / <span class="nm">2</span>; i++)
+    {
+        cout &lt;&lt; setw(<span class="nm">5</span>) &lt;&lt; <span class="nm">2</span> * i + <span class="nm">1</span> &lt;&lt; setw(<span class="nm">5</span>) &lt;&lt; <span class="nm">2</span> * i + <span class="nm">2</span> &lt;&lt; setw(<span class="nm">10</span>)
+             &lt;&lt; *(result + i) &lt;&lt; endl;
+    }
+
+    <span class="kw">delete</span>[] result;
+}
+
+<span class="cm">/*
+ * Команда меню: добутки за алгоритмом для розрідженої матриці
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> showSparseProducts()
+{
+    cout &lt;&lt; <span class="st">&quot;Sparse algorithm:&quot;</span> &lt;&lt; endl;
+    printProducts(
+        calculateSparseProducts(values, columnNumbers, rowStarts, rowCount));
+}
+
+<span class="cm">/*
+ * Команда меню: добутки за стандартним алгоритмом
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> showStandardProducts()
+{
+    cout &lt;&lt; <span class="st">&quot;Standard algorithm:&quot;</span> &lt;&lt; endl;
+    printProducts(calculateStandardProducts(matrix, rowCount, columnCount));
+}
+
+<span class="cm">/*
+ * Команда меню: порівнює час і пам&#x27;ять двох алгоритмів. Одне обчислення
+ * надто швидке для clock(), тому воно повторюється багато разів
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> compareAlgorithms()
+{
+    <span class="kw">int</span> repeatCount = OPERATION_LIMIT / (rowCount * columnCount) + <span class="nm">1</span>;
+    <span class="kw">int</span> crsMemory = (<span class="nm">2</span> * nonZeroCount + rowCount + <span class="nm">1</span>) * <span class="kw">sizeof</span>(<span class="kw">int</span>);
+    <span class="kw">int</span> fullMemory =
+        rowCount * <span class="kw">sizeof</span>(<span class="kw">int</span>*) + rowCount * columnCount * <span class="kw">sizeof</span>(<span class="kw">int</span>);
+    <span class="kw">float</span> sparseTime = <span class="nm">0</span>; <span class="cm">// час усіх повторів, мс</span>
+    <span class="kw">float</span> standardTime = <span class="nm">0</span>;
+    clock_t startTime = clock();
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; repeatCount; i++)
+    {
+        <span class="kw">delete</span>[] calculateSparseProducts(values, columnNumbers, rowStarts,
+                                         rowCount);
+    }
+    sparseTime = (<span class="kw">float</span>)(clock() - startTime) * <span class="nm">1000</span> / CLOCKS_PER_SEC;
+
+    startTime = clock();
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nm">0</span>; i &lt; repeatCount; i++)
+    {
+        <span class="kw">delete</span>[] calculateStandardProducts(matrix, rowCount, columnCount);
+    }
+    standardTime = (<span class="kw">float</span>)(clock() - startTime) * <span class="nm">1000</span> / CLOCKS_PER_SEC;
+
+    cout &lt;&lt; <span class="st">&quot;Repeats: &quot;</span> &lt;&lt; repeatCount &lt;&lt; endl &lt;&lt; fixed &lt;&lt; setprecision(<span class="nm">3</span>);
+    cout &lt;&lt; <span class="st">&quot;Sparse:   &quot;</span> &lt;&lt; sparseTime &lt;&lt; <span class="st">&quot; ms, &quot;</span> &lt;&lt; crsMemory &lt;&lt; <span class="st">&quot; bytes&quot;</span>
+         &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;Standard: &quot;</span> &lt;&lt; standardTime &lt;&lt; <span class="st">&quot; ms, &quot;</span> &lt;&lt; fullMemory &lt;&lt; <span class="st">&quot; bytes&quot;</span>
+         &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;One run: sparse &quot;</span> &lt;&lt; sparseTime * <span class="nm">1000</span> / repeatCount
+         &lt;&lt; <span class="st">&quot; us, standard &quot;</span> &lt;&lt; standardTime * <span class="nm">1000</span> / repeatCount &lt;&lt; <span class="st">&quot; us&quot;</span>
+         &lt;&lt; endl;
+
+    <span class="kw">if</span> (sparseTime &gt; <span class="nm">0</span>)
+    {
+        cout &lt;&lt; <span class="st">&quot;Time ratio standard / sparse: &quot;</span> &lt;&lt; standardTime / sparseTime
+             &lt;&lt; endl;
+    }
+    cout &lt;&lt; <span class="st">&quot;Memory ratio standard / sparse: &quot;</span> &lt;&lt; (<span class="kw">float</span>)fullMemory / crsMemory
+         &lt;&lt; endl;
+}
+
+<span class="cm">/*
+ * Функція показує меню і викликає команди через покажчик на функцію
+ * Параметри: немає
+ * Значення, що повертаються: немає
+ */</span>
+<span class="kw">void</span> runMenu()
+{
+    <span class="kw">void</span> (*commands[COMMAND_COUNT])() = {
+        generateMatrix,     enterMatrix,          showMatrix,       showArrays,
+        showSparseProducts, showStandardProducts, compareAlgorithms};
+
+    srand(time(NULL));
+
+    <span class="kw">do</span>
+    {
+        cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;1 - generate a matrix    2 - enter a matrix&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;3 - print the matrix     4 - print arrays AN, JA, IA&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;5 - sparse products      6 - standard products&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;7 - compare algorithms   0 - exit&quot;</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="st">&quot;Enter a command: &quot;</span>;
+        choice = inputNumber(<span class="nm">0</span>, COMMAND_COUNT);
+
+        <span class="kw">if</span> (choice &gt; CREATE_COMMANDS &amp;&amp; matrix == NULL)
+        {
+            cout &lt;&lt; <span class="st">&quot;Create a matrix first (command 1 or 2).&quot;</span> &lt;&lt; endl;
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (choice != <span class="nm">0</span>)
+        {
+            command = *(commands + choice - <span class="nm">1</span>); <span class="cm">// вибрати покажчик на функцію</span>
+            (*command)();                       <span class="cm">// викликати функцію через нього</span>
+        }
+    } <span class="kw">while</span> (choice != <span class="nm">0</span>);
+}
+
+<span class="kw">int</span> main()
+{
+    welcome();
+    runMenu();
+    freeMemory();
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+</div>
+<div class="page-footer"><a href="#scheme">← Блок-схеми</a><a href="#top">Усі розділи</a><a href="#results">Результати →</a></div></section>
+<section class="page" id="results" tabindex="-1"><p class="eyebrow">Лабораторна робота №8 / 06 з 08</p><h2>6. Результати виконання роботи</h2>
+<div class="task">
+<h3>Варіант 6</h3>
+<div class="result">
+<p>Згенерована матриця і час щоразу інші, бо залежать від запуску. Контрольна матриця
+вводиться вручну, тому результат для неї завжди однаковий.</p>
+<figure class="shot"><a href="img/task1-run-1.png"><img src="img/task1-run-1.png" alt="" width="581" loading="lazy"></a><figcaption>Рисунок 20 - Генерація матриці 6 x 8 з 75% нулів і всі команди обробки</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-2.png"><img src="img/task1-run-2.png" alt="" width="581" loading="lazy"></a><figcaption>Рисунок 21 - Контрольна матриця 8 x 5, введена з клавіатури</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-3.png"><img src="img/task1-run-3.png" alt="" width="581" loading="lazy"></a><figcaption>Рисунок 22 - Некоректні дані: команда без матриці, літери, непарна кількість рядків, замало нулів; матриця без ненульових елементів</figcaption></figure>
+<figure class="shot"><a href="img/task1-run-4.png"><img src="img/task1-run-4.png" alt="" width="581" loading="lazy"></a><figcaption>Рисунок 23 - Порівняння часу і пам'яті на матриці 200 x 200 при 61%, 75%, 90% і 99% нулів</figcaption></figure>
+</div>
+</div>
+<div class="page-footer"><a href="#code">← Текст програми</a><a href="#top">Усі розділи</a><a href="#check">Перевірка →</a></div></section>
+<section class="page" id="check" tabindex="-1"><p class="eyebrow">Лабораторна робота №8 / 07 з 08</p><h2>7. Аналіз достовірності результатів</h2>
+<div class="task">
+<h3>Ручна перевірка на контрольній матриці</h3>
+<p>Для перевірки вручну взято матрицю 8 x 5. У ній є спільні стовпці, пара рядків без
+спільних стовпців і порожній рядок. Ненульових елементів 11, нулів 29 з 40, тобто 72.5%.</p>
+<div class="formula">
+0 &nbsp;2 &nbsp;0 &nbsp;0 &nbsp;1<br>
+0 &nbsp;3 &nbsp;0 &nbsp;4 -5<br>
+7 &nbsp;0 &nbsp;0 &nbsp;0 &nbsp;0<br>
+-2 0 &nbsp;6 &nbsp;0 &nbsp;0<br>
+0 &nbsp;0 &nbsp;0 &nbsp;9 &nbsp;0<br>
+0 &nbsp;1 &nbsp;0 &nbsp;0 &nbsp;0<br>
+0 &nbsp;0 &nbsp;0 &nbsp;0 &nbsp;0<br>
+0 &nbsp;0 &nbsp;0 -8 &nbsp;0
+</div>
+<p>Масиви CRS, складені вручну по рядках:</p>
+<p class="tcap">Таблиця 3 - Масиви CRS контрольної матриці</p>
+<div class="table-scroll"><table>
+<tr><th>Масив</th><th>Ручний розрахунок</th><th>Програма</th></tr>
+<tr><td>AN</td><td>2 1 3 4 -5 7 -2 6 9 1 -8</td><td>2 1 3 4 -5 7 -2 6 9 1 -8</td></tr>
+<tr><td>JA</td><td>1 4 1 3 4 0 0 2 3 1 3</td><td>1 4 1 3 4 0 0 2 3 1 3</td></tr>
+<tr><td>IA</td><td>0 2 5 6 8 9 10 10 11</td><td>0 2 5 6 8 9 10 10 11</td></tr>
+</table></div>
+<p>Рядок 7 порожній, тому в IA двічі стоїть 10. Останній елемент IA дорівнює NNZ = 11.</p>
+<p class="tcap">Таблиця 4 - Скалярні добутки контрольної матриці</p>
+<div class="table-scroll"><table>
+<tr><th>Рядки</th><th>Спільні стовпці</th><th>Ручний розрахунок</th><th>Команда 5</th><th>Команда 6</th></tr>
+<tr><td>1, 2</td><td>1 і 4</td><td>2 · 3 + 1 · (-5) = 1</td><td>1</td><td>1</td></tr>
+<tr><td>3, 4</td><td>0</td><td>7 · (-2) = -14</td><td>-14</td><td>-14</td></tr>
+<tr><td>5, 6</td><td>немає</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>7, 8</td><td>рядок 7 порожній</td><td>0</td><td>0</td><td>0</td></tr>
+</table></div>
+<p>Пам'ять: CRS (2 · 11 + 8 + 1) · 4 = 124 байти, матриця 8 · 8 + 8 · 5 · 4 = 224 байти,
+відношення 224 / 124 = 1.806. Програма вивела ті самі значення.</p>
+</div>
+
+<div class="task">
+<h3>Перевірка на згенерованих матрицях</h3>
+<p>На згенерованій матриці 6 x 8 команди 5 і 6 дали однакові значення, хоча одна працює з
+масивами CRS, а друга з повною матрицею. Нулів у ній 36 з 48, тобто 75%. NNZ = 12, пам'ять CRS
+(2 · 12 + 6 + 1) · 4 = 124 байти.</p>
+<p>Для матриці 200 x 200 при 90% нулів: NNZ = 200 · 200 · 10 / 100 = 4000, пам'ять CRS
+(2 · 4000 + 201) · 4 = 32804 байти, матриці 200 · 8 + 40000 · 4 = 161600 байтів. Повторів
+20000000 / 40000 + 1 = 501. Програма вивела такі самі числа.</p>
+</div>
+
+<div class="task">
+<h3>Порівняння алгоритмів</h3>
+<p>Числа взято з одного запуску останнього сценарію для матриці 200 x 200, у кожному вимірі
+501 повтор.</p>
+<p class="tcap">Таблиця 5 - Час і пам'ять при різній частці нулів</p>
+<div class="table-scroll"><table>
+<tr><th>Нулів</th><th>NNZ</th><th>Час CRS, мс</th><th>Час стандартний, мс</th><th>Відношення часу</th><th>Пам'ять CRS, байт</th><th>Пам'ять матриці, байт</th><th>Відношення пам'яті</th></tr>
+<tr><td>61%</td><td>15600</td><td>33.105</td><td>23.485</td><td>0.709</td><td>125604</td><td>161600</td><td>1.287</td></tr>
+<tr><td>75%</td><td>10000</td><td>17.934</td><td>21.207</td><td>1.183</td><td>80804</td><td>161600</td><td>2.000</td></tr>
+<tr><td>90%</td><td>4000</td><td>5.814</td><td>22.625</td><td>3.891</td><td>32804</td><td>161600</td><td>4.926</td></tr>
+<tr><td>99%</td><td>400</td><td>0.433</td><td>20.986</td><td>48.467</td><td>4004</td><td>161600</td><td>40.360</td></tr>
+</table></div>
+<p>Час трохи різний від запуску до запуску, а пам'ять від запуску не залежить.</p>
+<ul>
+<li>Час стандартного алгоритму майже не змінюється, бо він завжди перебирає всі елементи.</li>
+<li>Час алгоритму для CRS зменшується разом з NNZ, пам'ять CRS теж.</li>
+<li>При 61% нулів алгоритм для CRS виявився повільнішим за стандартний. Він порівнює номери
+стовпців, а стандартний алгоритм лише множить і додає.</li>
+</ul>
+</div>
+
+<div class="task">
+<h3>Некоректні дані і пам'ять</h3>
+<p class="tcap">Таблиця 6 - Перевірка некоректних даних</p>
+<div class="table-scroll"><table>
+<tr><th>Введено</th><th>Очікувана реакція</th><th>Результат програми</th></tr>
+<tr><td>команда 3 до створення матриці</td><td>повідомлення</td><td>Create a matrix first (command 1 or 2).</td></tr>
+<tr><td>abc або 9 замість команди</td><td>повторне введення</td><td>Error! Enter a number from 0 to 7:</td></tr>
+<tr><td>7 рядків</td><td>повторне введення</td><td>Error! The number of rows must be even.</td></tr>
+<tr><td>50% нулів</td><td>повторне введення</td><td>Error! Enter a number from 61 to 99:</td></tr>
+<tr><td>матриця 2 x 2 з рядками 1 2 і 0 0</td><td>не зберігається, бо нулів 50%</td><td>Error! Zeros must be more than 60%.</td></tr>
+<tr><td>матриця 2 x 2 при 99% нулів</td><td>NNZ = 0, порожні AN і JA, IA = 0 0 0, добуток 0</td><td>такі самі значення</td></tr>
+</table></div>
+<p>Пам'ять звільняється функцією <code>freeMemory</code>, після цього покажчики стають
+<code>NULL</code>.</p>
+</div>
+<div class="page-footer"><a href="#results">← Результати</a><a href="#top">Усі розділи</a><a href="#conclusion">Висновки →</a></div></section>
+<section class="page" id="conclusion" tabindex="-1"><p class="eyebrow">Лабораторна робота №8 / 08 з 08</p><h2>8. Висновки</h2>
+<div class="card">
+<p>Розроблено програму для розрідженої матриці у форматі CRS. Команди меню викликаються через
+покажчики на функції, пам'ять виділяється динамічно, а рядки перемножуються парами двома
+алгоритмами. На контрольній матриці 8 x 5 обидва алгоритми дали ті самі значення, що й ручний
+розрахунок. CRS у всіх вимірах займав менше пам'яті. За часом алгоритм для CRS на матриці
+200 x 200 виграв при 75%, 90% і 99% нулів, а при 61% працював повільніше за стандартний.</p>
+</div>
+<div class="page-footer"><a href="#check">← Перевірка</a><a href="#top">Усі розділи</a><a href="#top">До розділів →</a></div></section>
+<p class="footer">Основи програмування • 2026</p>
+</main>
+</div>
+<script src="../site.js"></script>
+</body>
+</html>
